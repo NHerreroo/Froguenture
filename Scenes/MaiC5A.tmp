@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo8j0g3r4edpv"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_hnule"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_hnule")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.999943, 0.0106813, 0, 0.0106813, 0.999943, -1, 4.37089e-08, -4.66893e-10, 59.8163, 89.7725, 7.24237)
+fov = 66.1048
