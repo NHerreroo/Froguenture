@@ -12,7 +12,7 @@ transform = Transform3D(123.83, 0, 0, 0, 123.83, 0, 0, 0, 123.83, 0, 0.0214218, 
 script = ExtResource("1_pjjon")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.00807559, 0, 0, 0, 0.00596859, 0.00543977, 0, -0.00543977, 0.00596859, 0, 0.0451927, 0.0510941)
+transform = Transform3D(0.00807559, 0, 0, 0, 0.00493331, 0.00639356, 0, -0.00639356, 0.00493331, 0, 0.0613439, 0.0510941)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.000498506, 0.00427322, -0.000380842)

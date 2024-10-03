@@ -3,7 +3,7 @@ extends Area3D
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		print("topdoordetected")
+		#print("topdoordetected")
 		Global.playerMapPositionX -= 1
 		Global.eraseLevel = true
 

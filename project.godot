@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Global.gd"
 
+[display]
+
+window/size/mode=3
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

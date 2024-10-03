@@ -1,22 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://dawngp5xmls0u"]
 
 [ext_resource type="Script" path="res://Scripts/Doors/LeftDoor.gd" id="1_lejbu"]
-[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="2_lv5l7"]
+[ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_i4niy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5e2nr"]
-size = Vector3(1.31079, 1.71336, 1.28438)
+size = Vector3(2, 1.71336, 1.28438)
 
 [node name="LeftDoor" type="Area3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_lejbu")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0)
+transform = Transform3D(-4.56784e-08, -1.045, -4.56784e-08, 0, -4.56784e-08, 1.045, -1.045, 4.56784e-08, 1.99667e-15, -0.4, 0, -3.8)
 sorting_offset = 20.0
-texture = ExtResource("2_lv5l7")
+texture = ExtResource("2_i4niy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684317, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.74228e-08, 0.684317, -1)
 shape = SubResource("BoxShape3D_5e2nr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

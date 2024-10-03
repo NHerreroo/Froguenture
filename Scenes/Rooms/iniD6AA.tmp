@@ -76,28 +76,28 @@ directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
 
 [node name="Log" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0308125, -0.352188, -0.421324, 0.0367208, 0.419721, -0.353533, 0.547907, -0.0479356, -1.84167e-08, 0, 1.2, -4)
+transform = Transform3D(-0.016395, -0.187395, -0.516831, 0.0450448, 0.514864, -0.188111, 0.547907, -0.0479356, -2.39498e-08, 0, 1.5, -4)
 sorting_offset = 3.81
 texture = ExtResource("3_phchb")
 
 [node name="TreeBG" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(-0.0221711, -0.384931, -0.66651, -0.00349155, 0.66683, -0.385, 0.769673, -0.00806329, -0.020946, -6.9, 2.3, -4)
+transform = Transform3D(-0.022953, -0.262353, -0.723563, -0.00403178, 0.723916, -0.262353, 0.769647, -0.00403177, -0.022953, -6, 2.3, -4)
 sorting_offset = -4.245
 sprite_frames = SubResource("SpriteFrames_b284u")
-frame_progress = 0.584263
+frame_progress = 0.444649
 
 [node name="TreeBG2" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(-0.0455388, -0.520512, -0.904997, 0.0788754, 0.901553, -0.5225, 1.04102, -0.0910778, -3.95587e-08, -7.57438, 2.9864, 3.87437)
+transform = Transform3D(-0.0311505, -0.356051, -0.981979, 0.0855851, 0.978242, -0.357411, 1.04102, -0.0910776, -4.55046e-08, -6.87438, 2.9864, 3.87437)
 sorting_offset = -1.505
 sprite_frames = SubResource("SpriteFrames_tghaq")
-frame_progress = 0.464313
+frame_progress = 0.3247
 
 [node name="TreeBG3" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0221711, -0.384931, -0.66651, -0.00349155, 0.66683, -0.385, 0.769673, -0.00806329, -0.020946, -11, 2.3, -8)
+transform = Transform3D(-0.022953, -0.262353, -0.723563, -0.00403178, 0.723916, -0.262353, 0.769647, -0.00403177, -0.022953, -11, 2.3, -8)
 sorting_offset = -1.505
 texture = ExtResource("5_bwjtb")
 
 [node name="TreeBG4" type="Sprite3D" parent="."]
-transform = Transform3D(-0.0455388, -0.520512, -0.904997, 0.0788754, 0.901553, -0.5225, 1.04102, -0.0910778, -3.95587e-08, -11.8849, 2.9864, -0.056317)
+transform = Transform3D(-0.0311505, -0.356051, -0.981979, 0.0855851, 0.978242, -0.357411, 1.04102, -0.0910776, -4.55046e-08, -11.8744, 2.9864, -0.125632)
 sorting_offset = -1.505
 texture = ExtResource("5_bwjtb")
