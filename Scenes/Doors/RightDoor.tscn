@@ -10,7 +10,7 @@ size = Vector3(1.31079, 1.71336, 1.28438)
 script = ExtResource("1_52ewd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(5.8, 0, 0, 0, 1.72853e-07, 5.8, 0, -5.8, 1.72853e-07, 0, 0, 0)
+transform = Transform3D(1.0005, 0, 0, 0, 2.98171e-08, 1.0005, 0, -1.0005, 2.98171e-08, 0, 0, 0)
 sorting_offset = 20.0
 texture = ExtResource("2_jf2jh")
 

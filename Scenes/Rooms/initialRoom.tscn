@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://7fifk6tqomsr"]
+[gd_scene load_steps=9 format=3 uid="uid://7fifk6tqomsr"]
 
 [ext_resource type="Texture2D" uid="uid://deqve71143204" path="res://Sprites/floor.png" id="1_h7thi"]
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_xar1c"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_2cx58"]
 [ext_resource type="Texture2D" uid="uid://0ld6bc15v5jl" path="res://Sprites/trunk.png" id="3_phchb"]
+[ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="5_bwjtb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oma5p"]
 
@@ -49,3 +50,23 @@ directional_shadow_pancake_size = 9.1
 transform = Transform3D(-0.016395, -0.187395, -0.516831, 0.0450448, 0.514864, -0.188111, 0.547907, -0.0479356, -2.39498e-08, 0, 1.5, -4)
 sorting_offset = 3.81
 texture = ExtResource("3_phchb")
+
+[node name="TreeBG" type="Sprite3D" parent="."]
+transform = Transform3D(-0.022953, -0.262353, -0.723563, -0.00403178, 0.723916, -0.262353, 0.769647, -0.00403177, -0.022953, -6, 2.3, -4)
+sorting_offset = -1.505
+texture = ExtResource("5_bwjtb")
+
+[node name="TreeBG2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0311505, -0.356051, -0.981979, 0.0855851, 0.978242, -0.357411, 1.04102, -0.0910776, -4.55046e-08, -6.87438, 2.9864, 3.87437)
+sorting_offset = -1.505
+texture = ExtResource("5_bwjtb")
+
+[node name="TreeBG3" type="Sprite3D" parent="."]
+transform = Transform3D(-0.022953, -0.262353, -0.723563, -0.00403178, 0.723916, -0.262353, 0.769647, -0.00403177, -0.022953, -11, 2.3, -8)
+sorting_offset = -1.505
+texture = ExtResource("5_bwjtb")
+
+[node name="TreeBG4" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0311505, -0.356051, -0.981979, 0.0855851, 0.978242, -0.357411, 1.04102, -0.0910776, -4.55046e-08, -11.8744, 2.9864, -0.125632)
+sorting_offset = -1.505
+texture = ExtResource("5_bwjtb")
