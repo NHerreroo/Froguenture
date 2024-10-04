@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqt8n0qxbrkcp"]
+[gd_scene load_steps=8 format=3 uid="uid://cqt8n0qxbrkcp"]
 
-[ext_resource type="Script" path="res://Scripts/room1.gd" id="1_50a4u"]
+[ext_resource type="Script" path="res://Scripts/RoomDefaultScript.gd" id="1_cp6d3"]
 [ext_resource type="Texture2D" uid="uid://deqve71143204" path="res://Sprites/floor.png" id="1_qa7pt"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_xkxlt"]
+[ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_ftstr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oma5p"]
 
@@ -13,7 +14,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 background_mode = 1
 
 [node name="Room1" type="Node3D"]
-script = ExtResource("1_50a4u")
+script = ExtResource("1_cp6d3")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
@@ -29,9 +30,9 @@ mesh = SubResource("BoxMesh_oma5p")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mk0ac")
 
-[node name="Node3D" parent="." instance=ExtResource("2_xkxlt")]
+[node name="player" parent="." instance=ExtResource("2_xkxlt")]
 process_priority = 75
-transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 0.537616, 0.914092, -0.206964)
+transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 0.537616, 0.914092, 4.79304)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ywln1")
@@ -43,3 +44,5 @@ directional_shadow_mode = 0
 directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
+
+[node name="Node3D" parent="." instance=ExtResource("4_ftstr")]

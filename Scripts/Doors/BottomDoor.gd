@@ -6,6 +6,7 @@ func _on_body_entered(body):
 		#print("bottomdoordetected")
 		Global.playerMapPositionX += 1
 		Global.eraseLevel = true
+		Global.playerDirection = 1 #abajo (saldra por abajo en la sigente sala)
 
 
 func _process(delta):

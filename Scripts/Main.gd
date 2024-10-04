@@ -108,18 +108,26 @@ func generate_doors(map: Array): #detecta si hay habitaciones a los lados de la 
 		var bottomDoorInst = bottomDoor.instantiate()
 		bottomDoorInst.position = Vector3(5,0,0)
 		add_child(bottomDoorInst)
+	else:
+		Global.botCollider = true
 	if Global.map[x - 1][y] != ' ':
 		var topDoorInst = topDoor.instantiate()
 		topDoorInst.position = Vector3(-5,0,0)
 		add_child(topDoorInst)
+	else:
+		Global.topCollider = true
 	if Global.map[x][y + 1] != ' ':
 		var rightDoorInst = rightDoor.instantiate()
 		rightDoorInst.position = Vector3(0,0,-8)
 		add_child(rightDoorInst)
+	else:
+		Global.rightCollider = true
 	if Global.map[x][y - 1] != ' ':
 		var leftDoorInst = leftDoor.instantiate()
 		leftDoorInst.position = Vector3(0,0,8)
 		add_child(leftDoorInst)
+	else:
+		Global.leftCollider = true
 		
 		
 func instanceRoom():
@@ -138,11 +146,15 @@ func instanceRoom():
 func _ready():
 	Global.eraseLevel = false
 	if Global.isMapGenerated == false: # si el mapa no esta generado lo genera
-		map_generator(10, 8) 
+		map_generator(50, 8) 
 	generate_doors(Global.map) #llama a la func que genera las puertas
 	print_actual_pos(Global.map, Global.playerMapPositionX, Global.playerMapPositionY)
 	instanceRoom()	#llama a la func que genera la habitacion pensando en el punto en el que esta de la matriz
 	
 func _process(delta):
 	if Global.eraseLevel == true:
+		Global.topCollider = false
+		Global.botCollider = false
+		Global.rightCollider = false
+		Global.leftCollider = false	
 		get_tree().reload_current_scene()
