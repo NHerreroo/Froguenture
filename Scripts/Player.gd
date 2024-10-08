@@ -1,13 +1,12 @@
 extends CharacterBody3D
 
+var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
-
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -30,9 +29,6 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-
-
-#salir del jeugo presionando esc
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit()
+	
+func _ready():
+	$Sprites/AnimationPlayer.play("idle")

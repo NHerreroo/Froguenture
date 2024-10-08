@@ -17,7 +17,7 @@ func setPlayerPosition(position: int):
 	match position:
 		0: #arriba
 			player.position = Vector3(4.038,0.014,-0.207) 
-		1: #abajo
+		1: #abajo 
 			player.position = Vector3(-3.962,0.014,-0.207)
 		2: #Izqui
 			player.position = Vector3(0.038, 0.014, -7.707)
