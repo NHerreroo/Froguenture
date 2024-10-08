@@ -21,4 +21,3 @@ var map = [] #contiene el mapa generado para que al reinicial la escena no se pi
 
 var playerDirection = 4; # lo uso para saber la direccion en la que aprece en una sala, modifico esta variable entrando en puertas
 # 0 = arriba, 1 abajo, 2 izaquierda, 3 derecha 4 = centro
-

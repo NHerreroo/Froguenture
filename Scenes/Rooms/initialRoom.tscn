@@ -47,7 +47,7 @@ environment = SubResource("Environment_ywln1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.224144, -0.5, 0.836516, -0.12941, 0.866025, 0.482963, -0.965926, 0, -0.258819, 13, 16, 0)
-light_color = Color(1, 0.956863, 0.87451, 1)
+light_energy = 0.808
 directional_shadow_mode = 0
 directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
