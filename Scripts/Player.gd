@@ -30,3 +30,5 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+func _ready():
+	$Sprites/AnimationPlayer.play("idle")
