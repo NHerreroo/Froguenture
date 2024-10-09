@@ -1,19 +1,17 @@
 [gd_scene load_steps=14 format=3 uid="uid://7fifk6tqomsr"]
 
-[ext_resource type="Texture2D" uid="uid://deqve71143204" path="res://Sprites/floor.png" id="1_h7thi"]
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_xar1c"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_2cx58"]
+[ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_srt8a"]
 [ext_resource type="Texture2D" uid="uid://ba6jkwrjkq1b" path="res://Sprites/Vegetation/Tree2Background.png" id="6_j06cl"]
 [ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="7_28x42"]
 [ext_resource type="Texture2D" uid="uid://13v7dfcimowl" path="res://Sprites/Vegetation/rock1.png" id="7_veyk0"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="7_xisfc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsvix"]
-transparency = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
 specular_mode = 1
-disable_ambient_light = true
-albedo_texture = ExtResource("1_h7thi")
+albedo_texture = ExtResource("2_srt8a")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p6tl6"]
 
@@ -35,7 +33,7 @@ script = ExtResource("1_xar1c")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
-material_override = SubResource("StandardMaterial3D_rsvix")
+material_override = SubResource("StandardMaterial3D_lskdr")
 mesh = SubResource("PlaneMesh_p6tl6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]

@@ -26,3 +26,10 @@ func _on_exit_pressed():
 
 func _process(delta):
 	testEsc()
+
+
+func _on_check_box_toggled(toggled_on):
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN);
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);

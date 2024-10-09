@@ -3,7 +3,7 @@ extends CharacterBody3D
 var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 
 const SPEED = 5.0
-const LERP_AMOUNT = 0.3  # Controla la suavidad del movimiento
+const LERP_AMOUNT = 0.4  # Controla la suavidad del movimiento
 
 var current_animation = ""
 
@@ -27,9 +27,9 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("Keyboard_A"):
 		play_animation("walk_left")
 	elif Input.is_action_pressed("Keyboard_W"):
-		play_animation("idle")
+		play_animation("up")
 	elif Input.is_action_pressed("Keyboard_S"):
-		play_animation("idle")
+		play_animation("down")
 	else:
 		play_animation("idle")
 

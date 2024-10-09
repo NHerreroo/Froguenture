@@ -91,5 +91,13 @@ size_flags_vertical = 0
 text = "Exit
 "
 
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+button_pressed = true
+text = "FULLSCREEN
+"
+
 [connection signal="pressed" from="PanelContainer/BoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/BoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="PanelContainer/BoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
