@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://7fifk6tqomsr"]
+[gd_scene load_steps=14 format=3 uid="uid://7fifk6tqomsr"]
 
 [ext_resource type="Texture2D" uid="uid://deqve71143204" path="res://Sprites/floor.png" id="1_h7thi"]
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_xar1c"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_2cx58"]
 [ext_resource type="Texture2D" uid="uid://ba6jkwrjkq1b" path="res://Sprites/Vegetation/Tree2Background.png" id="6_j06cl"]
 [ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="7_28x42"]
+[ext_resource type="Texture2D" uid="uid://13v7dfcimowl" path="res://Sprites/Vegetation/rock1.png" id="7_veyk0"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="7_xisfc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsvix"]
@@ -24,6 +25,10 @@ background_mode = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dt7yx"]
+height = 4.0
+radius = 3.0
 
 [node name="InitialRoom" type="Node3D"]
 script = ExtResource("1_xar1c")
@@ -133,3 +138,14 @@ texture = ExtResource("7_28x42")
 [node name="Sprite3D6" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -10, 2.6, -4.2)
 texture = ExtResource("7_28x42")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(-1.96701e-08, -0.225, 0.389711, 0, 0.389711, 0.225, -0.45, 9.83506e-09, -1.70348e-08, 0.154918, 1.48647, 3.81171)
+alpha_cut = 1
+texture = ExtResource("7_veyk0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D7/StaticBody3D"]
+transform = Transform3D(0.648877, -1.63358e-08, -2.51062e-09, 1.05062e-08, 0.632774, -0.217694, 1.05996e-08, 0.372836, 0.369469, -0.853555, -3.1749, -0.994091)
+shape = SubResource("CylinderShape3D_dt7yx")
