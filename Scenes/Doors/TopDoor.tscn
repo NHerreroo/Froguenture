@@ -25,7 +25,7 @@ shape = SubResource("BoxShape3D_5e2nr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.36697e-07, 0, 5.415, 0, 5.415, 0, -5.415, 0, -2.36697e-07, -0.414327, 0, -3.23761)
-sorting_offset = 9.205
+sorting_offset = 8.0
 material_override = SubResource("StandardMaterial3D_vxdnp")
 mesh = SubResource("PlaneMesh_2gfwh")
 

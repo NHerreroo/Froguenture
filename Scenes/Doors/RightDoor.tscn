@@ -16,6 +16,7 @@ albedo_texture = ExtResource("2_rt3yu")
 [sub_resource type="PlaneMesh" id="PlaneMesh_xxg7v"]
 
 [node name="RightDoor" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186682, 0)
 script = ExtResource("1_52ewd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -24,7 +25,7 @@ shape = SubResource("BoxShape3D_5e2nr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.33856e-07, 0, 5.35, 0, 5.35, 0, -5.35, 0, -2.33856e-07, -0.305881, 0, -3.94745)
-sorting_offset = 14.49
+sorting_offset = 8.0
 material_override = SubResource("StandardMaterial3D_7wuog")
 mesh = SubResource("PlaneMesh_xxg7v")
 
