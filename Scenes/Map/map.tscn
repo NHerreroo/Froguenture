@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/MapGeneration/map.gd" id="1_345j5"]
 
 [sub_resource type="Gradient" id="Gradient_pq74i"]
-colors = PackedColorArray(0.099986, 0.099986, 0.099986, 1, 0.122252, 0.122252, 0.122252, 1)
+colors = PackedColorArray(0.099986, 0.099986, 0.099986, 1, 0.435485, 0.109009, 0.276891, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_a4csb"]
 gradient = SubResource("Gradient_pq74i")
@@ -32,6 +32,7 @@ zoom = Vector2(1.8, 1.8)
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="MapBackground"]
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

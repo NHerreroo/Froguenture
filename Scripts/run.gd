@@ -1,5 +1,5 @@
-extends Node
 class_name Run
+extends Node
 
 const BATTLE_SCENE := preload("res://Scenes/Main.tscn")
 const CAMPFIRE_SCENE := preload("res://Scenes/Main.tscn")
@@ -7,12 +7,13 @@ const SHOP_SCENE := preload("res://Scenes/Main.tscn")
 const TREASURE_SCENE := preload("res://Scenes/Main.tscn")
 const BOSS_SCENE := preload("res://Scenes/Main.tscn")
 
-
 @onready var map: Map = $Map
 @onready var current_view: Node = $CurrentView
 
 func _ready():
 	_start_run()
+	map.connect("map_exited", Callable(self, "_on_map_exited"))
+
 	
 func _start_run():
 	map.generate_new_map()

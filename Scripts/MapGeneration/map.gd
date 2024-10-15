@@ -59,11 +59,13 @@ func unlock_next_room() -> void:
 			map_room.available = true
 			
 func show_map() -> void:
-	show()
+	self.show()
+	$MapBackground.show()
 	camera_2d.enabled = true
 	
 func hide_map() -> void:
-	hide()
+	self.hide()
+	$MapBackground.hide()
 	camera_2d.enabled = false
 	
 func _spawn_room(room: Room) -> void:
@@ -86,21 +88,11 @@ func _connect_lines(room: Room) -> void:
 		new_map_line.add_point(next.position)
 		lines.add_child(new_map_line)
 		
-func _on_map_room_selected(room:Room) -> void:
+func _on_map_room_selected(room: Room) -> void:
 	for map_room in rooms.get_children():
 		if map_room.room.row == room.row:
-			map_room.available = false
-			
+			map_room.available = false  # Bloquea las habitaciones del mismo piso
+	
 	last_room = room
 	floors_climbed += 1
-	Events.map_exited.emit(room)
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
+	emit_signal("map_exited", room)  # Emitimos la señal para notificar a la escena principal

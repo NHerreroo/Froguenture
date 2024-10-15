@@ -6,6 +6,6 @@
 [node name="Run" type="Node"]
 script = ExtResource("1_oo3y0")
 
-[node name="Map" parent="." instance=ExtResource("1_1fi35")]
-
 [node name="CurrentView" type="Node" parent="."]
+
+[node name="Map" parent="." instance=ExtResource("1_1fi35")]

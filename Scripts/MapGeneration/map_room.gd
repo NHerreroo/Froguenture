@@ -1,4 +1,4 @@
-extends Button
+extends Area2D
 class_name MapRoom
 
 
@@ -38,20 +38,13 @@ func set_room(new_data: Room) -> void:
 func show_selected():
 	pass
 
-
-func _on_pressed():
-	if not available or not pressed:
-		return
-	
-	room.selected = true
-	animation_player.play("select")
-
 func on_map_room_selected() -> void:
 	selected.emit(room)
 
 
+func _on_button_pressed():
+	if not available or not $Button.pressed:
+		return
 
-
-
-
-
+	room.selected = true
+	animation_player.play("select")
