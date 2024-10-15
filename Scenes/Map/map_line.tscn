@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp5gqcfsaqoa5"]
+
+[sub_resource type="Gradient" id="Gradient_1vnob"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dxt16"]
+gradient = SubResource("Gradient_1vnob")
+
+[node name="MapLine" type="Line2D"]
+texture_repeat = 2
+texture = SubResource("GradientTexture1D_dxt16")
+texture_mode = 1
