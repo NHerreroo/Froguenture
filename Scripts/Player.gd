@@ -7,9 +7,23 @@ const LERP_AMOUNT = 0.4  # Controla la suavidad del movimiento
 
 var current_animation = ""
 
-
+func _ready():
+	setPlayerPosition(Global.playerDirection)
+	
+func setPlayerPosition(position: int):
+	match position:
+		0: #arriba
+			self.position = Vector3(4.038,0.014,-0.207) 
+		1: #abajo
+			self.position = Vector3(-3.962,0.014,-0.207)
+		2: #Izqui
+			self.position = Vector3(0.038, 0.014, -7.707)
+		3: #derch
+			self.position = Vector3(0.038,0.014,7.793)
+		4: #mitad (solo inicio partida)
+			self.position = Vector3(2.638, 0.014, -0.207)
+	
 func _physics_process(delta):
-
 	# Get the input direction and handle the movement.
 	var input_dir = Input.get_vector("Keyboard_A", "Keyboard_D", "Keyboard_W", "Keyboard_S")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -19,8 +33,7 @@ func _physics_process(delta):
 	velocity.z = lerp(velocity.z, direction.z * SPEED, LERP_AMOUNT)
 
 	move_and_slide()
-	
-	
+
 	#me detecta la tecla de direccion y llama a la func que me hace la animación pasandole el nombre de la anim
 	if Input.is_action_pressed("Keyboard_D"):
 		play_animation("walk_right")
@@ -38,3 +51,4 @@ func play_animation(anim_name: String):
 	if current_animation != anim_name:
 		$Sprites/AnimationPlayer.play(anim_name)
 		current_animation = anim_name
+

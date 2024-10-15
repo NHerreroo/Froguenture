@@ -8,6 +8,8 @@ var start_positionZ = 0
 var followPlayer = false
 
 func _ready():
+	#espera leve para dejar cargar al jugador
+	await get_tree().create_timer(0.2).timeout
 	# Busca al jugador en el árbol de nodos
 	player = get_tree().get_root().find_child("player", true, false)
 
@@ -22,7 +24,9 @@ func _ready():
 
 func _process(delta):
 	move_camera_to_player()
-
+	if Global.eraseLevel == true:
+		self.queue_free()
+		
 func move_camera_to_player(): #mueve la cam al player con un Linera interpolation(sauvizado)
 	if followPlayer == true:
 		self.position.z = lerp(self.position.z, player.position.z, 0.05)  # Lerp para el eje Z
