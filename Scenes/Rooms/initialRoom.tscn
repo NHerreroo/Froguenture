@@ -24,9 +24,8 @@ background_mode = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_dt7yx"]
-height = 4.0
-radius = 3.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_phgx4"]
+size = Vector3(6.96921, 4.36145, 5.39941)
 
 [node name="InitialRoom" type="Node3D"]
 script = ExtResource("1_xar1c")
@@ -145,5 +144,5 @@ texture = ExtResource("7_veyk0")
 [node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D7"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D7/StaticBody3D"]
-transform = Transform3D(0.648877, -1.63358e-08, -2.51062e-09, 1.05062e-08, 0.632774, -0.217694, 1.05996e-08, 0.372836, 0.369469, -0.853555, -3.1749, -0.994091)
-shape = SubResource("CylinderShape3D_dt7yx")
+transform = Transform3D(0.648877, -1.63358e-08, -2.51062e-09, 1.05062e-08, 0.632774, -0.217694, 1.05986e-08, 0.372836, 0.369469, -0.891447, -2.7554, -0.304324)
+shape = SubResource("BoxShape3D_phgx4")
