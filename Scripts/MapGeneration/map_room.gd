@@ -20,7 +20,9 @@ const ICONS := {
 var available := false : set = set_available
 var room: Room : set = set_room
 
-
+func _ready():
+	$Button.grab_focus()
+	
 func set_available(new_value: bool) -> void:
 	available = new_value
 	

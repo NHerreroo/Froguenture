@@ -12,6 +12,7 @@ const BOSS_SCENE := preload("res://Scenes/Main.tscn")
 
 func _ready():
 	_start_run()
+	_setup_event_connections()
 	map.connect("map_exited", Callable(self, "_on_map_exited"))
 
 	
@@ -35,7 +36,7 @@ func _show_map():
 		current_view.get_child(0).queue_free()
 		
 	map.show_map()
-	map.unlock_next_rooms()
+	map.unlock_next_room()
 	
 func _on_map_exited(room:Room) -> void:
 	match  room.type:
@@ -49,3 +50,7 @@ func _on_map_exited(room:Room) -> void:
 			_change_view(SHOP_SCENE)
 		Room.Type.BOSS:
 			_change_view(BOSS_SCENE)
+
+
+func _setup_event_connections() -> void:
+	Events.level_done.connect(_show_map)

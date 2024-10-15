@@ -9,6 +9,7 @@ var rightDoor = preload("res://Scenes/Doors/RightDoor.tscn")
 # cargo las escenas de todas las habitaciones para poder instanciarlas dependiendo la posicion del array
 var initRoom = preload("res://Scenes/Rooms/initialRoom.tscn")
 var room1 = preload("res://Scenes/Rooms/room1.tscn")
+var finalRoom = preload("res://Scenes/Rooms/FinalRoom.tscn")
 
 # Constates Char para las salas
 var ROOM = ''
@@ -141,6 +142,8 @@ func instanceRoom():
 
 	if Global.map[x][y] == '@':
 		currentRoom = initRoom.instantiate()
+	elif Global.map[x][y] == 'X':
+		currentRoom = finalRoom.instantiate()
 	else:
 		currentRoom = room1.instantiate()
 
