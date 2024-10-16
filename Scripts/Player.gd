@@ -51,4 +51,3 @@ func play_animation(anim_name: String):
 	if current_animation != anim_name:
 		$Sprites/AnimationPlayer.play(anim_name)
 		current_animation = anim_name
-

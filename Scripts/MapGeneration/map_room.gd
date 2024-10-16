@@ -1,4 +1,4 @@
-extends Button
+extends Area2D
 class_name MapRoom
 
 
@@ -20,6 +20,7 @@ const ICONS := {
 var available := false : set = set_available
 var room: Room : set = set_room
 
+
 func set_available(new_value: bool) -> void:
 	available = new_value
 	
@@ -40,8 +41,8 @@ func show_selected():
 func on_map_room_selected() -> void:
 	selected.emit(room)
 
-func _on_pressed():
-	if not available or not pressed:
+func _on_button_pressed():
+	if not available or not $Button.pressed:
 		return
 
 	room.selected = true
