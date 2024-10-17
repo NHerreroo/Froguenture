@@ -103,4 +103,3 @@ func _on_map_room_selected(room: Room) -> void:
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("pointer"):
 		print("olasdas")
-

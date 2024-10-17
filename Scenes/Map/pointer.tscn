@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2tov"]
 radius = 27.0185
 
-[node name="Pointer" type="Area2D"]
+[node name="Pointer" type="Area2D" groups=["pointer"]]
 script = ExtResource("1_qmgwy")
 
 [node name="Texture" type="Sprite2D" parent="."]

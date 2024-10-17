@@ -50,6 +50,19 @@ func _on_button_pressed():
 
 
 func _on_area_entered(area):
-	print("Área detectada:", area)
 	if area.is_in_group("pointer"):
-		print("hola")
+		Global.pointer_can_click = true
+		print("entro")
+
+
+func _on_area_exited(area):
+	if area.is_in_group("pointer"):
+		Global.pointer_can_click = false
+		print("salio")
+
+
+#para jugadores de mando
+func _input(event):
+	if Input.is_action_pressed("ui_accept"):
+		print("fsdf")
+	
