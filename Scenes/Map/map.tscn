@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dre10dkwxryfy"]
+[gd_scene load_steps=6 format=3 uid="uid://dre10dkwxryfy"]
 
 [ext_resource type="Script" path="res://Scripts/MapGeneration/map_generator.gd" id="1_1ym53"]
 [ext_resource type="Script" path="res://Scripts/MapGeneration/map.gd" id="1_345j5"]
+[ext_resource type="PackedScene" uid="uid://bv8dx1tpasadh" path="res://Scenes/Map/pointer.tscn" id="3_185ku"]
 
 [sub_resource type="Gradient" id="Gradient_pq74i"]
 colors = PackedColorArray(0.099986, 0.099986, 0.099986, 1, 0.435485, 0.109009, 0.276891, 1)
@@ -27,6 +28,10 @@ unique_name_in_owner = true
 position = Vector2(959, 777)
 scale = Vector2(0.142629, 0.18672)
 zoom = Vector2(1.8, 1.8)
+
+[node name="Pointer" parent="Camera2D" instance=ExtResource("3_185ku")]
+position = Vector2(21.0337, 5.35547)
+scale = Vector2(7.0112, 5.35561)
 
 [node name="MapBackground" type="CanvasLayer" parent="."]
 layer = -1

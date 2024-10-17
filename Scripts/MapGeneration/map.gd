@@ -12,6 +12,7 @@ const  MAP_LINE = preload("res://Scenes/Map/map_line.tscn")
 @onready var visuals: Node2D = $Visuals
 @onready var camera_2d: Camera2D = $Camera2D
 
+
 var map_data: Array[Array]
 var floors_climbed: int
 var last_room: Room
@@ -97,3 +98,9 @@ func _on_map_room_selected(room: Room) -> void:
 	last_room = room
 	floors_climbed += 1
 	emit_signal("map_exited", room)  # Emitimos la señal para notificar a la escena principal
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("pointer"):
+		print("olasdas")
+

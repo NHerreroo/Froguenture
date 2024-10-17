@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv8dx1tpasadh"]
+
+[ext_resource type="Script" path="res://Scripts/pointer.gd" id="1_qmgwy"]
+[ext_resource type="Texture2D" uid="uid://d38lkiongmhhg" path="res://Sprites/Hud/PNG/Default/Border/panel-border-022.png" id="1_skar4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2tov"]
+radius = 27.0185
+
+[node name="Pointer" type="Area2D"]
+script = ExtResource("1_qmgwy")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_skar4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h2tov")

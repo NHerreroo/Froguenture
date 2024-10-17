@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk6vb888r04ei"]
+
+[ext_resource type="Script" path="res://Scenes/Map/pointer.gd" id="1_7wdcs"]
+[ext_resource type="Texture2D" uid="uid://d38lkiongmhhg" path="res://Sprites/Hud/PNG/Default/Border/panel-border-022.png" id="1_skar4"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_7wdcs")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_skar4")

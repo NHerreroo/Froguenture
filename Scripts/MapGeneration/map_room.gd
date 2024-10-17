@@ -47,3 +47,9 @@ func _on_button_pressed():
 
 	room.selected = true
 	animation_player.play("select")
+
+
+func _on_area_entered(area):
+	print("Área detectada:", area)
+	if area.is_in_group("pointer"):
+		print("hola")
