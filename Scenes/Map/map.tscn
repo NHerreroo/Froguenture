@@ -30,7 +30,6 @@ scale = Vector2(0.142629, 0.18672)
 zoom = Vector2(1.8, 1.8)
 
 [node name="Pointer" parent="Camera2D" instance=ExtResource("3_185ku")]
-position = Vector2(21.0337, 5.35547)
 scale = Vector2(7.0112, 5.35561)
 
 [node name="MapBackground" type="CanvasLayer" parent="."]

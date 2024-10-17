@@ -1,7 +1,6 @@
 extends Area2D
 class_name MapRoom
 
-
 signal selected(room:Room)
 
 const ICONS := {
@@ -9,7 +8,7 @@ const ICONS := {
 	Room.Type.MONSTER: [preload("res://Sprites/icons/skull.png"), Vector2(0.4, 0.4)],
 	Room.Type.TREASURE: [preload("res://Sprites/icons/treasure.png"), Vector2(0.4, 0.4)],
 	Room.Type.CAMPFIRE: [preload("res://Sprites/icons/campfire.png"), Vector2(0.4, 0.4)],
-	Room.Type.SHOP: [preload("res://Sprites/icons/shoop.png"),Vector2(0.4, 0.4)],
+	Room.Type.SHOP: [preload("res://Sprites/icons/shoop.png"), Vector2(0.4, 0.4)],
 	Room.Type.BOSS: [preload("res://Sprites/icons/boss.png"), Vector2(0.8, 0.8)],
 }
 
@@ -20,6 +19,7 @@ const ICONS := {
 var available := false : set = set_available
 var room: Room : set = set_room
 
+var pointer_over := false  # Variable para detectar si el puntero está sobre el botón
 
 func set_available(new_value: bool) -> void:
 	available = new_value
@@ -51,18 +51,18 @@ func _on_button_pressed():
 
 func _on_area_entered(area):
 	if area.is_in_group("pointer"):
-		Global.pointer_can_click = true
-		print("entro")
-
+		pointer_over = true  # El puntero está sobre el botón
+		
+		# Si el jugador presiona X clicka en el boton
+		if Global.pointer_click:
+			_on_button_pressed()
 
 func _on_area_exited(area):
 	if area.is_in_group("pointer"):
-		Global.pointer_can_click = false
-		print("salio")
+		pointer_over = false  # El puntero ha salido del botón
 
 
-#para jugadores de mando
-func _input(event):
-	if Input.is_action_pressed("ui_accept"):
-		print("fsdf")
-	
+# si el puntero está sobre el botón y se presiona el botón de aceptar llama a la func de click
+func _process(delta):
+	if pointer_over and Global.pointer_click:
+		_on_button_pressed()

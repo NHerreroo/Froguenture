@@ -26,7 +26,8 @@ var playerDirection = 4; # lo uso para saber la direccion en la que aprece en un
 # 0 = arriba, 1 abajo, 2 izaquierda, 3 derecha 4 = centro y para saber la direccion en la que esta mirando el jugador
 
 
-var pointer_can_click = false
+var pointer_click = false #cuando esta en el mapa si se pulsa X con mando se pone true pero se vuelve a poner en false (solo al tocar)
+
 #todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
 func _ready():
 	Input.connect("joy_connection_changed", Callable(self, "_on_joy_connection_changed"))

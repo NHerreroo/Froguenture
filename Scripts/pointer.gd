@@ -1,6 +1,6 @@
 extends Area2D
 
-var pointer_speed = 30
+var pointer_speed = 40
 var target_position: Vector2
 var input_dir
 
@@ -53,3 +53,11 @@ func enable_pointer():
 func disable_pointer():
 	self.hide()
 	$CollisionShape2D.disabled
+
+
+#para jugadores de mando
+func _input(event):
+	if Input.is_action_just_pressed("ui_accept"):
+		Global.pointer_click = true
+	else:
+		Global.pointer_click = false

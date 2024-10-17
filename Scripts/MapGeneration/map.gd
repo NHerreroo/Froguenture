@@ -65,6 +65,7 @@ func show_map() -> void:
 	$MapBackground.show()
 	camera_2d.enabled = true
 
+
 func hide_map() -> void:
 	self.hide()
 	$MapBackground.hide()
