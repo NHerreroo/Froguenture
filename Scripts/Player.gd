@@ -4,10 +4,13 @@ var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 
 const SPEED = 5.0
 const LERP_AMOUNT = 0.4  # Controla la suavidad del movimiento
+const MESH_DISTANCE = 1.5  # Distancia del MeshInstance al personaje
 
 var current_animation = ""
+var mesh_instance: MeshInstance3D  # Variable para el MeshInstance
 
 func _ready():
+	mesh_instance = $atack  # Asumiendo que el MeshInstance está como hijo del personaje
 	setPlayerPosition(Global.playerDirection)
 	
 func setPlayerPosition(position: int):
@@ -32,6 +35,10 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, direction.x * SPEED, LERP_AMOUNT)
 	velocity.z = lerp(velocity.z, direction.z * SPEED, LERP_AMOUNT)
 
+	# rota el ataque
+	if direction.length() > 0:
+		rotate_mesh_instance_around_player(direction)
+	
 	move_and_slide()
 
 	#me detecta la tecla de direccion y llama a la func que me hace la animación pasandole el nombre de la anim
@@ -45,9 +52,34 @@ func _physics_process(delta):
 		play_animation("down")
 	else:
 		play_animation("idle")
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		atack()
 
-# func para  la animación si no está ya en reproducción
+# Func para la animación si no está ya animandose
 func play_animation(anim_name: String):
 	if current_animation != anim_name:
 		$Sprites/AnimationPlayer.play(anim_name)
 		current_animation = anim_name
+
+# Func para rotar el MeshInstance alrededor del personaje en función de la dirección
+func rotate_mesh_instance_around_player(direction: Vector3):
+	# Calcula el ángulo de rotación
+	var target_rotation = atan2(direction.x, direction.z)
+
+	# Calcula la nueva posición del MeshInstance en relación con el personaje
+	var mesh_offset = Vector3(sin(target_rotation), 0, cos(target_rotation)) * MESH_DISTANCE
+	mesh_instance.global_position = self.global_position + mesh_offset
+
+	# Ajusta la rotación del MeshInstance para que mire hacia afuera o en la dirección deseada
+	mesh_instance.look_at(self.global_position, Vector3.UP)
+
+
+#mejorara sistema ataque, pausas y avanze del personaje
+func atack():
+	$atack.visible = true
+	$atack/Area3D/CollisionShape3D.disabled = false
+	await get_tree().create_timer(0.2).timeout
+	$atack.visible = false
+	$atack/Area3D/CollisionShape3D.disabled = true
+	
