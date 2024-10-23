@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxlta75dvj6gm"]
+
+[ext_resource type="Script" path="res://Items/Test.gd" id="1_8m36c"]
+[ext_resource type="Texture2D" uid="uid://0ld6bc15v5jl" path="res://Sprites/trunk.png" id="2_ywpc5"]
+[ext_resource type="Script" path="res://Items/_ClassResource/Item.gd" id="3_dourk"]
+
+[sub_resource type="Resource" id="Resource_w0sxx"]
+script = ExtResource("3_dourk")
+name = "PiñaEspada"
+description = "Hace +3 de daño"
+image = ExtResource("2_ywpc5")
+habilitie1 = "+3 de daño"
+habilitie2 = ""
+habilitie3 = ""
+quote = "\"Esto deberia valer\""
+color_player = 2
+card_type = 4
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_8m36c")
+item_Src = SubResource("Resource_w0sxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

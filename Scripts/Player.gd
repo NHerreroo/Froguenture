@@ -52,9 +52,6 @@ func _physics_process(delta):
 		play_animation("down")
 	else:
 		play_animation("idle")
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		atack()
 
 # Func para la animación si no está ya animandose
 func play_animation(anim_name: String):
@@ -73,13 +70,3 @@ func rotate_mesh_instance_around_player(direction: Vector3):
 
 	# Ajusta la rotación del MeshInstance para que mire hacia afuera o en la dirección deseada
 	mesh_instance.look_at(self.global_position, Vector3.UP)
-
-
-#mejorara sistema ataque, pausas y avanze del personaje
-func atack():
-	$atack.visible = true
-	$atack/Area3D/CollisionShape3D.disabled = false
-	await get_tree().create_timer(0.2).timeout
-	$atack.visible = false
-	$atack/Area3D/CollisionShape3D.disabled = true
-	
