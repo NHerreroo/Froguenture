@@ -10,6 +10,9 @@ class_name Item_source
 @export var habilitie2 : String
 @export var habilitie3 : String
 
+@export var damage: String
+@export var health: String
+
 @export var quote : String #para poner lore de la carata
 
 enum color {WHITE, BLACK, GREEN, RED, BLUE, COLORLESS}

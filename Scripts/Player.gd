@@ -34,10 +34,6 @@ func _physics_process(delta):
 	# Aplica lerp para suavizar el movimiento en los ejes X y Z
 	velocity.x = lerp(velocity.x, direction.x * SPEED, LERP_AMOUNT)
 	velocity.z = lerp(velocity.z, direction.z * SPEED, LERP_AMOUNT)
-
-	# rota el ataque
-	if direction.length() > 0:
-		rotate_mesh_instance_around_player(direction)
 	
 	move_and_slide()
 
@@ -58,15 +54,3 @@ func play_animation(anim_name: String):
 	if current_animation != anim_name:
 		$Sprites/AnimationPlayer.play(anim_name)
 		current_animation = anim_name
-
-# Func para rotar el MeshInstance alrededor del personaje en función de la dirección
-func rotate_mesh_instance_around_player(direction: Vector3):
-	# Calcula el ángulo de rotación
-	var target_rotation = atan2(direction.x, direction.z)
-
-	# Calcula la nueva posición del MeshInstance en relación con el personaje
-	var mesh_offset = Vector3(sin(target_rotation), 0, cos(target_rotation)) * MESH_DISTANCE
-	mesh_instance.global_position = self.global_position + mesh_offset
-
-	# Ajusta la rotación del MeshInstance para que mire hacia afuera o en la dirección deseada
-	mesh_instance.look_at(self.global_position, Vector3.UP)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxlta75dvj6gm"]
 
-[ext_resource type="Script" path="res://Items/Test.gd" id="1_8m36c"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item.gd" id="3_dourk"]
-[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="3_sg6sj"]
+[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_6amao"]
+[ext_resource type="Script" path="res://Items/_ClassResource/Item.gd" id="2_lhrgs"]
+[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="3_6fpd6"]
 
 [sub_resource type="Resource" id="Resource_w0sxx"]
-script = ExtResource("3_dourk")
+script = ExtResource("2_lhrgs")
 name = "PiñaEspada"
 description = "Hace +3 de daño"
 habilitie1 = "+3 de daño"
@@ -17,13 +17,13 @@ card_type = 4
 foil = false
 
 [node name="Test" type="Node2D"]
-script = ExtResource("1_8m36c")
+script = ExtResource("1_6amao")
 item_Src = SubResource("Resource_w0sxx")
 
 [node name="CardImage" type="Sprite2D" parent="."]
 position = Vector2(-18, -178)
 scale = Vector2(3.54653, 3.34104)
-texture = ExtResource("3_sg6sj")
+texture = ExtResource("3_6fpd6")
 
 [node name="CardColor" type="Sprite2D" parent="."]
 
