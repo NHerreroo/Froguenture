@@ -1,7 +1,11 @@
 extends Node2D
+class_name Item
 
-@export var item_Src : Item
+@export var item_Src : Item_source
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$Sprite2D.texture = item_Src.image 
+var WhiteCard = preload("res://Sprites/Items/Whitetemplate.png")
+
+func setSorurceParam():
+	match Item_source.color:
+		Item_source.color.WHITE:
+			$CardColor.texture = WhiteCard

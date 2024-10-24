@@ -1,23 +1,94 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxlta75dvj6gm"]
 
 [ext_resource type="Script" path="res://Items/Test.gd" id="1_8m36c"]
-[ext_resource type="Texture2D" uid="uid://0ld6bc15v5jl" path="res://Sprites/trunk.png" id="2_ywpc5"]
 [ext_resource type="Script" path="res://Items/_ClassResource/Item.gd" id="3_dourk"]
+[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="3_sg6sj"]
 
 [sub_resource type="Resource" id="Resource_w0sxx"]
 script = ExtResource("3_dourk")
 name = "PiñaEspada"
 description = "Hace +3 de daño"
-image = ExtResource("2_ywpc5")
 habilitie1 = "+3 de daño"
 habilitie2 = ""
 habilitie3 = ""
 quote = "\"Esto deberia valer\""
-color_player = 2
+color_card = 0
 card_type = 4
+foil = false
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_8m36c")
 item_Src = SubResource("Resource_w0sxx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CardImage" type="Sprite2D" parent="."]
+position = Vector2(-18, -178)
+scale = Vector2(3.54653, 3.34104)
+texture = ExtResource("3_sg6sj")
+
+[node name="CardColor" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -290.0
+offset_top = -430.0
+offset_right = 287.0
+offset_bottom = -364.0
+theme_override_font_sizes/font_size = 39
+text = "Card Name"
+vertical_alignment = 1
+
+[node name="Type" type="Label" parent="."]
+offset_left = -288.0
+offset_top = 35.0
+offset_right = 289.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 39
+text = "Card Name"
+vertical_alignment = 1
+
+[node name="Habilitie" type="Label" parent="."]
+offset_left = -270.0
+offset_top = 133.0
+offset_right = 270.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 25
+text = "HABILITIE 1
+HABILITIE 2
+HABILITIE 3
+"
+autowrap_mode = 3
+
+[node name="Quote" type="Label" parent="."]
+offset_left = -210.0
+offset_top = 344.0
+offset_right = 214.0
+offset_bottom = 429.0
+theme_override_font_sizes/font_size = 25
+text = "\"Quote\"
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Damage" type="Label" parent="."]
+offset_left = -283.0
+offset_top = 363.0
+offset_right = -186.0
+offset_bottom = 479.0
+theme_override_font_sizes/font_size = 85
+text = "5
+"
+autowrap_mode = 3
+
+[node name="Health" type="Label" parent="."]
+offset_left = 233.0
+offset_top = 360.0
+offset_right = 330.0
+offset_bottom = 476.0
+theme_override_font_sizes/font_size = 85
+text = "5
+"
+autowrap_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -68)
+zoom = Vector2(0.525, 0.525)

@@ -1,5 +1,5 @@
 extends Resource
-class_name Item
+class_name Item_source
 
 #poner aqui todo los atributos para nuestro items
 @export var name : String
@@ -12,8 +12,10 @@ class_name Item
 
 @export var quote : String #para poner lore de la carata
 
-enum color {WHITE, BLACK, GREEN, RED, BLUE}
-@export var color_player: color
+enum color {WHITE, BLACK, GREEN, RED, BLUE, COLORLESS}
+@export var color_card: color
 
 enum Card_type {CREATURE, ENCHANTMENT, INSTANT, MANA, ARTIFACT}
 @export var card_type: Card_type
+
+@export var foil : bool
