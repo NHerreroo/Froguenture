@@ -51,7 +51,6 @@ offset_left = -229.0
 offset_top = -324.0
 offset_right = 239.0
 offset_bottom = 320.0
-scale = Vector2(0.997893, 0.997893)
 pivot_offset = Vector2(229.484, 322.68)
 flat = true
 script = ExtResource("1_lo17b")

@@ -41,6 +41,7 @@ var velocity: Vector2
 
 func _ready() -> void:
 	setSorurceParam()
+	
 
 
 func _on_focus_entered() -> void:

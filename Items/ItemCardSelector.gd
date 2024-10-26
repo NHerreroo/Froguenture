@@ -14,7 +14,8 @@ const GREEN_PATH = "res://Items/Green/"
 const BLACK_PATH = "res://Items/Black/"
 const COLORLESS_PATH = "res://Items/Colorless/"
 
-var card
+var card_instance1
+var card_instance2
 
 func _ready() -> void:
 	load_all_scene_paths()
@@ -79,15 +80,25 @@ func get_item_card(card_color: Array) -> String:
 
 func left_card_inst(card_path: String):
 	var card = load(card_path)
-	var card_instance = card.instantiate()
-	card_instance.position = Vector2(292, 184)
-	add_child(card_instance)
+	card_instance1 = card.instantiate()
+	card_instance1.position = Vector2(292, 184)
+	add_child(card_instance1)
 	
-	if card_instance is Button:
-		card_instance.grab_focus()
+	if card_instance1 is Button:
+		card_instance1.grab_focus()
 		
 func right_card_inst(card_path: String):
 	var card = load(card_path)
-	var card_instance = card.instantiate()
-	card_instance.position = Vector2(1110, 191)
-	add_child(card_instance)
+	card_instance2 = card.instantiate()
+	card_instance2.position = Vector2(1110, 191)
+	add_child(card_instance2)
+
+
+func grab_foucs_after_pause():
+	if Global.is_game_paused == false and Global.card_focused == false:
+		await get_tree().create_timer(0.1).timeout
+		card_instance1.grab_focus()
+		Global.card_focused = true
+
+func _process(delta: float) -> void:
+	grab_foucs_after_pause()

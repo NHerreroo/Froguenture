@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://7fifk6tqomsr"]
+[gd_scene load_steps=15 format=3 uid="uid://7fifk6tqomsr"]
 
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_xar1c"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_2cx58"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="7_28x42"]
 [ext_resource type="Texture2D" uid="uid://13v7dfcimowl" path="res://Sprites/Vegetation/rock1.png" id="7_veyk0"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="7_xisfc"]
+[ext_resource type="PackedScene" uid="uid://cok6bb14ac8qk" path="res://Items/ItemCardSelector.tscn" id="8_py6gs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -147,5 +148,7 @@ transform = Transform3D(1, -3.55271e-15, 0, -3.55271e-15, 1, 5.96046e-08, -7.105
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D7/Area3D"]
 transform = Transform3D(0.648877, -1.63358e-08, -2.51062e-09, 1.05062e-08, 0.632774, -0.217694, 1.05986e-08, 0.372836, 0.369469, -0.891447, -2.7554, -0.304324)
 shape = SubResource("BoxShape3D_phgx4")
+
+[node name="ItemCardSelector" parent="." instance=ExtResource("8_py6gs")]
 
 [connection signal="area_entered" from="Sprite3D7/Area3D" to="." method="_on_area_3d_area_entered"]
