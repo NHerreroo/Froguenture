@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_lfq38")
-name = "Tempalte Item"
+name = "Counterspell"
 description = "Its a template"
 image = ExtResource("2_shtk5")
 habilitie1 = "+1/+1"
@@ -19,8 +19,8 @@ habilitie3 = ""
 damage = "1"
 health = "4"
 quote = "\"Item\""
-color_card = 1
-card_type = 0
+color_card = 4
+card_type = 2
 foil = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]

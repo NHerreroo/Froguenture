@@ -10,8 +10,8 @@
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_g7hkj")
-name = "Tempalte Item"
-description = "Its a template"
+name = "Murder"
+description = ""
 image = ExtResource("2_mwxsy")
 habilitie1 = "+1/+1"
 habilitie2 = ""

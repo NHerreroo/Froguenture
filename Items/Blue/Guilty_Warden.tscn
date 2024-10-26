@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_is5na")
-name = "Tempalte Item"
+name = "Guilty Warden"
 description = "Its a template"
 image = ExtResource("2_ujkfe")
 habilitie1 = "+1/+1"
@@ -19,7 +19,7 @@ habilitie3 = ""
 damage = "1"
 health = "4"
 quote = "\"Item\""
-color_card = 1
+color_card = 4
 card_type = 0
 foil = false
 

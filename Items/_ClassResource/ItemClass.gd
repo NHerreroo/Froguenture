@@ -98,7 +98,7 @@ func setSorurceParam():
 	
 func setFoil():
 	var chance = randi_range(0,6)
-	if chance <= 0:
+	if chance <= 4:
 		$CardColor/Foil2.visible = false
 		$CardColor/Foil.visible = false
 	else:

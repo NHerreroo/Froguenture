@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_on63w")
-name = "Tempalte Item"
+name = "Hibernate"
 description = "Its a template"
 image = ExtResource("2_k46xf")
 habilitie1 = "+1/+1"
@@ -19,7 +19,7 @@ habilitie3 = ""
 damage = "1"
 health = "4"
 quote = "\"Item\""
-color_card = 1
+color_card = 2
 card_type = 0
 foil = false
 
