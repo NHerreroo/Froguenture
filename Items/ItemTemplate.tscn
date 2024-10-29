@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfqo8c4n5r7h"]
+[gd_scene load_steps=12 format=3 uid="uid://dfqo8c4n5r7h"]
 
 [ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_8o6b7"]
 [ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="1_l4el7"]
@@ -46,74 +46,11 @@ shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 0.528
 
-[sub_resource type="Animation" id="Animation_ck3mg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-4.63909]
-}
-
-[sub_resource type="Animation" id="Animation_o5sns"]
-resource_name = "entry"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.998, 0.998)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-4.63909, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jejp1"]
-_data = {
-"RESET": SubResource("Animation_ck3mg"),
-"entry": SubResource("Animation_o5sns")
-}
-
 [node name="ItemTemplate" type="Button"]
 offset_left = -233.0
 offset_top = -324.0
 offset_right = 235.0
 offset_bottom = 320.0
-rotation = -4.63909
-scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(229.484, 322.68)
 flat = true
 script = ExtResource("1_8o6b7")
@@ -122,6 +59,7 @@ item_Src = SubResource("Resource_jivrs")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(233, 321)
 shape = SubResource("RectangleShape2D_ojq6v")
 
@@ -147,6 +85,7 @@ texture = ExtResource("4_5kg0u")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
+use_parent_material = true
 position = Vector2(371, 352)
 scale = Vector2(4.82813, 3.34104)
 texture = ExtResource("3_6fpd6")
@@ -237,11 +176,6 @@ offset_top = 53.0
 offset_right = 701.0
 offset_bottom = 999.0
 mouse_filter = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_jejp1")
-}
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

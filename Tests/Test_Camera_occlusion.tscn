@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://py3fex4yr4h1"]
+
+[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="1_rsbr3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akcs3"]
+distance_fade_mode = 2
+
+[node name="TestCameraOcclusion" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.33308)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+material_override = SubResource("StandardMaterial3D_akcs3")
+texture = ExtResource("1_rsbr3")
