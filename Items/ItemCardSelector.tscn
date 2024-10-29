@@ -18,6 +18,7 @@ offset_right = -7.0
 offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_hxjh1")
 
 [node name="BlurShader" type="ColorRect" parent="."]
@@ -28,15 +29,18 @@ offset_left = -440.0
 offset_top = -314.0
 offset_right = 2285.0
 offset_bottom = 1328.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(965, 538)
-zoom = Vector2(0.78, 0.78)
+mouse_filter = 2
 
 [node name="BlackBg" type="ColorRect" parent="."]
+z_index = -3
 layout_mode = 0
 offset_left = -436.0
 offset_top = -314.0
 offset_right = 2280.0
 offset_bottom = 1324.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 538)
+zoom = Vector2(0.78, 0.78)

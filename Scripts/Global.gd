@@ -29,6 +29,14 @@ var playerDirection = 4; # lo uso para saber la direccion en la que aprece en un
 
 var pointer_click = false #cuando esta en el mapa si se pulsa X con mando se pone true pero se vuelve a poner en false (solo al tocar)
 
+
+
+
+##################### PLAYER VARIABLES #################################
+
+var can_walk = true #cuando quiera que el personaje no camine se pone a false
+
+
 #todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
 func _ready():
 	Input.connect("joy_connection_changed", Callable(self, "_on_joy_connection_changed"))

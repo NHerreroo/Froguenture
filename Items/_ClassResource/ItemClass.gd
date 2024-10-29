@@ -40,6 +40,7 @@ var velocity: Vector2
 @onready var collision_shape = $Area2D/CollisionShape2D
 
 func _ready() -> void:
+	entryCard()
 	setSorurceParam()
 
 
@@ -68,6 +69,10 @@ func _on_mouse_exited() -> void:
 		tween_hover.kill()
 	tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	tween_hover.tween_property(self, "scale", Vector2.ONE, 0.55)
+	
+func _on_pressed():
+	Global.can_walk = true
+	print("sdf")
 
 
 func setSorurceParam():
@@ -106,5 +111,10 @@ func setFoil():
 		$CardColor/Foil.visible = true
 		
 
+func entryCard():
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
 	
-	
+	tween.tween_property(self, "modulate:a",0, 0)
+	tween.tween_property(self, "modulate:a",1, 2.5)

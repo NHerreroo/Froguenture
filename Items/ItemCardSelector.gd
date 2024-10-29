@@ -18,6 +18,7 @@ var card_instance1
 var card_instance2
 
 func _ready() -> void:
+	
 	set_background_opacitiy()
 	load_all_scene_paths()
 	left_card_inst(get_item_card(get_random_color()))
@@ -25,6 +26,7 @@ func _ready() -> void:
 	
 
 func load_all_scene_paths():
+	
 	load_scene_paths(BLUE_PATH, Blue_scene_paths)
 	load_scene_paths(WHITE_PATH, White_scene_paths)
 	load_scene_paths(RED_PATH, Red_scene_paths)
@@ -108,4 +110,4 @@ func set_background_opacitiy():
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property($BlackBg, "color:a", 0.80, 1.0)
+	tween.tween_property($BlackBg, "color:a", 0.85, 2)

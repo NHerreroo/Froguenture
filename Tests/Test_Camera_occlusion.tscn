@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="1_rsbr3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akcs3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4ogs"]
+albedo_texture = ExtResource("1_rsbr3")
 distance_fade_mode = 2
 
 [node name="TestCameraOcclusion" type="Node3D"]
@@ -11,5 +12,5 @@ distance_fade_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.33308)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-material_override = SubResource("StandardMaterial3D_akcs3")
+material_override = SubResource("StandardMaterial3D_b4ogs")
 texture = ExtResource("1_rsbr3")

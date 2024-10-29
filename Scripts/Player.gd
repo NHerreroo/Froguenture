@@ -35,19 +35,20 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x, direction.x * SPEED, LERP_AMOUNT)
 	velocity.z = lerp(velocity.z, direction.z * SPEED, LERP_AMOUNT)
 	
-	move_and_slide()
-
+	if Global.can_walk:
 	#me detecta la tecla de direccion y llama a la func que me hace la animación pasandole el nombre de la anim
-	if Input.is_action_pressed("Keyboard_D"):
-		play_animation("walk_right")
-	elif Input.is_action_pressed("Keyboard_A"):
-		play_animation("walk_left")
-	elif Input.is_action_pressed("Keyboard_W"):
-		play_animation("up")
-	elif Input.is_action_pressed("Keyboard_S"):
-		play_animation("down")
-	else:
-		play_animation("idle")
+		if Input.is_action_pressed("Keyboard_D"):
+			play_animation("walk_right")
+		elif Input.is_action_pressed("Keyboard_A"):
+			play_animation("walk_left")
+		elif Input.is_action_pressed("Keyboard_W"):
+			play_animation("up")
+		elif Input.is_action_pressed("Keyboard_S"):
+			play_animation("down")
+		else:
+			play_animation("idle")
+		
+		move_and_slide() #mueve al pers
 
 # Func para la animación si no está ya animandose
 func play_animation(anim_name: String):
