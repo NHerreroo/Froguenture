@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbi5nch0is25o"]
+
+[ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="1_6ca58"]
+[ext_resource type="Texture2D" uid="uid://cwi1p5cfvdagp" path="res://Sprites/icons/poison.png" id="2_kp3v7"]
+[ext_resource type="Texture2D" uid="uid://dlas26r520c4s" path="res://Sprites/icons/heart.png" id="2_rbvl2"]
+[ext_resource type="Texture2D" uid="uid://lbfv2fom7d6w" path="res://Sprites/icons/speed.png" id="3_gbf7o"]
+[ext_resource type="Texture2D" uid="uid://1rij21bsluh0" path="res://Sprites/icons/speedatack.svg" id="4_s1nde"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(143, 101)
+scale = Vector2(0.20147, 0.20147)
+texture = ExtResource("2_rbvl2")
+
+[node name="Heart2" type="Sprite2D" parent="."]
+position = Vector2(269, 101)
+scale = Vector2(0.20147, 0.20147)
+texture = ExtResource("2_rbvl2")
+
+[node name="Heart3" type="Sprite2D" parent="."]
+position = Vector2(396, 102)
+scale = Vector2(0.20147, 0.20147)
+texture = ExtResource("2_rbvl2")
+
+[node name="Heart4" type="Sprite2D" parent="."]
+position = Vector2(525, 102)
+scale = Vector2(0.20147, 0.20147)
+texture = ExtResource("2_rbvl2")
+
+[node name="Heart5" type="Sprite2D" parent="."]
+position = Vector2(651, 102)
+scale = Vector2(0.20147, 0.20147)
+texture = ExtResource("2_rbvl2")
+
+[node name="Atack" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(143.183, 270.013)
+scale = Vector2(0.112442, 0.112442)
+texture = ExtResource("1_6ca58")
+
+[node name="Poison" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(140.183, 444.013)
+scale = Vector2(0.113684, 0.113684)
+texture = ExtResource("2_kp3v7")
+
+[node name="Speed" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(137.183, 629.013)
+scale = Vector2(0.118699, 0.118699)
+texture = ExtResource("3_gbf7o")
+
+[node name="Speedatack" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(129.183, 791.013)
+scale = Vector2(0.111021, 0.111021)
+texture = ExtResource("4_s1nde")

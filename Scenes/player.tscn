@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=33 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c5yyb7exros7m" path="res://Sprites/Player/Walk/feet1.png" id="11_wgqp4"]
 [ext_resource type="Texture2D" uid="uid://sg7eevca83el" path="res://Sprites/Player/up/feet.png" id="13_aqr24"]
 [ext_resource type="Texture2D" uid="uid://bfb6c5xeiaudy" path="res://Sprites/Player/up/feet2.png" id="15_e80vs"]
+[ext_resource type="PackedScene" uid="uid://cbi5nch0is25o" path="res://Scenes/hud.tscn" id="18_gvt84"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjemb"]
 
@@ -1502,3 +1503,5 @@ animation = &"walk"
 libraries = {
 "": SubResource("AnimationLibrary_5h08q")
 }
+
+[node name="Hud" parent="." instance=ExtResource("18_gvt84")]
