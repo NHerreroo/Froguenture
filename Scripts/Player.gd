@@ -48,7 +48,10 @@ func _physics_process(delta):
 		else:
 			play_animation("idle")
 		
+		Global.CurrentPlayerPosition = Vector2(self.position.x, self.position.y)
+		
 		move_and_slide() #mueve al pers
+		
 
 # Func para la animación si no está ya animandose
 func play_animation(anim_name: String):

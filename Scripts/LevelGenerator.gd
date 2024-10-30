@@ -10,6 +10,7 @@ var rightDoor = preload("res://Scenes/Doors/RightDoor.tscn")
 var initRoom = preload("res://Scenes/Rooms/initialRoom.tscn")
 var room1 = preload("res://Scenes/Rooms/room1.tscn")
 var finalRoom = preload("res://Scenes/Rooms/FinalRoom.tscn")
+var treasureRoom = preload("res://Scenes/Rooms/TreasureRoom.tscn")
 
 # Constates Char para las salas
 var ROOM = ''
@@ -136,7 +137,7 @@ func generate_doors(map: Array):
 func instanceRoom():
 	if currentRoom:
 		currentRoom.queue_free()  # Liberar la habitación anterior
-
+		
 	var x = Global.playerMapPositionX
 	var y = Global.playerMapPositionY
 
@@ -144,6 +145,8 @@ func instanceRoom():
 		currentRoom = initRoom.instantiate()
 	elif Global.map[x][y] == 'X':
 		currentRoom = finalRoom.instantiate()
+	elif Global.map[x][y] == '$':
+		currentRoom = treasureRoom.instantiate()
 	else:
 		currentRoom = room1.instantiate()
 

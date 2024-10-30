@@ -1,26 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://uuoc7kih57y3"]
+[gd_scene load_steps=12 format=3 uid="uid://cv7uhh3j50uy7"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_40hyi"]
-[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="2_shtk5"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_lfq38"]
-[ext_resource type="Texture2D" uid="uid://gmspc4ixnwc8" path="res://Sprites/Items/Bluetemplate.png" id="4_t8qvv"]
-[ext_resource type="Texture2D" uid="uid://c777b47rum74y" path="res://Sprites/Items/Blacktemplate.png" id="5_eqv1t"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_m6rvw"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="7_xww7y"]
+[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_816vc"]
+[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="2_myu32"]
+[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_i5klc"]
+[ext_resource type="Texture2D" uid="uid://gmspc4ixnwc8" path="res://Sprites/Items/Bluetemplate.png" id="4_f83jh"]
+[ext_resource type="Texture2D" uid="uid://c777b47rum74y" path="res://Sprites/Items/Blacktemplate.png" id="5_kgdkk"]
+[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_hk2wo"]
+[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="7_77xe0"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_lfq38")
-name = "Counterspell"
+script = ExtResource("3_i5klc")
+name = "Tempalte Item"
 description = "Its a template"
-image = ExtResource("2_shtk5")
+image = ExtResource("2_myu32")
 habilitie1 = "+1/+1"
 habilitie2 = ""
 habilitie3 = ""
 damage = "1"
 health = "4"
 quote = "\"Item\""
-color_card = 4
-card_type = 2
+color_card = 1
+card_type = 0
 foil = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
@@ -28,13 +28,13 @@ size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("6_m6rvw")
+shader = ExtResource("6_hk2wo")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("7_xww7y")
+shader = ExtResource("7_77xe0")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -47,18 +47,18 @@ shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 0.528
 
 [node name="ItemTemplate" type="Button"]
-offset_left = -229.0
+offset_left = -233.0
 offset_top = -324.0
-offset_right = 239.0
+offset_right = 235.0
 offset_bottom = 320.0
 pivot_offset = Vector2(229.484, 322.68)
-flat = true
-script = ExtResource("1_40hyi")
+script = ExtResource("1_816vc")
 item_Src = SubResource("Resource_jivrs")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(233, 321)
 shape = SubResource("RectangleShape2D_ojq6v")
 
@@ -71,7 +71,7 @@ offset_top = 37.0
 offset_right = 873.0
 offset_bottom = 1218.0
 scale = Vector2(0.541449, 0.541449)
-texture = ExtResource("4_t8qvv")
+texture = ExtResource("4_f83jh")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -80,13 +80,14 @@ offset_top = -5.0
 offset_right = 752.0
 offset_bottom = 1045.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_eqv1t")
+texture = ExtResource("5_kgdkk")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
+use_parent_material = true
 position = Vector2(371, 352)
 scale = Vector2(4.82813, 3.34104)
-texture = ExtResource("2_shtk5")
+texture = ExtResource("2_myu32")
 
 [node name="Name" type="Label" parent="CardColor"]
 layout_mode = 0
@@ -179,3 +180,4 @@ mouse_filter = 2
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
