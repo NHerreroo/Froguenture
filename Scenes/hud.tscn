@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://1rij21bsluh0" path="res://Sprites/icons/speedatack.svg" id="4_s1nde"]
 
 [node name="Hud" type="Control"]
+top_level = true
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

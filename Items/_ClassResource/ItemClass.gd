@@ -59,15 +59,15 @@ func _on_mouse_entered() -> void:
 		if tween_hover and tween_hover.is_running():
 			tween_hover.kill()
 		tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween_hover.tween_property(self, "scale", Vector2(1.2, 1.2), 0.5)
+		tween_hover.tween_property(self, "scale", Vector2(1.25, 1.25), 0.5)
 
 func _on_mouse_exited() -> void:
 	if Global.card_selected == false and selected == false:
 		if tween_rot and tween_rot.is_running():
 			tween_rot.kill()
 		tween_rot = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).set_parallel(true)
-		tween_rot.tween_property(card_texture.material, "shader_parameter/x_rot", 0.0, 0.5)
-		tween_rot.tween_property(card_texture.material, "shader_parameter/y_rot", 0.0, 0.5)
+		tween_rot.tween_property(card_texture.material, "shader_parameter/x_rot", -10.0, 0.5)
+		tween_rot.tween_property(card_texture.material, "shader_parameter/y_rot", -10.0, 0.5)
 
 		if tween_hover and tween_hover.is_running():
 			tween_hover.kill()

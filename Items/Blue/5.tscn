@@ -1,18 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjn1h4ijaqsm3"]
+[gd_scene load_steps=12 format=3 uid="uid://524lmuxod0ef"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_hx3v1"]
-[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="2_cnuio"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_metxk"]
-[ext_resource type="Texture2D" uid="uid://gmspc4ixnwc8" path="res://Sprites/Items/Bluetemplate.png" id="4_lncuk"]
-[ext_resource type="Texture2D" uid="uid://c777b47rum74y" path="res://Sprites/Items/Blacktemplate.png" id="5_g240i"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_spgo3"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="7_kok4f"]
+[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_h2dwu"]
+[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="2_o1b16"]
+[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_txpsh"]
+[ext_resource type="Texture2D" uid="uid://gmspc4ixnwc8" path="res://Sprites/Items/Bluetemplate.png" id="4_gvnco"]
+[ext_resource type="Texture2D" uid="uid://c777b47rum74y" path="res://Sprites/Items/Blacktemplate.png" id="5_x402k"]
+[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_rwk4d"]
+[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="7_asit8"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_metxk")
+script = ExtResource("3_txpsh")
 name = "Tempalte Item"
 description = "Its a template"
-image = ExtResource("2_cnuio")
+image = ExtResource("2_o1b16")
 habilitie1 = "+1/+1"
 habilitie2 = ""
 habilitie3 = ""
@@ -28,13 +28,13 @@ size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("6_spgo3")
+shader = ExtResource("6_rwk4d")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("7_kok4f")
+shader = ExtResource("7_asit8")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -52,7 +52,7 @@ offset_top = -324.0
 offset_right = 235.0
 offset_bottom = 320.0
 pivot_offset = Vector2(229.484, 322.68)
-script = ExtResource("1_hx3v1")
+script = ExtResource("1_h2dwu")
 item_Src = SubResource("Resource_jivrs")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -71,7 +71,7 @@ offset_top = 37.0
 offset_right = 873.0
 offset_bottom = 1218.0
 scale = Vector2(0.541449, 0.541449)
-texture = ExtResource("4_lncuk")
+texture = ExtResource("4_gvnco")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -80,14 +80,14 @@ offset_top = -5.0
 offset_right = 752.0
 offset_bottom = 1045.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_g240i")
+texture = ExtResource("5_x402k")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(371, 352)
 scale = Vector2(4.82813, 3.34104)
-texture = ExtResource("2_cnuio")
+texture = ExtResource("2_o1b16")
 
 [node name="Name" type="Label" parent="CardColor"]
 layout_mode = 0
@@ -181,3 +181,4 @@ mouse_filter = 2
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

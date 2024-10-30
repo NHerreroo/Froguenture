@@ -12,8 +12,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 229.0
+offset_top = 173.0
+offset_right = 229.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.755164, 0.755164)
 mouse_filter = 2
 script = ExtResource("1_hxjh1")
 
@@ -25,6 +30,7 @@ offset_left = -440.0
 offset_top = -314.0
 offset_right = 2285.0
 offset_bottom = 1328.0
+scale = Vector2(1.14252, 1.14252)
 mouse_filter = 2
 
 [node name="BlackBg" type="ColorRect" parent="."]
@@ -34,9 +40,6 @@ offset_left = -436.0
 offset_top = -314.0
 offset_right = 2280.0
 offset_bottom = 1324.0
+scale = Vector2(1.18887, 1.18887)
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(965, 538)
-zoom = Vector2(0.78, 0.78)
