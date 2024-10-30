@@ -159,16 +159,8 @@ func clean_previous_doors():
 		door.queue_free()
 	activeDoors.clear()
 
-func _ready():
-	Global.eraseLevel = false
-	if Global.isMapGenerated == false:
-		map_generator(50, 8)
-
-	generate_doors(Global.map)
-	print_actual_pos(Global.map, Global.playerMapPositionX, Global.playerMapPositionY)
-	instanceRoom()
-
-func _process(delta):
+	
+func updateLevel():
 	if Global.eraseLevel == true:
 		Global.topCollider = false
 		Global.botCollider = false
@@ -179,5 +171,17 @@ func _process(delta):
 		clean_previous_doors()
 		instanceRoom()
 		generate_doors(Global.map)
-
+		
 		Global.eraseLevel = false  # Resetear la condición
+		
+func _ready():
+	Global.eraseLevel = false
+	if Global.isMapGenerated == false:
+		map_generator(50, 8)
+
+	generate_doors(Global.map)
+	print_actual_pos(Global.map, Global.playerMapPositionX, Global.playerMapPositionY)
+	instanceRoom()
+
+func _process(delta):
+	updateLevel()
