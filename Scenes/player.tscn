@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=32 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -20,8 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://cbi5nch0is25o" path="res://Scenes/hud.tscn" id="18_gvt84"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjemb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_3t8vd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52wam"]
 animations = [{
@@ -1455,11 +1453,6 @@ script = ExtResource("1_pjjon")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.00749999, 0, 0, 0, 0.00749999, 0, 0, 0, 0.00676757, -0.00036844, 0.00427322, -0.000380842)
 shape = SubResource("BoxShape3D_mjemb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0075, 0, 0, 0, 0.0075, 0, 0, 0, 0.0075, 0, 0.00403779, 0)
-visible = false
-mesh = SubResource("BoxMesh_3t8vd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
