@@ -46,7 +46,7 @@ var atack
 var speed
 var criticalDamage
 var poisonDamage
-
+var atackSpeed = 0.35
 
 
 
