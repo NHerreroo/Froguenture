@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 	# Incrementa el temporizador de ataque si no está atacando
 	if can_atack:
 		attack_timer += delta
-		if attack_timer >= Global.atackSpeed:
+		if attack_timer >= 0.2:
 			SPEED = 5 
 
 func setPlayerPosition(position: int):
@@ -149,6 +149,9 @@ func attack():
 		can_atack = false  # Desactiva el ataque temporalmente
 		attack_count += 1  # Incrementa el contador de ataques en el combo
 		attack_timer = 0  # Reinicia el temporizador de ataque
+		
+		if camera:
+			camera.low_shake_camera()
 		
 		if attack_count >= 3: #ataque pro (tercer ataque)
 			perform_attack() 

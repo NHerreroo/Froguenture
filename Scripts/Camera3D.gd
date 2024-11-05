@@ -6,7 +6,6 @@ var start_positionX = 7
 var start_positionY = 8
 var start_positionZ = 0
 
-
 var followPlayer = false
 
 func _ready():
@@ -26,6 +25,7 @@ func _ready():
 	followPlayer = true
 
 func _process(delta):
+	
 	if Global.eraseLevel == true:
 		self.queue_free()
 	move_camera_to_player()
@@ -35,3 +35,8 @@ func move_camera_to_player(): #mueve la cam al player con un Linera interpolatio
 	if followPlayer == true:
 		self.position.z = lerp(self.position.z, player.position.z, 0.05)  # Lerp para el eje Z
 		self.position.x = lerp(self.position.x, player.position.x + start_positionX, 0.05)  # Lerp para el eje X
+
+
+
+func low_shake_camera():
+	pass
