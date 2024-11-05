@@ -2,14 +2,14 @@ extends CharacterBody3D
 
 var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 
-const SPEED = 5.0
+var SPEED = 5
 const DASH_SPEED = 20.0  
 const DASH_DURATION = 0.28  
 const DASH_COOLDOWN = 1.0
 
 const LERP_AMOUNT = 0.4
 const DASH_LERP_AMOUNT = 0.15
-const MINI_DASH_SPEED = 10.0
+const MINI_DASH_SPEED = 5.0
 const MINI_DASH_DURATION = 0.1
 
 var current_animation = ""
@@ -29,6 +29,8 @@ var mini_dash_direction = Vector3.ZERO
 var can_atack = true
 var attack_count = 0  # Contador de ataques en el combo
 
+# Temporizador para controlar el tiempo sin atacar
+var attack_timer = 0.0
 
 @onready var atackMesh = $AtackMesh
 
@@ -37,6 +39,12 @@ func _ready():
 
 func _process(delta: float) -> void:
 	camera = get_tree().get_root().find_child("Camera", true, false) #esto lo pongo aqui por que al cambiar de nivel tmb cambia de camara
+
+	# Incrementa el temporizador de ataque si no está atacando
+	if can_atack:
+		attack_timer += delta
+		if attack_timer >= Global.atackSpeed:
+			SPEED = 5 
 
 func setPlayerPosition(position: int):
 	match position:
@@ -52,7 +60,7 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	perform_dash(delta, direction)
-	
+
 	# Prioridad para mini-dash
 	if is_mini_dashing:
 		perform_mini_dash(delta)
@@ -100,15 +108,6 @@ func perform_dash(delta, direction):
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
 
-# Mini-dash en ataque
-func perform_mini_dash(delta):
-	velocity.x = lerp(velocity.x, mini_dash_direction.x * MINI_DASH_SPEED, LERP_AMOUNT)
-	velocity.z = lerp(velocity.z, mini_dash_direction.z * MINI_DASH_SPEED, LERP_AMOUNT)
-	
-	mini_dash_timer -= delta
-	if mini_dash_timer <= 0:
-		is_mini_dashing = false
-
 # Manejo de animaciones
 func play_animation(anim_name: String):
 	if current_animation != anim_name:
@@ -146,23 +145,22 @@ func rotate_atack_mesh():
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
+		SPEED = 0
 		can_atack = false  # Desactiva el ataque temporalmente
 		attack_count += 1  # Incrementa el contador de ataques en el combo
-	
+		attack_timer = 0  # Reinicia el temporizador de ataque
+		
 		if attack_count >= 3: #ataque pro (tercer ataque)
 			perform_attack() 
-			await get_tree().create_timer(Global.atackSpeed + 1).timeout
+			await get_tree().create_timer(Global.atackSpeed).timeout
 			can_atack = true
 			attack_count = 0
+			return
 		else:
 			perform_attack()
 			await get_tree().create_timer(Global.atackSpeed).timeout
 			can_atack = true
-			
-			await get_tree().create_timer(1).timeout 
-			if can_atack and attack_count < 3:
-				attack_count = 0  #rompe el combo si estas 0.5 sin atacar
-
+			return
 
 func perform_attack():
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
@@ -174,3 +172,12 @@ func perform_attack():
 	
 	is_mini_dashing = true
 	mini_dash_timer = MINI_DASH_DURATION
+
+# Mini-dash en ataque
+func perform_mini_dash(delta):
+	velocity.x = lerp(velocity.x, mini_dash_direction.x * MINI_DASH_SPEED, LERP_AMOUNT)
+	velocity.z = lerp(velocity.z, mini_dash_direction.z * MINI_DASH_SPEED, LERP_AMOUNT)
+	
+	mini_dash_timer -= delta
+	if mini_dash_timer <= 0:
+		is_mini_dashing = false

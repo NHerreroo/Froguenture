@@ -46,8 +46,7 @@ var atack
 var speed
 var criticalDamage
 var poisonDamage
-var atackSpeed = 0.35
-
+var atackSpeed = 0.5
 
 
 #todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
