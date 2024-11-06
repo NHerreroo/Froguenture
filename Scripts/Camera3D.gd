@@ -38,5 +38,23 @@ func move_camera_to_player(): #mueve la cam al player con un Linera interpolatio
 
 
 
+
+func get_random_shake_seed_x(min: float, max: float) -> float:
+	return randf_range(min, max)
+
 func low_shake_camera():
-	pass
+	var target_h_offset = 0.0
+	var target_v_offset = 0.0
+
+	for x in 5:
+		target_h_offset = get_random_shake_seed_x(-0.1, 0.1)
+		target_v_offset = get_random_shake_seed_x(-0.1, 0.1)
+		
+		self.h_offset = lerp(self.h_offset, target_h_offset, 0.5)
+		self.v_offset = lerp(self.v_offset, target_v_offset, 0.5)
+		
+		await get_tree().create_timer(0.04).timeout
+
+	# Vuelve a cero al terminar
+	self.h_offset = lerp(self.h_offset, 0.0, 0.5)
+	self.v_offset = lerp(self.v_offset, 0.0, 0.5)
