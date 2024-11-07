@@ -3,6 +3,8 @@ extends CharacterBody3D
 var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 
 var SPEED = 5
+var direction
+
 const DASH_SPEED = 20.0  
 const DASH_DURATION = 0.28  
 const DASH_COOLDOWN = 1.0
@@ -26,6 +28,8 @@ var is_mini_dashing = false
 var mini_dash_timer = 0.0
 var mini_dash_direction = Vector3.ZERO
 
+
+const MESH_DISTANCE = 1.5  # Distancia del MeshInstance al personaje
 var can_atack = true
 var attack_count = 0  # Contador de ataques en el combo
 
@@ -57,7 +61,7 @@ func setPlayerPosition(position: int):
 func _physics_process(delta):
 	
 	var input_dir = Input.get_vector("Keyboard_A", "Keyboard_D", "Keyboard_W", "Keyboard_S")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	perform_dash(delta, direction)
 
@@ -134,14 +138,23 @@ func shoot_raycast() -> Vector3:
 		return self.global_position  
 
 func rotate_atack_mesh():
-	var hit_position = shoot_raycast()  
-	
-	var direction_to_hit = (hit_position - self.global_position).normalized()
-	direction_to_hit.y = 0 
-	
-	var mesh_offset = direction_to_hit * 1.5
-	atackMesh.global_position = self.global_position + mesh_offset
-	atackMesh.look_at(self.global_position, Vector3.UP)
+	if Global.controller_active:
+		# Calcula el ángulo de rotación
+		var target_rotation = atan2(direction.x, direction.z)
+		# Calcula la nueva posición del MeshInstance en relación con el personaje
+		var mesh_offset = Vector3(sin(target_rotation), 0, cos(target_rotation)) * MESH_DISTANCE
+		atackMesh.global_position = self.global_position + mesh_offset
+		# Ajusta la rotación del MeshInstance para que mire hacia afuera o en la dirección deseada
+		atackMesh.look_at(self.global_position, Vector3.UP)
+	else:
+		var hit_position = shoot_raycast()  
+		
+		var direction_to_hit = (hit_position - self.global_position).normalized()
+		direction_to_hit.y = 0 
+		
+		var mesh_offset = direction_to_hit * 1.5
+		atackMesh.global_position = self.global_position + mesh_offset
+		atackMesh.look_at(self.global_position, Vector3.UP)
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
@@ -168,11 +181,13 @@ func attack():
 func perform_attack():
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
 
-	# Configura el mini-dash en dirección al impacto
-	var hit_position = shoot_raycast()
-	mini_dash_direction = (hit_position - self.global_position).normalized()
-	mini_dash_direction.y = 0  # Mantiene la Y constante
-	
+	if Global.controller_active: # Si el controlador está activo
+		mini_dash_direction = direction  # Mini-dash en la dirección de movimiento actual
+	else:  # Si el teclado está activo
+		var hit_position = shoot_raycast()
+		mini_dash_direction = (hit_position - self.global_position).normalized()
+		mini_dash_direction.y = 0  # Mantiene la Y constante
+
 	is_mini_dashing = true
 	mini_dash_timer = MINI_DASH_DURATION
 
