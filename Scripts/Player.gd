@@ -35,6 +35,7 @@ var attack_count = 0  # Contador de ataques en el combo
 var attack_anim
 # Temporizador para controlar el tiempo sin atacar
 var attack_timer = 0.0
+var currentAtackAnimation
 
 @onready var atackMesh = $AtackMesh
 
@@ -43,12 +44,13 @@ func _ready():
 
 func _process(delta: float) -> void:
 	camera = get_tree().get_root().find_child("Camera", true, false) #esto lo pongo aqui por que al cambiar de nivel tmb cambia de camara
-
 	# Incrementa el temporizador de ataque si no está atacando
+	print(can_atack)
 	if can_atack:
 		attack_timer += delta
 		if attack_timer >= 0.2:
 			SPEED = 5 
+
 
 func setPlayerPosition(position: int):
 	match position:
@@ -64,7 +66,7 @@ func _physics_process(delta):
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	perform_dash(delta, direction)
-
+	
 	# Prioridad para mini-dash
 	if is_mini_dashing:
 		perform_mini_dash(delta)
@@ -114,10 +116,23 @@ func perform_dash(delta, direction):
 
 # Manejo de animaciones
 func play_animation(anim_name: String):
-
-	if current_animation != anim_name and SPEED != 0:
+	if SPEED != 0:
 		$Sprites/AnimationPlayer.play(anim_name)
-		current_animation = anim_name
+		current_animation = anim_name	
+
+func update_attack_animation():
+	# Obtener la posición del ratón en la pantalla
+	var mouse_pos = get_viewport().get_mouse_position()
+	# Obtener el ancho del viewport para dividirlo a la mitad
+	var viewport_width = get_viewport().size.x
+	var viewport_center = viewport_width / 2
+
+	# Determinar si el ratón está en el lado izquierdo o derecho del centro del viewport
+	if mouse_pos.x < viewport_center:
+		currentAtackAnimation = "Atack1_left"
+	else:
+		currentAtackAnimation = "Atack1_right"
+
 
 #----------------Funciones de ataque ------------------
 
@@ -159,9 +174,11 @@ func rotate_atack_mesh():
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
-		play_animation("Atack1_left")
-		attack_anim = true
-
+		
+		update_attack_animation()
+		play_animation(currentAtackAnimation)
+		$Sprites/AnimationPlayer.seek(0, false)
+		
 		SPEED = 0
 		can_atack = false  # Desactiva el ataque temporalmente
 		attack_count += 1  # Incrementa el contador de ataques en el combo
@@ -183,6 +200,7 @@ func attack():
 			return
 
 func perform_attack():
+	
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
 		
 	if Global.controller_active: # Si el controlador está activo
