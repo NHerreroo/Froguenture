@@ -45,7 +45,6 @@ func _ready():
 func _process(delta: float) -> void:
 	camera = get_tree().get_root().find_child("Camera", true, false) #esto lo pongo aqui por que al cambiar de nivel tmb cambia de camara
 	# Incrementa el temporizador de ataque si no está atacando
-	print(can_atack)
 	if can_atack:
 		attack_timer += delta
 		if attack_timer >= 0.2:
@@ -116,18 +115,22 @@ func perform_dash(delta, direction):
 
 # Manejo de animaciones
 func play_animation(anim_name: String):
-	if SPEED != 0:
+	if anim_name == currentAtackAnimation:
+		$Sprites/AnimationPlayer.play(anim_name)
+		current_animation = anim_name
+		return
+	if current_animation != anim_name and SPEED != 0:
 		$Sprites/AnimationPlayer.play(anim_name)
 		current_animation = anim_name	
 
 func update_attack_animation():
-	# Obtener la posición del ratón en la pantalla
+	# pos del ratón en la pantalla
 	var mouse_pos = get_viewport().get_mouse_position()
-	# Obtener el ancho del viewport para dividirlo a la mitad
+	#ancho del viewport para dividirlo a la mitad
 	var viewport_width = get_viewport().size.x
 	var viewport_center = viewport_width / 2
 
-	# Determinar si el ratón está en el lado izquierdo o derecho del centro del viewport
+	# mira el lado del raton dodne esta para cambiar la currentAnim
 	if mouse_pos.x < viewport_center:
 		currentAtackAnimation = "Atack1_left"
 	else:
