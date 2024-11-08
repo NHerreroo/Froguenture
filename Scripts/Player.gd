@@ -158,6 +158,7 @@ func rotate_atack_mesh():
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
+	
 		SPEED = 0
 		can_atack = false  # Desactiva el ataque temporalmente
 		attack_count += 1  # Incrementa el contador de ataques en el combo
@@ -177,6 +178,7 @@ func attack():
 			await get_tree().create_timer(Global.atackSpeed).timeout
 			can_atack = true
 			return
+		
 
 func perform_attack():
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
