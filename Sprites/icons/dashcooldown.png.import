@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1rij21bsluh0"
-path="res://.godot/imported/speedatack.svg-03521fdb81bc69fd5961c96283bd6fb7.ctex"
+uid="uid://c0ebf4qtfj2ow"
+path="res://.godot/imported/dashcooldown.png-4c449af86ddabc244d7fde8d1a52253f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/icons/speedatack.svg"
-dest_files=["res://.godot/imported/speedatack.svg-03521fdb81bc69fd5961c96283bd6fb7.ctex"]
+source_file="res://Sprites/icons/dashcooldown.png"
+dest_files=["res://.godot/imported/dashcooldown.png-4c449af86ddabc244d7fde8d1a52253f.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
