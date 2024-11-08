@@ -32,7 +32,7 @@ var mini_dash_direction = Vector3.ZERO
 const MESH_DISTANCE = 1.5  # Distancia del MeshInstance al personaje
 var can_atack = true
 var attack_count = 0  # Contador de ataques en el combo
-
+var attack_anim
 # Temporizador para controlar el tiempo sin atacar
 var attack_timer = 0.0
 
@@ -114,7 +114,8 @@ func perform_dash(delta, direction):
 
 # Manejo de animaciones
 func play_animation(anim_name: String):
-	if current_animation != anim_name:
+
+	if current_animation != anim_name and SPEED != 0:
 		$Sprites/AnimationPlayer.play(anim_name)
 		current_animation = anim_name
 
@@ -158,7 +159,9 @@ func rotate_atack_mesh():
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
-	
+		play_animation("Atack1_left")
+		attack_anim = true
+
 		SPEED = 0
 		can_atack = false  # Desactiva el ataque temporalmente
 		attack_count += 1  # Incrementa el contador de ataques en el combo
@@ -178,11 +181,10 @@ func attack():
 			await get_tree().create_timer(Global.atackSpeed).timeout
 			can_atack = true
 			return
-		
 
 func perform_attack():
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
-
+		
 	if Global.controller_active: # Si el controlador está activo
 		mini_dash_direction = direction  # Mini-dash en la dirección de movimiento actual
 	else:  # Si el teclado está activo
