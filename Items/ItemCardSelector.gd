@@ -33,13 +33,11 @@ func load_all_scene_paths():
 	load_scene_paths(BLACK_PATH, Black_scene_paths)
 	load_scene_paths(COLORLESS_PATH, Colorless_scene_paths)
 
-	get_item_card(Blue_scene_paths)
 
 # Mete las escenas en cada array de su color
 func load_scene_paths(folder_path: String, ItemColorArray: Array) -> void:
 	var dir = DirAccess.open(folder_path)
 	ItemColorArray.append(dir.get_files())
-	print(ItemColorArray)
 
 func get_random_color() -> Array:
 	var num = randi_range(0,5)

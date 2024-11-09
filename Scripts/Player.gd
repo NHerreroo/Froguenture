@@ -27,6 +27,7 @@ var dash_direction = Vector3.ZERO
 var is_mini_dashing = false
 var mini_dash_timer = 0.0
 var mini_dash_direction = Vector3.ZERO
+var last_direction = Vector3(0.278882, 0, -0.960325)  # ultima direecion para los de mando si no testan haciendo el input
 
 
 const MESH_DISTANCE = 1.5  # Distancia del MeshInstance al personaje
@@ -35,7 +36,10 @@ var attack_count = 0  # Contador de ataques en el combo
 var attack_anim
 # Temporizador para controlar el tiempo sin atacar
 var attack_timer = 0.0
-var currentAtackAnimation
+var currentAtackAnimation = "Atack1_right" #def animation
+
+
+
 
 @onready var atackMesh = $AtackMesh
 
@@ -64,6 +68,9 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("Keyboard_A", "Keyboard_D", "Keyboard_W", "Keyboard_S")
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	if direction != Vector3.ZERO: 
+		last_direction = direction
+		
 	perform_dash(delta, direction)
 	
 	# Prioridad para mini-dash
@@ -124,20 +131,29 @@ func play_animation(anim_name: String):
 		current_animation = anim_name	
 
 func update_attack_animation():
-	# pos del ratón en la pantalla
+	# Posición del ratón en la pantalla
 	var mouse_pos = get_viewport().get_mouse_position()
-	#ancho del viewport para dividirlo a la mitad
+	# Ancho del viewport para dividirlo a la mitad
 	var viewport_width = get_viewport().size.x
 	var viewport_center = viewport_width / 2
 
-	# mira el lado del raton dodne esta para cambiar la currentAnim
-	if mouse_pos.x < viewport_center:
-		currentAtackAnimation = "Atack1_left"
+	if Global.controller_active:
+		if direction.z > 0:
+			currentAtackAnimation = "Atack1_left"
+		elif direction.z < 0:
+			currentAtackAnimation = "Atack1_right"
+		else:
+			# Si la componente horizontal no es dominante, mantenemos la última dirección
+			if currentAtackAnimation == "":
+				currentAtackAnimation = "Atack1_right"  # Valor por defecto, o puedes usar el último estado
 	else:
-		currentAtackAnimation = "Atack1_right"
-		
-	#if Global.controller_active:
-		
+		# Si el controlador no está activo, usa la posición del ratón
+		if mouse_pos.x < viewport_center:
+			currentAtackAnimation = "Atack1_left"
+		else:
+			currentAtackAnimation = "Atack1_right"
+
+
 
 
 #----------------Funciones de ataque ------------------
@@ -208,9 +224,12 @@ func attack():
 func perform_attack():
 	
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
-		
-	if Global.controller_active: # Si el controlador está activo
-		mini_dash_direction = direction  # Mini-dash en la dirección de movimiento actual
+	if Global.controller_active:
+		# Si no hay entrada de movimiento, usa la última dirección
+		if direction == Vector3.ZERO:
+			mini_dash_direction = last_direction
+		else:
+			mini_dash_direction = direction
 	else:  # Si el teclado está activo
 		var hit_position = shoot_raycast()
 		mini_dash_direction = (hit_position - self.global_position).normalized()

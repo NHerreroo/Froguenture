@@ -46,7 +46,7 @@ shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 0.528
 
-[node name="ItemTemplate" type="Button"]
+[node name="SunSinner" type="Button"]
 offset_left = -233.0
 offset_top = -324.0
 offset_right = 235.0

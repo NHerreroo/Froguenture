@@ -40,9 +40,8 @@ var selected = false
 @onready var shadow = $Shadow
 @onready var collision_shape = $Area2D/CollisionShape2D
 
-func _ready() -> void:
-	entryCard()
-	setSorurceParam()
+signal item_pressed
+
 	
 func _process(delta: float) -> void:
 	if Global.card_selected == true and selected == false:
@@ -81,6 +80,7 @@ func _on_pressed():
 		Global.card_selected = true
 		selected = true
 		animate_to_player()
+		emit_signal("item_pressed")  # Emitir la señal
 
 func setSorurceParam():
 	setFoil()

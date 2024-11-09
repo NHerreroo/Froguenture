@@ -8,18 +8,18 @@
 [ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_shpl2"]
 [ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="7_okmjd"]
 
-[sub_resource type="Resource" id="Resource_iy5yg"]
+[sub_resource type="Resource" id="Resource_t1cjj"]
 script = ExtResource("3_ilxnd")
-name = "Counterspell"
-description = ""
+name = "asd"
+description = "asd"
 image = ExtResource("2_ro57a")
-habilitie1 = ""
-habilitie2 = ""
-habilitie3 = ""
-damage = ""
-health = ""
-quote = ""
-color_card = 4
+habilitie1 = "asas"
+habilitie2 = "erft"
+habilitie3 = "fg"
+damage = "asd"
+health = "fgh"
+quote = "fgh"
+color_card = 0
 card_type = 0
 foil = false
 
@@ -46,14 +46,14 @@ shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 0.528
 
-[node name="ItemTemplate" type="Button"]
-offset_left = -233.0
-offset_top = -324.0
-offset_right = 235.0
-offset_bottom = 320.0
+[node name="Counterspell" type="Button"]
+offset_left = 151.0
+offset_top = -6.0
+offset_right = 619.0
+offset_bottom = 638.0
 pivot_offset = Vector2(229.484, 322.68)
 script = ExtResource("1_qvpyb")
-item_Src = SubResource("Resource_iy5yg")
+item_Src = SubResource("Resource_t1cjj")
 
 [node name="Area2D" type="Area2D" parent="."]
 
