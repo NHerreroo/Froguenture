@@ -1,24 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://55rhpo0l7k62"]
+[gd_scene load_steps=12 format=3 uid="uid://h7jvoxtc1ojj"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_66lup"]
-[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="2_04fln"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_d6hpq"]
-[ext_resource type="Texture2D" uid="uid://gmspc4ixnwc8" path="res://Sprites/Items/Bluetemplate.png" id="4_7tkrr"]
-[ext_resource type="Texture2D" uid="uid://c777b47rum74y" path="res://Sprites/Items/Blacktemplate.png" id="5_q0are"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_0tcu7"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="7_e3v5x"]
+[ext_resource type="Script" path="res://Scripts/Items/lethal_fongus.gd" id="1_75ytf"]
+[ext_resource type="Texture2D" uid="uid://p7h2x6j26kfa" path="res://icon.svg" id="2_kgt6j"]
+[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_f2t3y"]
+[ext_resource type="Texture2D" uid="uid://gmspc4ixnwc8" path="res://Sprites/Items/Bluetemplate.png" id="4_4yykm"]
+[ext_resource type="Texture2D" uid="uid://c777b47rum74y" path="res://Sprites/Items/Blacktemplate.png" id="5_caqba"]
+[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_ka2hx"]
+[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="7_f5f52"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_d6hpq")
-name = "Tempalte Item"
-description = "Its a template"
-image = ExtResource("2_04fln")
-habilitie1 = "+1/+1"
+[sub_resource type="Resource" id="Resource_4gatu"]
+script = ExtResource("3_f2t3y")
+name = "Letal Fongus"
+description = ""
+image = ExtResource("2_kgt6j")
+habilitie1 = "Player poison bla bla"
 habilitie2 = ""
 habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
+damage = ""
+health = ""
+quote = ""
 color_card = 1
 card_type = 0
 foil = false
@@ -28,13 +28,13 @@ size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("6_0tcu7")
+shader = ExtResource("6_ka2hx")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("7_e3v5x")
+shader = ExtResource("7_f5f52")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -46,14 +46,14 @@ shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 0.528
 
-[node name="ItemTemplate" type="Button"]
+[node name="Lethal_Fongus" type="Button"]
 offset_left = -233.0
 offset_top = -324.0
 offset_right = 235.0
 offset_bottom = 320.0
 pivot_offset = Vector2(229.484, 322.68)
-script = ExtResource("1_66lup")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_75ytf")
+item_Src = SubResource("Resource_4gatu")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -71,7 +71,7 @@ offset_top = 37.0
 offset_right = 873.0
 offset_bottom = 1218.0
 scale = Vector2(0.541449, 0.541449)
-texture = ExtResource("4_7tkrr")
+texture = ExtResource("4_4yykm")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -80,14 +80,14 @@ offset_top = -5.0
 offset_right = 752.0
 offset_bottom = 1045.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_q0are")
+texture = ExtResource("5_caqba")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(371, 352)
 scale = Vector2(4.82813, 3.34104)
-texture = ExtResource("2_04fln")
+texture = ExtResource("2_kgt6j")
 
 [node name="Name" type="Label" parent="CardColor"]
 layout_mode = 0
@@ -181,4 +181,5 @@ mouse_filter = 2
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

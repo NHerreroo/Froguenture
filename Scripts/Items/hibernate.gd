@@ -25,4 +25,4 @@ extends Item
 
 
 func _on_button_up() -> void:
-	print("iteeeem")
+	print("Hibernate")

@@ -2249,7 +2249,7 @@ visible = false
 transform = Transform3D(1.32299, 0, 0, 0, 1.14575, 0.661497, 0, -0.661497, 1.14575, 0, 0.00123598, 0.00155214)
 
 [node name="Head" type="AnimatedSprite3D" parent="Sprites"]
-transform = Transform3D(0.00146771, -7.78291e-05, -6.80915e-06, 7.78294e-05, 0.00146772, -1.80428e-07, 6.80921e-06, -1.80391e-07, 0.00146976, 0, 0.00475581, 0.000127883)
+transform = Transform3D(0.00146771, -7.7829e-05, -6.80917e-06, 7.78295e-05, 0.00146772, -1.80429e-07, 6.80922e-06, -1.80391e-07, 0.00146976, 0, 0.00475581, 0.000127883)
 sorting_offset = 12.0
 sprite_frames = SubResource("SpriteFrames_52wam")
 animation = &"walk"

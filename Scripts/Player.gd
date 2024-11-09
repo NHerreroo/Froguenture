@@ -135,6 +135,9 @@ func update_attack_animation():
 		currentAtackAnimation = "Atack1_left"
 	else:
 		currentAtackAnimation = "Atack1_right"
+		
+	#if Global.controller_active:
+		
 
 
 #----------------Funciones de ataque ------------------
