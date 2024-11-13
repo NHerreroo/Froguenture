@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2w80s81wj2nn"]
+[gd_scene load_steps=18 format=3 uid="uid://2w80s81wj2nn"]
 
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_oboni"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_fxafx"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ba6jkwrjkq1b" path="res://Sprites/Vegetation/Tree2Background.png" id="5_py7e2"]
 [ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="6_5i1un"]
 [ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/stone2.png" id="7_7i3ru"]
+[ext_resource type="Texture2D" uid="uid://cj00p1oxolk3e" path="res://Sprites/Vegetation/Grass/GrassBG1.png" id="8_o3hjc"]
+[ext_resource type="Texture2D" uid="uid://bwgpc8xcrotxv" path="res://Sprites/Vegetation/Grass/GrassBG2.png" id="9_k8for"]
+[ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="10_7hj6u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -270,7 +273,7 @@ cast_shadow = 0
 texture = ExtResource("6_5i1un")
 
 [node name="Sprite3D14" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -4.20358, 2.05936, 10.0498)
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -4.12066, 2.05936, 10.0262)
 material_override = SubResource("StandardMaterial3D_nc405")
 cast_shadow = 0
 texture = ExtResource("6_5i1un")
@@ -316,3 +319,128 @@ transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.5922
 material_override = SubResource("StandardMaterial3D_qmxnj")
 cast_shadow = 0
 texture = ExtResource("7_7i3ru")
+
+[node name="Sprite3D34" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -6.13806, 0.680974, 4.49357)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D35" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -7.88829, 0.680974, 2.5359)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D57" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -9.42884, 0.680974, -3.23273)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D58" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -10.4232, 0.680974, 0.335504)
+cast_shadow = 0
+texture = ExtResource("9_k8for")
+
+[node name="Sprite3D36" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -6.13806, 0.680974, -3.42904)
+cast_shadow = 0
+texture = ExtResource("9_k8for")
+
+[node name="Sprite3D37" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -7.88829, 0.680974, -6.16185)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D38" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -3.1588, 0.680974, -12.6872)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D39" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -4.90903, 0.680974, -15.42)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D40" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -10.8366, 0.680974, 9.53585)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D41" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -12.5869, 0.680974, 6.80304)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D44" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, 6.29695, 0.680974, -8.24011)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D45" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, 2.31772, 0.680975, -14.3569)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D46" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, 7.49578, 0.680974, 10.5499)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D47" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, 5.74555, 0.680974, 7.81709)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D56" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -4.81858, 0.680974, 12.8202)
+cast_shadow = 0
+texture = ExtResource("9_k8for")
+
+[node name="Sprite3D42" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.6811e-08, -0.329599, -0.613365, -1.44073e-08, 0.613365, -0.329599, 0.696313, 0, -3.04368e-08, -4.73921, 0.680974, 15.665)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
+
+[node name="Sprite3D48" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -6.59002, 2.62393, 12.627)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D49" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -10.9912, 2.62393, 9.58618)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D50" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -12.2311, 2.62393, -0.499065)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D51" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -12.2311, 2.62393, -7.06898)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D52" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -7.90171, 2.62393, -6.58147)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D53" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -11.7458, 2.62393, 5.70422)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D54" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -6.9102, 2.62393, -9.69144)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D55" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -6.9102, 2.62393, 17.6409)
+cast_shadow = 0
+texture = ExtResource("10_7hj6u")
+
+[node name="Sprite3D43" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -2.92921, 0.680974, 12.9322)
+cast_shadow = 0
+texture = ExtResource("8_o3hjc")
