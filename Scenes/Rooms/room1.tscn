@@ -1,11 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqt8n0qxbrkcp"]
+[gd_scene load_steps=15 format=3 uid="uid://2w80s81wj2nn"]
 
-[ext_resource type="Script" path="res://Scripts/RoomDefaultScript.gd" id="1_cp6d3"]
-[ext_resource type="Texture2D" uid="uid://deqve71143204" path="res://Sprites/floor.png" id="1_qa7pt"]
+[ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_oboni"]
+[ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_fxafx"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_xkxlt"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_ftstr"]
+[ext_resource type="Texture2D" uid="uid://ba6jkwrjkq1b" path="res://Sprites/Vegetation/Tree2Background.png" id="5_py7e2"]
+[ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="6_5i1un"]
+[ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/stone2.png" id="7_7i3ru"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_oma5p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_fxafx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p6tl6"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mk0ac"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -13,36 +21,298 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="Environment" id="Environment_ywln1"]
 background_mode = 1
 
-[node name="Room1" type="Node3D"]
-script = ExtResource("1_cp6d3")
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
+size = Vector3(1, 4, 10)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
-texture = ExtResource("1_qa7pt")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nc405"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 1
+specular_mode = 1
+albedo_texture = ExtResource("6_5i1un")
+distance_fade_mode = 2
+distance_fade_min_distance = 6.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-7.36891e-07, 0, 9.4427, 0, 1, 0, -16.8581, 0, -4.12753e-07, 0.0226865, -0.535954, 0)
-visible = false
-mesh = SubResource("BoxMesh_oma5p")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmxnj"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 4
+cull_mode = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("7_7i3ru")
+distance_fade_mode = 2
+distance_fade_min_distance = 6.0
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="InitialRoom" type="Node3D"]
+script = ExtResource("1_oboni")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
+material_override = SubResource("StandardMaterial3D_lskdr")
+mesh = SubResource("PlaneMesh_p6tl6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(21.3409, 0, -1.13687e-13, 0, 8.78843, 0, 6.82121e-13, 0, 35.7898, 0, -0.951997, 0)
 shape = SubResource("ConcavePolygonShape3D_mk0ac")
 
 [node name="player" parent="." instance=ExtResource("2_xkxlt")]
 process_priority = 75
-transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 0.537616, 0.914092, 4.79304)
+transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ywln1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.224144, -0.5, 0.836516, -0.12941, 0.866025, 0.482963, -0.965926, 0, -0.258819, 13, 16, 0)
-light_color = Color(1, 0.956863, 0.87451, 1)
+light_energy = 0.808
 directional_shadow_mode = 0
 directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
 
-[node name="Node3D" parent="." instance=ExtResource("4_ftstr")]
+[node name="Camera" parent="." instance=ExtResource("4_ftstr")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)
+
+[node name="BoundsColliders" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BoundsColliders"]
+transform = Transform3D(5.91273, 0, 0, 0, 5.91273, 0, 0, 0, 5.91273, 0, 0, 9)
+
+[node name="top1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111658, -0.872897, 0.163282, -0.617463)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="topbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.0611771, -0.872898, 0.163282, -1.50271)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="top2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111658, -0.873, 0.163, -2.399)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="right1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39277e-09, 0, -0.111659, 0, 0.169127, 0, 0.169127, 0, -4.88075e-09, -0.839889, 0.163282, -3.03449)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="rightbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39277e-09, 0, -0.0611772, 0, 0.169127, 0, 0.169127, 0, -2.67414e-09, 0.0453556, 0.163282, -3.0345)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="right2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39277e-09, 0, -0.111659, 0, 0.169127, 0, 0.169127, 0, -4.88075e-09, 0.94165, 0.163, -3.0346)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="left1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39276e-09, 0, 0.111659, 0, 0.169127, 0, -0.169127, 0, -4.88075e-09, 0.937967, 0.163282, 0.0157124)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="leftbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39276e-09, 0, 0.0611772, 0, 0.169127, 0, -0.169127, 0, -2.67414e-09, 0.0527225, 0.163282, 0.0157136)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="left2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39276e-09, 0, 0.111659, 0, 0.169127, 0, -0.169127, 0, -4.88075e-09, -0.843572, 0.163, 0.0158134)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="bot1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111659, 0.895318, 0.163282, -0.617463)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="botbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.0659768, 0.895, 0.163, -1.503)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="bot2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111659, 0.895, 0.163, -2.399)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="Vegetation" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -9.64073, 2.6, 7.4463)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -9.26256, 2.6, -8.40976)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -7.45029, 2.6, -13.5236)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -14.9068, 2.6, -12.2801)
+modulate = Color(0.47788, 0.47788, 0.47788, 1)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -13.0946, 2.6, -17.3939)
+modulate = Color(0.393086, 0.393086, 0.393085, 1)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -14.9068, 2.6, 2.04288)
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -13.0946, 2.6, -3.07095)
+modulate = Color(0.385493, 0.385492, 0.385492, 1)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -13.0946, 2.6, 12.8329)
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D15" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -8.22099, 2.6, 15.372)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D16" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-4.37114e-08, -0.642788, -0.766044, 0, 0.766044, -0.642788, 1, -2.80971e-08, -3.34849e-08, -16.9255, 2.6, 7.25352)
+modulate = Color(0.400698, 0.400698, 0.400698, 1)
+texture = ExtResource("5_py7e2")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, 5.08767, 2.05936, 5.00235)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, 4.53955, 2.05936, -4.81728)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D11" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, 2.5894, 2.05936, -9.80715)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D12" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, 2.5894, 2.05936, 10.0498)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D13" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -4.29086, 2.05936, -9.80715)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D17" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -10.2956, 2.05936, 4.37706)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D18" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -9.70696, 2.05936, -4.90873)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D19" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -10.2956, 2.05936, 20.6786)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D20" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -9.70696, 2.05936, 11.3928)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D21" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -10.2956, 2.05936, -13.5398)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D22" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -9.70696, 2.05936, -22.8256)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D23" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -0.598063, 2.05936, -13.5398)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D24" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -0.00942564, 2.05936, -22.8256)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D25" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -0.598063, 2.05936, 23.6567)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D26" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -0.00942564, 2.05936, 15.2608)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D14" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -4.20358, 2.05936, 10.0498)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D27" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, -4.0934, 2.05936, 19.6372)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D29" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-0.536415, -0.282102, 0.174426, -0.331671, 0.456245, -0.282101, -5.1015e-08, -0.331671, -0.536415, 0.740816, 0.201908, 20.165)
+material_override = SubResource("StandardMaterial3D_qmxnj")
+cast_shadow = 0
+texture = ExtResource("7_7i3ru")
+
+[node name="Sprite3D28" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-3.36737e-08, -0.476325, -0.770364, -2.08208e-08, 0.770364, -0.476325, 0.90573, 0, -3.95907e-08, 5.38681, 2.05936, 15.3161)
+material_override = SubResource("StandardMaterial3D_nc405")
+cast_shadow = 0
+texture = ExtResource("6_5i1un")
+
+[node name="Sprite3D30" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -6.60409, 0.680974, 8.19424)
+material_override = SubResource("StandardMaterial3D_qmxnj")
+cast_shadow = 0
+texture = ExtResource("7_7i3ru")
+
+[node name="Sprite3D31" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -6.13806, 0.680974, -6.84425)
+material_override = SubResource("StandardMaterial3D_qmxnj")
+cast_shadow = 0
+texture = ExtResource("7_7i3ru")
+
+[node name="Sprite3D32" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, 7.8411, 0.680974, -3.68233)
+material_override = SubResource("StandardMaterial3D_qmxnj")
+cast_shadow = 0
+texture = ExtResource("7_7i3ru")
+
+[node name="Sprite3D33" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, 4.26173, 0.680974, 13.6308)
+material_override = SubResource("StandardMaterial3D_qmxnj")
+cast_shadow = 0
+texture = ExtResource("7_7i3ru")
