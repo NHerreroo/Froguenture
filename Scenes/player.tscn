@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=38 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -2256,6 +2256,9 @@ animations = [{
 
 [sub_resource type="BoxMesh" id="BoxMesh_w2qcx"]
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g6lhy"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(123.83, 0, 0, 0, 123.83, 0, 0, 0, 123.83, 0, 0.0214218, 0)
 script = ExtResource("1_pjjon")
@@ -2318,3 +2321,9 @@ sprite_frames = SubResource("SpriteFrames_i5v5n")
 transform = Transform3D(0.0207087, 0, 0, 0, 0.00739013, 0, 0, 0, 0.00739013, 0.00074687, 0, 0.0118667)
 visible = false
 mesh = SubResource("BoxMesh_w2qcx")
+
+[node name="Area3D" type="Area3D" parent="AtackMesh" groups=["attack"]]
+
+[node name="AttackCollider" type="CollisionShape3D" parent="AtackMesh/Area3D"]
+shape = SubResource("ConcavePolygonShape3D_g6lhy")
+disabled = true

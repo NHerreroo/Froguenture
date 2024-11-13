@@ -21,3 +21,8 @@ func setCollisions():
 		var collider = $BoundsColliders/StaticBody3D.get_node(side + "btwn")
 		collider.disabled = not Global.get(side + "Collider")
 	collilsions_seted = true
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("attack"):
+		print("colisionaa")

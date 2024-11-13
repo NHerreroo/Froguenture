@@ -30,6 +30,11 @@ window/size/mode=3
 
 project/assembly_name="Uncommon Like"
 
+[global_group]
+
+attack=""
+enemy=""
+
 [input]
 
 ui_accept={

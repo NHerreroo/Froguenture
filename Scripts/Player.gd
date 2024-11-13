@@ -42,9 +42,12 @@ var currentAtackAnimation = "Atack1_right" #def animation
 
 
 @onready var atackMesh = $AtackMesh
+@onready var attackCollider = $AtackMesh/Area3D/AttackCollider
+
 
 func _ready():
 	setPlayerPosition(Global.playerDirection)
+	
 
 func _process(delta: float) -> void:
 	camera = get_tree().get_root().find_child("Camera", true, false) #esto lo pongo aqui por que al cambiar de nivel tmb cambia de camara
@@ -64,7 +67,6 @@ func setPlayerPosition(position: int):
 		4: self.position = Vector3(2.638, 0.014, -0.207)  # mitad (inicio partida)
 
 func _physics_process(delta):
-	
 	var input_dir = Input.get_vector("Keyboard_A", "Keyboard_D", "Keyboard_W", "Keyboard_S")
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
@@ -196,7 +198,7 @@ func rotate_atack_mesh():
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
-		
+		attackCollider.disabled = false
 		update_attack_animation()
 		play_animation(currentAtackAnimation)
 		$Sprites/AnimationPlayer.seek(0, false)
@@ -214,15 +216,16 @@ func attack():
 			await get_tree().create_timer(Global.atackSpeed).timeout
 			can_atack = true
 			attack_count = 0
+			attackCollider.disabled = true
 			return
 		else:
 			perform_attack()
 			await get_tree().create_timer(Global.atackSpeed).timeout
 			can_atack = true
+			attackCollider.disabled = true
 			return
 
 func perform_attack():
-	
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
 	if Global.controller_active:
 		# Si no hay entrada de movimiento, usa la última dirección
