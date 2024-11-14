@@ -10,11 +10,17 @@ var knockback_velocity = Vector3.ZERO
 var knockback_duration = 0.2 
 var knockback_timer = 0.0  
 
+var healt = 50
+
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("attack"):
 		var knockback_direction = (global_transform.origin - area.global_transform.origin).normalized()
 		knockback_velocity = knockback_direction * 10.0 
 		knockback_timer = knockback_duration
+		
+		healt -= 25
+		if healt <= 0:
+			queue_free()
 
 func _physics_process(delta: float):
 	player = get_tree().get_root().find_child("player", true, false)
