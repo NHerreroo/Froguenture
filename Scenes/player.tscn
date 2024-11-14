@@ -2318,7 +2318,7 @@ sprite_frames = SubResource("SpriteFrames_i5v5n")
 [node name="Hud" parent="." instance=ExtResource("18_gvt84")]
 
 [node name="AtackMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0207087, 0, 0, 0, 0.00739013, 0, 0, 0, 0.00739013, 0.00074687, 0, 0.0118667)
+transform = Transform3D(0.0164474, 0, 0, 0, 0.00739013, 0, 0, 0, 0.00739013, 0.00074687, 0, 0.00822294)
 visible = false
 mesh = SubResource("BoxMesh_w2qcx")
 
