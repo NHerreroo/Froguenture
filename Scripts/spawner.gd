@@ -1,6 +1,6 @@
 extends Node3D
 
-var enemie = preload("res://Scenes/Enemies/ENEMY.tscn")
+var enemie = preload("res://Scenes/Enemies/EnemyTemplate.tscn")
 var num1
 var num2
 

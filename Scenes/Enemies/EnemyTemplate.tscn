@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://87pl0aihb3pw"]
+[gd_scene load_steps=6 format=3 uid="uid://87pl0aihb3pw"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/enemy.gd" id="1_qahrv"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy_template.gd" id="1_y4qnf"]
+[ext_resource type="Script" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_j1apf"]
+
+[sub_resource type="Resource" id="Resource_mjjwl"]
+script = ExtResource("2_j1apf")
+health = 54.0
+attack = 564.0
+speed = 3.0
+accel = 10.0
+knockback_duration = 0.2
+knockback_timer = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_7cqr4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
 
-[node name="Sprite3D" type="CharacterBody3D"]
-script = ExtResource("1_qahrv")
+[node name="EnemyTemplate" type="CharacterBody3D"]
+script = ExtResource("1_y4qnf")
+enemy_src = SubResource("Resource_mjjwl")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 

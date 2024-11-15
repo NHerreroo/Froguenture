@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="7_28x42"]
 [ext_resource type="Texture2D" uid="uid://13v7dfcimowl" path="res://Sprites/Vegetation/rock1.png" id="7_veyk0"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="7_xisfc"]
-[ext_resource type="PackedScene" uid="uid://87pl0aihb3pw" path="res://Scenes/Enemies/ENEMY.tscn" id="8_1gi4p"]
+[ext_resource type="PackedScene" uid="uid://87pl0aihb3pw" path="res://Scenes/Enemies/EnemyTemplate.tscn" id="8_1gi4p"]
 [ext_resource type="PackedScene" uid="uid://cyphpw537byxx" path="res://Scenes/Enemies/spawner.tscn" id="9_0s4fb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_te2ct"]
