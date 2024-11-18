@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://87pl0aihb3pw"]
+[gd_scene load_steps=8 format=3 uid="uid://87pl0aihb3pw"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy_template.gd" id="1_y4qnf"]
 [ext_resource type="Script" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_j1apf"]
@@ -16,6 +16,12 @@ knockback_timer = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
 
+[sub_resource type="Gradient" id="Gradient_kgy45"]
+colors = PackedColorArray(0.676917, 0, 0.0837418, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_euaxv"]
+gradient = SubResource("Gradient_kgy45")
+
 [node name="EnemyTemplate" type="CharacterBody3D"]
 script = ExtResource("1_y4qnf")
 enemy_src = SubResource("Resource_mjjwl")
@@ -30,5 +36,10 @@ mesh = SubResource("BoxMesh_7cqr4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
 shape = SubResource("BoxShape3D_6cego")
+
+[node name="ProgressBar" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.39698, 0)
+billboard = 1
+texture = SubResource("GradientTexture1D_euaxv")
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]

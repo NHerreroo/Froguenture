@@ -13,16 +13,31 @@ var player
 @onready var knockback_duration = enemy_src.knockback_duration
 @onready var knockback_timer = enemy_src.knockback_timer
 
-@onready var healt = enemy_src.health
+@onready var health = enemy_src.health
+@onready var maxHealth = enemy_src.health
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("attack"):
 		var knockback_direction = (global_transform.origin - area.global_transform.origin).normalized()
 		knockback_velocity = knockback_direction * 10.0 
 		knockback_timer = knockback_duration
+
+		# Restar salud por el ataque
+		var damage = 15
+		health -= damage
+
+		# Asegurarse de que la salud no sea negativa
+		if health < 0:
+			health = 0
+
+		# Calcular la proporción de salud restante
+		var health_ratio = float(health) / float(maxHealth)
 		
-		healt -= 25
-		if healt <= 0:
+		# Ajustar la escala de la barra de progreso proporcionalmente
+		$ProgressBar.scale.x = health_ratio
+		
+		# Eliminar el enemigo si la salud llega a 0
+		if health <= 0:
 			queue_free()
 
 func _physics_process(delta: float):
