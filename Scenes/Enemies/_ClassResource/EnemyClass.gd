@@ -30,7 +30,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		if health < 0:
 			health = 0
 
-		# Calcular la proporción de salud restante
 		var health_ratio = float(health) / float(maxHealth)
 		
 		# Ajustar la escala de la barra de progreso proporcionalmente
@@ -41,6 +40,9 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			queue_free()
 
 func _physics_process(delta: float):
+	if Global.eraseLevel:
+		queue_free()
+		
 	player = get_tree().get_root().find_child("player", true, false)
 
 	if knockback_timer > 0:
