@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_2ownm"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_lm08f"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_53mdv"]
-[ext_resource type="Texture2D" uid="uid://ba6jkwrjkq1b" path="res://Sprites/Vegetation/Tree2Background.png" id="5_k6yk2"]
-[ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="6_0vrnk"]
+[ext_resource type="Texture2D" uid="uid://ba6jkwrjkq1b" path="res://Sprites/Vegetation/Trees/Tree2Background.png" id="5_k6yk2"]
+[ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Trees/Tree1Background.png" id="6_0vrnk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3

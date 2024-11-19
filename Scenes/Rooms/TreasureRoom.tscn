@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dumewjinakxow"]
+[gd_scene load_steps=16 format=3 uid="uid://dumewjinakxow"]
 
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_o6hpw"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_sreyh"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_sbv4t"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_r1awb"]
-[ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Tree1Background.png" id="6_hithp"]
-[ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/stone2.png" id="6_n8gxm"]
+[ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Trees/Tree1Background.png" id="6_hithp"]
+[ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/Rocks/stone2.png" id="6_n8gxm"]
 [ext_resource type="PackedScene" uid="uid://cok6bb14ac8qk" path="res://Items/ItemCardSelector.tscn" id="6_ngra2"]
+[ext_resource type="Texture2D" uid="uid://pjkbjllbcs45" path="res://Sprites/Vegetation/Misc/alfombra.png" id="7_eejst"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -205,5 +206,10 @@ transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.5922
 material_override = SubResource("StandardMaterial3D_eorpn")
 cast_shadow = 0
 texture = ExtResource("6_n8gxm")
+
+[node name="Sprite3D" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(0.637646, 0, 0, 0, -3.40025e-08, -0.777886, 0, 0.777886, -3.40025e-08, 0.159107, -0.0264435, 0)
+alpha_cut = 1
+texture = ExtResource("7_eejst")
 
 [node name="ItemCardSelector" parent="." instance=ExtResource("6_ngra2")]

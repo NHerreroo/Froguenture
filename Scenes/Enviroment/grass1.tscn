@@ -1,0 +1,269 @@
+[gd_scene load_steps=16 format=3 uid="uid://7ujjmb0lt1o8"]
+
+[ext_resource type="Texture2D" uid="uid://dmi2f0c3yuc50" path="res://Sprites/Vegetation/Grass/Grass1.png" id="1_kymt5"]
+[ext_resource type="Texture2D" uid="uid://d1ffy81qrj5cw" path="res://Sprites/Vegetation/Grass/Grass2.png" id="2_jwdh5"]
+[ext_resource type="Texture2D" uid="uid://drudo72q3hpnr" path="res://Sprites/Vegetation/Grass/Grass3.png" id="3_tpp8h"]
+[ext_resource type="Texture2D" uid="uid://ce1lepww8qsu" path="res://Sprites/Vegetation/Grass/Grass4.png" id="4_gugqx"]
+[ext_resource type="Texture2D" uid="uid://bqe1f4wwwqf21" path="res://Sprites/Vegetation/Grass/Grass5.png" id="5_16xu1"]
+[ext_resource type="Texture2D" uid="uid://bnpuvwdbe4tpl" path="res://Sprites/Vegetation/Grass/Grass6.png" id="6_n3aa5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jf131"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kymt5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v65qk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jwdh5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jypj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tpp8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qwp4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gugqx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45536"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_16xu1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a78wg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n3aa5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_wl5td"]
+resource_name = "grass1"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.466667, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.96046e-08, 7.10543e-15, 0), Vector3(5.09566e-08, 9.83135e-09, 0.177378)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0), Vector3(2.7079e-08, 1.73739e-09, 0.0610691)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D3:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.166667, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0), Vector3(2.47384e-08, 3.05265e-09, 0.111823)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D4:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0), Vector3(3.46051e-08, -3.69453e-09, -0.114598)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D5:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.266667, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(5.60714e-09, -3.6112e-10, -0.128631)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite3D6:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.43333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0), Vector3(2.29325e-08, 3.96423e-09, 0.150063)]
+}
+
+[sub_resource type="Animation" id="Animation_1b0k2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.96046e-08, 7.10543e-15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite3D6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.98023e-08, 3.55271e-15, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwu77"]
+_data = {
+"RESET": SubResource("Animation_1b0k2"),
+"grass1": SubResource("Animation_wl5td")
+}
+
+[node name="Grass1" type="Node3D"]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 0.145888, 2.72415, -0.243326)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 4.23517e-22, 7.10543e-15, 0, 1, -5.96046e-08, -7.10543e-15, 5.96046e-08, 1, 0, 0.350882, -0.607746)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_jf131")
+
+[node name="Sprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, 0, 0.104183, -0.180451)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_v65qk")
+
+[node name="Sprite3D3" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, 0, 0.0628479, -0.108855)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_jypj4")
+
+[node name="Sprite3D4" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, -5.96046e-08, -0.106185, 0.183917)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_2qwp4")
+
+[node name="Sprite3D5" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_45536")
+
+[node name="Sprite3D6" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, 0, 0.0801997, -0.13891)
+sprite_frames = SubResource("SpriteFrames_a78wg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cwu77")
+}

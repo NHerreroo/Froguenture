@@ -156,8 +156,6 @@ func update_attack_animation():
 			currentAtackAnimation = "Atack1_right"
 
 
-
-
 #----------------Funciones de ataque ------------------
 
 func shoot_raycast() -> Vector3:
