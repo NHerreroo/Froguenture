@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://87pl0aihb3pw"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy_template.gd" id="1_y4qnf"]
+[ext_resource type="Script" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_j1apf"]
+
+[sub_resource type="Resource" id="Resource_mjjwl"]
+script = ExtResource("2_j1apf")
+health = 54.0
+attack = 564.0
+speed = 3.0
+accel = 10.0
+knockback_duration = 0.2
+knockback_timer = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7cqr4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+
+[sub_resource type="Gradient" id="Gradient_kgy45"]
+colors = PackedColorArray(0.676917, 0, 0.0837418, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_euaxv"]
+gradient = SubResource("Gradient_kgy45")
+
+[node name="EnemyTemplate" type="CharacterBody3D"]
+script = ExtResource("1_y4qnf")
+enemy_src = SubResource("Resource_mjjwl")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460325, 0)
+mesh = SubResource("BoxMesh_7cqr4")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_6cego")
+
+[node name="ProgressBar" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.39698, 0)
+billboard = 1
+texture = SubResource("GradientTexture1D_euaxv")
+
+[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]

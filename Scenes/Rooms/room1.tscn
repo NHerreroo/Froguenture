@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2w80s81wj2nn"]
+[gd_scene load_steps=19 format=3 uid="uid://2w80s81wj2nn"]
 
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_oboni"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_fxafx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cj00p1oxolk3e" path="res://Sprites/Vegetation/Grass/GrassBG1.png" id="8_o3hjc"]
 [ext_resource type="Texture2D" uid="uid://bwgpc8xcrotxv" path="res://Sprites/Vegetation/Grass/GrassBG2.png" id="9_k8for"]
 [ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="10_7hj6u"]
+[ext_resource type="PackedScene" uid="uid://87pl0aihb3pw" path="res://Scenes/Enemies/EnemyTemplate.tscn" id="11_b0lty"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -444,3 +445,6 @@ texture = ExtResource("10_7hj6u")
 transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -2.92921, 0.680974, 12.9322)
 cast_shadow = 0
 texture = ExtResource("8_o3hjc")
+
+[node name="EnemyTemplate" parent="." instance=ExtResource("11_b0lty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36738, 0.305101, 2.88494)
