@@ -7,10 +7,12 @@ var leftDoor = preload("res://Scenes/Doors/LeftDoor.tscn")
 var rightDoor = preload("res://Scenes/Doors/RightDoor.tscn")
 
 # cargo las escenas de todas las habitaciones para poder instanciarlas dependiendo la posicion del array
-var initRoom = preload("res://Scenes/Rooms/initialRoom.tscn")
-var room1 = preload("res://Scenes/Rooms/room1.tscn")
-var finalRoom = preload("res://Scenes/Rooms/FinalRoom.tscn")
-var treasureRoom = preload("res://Scenes/Rooms/TreasureRoom.tscn")
+var initRoom = preload("res://Scenes/Rooms/InitalRooms/initialRoom.tscn")
+var room1 = preload("res://Scenes/Rooms/PreBuildedRooms/room1.tscn")
+var room2 = preload("res://Scenes/Rooms/PreBuildedRooms/room2.tscn")
+
+var finalRoom = preload("res://Scenes/Rooms/FinalRooms/FinalRoom.tscn")
+var treasureRoom = preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
 
 # Constates Char para las salas
 var ROOM = ''
@@ -150,8 +152,11 @@ func instanceRoom():
 		currentRoom = finalRoom.instantiate()
 	elif Global.map[x][y] == '$':
 		currentRoom = treasureRoom.instantiate()
-	else:
+	elif Global.map[x][y] == '#':
 		currentRoom = room1.instantiate()
+	else:
+		var room_scene = load("res://Scenes/Rooms/PreBuildedRooms/room" + str(Global.map[x][y]) +".tscn")
+		currentRoom = room_scene.instantiate()
 
 	currentRoom.position = Vector3(0, 0, 0)
 	add_child(currentRoom)

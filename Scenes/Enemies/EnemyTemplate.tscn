@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://87pl0aihb3pw"]
+[gd_scene load_steps=11 format=3 uid="uid://87pl0aihb3pw"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/enemy_template.gd" id="1_y4qnf"]
 [ext_resource type="Script" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_j1apf"]
+[ext_resource type="Texture2D" uid="uid://cwinnm0ilk5pd" path="res://Sprites/Enemies/1.png" id="3_oyavr"]
 
 [sub_resource type="Resource" id="Resource_mjjwl"]
 script = ExtResource("2_j1apf")
@@ -12,9 +13,8 @@ accel = 10.0
 knockback_duration = 0.2
 knockback_timer = 0.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_7cqr4"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+size = Vector3(3.50751, 3.1073, 2.86035)
 
 [sub_resource type="Gradient" id="Gradient_kgy45"]
 colors = PackedColorArray(0.676917, 0, 0.0837418, 1, 0, 0, 0, 1)
@@ -22,24 +22,93 @@ colors = PackedColorArray(0.676917, 0, 0.0837418, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_euaxv"]
 gradient = SubResource("Gradient_kgy45")
 
+[sub_resource type="Animation" id="Animation_mr116"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.275561, 0.275561, 0.275561), Vector3(0.275561, 0.222602, 0.275561)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.309002, 0), Vector3(0, 0.230535, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aupjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.275561, 0.275561, 0.275561)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.309002, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
+_data = {
+"RESET": SubResource("Animation_aupjf"),
+"idle": SubResource("Animation_mr116")
+}
+
 [node name="EnemyTemplate" type="CharacterBody3D"]
 script = ExtResource("1_y4qnf")
 enemy_src = SubResource("Resource_mjjwl")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.460325, 0)
-mesh = SubResource("BoxMesh_7cqr4")
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.20451e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02257e-09, -1.04314e-08, 0, 0.309002, 0)
+texture = ExtResource("3_oyavr")
 
 [node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 3.55271e-15, 3.55271e-15, 0.990423, -5.96046e-08, -3.55271e-15, -6.72415e-16, 1, -2.07479e-17, -0.0122893, -0.0058223)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.999999, -2.13389e-08, -3.92733e-09, 1.67991e-08, 0.880849, -0.508562, 1.40709e-08, 0.499999, 0.866023, 0.0801088, 1.03579, 0.917103)
 shape = SubResource("BoxShape3D_6cego")
 
 [node name="ProgressBar" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.39698, 0)
 billboard = 1
 texture = SubResource("GradientTexture1D_euaxv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xu1it")
+}
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
