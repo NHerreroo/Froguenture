@@ -30,6 +30,9 @@ func defaultRoomGen():
 	ROOM = str(randRoom)
 
 func map_generator(map_size: int, steps: int) -> void:
+	
+	set_global_stats()
+		
 	Global.map = []  # Crear la matriz del mapa
 
 	# Creo la matriz con espacios vacíos
@@ -185,3 +188,7 @@ func _ready():
 
 func _process(delta):
 	updateLevel()
+
+
+func set_global_stats():
+	Global.card_selected = false

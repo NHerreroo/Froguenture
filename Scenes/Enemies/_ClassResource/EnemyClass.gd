@@ -24,8 +24,7 @@ enum state {
 	MOVING,
 	ATTACKING
 }
-func _ready() -> void:
-	get_random_state()
+
 	
 func _physics_process(delta: float) -> void:
 	match random_index:

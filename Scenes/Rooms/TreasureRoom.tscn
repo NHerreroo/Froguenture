@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dumewjinakxow"]
+[gd_scene load_steps=19 format=3 uid="uid://dumewjinakxow"]
 
 [ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_o6hpw"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_sreyh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/Rocks/stone2.png" id="6_n8gxm"]
 [ext_resource type="PackedScene" uid="uid://cok6bb14ac8qk" path="res://Items/ItemCardSelector.tscn" id="6_ngra2"]
 [ext_resource type="Texture2D" uid="uid://pjkbjllbcs45" path="res://Sprites/Vegetation/Misc/alfombra.png" id="7_eejst"]
+[ext_resource type="Texture2D" uid="uid://coo0lmoftpm1u" path="res://Sprites/Npc/PitonistCAT/def.png" id="8_ndgy1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -46,6 +47,16 @@ specular_mode = 1
 albedo_texture = ExtResource("6_n8gxm")
 distance_fade_mode = 2
 distance_fade_min_distance = 6.0
+
+[sub_resource type="Gradient" id="Gradient_w1xdb"]
+offsets = PackedFloat32Array(0, 0.558442, 1)
+colors = PackedColorArray(0, 0, 0, 0.72549, 0.0509804, 0.0509804, 0.0509804, 0.690196, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jtnf1"]
+gradient = SubResource("Gradient_w1xdb")
+fill = 1
+fill_from = Vector2(0.518349, 0.509174)
+fill_to = Vector2(0.866973, 0.110092)
 
 [node name="TreasureRoom" type="Node3D"]
 script = ExtResource("1_o6hpw")
@@ -211,5 +222,13 @@ texture = ExtResource("6_n8gxm")
 transform = Transform3D(0.637646, 0, 0, 0, -3.40025e-08, -0.777886, 0, 0.777886, -3.40025e-08, 0.159107, -0.0264435, 0)
 alpha_cut = 1
 texture = ExtResource("7_eejst")
+
+[node name="Cat" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-1.1109e-08, -0.14673, -0.254143, -6.41376e-09, 0.254143, -0.14673, 0.293459, 0, -1.28275e-08, 0, 0.724011, 0)
+texture = ExtResource("8_ndgy1")
+
+[node name="Sprite3D" type="Sprite3D" parent="Vegetation/Cat"]
+transform = Transform3D(11.2198, 2.63348e-07, -1.52044e-07, -4.24726e-07, 3.47836, -6.0247, -2.45216e-07, 6.0247, 3.47836, 3.55812e-08, -1.40989, 0.814003)
+texture = SubResource("GradientTexture2D_jtnf1")
 
 [node name="ItemCardSelector" parent="." instance=ExtResource("6_ngra2")]
