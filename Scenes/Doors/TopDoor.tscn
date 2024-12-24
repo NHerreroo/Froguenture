@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ou21dtyhd5d8"]
+[gd_scene load_steps=11 format=3 uid="uid://ou21dtyhd5d8"]
 
 [ext_resource type="Script" path="res://Scripts/Doors/TopDoor.gd" id="1_c6ou0"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_cmn7x"]
@@ -25,6 +25,43 @@ alpha_antialiasing_mode = 0
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("3_m2ydn")
+
+[sub_resource type="Animation" id="Animation_1a6ye"]
+resource_name = "BlockDoor"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trunk:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00711162, -0.281915, 0.430075), Vector3(0.00711162, -0.069012, 0.430075), Vector3(0.00711158, -2.30626, 1.28629)]
+}
+
+[sub_resource type="Animation" id="Animation_form2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trunk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00711162, -0.281915, 0.430075)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6pbv"]
+_data = {
+"BlockDoor": SubResource("Animation_1a6ye"),
+"RESET": SubResource("Animation_form2")
+}
 
 [node name="TopDoor" type="Area3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -63,5 +100,10 @@ material_override = SubResource("StandardMaterial3D_wd8gd")
 billboard = 1
 alpha_cut = 1
 texture = ExtResource("3_m2ydn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j6pbv")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

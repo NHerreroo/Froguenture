@@ -20,6 +20,8 @@ var botCollider = false
 var rightCollider = false
 var leftCollider = false
 
+var enemies_remaining = 0
+
 
 var map = [] #contiene el mapa generado para que al reinicial la escena no se pierda
 

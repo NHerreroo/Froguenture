@@ -7,7 +7,7 @@
 script = ExtResource("1_rqrif")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(0.0890008, 0, 0, 0, 0.0890008, 0, 0, 0, 0.0890008, 0, 0, 0)
+transform = Transform3D(0.0890008, 0, 0, 0, 0.0890008, 0, 0, 0, 0.0890008, 0, 0.472547, 0)
 sorting_offset = 6.095
 billboard = 1
 texture = ExtResource("3_gqpnk")

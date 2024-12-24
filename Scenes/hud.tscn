@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbi5nch0is25o"]
+[gd_scene load_steps=11 format=3 uid="uid://cbi5nch0is25o"]
 
 [ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="1_6ca58"]
+[ext_resource type="PackedScene" uid="uid://jiy0evqv08t7" path="res://Scenes/mini_map.tscn" id="1_lxgdj"]
 [ext_resource type="Texture2D" uid="uid://cwi1p5cfvdagp" path="res://Sprites/icons/poison.png" id="2_kp3v7"]
 [ext_resource type="Texture2D" uid="uid://dbfqludd4lps7" path="res://Sprites/icons/shield.png" id="2_kv171"]
 [ext_resource type="Texture2D" uid="uid://dlas26r520c4s" path="res://Sprites/icons/heart.png" id="2_rbvl2"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ebf4qtfj2ow" path="res://Sprites/icons/dashcooldown.png" id="4_sqwj6"]
 [ext_resource type="Texture2D" uid="uid://cah1wttpcmwvd" path="res://Sprites/icons/speedatack.png" id="7_1tm2w"]
 [ext_resource type="Texture2D" uid="uid://dvd6ws5u0krgb" path="res://Sprites/icons/money.png" id="7_8s83s"]
+[ext_resource type="Script" path="res://Scripts/DebugLabel.gd" id="9_v6t1x"]
 
 [node name="Hud" type="Control"]
 top_level = true
@@ -20,6 +22,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MiniMap" parent="CanvasLayer" instance=ExtResource("1_lxgdj")]
+offset_left = 1758.0
+offset_top = 121.0
+offset_right = 1758.0
+offset_bottom = 121.0
+scale = Vector2(-0.75599, 0.75599)
 
 [node name="Heart" type="Sprite2D" parent="."]
 position = Vector2(143, 101)
@@ -77,6 +86,16 @@ scale = Vector2(0.111021, 0.111021)
 texture = ExtResource("7_1tm2w")
 
 [node name="Money" type="Sprite2D" parent="."]
-position = Vector2(1835, 92)
+position = Vector2(1559, 92)
 scale = Vector2(0.22215, 0.22215)
 texture = ExtResource("7_8s83s")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 730.0
+offset_right = 1717.0
+offset_bottom = 1073.0
+text = "sdfsfsdfsdf"
+horizontal_alignment = 2
+script = ExtResource("9_v6t1x")

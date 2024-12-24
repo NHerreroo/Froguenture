@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://jiy0evqv08t7"]
+
+[ext_resource type="Script" path="res://Scripts/mini_map.gd" id="1_a4ck7"]
+[ext_resource type="Texture2D" uid="uid://b4o6ojwji1c2w" path="res://Sprites/Player/Idle/head.png" id="3_4gvua"]
+
+[sub_resource type="Gradient" id="Gradient_ivvhh"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ivxkx"]
+gradient = SubResource("Gradient_ivvhh")
+
+[node name="MiniMap" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+rotation = -1.5708
+scale = Vector2(-1, 1)
+script = ExtResource("1_a4ck7")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(30, 34)
+scale = Vector2(1.21209, -299.421)
+texture = SubResource("GradientTexture1D_ivxkx")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(29, 34)
+rotation = -1.5708
+scale = Vector2(-0.140586, 0.135179)
+texture = ExtResource("3_4gvua")

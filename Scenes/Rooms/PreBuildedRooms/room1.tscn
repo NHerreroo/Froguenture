@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://2w80s81wj2nn"]
 
-[ext_resource type="Script" path="res://Scripts/initialRoom.gd" id="1_k32bv"]
+[ext_resource type="Script" path="res://Scripts/RoomDefScript.gd" id="1_k32bv"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_yq4s2"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_31oyj"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_rqv88"]
@@ -52,7 +52,7 @@ albedo_texture = ExtResource("7_vdrjd")
 distance_fade_mode = 2
 distance_fade_min_distance = 6.0
 
-[node name="InitialRoom" type="Node3D"]
+[node name="Room1" type="Node3D"]
 script = ExtResource("1_k32bv")
 
 [node name="Floor" type="MeshInstance3D" parent="."]

@@ -4,6 +4,7 @@ var bullet = preload("res://Scenes/Enemies/EnemyBullet.tscn")
 
 
 func _ready() -> void:
+	Global.enemies_remaining += 1
 	get_random_state()
 	while true:
 		await get_tree().create_timer(1).timeout

@@ -27,6 +27,9 @@ enum state {
 
 	
 func _physics_process(delta: float) -> void:
+	if Global.eraseLevel:
+		Global.enemies_remaining -= 1
+		queue_free()
 	match random_index:
 		0:
 			walk_state(delta)
@@ -45,9 +48,6 @@ func idle_state():
 	pass
 
 func walk_state(delta: float):
-	if Global.eraseLevel:
-		queue_free()
-		
 	player = get_tree().get_root().find_child("player", true, false)
 
 	if knockback_timer > 0:
@@ -69,24 +69,6 @@ func walk_state(delta: float):
 	var current_position = global_transform.origin
 	current_position.y = 0
 	global_transform.origin = current_position
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -116,4 +98,5 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		
 		# Eliminar el enemigo si la salud llega a 0
 		if health <= 0:
+			Global.enemies_remaining -= 1
 			queue_free()

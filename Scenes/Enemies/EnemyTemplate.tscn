@@ -22,6 +22,33 @@ colors = PackedColorArray(0.676917, 0, 0.0837418, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_euaxv"]
 gradient = SubResource("Gradient_kgy45")
 
+[sub_resource type="Animation" id="Animation_aupjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.275561, 0.275561, 0.275561)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.309002, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_mr116"]
 resource_name = "idle"
 length = 0.5
@@ -51,33 +78,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 0.309002, 0), Vector3(0, 0.230535, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_aupjf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.275561, 0.275561, 0.275561)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.309002, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
 _data = {
 "RESET": SubResource("Animation_aupjf"),
@@ -91,7 +91,7 @@ enemy_src = SubResource("Resource_mjjwl")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="MeshInstance3D" type="Sprite3D" parent="."]
-transform = Transform3D(-1.20451e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02257e-09, -1.04314e-08, 0, 0.309002, 0)
+transform = Transform3D(-1.20452e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02256e-09, -1.04314e-08, 0, 0.309002, 0)
 texture = ExtResource("3_oyavr")
 
 [node name="Area3D" type="Area3D" parent="MeshInstance3D"]
