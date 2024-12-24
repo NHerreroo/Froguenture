@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dawngp5xmls0u"]
+[gd_scene load_steps=8 format=3 uid="uid://dawngp5xmls0u"]
 
 [ext_resource type="Script" path="res://Scripts/Doors/LeftDoor.gd" id="1_lejbu"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_i4niy"]
+[ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_hm378"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5e2nr"]
 size = Vector3(2, 1.71336, 1.28438)
@@ -17,6 +18,14 @@ albedo_texture = ExtResource("2_i4niy")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fmwf2"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3mj5"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("3_hm378")
+
 [node name="LeftDoor" type="Area3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0454791, 0)
 script = ExtResource("1_lejbu")
@@ -30,5 +39,29 @@ transform = Transform3D(-2.32273e-07, 0, 5.3138, 0, 5.3138, 0, -5.3138, 0, -2.32
 sorting_offset = 8.0
 material_override = SubResource("StandardMaterial3D_v1ivs")
 mesh = SubResource("PlaneMesh_fmwf2")
+
+[node name="Trunk" type="Node3D" parent="."]
+transform = Transform3D(1, -1.87295e-08, 2.02988e-09, 1.87295e-08, 0.976781, -0.214241, 2.02989e-09, 0.214241, 0.976781, 0.00711165, -0.183999, -0.248356)
+
+[node name="Sprite3D" type="Sprite3D" parent="Trunk"]
+transform = Transform3D(0.142703, 0.149782, -0.214054, -6.23774e-09, 0.299564, 0.142703, 0.247169, -0.0864765, 0.123584, -0.719509, 1.34121, -0.623713)
+material_override = SubResource("StandardMaterial3D_c3mj5")
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("3_hm378")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Trunk"]
+transform = Transform3D(0.142703, 0.149782, -0.214054, -7.45058e-09, 0.299564, 0.142703, 0.247169, -0.0864765, 0.123584, 0.332437, 1.34121, -0.623713)
+material_override = SubResource("StandardMaterial3D_c3mj5")
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("3_hm378")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Trunk"]
+transform = Transform3D(0.142703, 0.149782, -0.214054, -6.23774e-09, 0.299564, 0.142703, 0.247169, -0.0864765, 0.123584, 1.50464, 1.34121, -0.623713)
+material_override = SubResource("StandardMaterial3D_c3mj5")
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("3_hm378")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
