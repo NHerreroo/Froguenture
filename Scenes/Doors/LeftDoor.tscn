@@ -65,6 +65,7 @@ _data = {
 
 [node name="LeftDoor" type="Area3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0454791, 0)
+collision_mask = 2
 script = ExtResource("1_lejbu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

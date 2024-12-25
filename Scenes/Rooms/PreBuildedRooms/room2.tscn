@@ -69,6 +69,7 @@ transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BoundsColliders"]
 transform = Transform3D(5.91273, 0, 0, 0, 5.91273, 0, 0, 0, 5.91273, 0, 0, 9)
+collision_mask = 2
 
 [node name="top1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
 transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111658, -0.872897, 0.163282, -0.617463)

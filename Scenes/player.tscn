@@ -2261,6 +2261,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(123.83, 0, 0, 0, 123.83, 0, 0, 0, 123.83, 0, 0.0214218, 0)
+collision_layer = 2
 script = ExtResource("1_pjjon")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
