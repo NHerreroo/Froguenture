@@ -1,9 +1,11 @@
 extends Area3D
 
 var doorsOpen = false
+var current_pos
 
 func _ready() -> void:
-	if Global.enemies_remaining == 0:
+	current_pos = [Global.playerMapPositionX, Global.playerMapPositionY]
+	if current_pos in Global.rooms_visited or Global.enemies_remaining == 0:
 		$Trunk.visible = false
 		
 func _process(delta):
@@ -16,7 +18,11 @@ func _process(delta):
 		
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		#print("topdoordetected")
+		
+		 #Mete en el array de salas vistas la habitacion en la que acabas de estar
+		if current_pos not in Global.rooms_visited:
+			Global.rooms_visited.append(current_pos)
+			
 		Global.playerMapPositionX -= 1
 		Global.eraseLevel = true
 		Global.playerDirection = 0 #arriba (saldra por arriba en la sigente sala)

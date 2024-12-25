@@ -14,13 +14,15 @@ var playerMapPositionY = 25
 var isMapGenerated = false
 var eraseLevel = false
 
-#funciones globales para hacer trigger de las collsiones en caso de no haber habitaciones a los lados (uso solo en el MainScrip que genera el mapa)
+#funciones globales para hacer trigger de las collsiones en caso de no haber habitaciones a los lados (uso solo en el LevelGnerator que genera el mapa)
 var topCollider = false
 var botCollider = false
 var rightCollider = false
 var leftCollider = false
 
-var enemies_remaining = 0
+
+var enemies_remaining = 0 #enemigos en pantalla restantes, si es 0 la habitacion estara abierta permantentemente :D
+var rooms_visited = []
 
 
 var map = [] #contiene el mapa generado para que al reinicial la escena no se pierda

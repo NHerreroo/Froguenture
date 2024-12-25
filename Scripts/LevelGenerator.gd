@@ -174,7 +174,7 @@ func updateLevel():
 		Global.botCollider = false
 		Global.rightCollider = false
 		Global.leftCollider = false
-
+			
 		# Limpiamos y regeneramos en lugar de reiniciar la escena
 		clean_previous_doors()
 		instanceRoom()

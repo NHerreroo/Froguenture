@@ -9,7 +9,6 @@ func _ready():
 	player = get_tree().get_root().find_child("player", true, false)
 
 func _process(delta):
-
 	if Global.enemies_remaining == 0:
 		setCollisions()
 	else:

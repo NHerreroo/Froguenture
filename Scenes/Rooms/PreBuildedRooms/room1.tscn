@@ -462,3 +462,6 @@ texture = ExtResource("12_302wq")
 
 [node name="EnemyTemplate" parent="." instance=ExtResource("13_ponf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92567, 0.618597, 1.07811)
+
+[node name="EnemyTemplate2" parent="." instance=ExtResource("13_ponf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42245, 0.618597, 3.50827)

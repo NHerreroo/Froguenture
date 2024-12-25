@@ -27,6 +27,10 @@ enum state {
 
 	
 func _physics_process(delta: float) -> void:
+	var player_pos_array = [Global.playerMapPositionX, Global.playerMapPositionY]
+	if player_pos_array in Global.rooms_visited:
+		Global.enemies_remaining = 0
+		queue_free()
 	if Global.eraseLevel:
 		Global.enemies_remaining -= 1
 		queue_free()
