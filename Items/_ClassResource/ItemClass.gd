@@ -3,13 +3,12 @@ class_name Item
 
 @export var item_Src : Item_source #esto da el source para el menu de la izquierda
 
-const WHITE_CARD = preload("res://Sprites/Items/Whitetemplate.png")
-const BLACK_CARD = preload("res://Sprites/Items/Blacktemplate.png")
-const RED_CARD = preload("res://Sprites/Items/Redtemplate.png")
-const GREEN_CARD = preload("res://Sprites/Items/Greentemplate.png")
-const BLUE_CARD = preload("res://Sprites/Items/Bluetemplate.png")
-const COLORLESS = preload("res://Sprites/Items/Colorlesstemplate.png")
-
+const WHITE_CARD = preload("res://Sprites/Items/Whitetemplate2.png")
+const BLACK_CARD = preload("res://Sprites/Items/Blacktemplate2.png")
+const RED_CARD = preload("res://Sprites/Items/Redtemplate2.png")
+const GREEN_CARD = preload("res://Sprites/Items/Greentemplate2.png")
+const BLUE_CARD = preload("res://Sprites/Items/Bluetemplate2.png")
+const COLORLESS = preload("res://Sprites/Items/ColorLessTemplate2.png")
 #COASA DEL SHADER DE LA CARTA
 @export var angle_x_max: float = 15.0
 @export var angle_y_max: float = 15.0
@@ -111,11 +110,11 @@ func setSorurceParam():
 func setFoil():
 	var chance = randi_range(0,6)
 	if chance <= 4:
-		$CardColor/Foil2.visible = false
-		$CardColor/Foil.visible = false
+		$CardColor/CardImage/Foil2.visible = false
+		$CardColor/CardImage/Foil.visible = false
 	else:
-		$CardColor/Foil2.visible = true
-		$CardColor/Foil.visible = true
+		$CardColor/CardImage/Foil2.visible = true
+		$CardColor/CardImage/Foil.visible = true
 		
 
 func entryCard():
