@@ -47,7 +47,7 @@ var currentAtackAnimation = "Atack1_right" #def animation
 
 func _ready():
 	setPlayerPosition(Global.playerDirection)
-	
+	print(Global.rooms_visited)
 
 func _process(delta: float) -> void:
 	camera = get_tree().get_root().find_child("Camera", true, false) #esto lo pongo aqui por que al cambiar de nivel tmb cambia de camara

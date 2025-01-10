@@ -23,6 +23,11 @@ var leftCollider = false
 
 var enemies_remaining = 0 #enemigos en pantalla restantes, si es 0 la habitacion estara abierta permantentemente :D
 var rooms_visited = []
+var persistent_items = [
+	[[25,25],["Coin",1,1,1]],
+	[[26,25],["Coin",1,1,1],["Treasure",1,1,1],["Coin",1,1,1]],
+	[[25,27],["Treasure",1,1,1]]
+	]
 
 
 var map = [] #contiene el mapa generado para que al reinicial la escena no se pierda

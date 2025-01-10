@@ -196,4 +196,5 @@ func _process(delta):
 
 
 func set_global_stats():
+	Global.rooms_visited.clear()
 	Global.card_selected = false

@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name Enemy
 
+var dropitem = preload("res://Scenes/Dropps/Coin.tscn")
+
 @export var enemy_src : enemy_source
 
 @onready var area: Area3D = $MeshInstance3D/Area3D  # Referencia al Area3D dentro del CharacterBody3D
@@ -77,9 +79,7 @@ func walk_state(delta: float):
 
 
 
-
-
-
+		
 #REACCION AL ATAQUE
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("attack"):
@@ -103,4 +103,16 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		# Eliminar el enemigo si la salud llega a 0
 		if health <= 0:
 			Global.enemies_remaining -= 1
+			dropitemfunc()
 			queue_free()
+
+func dropitemfunc():
+	var item = dropitem.instantiate()
+	item.position = Vector3(self.position.x, self.position.y + 0.5, self.position.z)
+	var parent_node = get_parent()
+
+	# Agrega el objeto dropeado al nodo padre
+	if parent_node:
+		parent_node.add_child(item)
+	else:
+		print("no hay padre")

@@ -46,11 +46,12 @@ shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
 [node name="ItemTemplate" type="Button"]
-offset_left = 245.0
-offset_top = 122.0
-offset_right = 713.0
-offset_bottom = 791.0
+offset_left = 251.0
+offset_top = 131.0
+offset_right = 719.0
+offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
+focus_mode = 0
 flat = true
 script = ExtResource("1_8o6b7")
 item_Src = SubResource("Resource_jivrs")
@@ -75,10 +76,10 @@ texture = ExtResource("4_41vp5")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -5.0
-offset_top = 7.0
-offset_right = 803.0
-offset_bottom = 1155.0
+offset_left = -28.0
+offset_top = -31.0
+offset_right = 780.0
+offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
 texture = ExtResource("4_dyir8")
 
