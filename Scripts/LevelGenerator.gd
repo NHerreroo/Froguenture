@@ -196,5 +196,7 @@ func _process(delta):
 
 
 func set_global_stats():
-	Global.rooms_visited.clear()
+	Global.rooms_visited.clear() # a la mierda las rooms visitadas
+	Global.persistent_items.clear() # a la mierda los items del suelo
+	
 	Global.card_selected = false

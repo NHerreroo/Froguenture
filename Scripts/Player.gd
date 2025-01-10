@@ -29,7 +29,6 @@ var mini_dash_timer = 0.0
 var mini_dash_direction = Vector3.ZERO
 var last_direction = Vector3(0.278882, 0, -0.960325)  # ultima direecion para los de mando si no testan haciendo el input
 
-
 const MESH_DISTANCE = 1.5  # Distancia del MeshInstance al personaje
 var can_atack = true
 var attack_count = 0  # Contador de ataques en el combo
@@ -38,17 +37,12 @@ var attack_anim
 var attack_timer = 0.0
 var currentAtackAnimation = "Atack1_right" #def animation
 
-
-
-
 @onready var atackMesh = $AtackMesh
 @onready var attackCollider = $AtackMesh/Area3D/AttackCollider
 
-
 func _ready():
 	setPlayerPosition(Global.playerDirection)
-	print(Global.rooms_visited)
-
+	
 func _process(delta: float) -> void:
 	camera = get_tree().get_root().find_child("Camera", true, false) #esto lo pongo aqui por que al cambiar de nivel tmb cambia de camara
 	# Incrementa el temporizador de ataque si no está atacando

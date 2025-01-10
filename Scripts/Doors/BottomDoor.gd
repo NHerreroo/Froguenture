@@ -11,14 +11,12 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		
-		 #Mete en el array de salas vistas la habitacion en la que acabas de estar
 		if current_pos not in Global.rooms_visited:
 			Global.rooms_visited.append(current_pos)
 			
 		Global.playerMapPositionX += 1
 		Global.eraseLevel = true
 		Global.playerDirection = 1 #abajo (saldra por abajo en la sigente sala)
-
 
 func _process(delta):
 	if Global.enemies_remaining == 0:
