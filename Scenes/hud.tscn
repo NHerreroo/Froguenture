@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbi5nch0is25o"]
+[gd_scene load_steps=12 format=3 uid="uid://cbi5nch0is25o"]
 
 [ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="1_6ca58"]
+[ext_resource type="Script" path="res://Scenes/PlayerHUD.gd" id="1_48xs0"]
 [ext_resource type="PackedScene" uid="uid://jiy0evqv08t7" path="res://Scenes/mini_map.tscn" id="1_lxgdj"]
 [ext_resource type="Texture2D" uid="uid://cwi1p5cfvdagp" path="res://Sprites/icons/poison.png" id="2_kp3v7"]
 [ext_resource type="Texture2D" uid="uid://dbfqludd4lps7" path="res://Sprites/icons/shield.png" id="2_kv171"]
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_48xs0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -99,3 +101,20 @@ offset_bottom = 1073.0
 text = "sdfsfsdfsdf"
 horizontal_alignment = 2
 script = ExtResource("9_v6t1x")
+
+[node name="MONEDAS" type="Label" parent="."]
+offset_left = 1442.0
+offset_top = 60.0
+offset_right = 1763.0
+offset_bottom = 207.0
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="VIDAS" type="Label" parent="."]
+layout_mode = 0
+offset_left = 717.0
+offset_top = 60.0
+offset_right = 1038.0
+offset_bottom = 207.0
+theme_override_font_sizes/font_size = 50
+text = "5"

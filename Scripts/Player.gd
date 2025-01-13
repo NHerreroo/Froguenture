@@ -236,8 +236,16 @@ func perform_attack():
 # Mini-dash en ataque
 func perform_mini_dash(delta):
 	velocity.x = lerp(velocity.x, mini_dash_direction.x * MINI_DASH_SPEED, LERP_AMOUNT)
-	velocity.z = lerp(velocity.z, mini_dash_direction.z * MINI_DASH_SPEED, LERP_AMOUNT)
+	velocity.z = lerp(velocity.z, mini_dash_direction.z * MINI_DASH_SPEED, LERP_AMOUNT)	
 	
 	mini_dash_timer -= delta
 	if mini_dash_timer <= 0:
 		is_mini_dashing = false
+
+#hacerdaño
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("enemy"):
+		Global.healt -= 1 #hace daño
+		if camera:
+			camera.frameFreeze(0.05, 1.0)
+			camera.low_shake_camera()

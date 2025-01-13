@@ -44,6 +44,7 @@ var can_walk = true #cuando quiera que el personaje no camine se pone a false
 var CurrentPlayerPosition = Vector2()
 
 # STATS
+var money = 0
 var healt = 3
 var atack
 var speed

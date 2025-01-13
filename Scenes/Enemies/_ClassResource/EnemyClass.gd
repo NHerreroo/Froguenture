@@ -106,6 +106,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			dropitemfunc()
 			queue_free()
 
+
 func dropitemfunc():
 	var item = dropitem.instantiate()
 	item.position = Vector3(self.position.x, self.position.y + 0.5, self.position.z)

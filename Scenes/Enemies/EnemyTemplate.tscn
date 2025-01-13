@@ -102,8 +102,8 @@ transform = Transform3D(-1.20452e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, 
 alpha_cut = 1
 texture = ExtResource("3_oyavr")
 
-[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 3.55271e-15, 3.55271e-15, 0.990423, -5.96046e-08, -3.55271e-15, -6.72415e-16, 1, -2.07479e-17, -0.0122893, -0.0058223)
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" groups=["enemy"]]
+transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
 transform = Transform3D(0.999999, -2.13389e-08, -3.92733e-09, 1.67991e-08, 0.880849, -0.508562, 1.40709e-08, 0.499999, 0.866023, 0.0801088, 1.03579, 0.917103)

@@ -58,3 +58,8 @@ func low_shake_camera():
 	# Vuelve a cero al terminar
 	self.h_offset = lerp(self.h_offset, 0.0, 0.5)
 	self.v_offset = lerp(self.v_offset, 0.0, 0.5)
+	
+func frameFreeze(timeScale, duration):
+	Engine.time_scale = timeScale
+	await get_tree().create_timer(duration * timeScale).timeout
+	Engine.time_scale = 1

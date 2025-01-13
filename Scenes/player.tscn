@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=39 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -2259,6 +2259,8 @@ animations = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g6lhy"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yo7h1"]
+
 [node name="player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(123.83, 0, 0, 0, 123.83, 0, 0, 0, 123.83, 0, 0.0214218, 0)
 collision_layer = 2
@@ -2319,7 +2321,7 @@ sprite_frames = SubResource("SpriteFrames_i5v5n")
 [node name="Hud" parent="." instance=ExtResource("18_gvt84")]
 
 [node name="AtackMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0164474, 0, 0, 0, 0.00739013, 0, 0, 0, 0.00739013, 0.00074687, 0, 0.00822294)
+transform = Transform3D(0.0164474, 0, 0, 0, 0.00739013, 0, 0, 0, 0.008725, 0.00074687, 0, 0.00581511)
 visible = false
 mesh = SubResource("BoxMesh_w2qcx")
 
@@ -2328,3 +2330,12 @@ mesh = SubResource("BoxMesh_w2qcx")
 [node name="AttackCollider" type="CollisionShape3D" parent="AtackMesh/Area3D"]
 shape = SubResource("ConcavePolygonShape3D_g6lhy")
 disabled = true
+
+[node name="PlayerArea" type="Area3D" parent="." groups=["player"]]
+transform = Transform3D(1.00063, 0, 0, 0, 1.00063, 0, 0, 0, 1.00063, 0, 0.0064519, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
+transform = Transform3D(0.00887973, 0, 0, 0, 0.00887973, 0, 0, 0, 0.00887973, 0, 0, 0)
+shape = SubResource("BoxShape3D_yo7h1")
+
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]
