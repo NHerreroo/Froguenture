@@ -39,6 +39,6 @@ func _on_body_entered(body: Node3D) -> void:
 						if item[0] == "Coin" and item[1] == coin_position[0] and item[2] == coin_position[1] and item[3] == coin_position[2]:
 							room_items.remove_at(i)  # Ewwwliminar la moneda de la lista
 							print("Moneda eliminada:", Global.persistent_items)
-							Global.money += 1
+							Player.money += 1
 							queue_free()  # Eliminar el nodo de la escena
 							return

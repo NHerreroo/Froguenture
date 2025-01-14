@@ -8,8 +8,8 @@ shader_parameter/frequency = 1.8
 shader_parameter/amplitude = 1000.0
 shader_parameter/speed = 2.0
 shader_parameter/direction = -1.0
-shader_parameter/color1 = Color(0.804743, 0.804743, 0.804743, 1)
-shader_parameter/color2 = Color(0.0605303, 0.0605303, 0.0605303, 1)
+shader_parameter/color1 = Color(0.942823, 0.942823, 0.942823, 1)
+shader_parameter/color2 = Color(0.0588235, 0.0588235, 0.0588235, 0)
 shader_parameter/opacity = 1.0
 
 [node name="MapLine" type="Line2D"]

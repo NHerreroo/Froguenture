@@ -103,13 +103,14 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		# Eliminar el enemigo si la salud llega a 0
 		if health <= 0:
 			Global.enemies_remaining -= 1
-			dropitemfunc()
+			for i in 50:
+				dropitemfunc()
 			queue_free()
 
 
 func dropitemfunc():
 	var item = dropitem.instantiate()
-	item.position = Vector3(self.position.x, self.position.y + 0.5, self.position.z)
+	item.position = Vector3(self.position.x + randf_range(0,3), self.position.y + 0.5, self.position.z + randf_range(0,3))
 	var parent_node = get_parent()
 
 	# Agrega el objeto dropeado al nodo padre

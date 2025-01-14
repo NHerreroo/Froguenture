@@ -2,12 +2,12 @@ extends CharacterBody3D
 
 var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 
-var SPEED = 5
+var SPEED = Player.speed
 var direction
 
 const DASH_SPEED = 20.0  
 const DASH_DURATION = 0.28  
-const DASH_COOLDOWN = 1.0
+var DASH_COOLDOWN = Player.dashCooldown
 
 const LERP_AMOUNT = 0.4
 const DASH_LERP_AMOUNT = 0.15
@@ -35,6 +35,7 @@ var attack_count = 0  # Contador de ataques en el combo
 var attack_anim
 # Temporizador para controlar el tiempo sin atacar
 var attack_timer = 0.0
+var speedAtack = Player.atackSpeed
 var currentAtackAnimation = "Atack1_right" #def animation
 
 @onready var atackMesh = $AtackMesh
@@ -205,14 +206,14 @@ func attack():
 		
 		if attack_count >= 3: #ataque pro (tercer ataque)
 			perform_attack() 
-			await get_tree().create_timer(Global.atackSpeed).timeout
+			await get_tree().create_timer(speedAtack).timeout
 			can_atack = true
 			attack_count = 0
 			attackCollider.disabled = true
 			return
 		else:
 			perform_attack()
-			await get_tree().create_timer(Global.atackSpeed).timeout
+			await get_tree().create_timer(speedAtack).timeout
 			can_atack = true
 			attackCollider.disabled = true
 			return
@@ -245,7 +246,7 @@ func perform_mini_dash(delta):
 #hacerdaño
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemy"):
-		Global.healt -= 1 #hace daño
+		Player.healt -= 1 #hace daño
 		if camera:
 			camera.frameFreeze(0.05, 1.0)
 			camera.low_shake_camera()

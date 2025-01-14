@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cbi5nch0is25o"]
 
 [ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="1_6ca58"]
-[ext_resource type="Script" path="res://Scenes/PlayerHUD.gd" id="1_48xs0"]
+[ext_resource type="Script" path="res://Scripts/PlayerHUD.gd" id="1_48xs0"]
 [ext_resource type="PackedScene" uid="uid://jiy0evqv08t7" path="res://Scenes/mini_map.tscn" id="1_lxgdj"]
 [ext_resource type="Texture2D" uid="uid://cwi1p5cfvdagp" path="res://Sprites/icons/poison.png" id="2_kp3v7"]
 [ext_resource type="Texture2D" uid="uid://dbfqludd4lps7" path="res://Sprites/icons/shield.png" id="2_kv171"]
@@ -22,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_48xs0")
+metadata/_edit_vertical_guides_ = [194.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -32,67 +33,75 @@ offset_right = 1758.0
 offset_bottom = 121.0
 scale = Vector2(-0.75599, 0.75599)
 
-[node name="Heart" type="Sprite2D" parent="."]
+[node name="HudSprites" type="Node2D" parent="."]
+
+[node name="Heart" type="Sprite2D" parent="HudSprites"]
 position = Vector2(143, 101)
 scale = Vector2(0.20147, 0.20147)
 texture = ExtResource("2_rbvl2")
 
-[node name="Heart2" type="Sprite2D" parent="."]
+[node name="Heart2" type="Sprite2D" parent="HudSprites"]
 position = Vector2(269, 101)
 scale = Vector2(0.20147, 0.20147)
 texture = ExtResource("2_rbvl2")
 
-[node name="Heart3" type="Sprite2D" parent="."]
+[node name="Heart3" type="Sprite2D" parent="HudSprites"]
 position = Vector2(396, 102)
 scale = Vector2(0.20147, 0.20147)
 texture = ExtResource("2_rbvl2")
 
-[node name="Shield" type="Sprite2D" parent="."]
+[node name="Shield" type="Sprite2D" parent="HudSprites"]
 position = Vector2(525, 102)
 scale = Vector2(0.20147, 0.20147)
 texture = ExtResource("2_kv171")
 
-[node name="Shield2" type="Sprite2D" parent="."]
+[node name="Shield2" type="Sprite2D" parent="HudSprites"]
 position = Vector2(651, 102)
 scale = Vector2(0.20147, 0.20147)
 texture = ExtResource("2_kv171")
 
-[node name="Atack" type="Sprite2D" parent="."]
+[node name="Atack" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
-position = Vector2(143.183, 270.013)
+position = Vector2(144, 278)
 scale = Vector2(0.112442, 0.112442)
 texture = ExtResource("1_6ca58")
 
-[node name="CooldownDash" type="Sprite2D" parent="."]
+[node name="CooldownDash" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
 position = Vector2(144, 407)
 scale = Vector2(0.137235, 0.137235)
 texture = ExtResource("4_sqwj6")
 
-[node name="Poison" type="Sprite2D" parent="."]
+[node name="Poison" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
 position = Vector2(139, 529)
 scale = Vector2(0.113684, 0.113684)
 texture = ExtResource("2_kp3v7")
 
-[node name="Speed" type="Sprite2D" parent="."]
+[node name="Speed" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
 position = Vector2(134, 644)
 scale = Vector2(0.118699, 0.118699)
 texture = ExtResource("3_gbf7o")
 
-[node name="Speedatack" type="Sprite2D" parent="."]
+[node name="Speedatack" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
 position = Vector2(132, 760)
 scale = Vector2(0.111021, 0.111021)
 texture = ExtResource("7_1tm2w")
 
-[node name="Money" type="Sprite2D" parent="."]
+[node name="Money" type="Sprite2D" parent="HudSprites"]
 position = Vector2(1559, 92)
 scale = Vector2(0.22215, 0.22215)
 texture = ExtResource("7_8s83s")
 
-[node name="Label" type="Label" parent="."]
+[node name="HudLabels" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.533333)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HudLabels"]
 layout_mode = 0
 offset_left = 792.0
 offset_top = 730.0
@@ -102,7 +111,8 @@ text = "sdfsfsdfsdf"
 horizontal_alignment = 2
 script = ExtResource("9_v6t1x")
 
-[node name="MONEDAS" type="Label" parent="."]
+[node name="MONEDAS" type="Label" parent="HudLabels"]
+layout_mode = 0
 offset_left = 1442.0
 offset_top = 60.0
 offset_right = 1763.0
@@ -110,11 +120,56 @@ offset_bottom = 207.0
 theme_override_font_sizes/font_size = 50
 text = "5"
 
-[node name="VIDAS" type="Label" parent="."]
+[node name="VIDAS" type="Label" parent="HudLabels"]
 layout_mode = 0
 offset_left = 717.0
 offset_top = 60.0
 offset_right = 1038.0
 offset_bottom = 207.0
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Attack" type="Label" parent="HudLabels"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 256.0
+offset_right = 516.0
+offset_bottom = 403.0
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="DashCooldown" type="Label" parent="HudLabels"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 380.0
+offset_right = 515.0
+offset_bottom = 527.0
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Poison" type="Label" parent="HudLabels"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 495.0
+offset_right = 516.0
+offset_bottom = 642.0
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Speed" type="Label" parent="HudLabels"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 615.0
+offset_right = 515.0
+offset_bottom = 762.0
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="SpeedAttack" type="Label" parent="HudLabels"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 733.0
+offset_right = 515.0
+offset_bottom = 880.0
 theme_override_font_sizes/font_size = 50
 text = "5"

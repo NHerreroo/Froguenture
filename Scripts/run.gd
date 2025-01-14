@@ -15,7 +15,6 @@ func _ready():
 	_setup_event_connections()
 	map.connect("map_exited", Callable(self, "_on_map_exited"))
 
-	
 func _start_run():
 	map.generate_new_map()
 	map.unlock_floor(0)
