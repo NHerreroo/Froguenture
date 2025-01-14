@@ -1,24 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmbeig2pmcrhr"]
+[gd_scene load_steps=12 format=3 uid="uid://0hbckx0u0hia"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_yjdq4"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="2_y2y2k"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_babcw"]
-[ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_uc3ad"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="5_lt3ex"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_nw73a"]
+[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_im3w3"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="2_3miqt"]
+[ext_resource type="Texture2D" uid="uid://dobnp0uq8jvn3" path="res://Sprites/Items/Arts/MarcarElTerritorio.png" id="2_i03ah"]
+[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_f1q0f"]
+[ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_46pqn"]
+[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="5_8ie8j"]
+[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_y5emc"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_babcw")
-name = "Catalclysm"
+script = ExtResource("3_f1q0f")
+name = "Leader Of The Pack"
 description = "Its a template"
-image = ExtResource("2_y2y2k")
+image = ExtResource("2_i03ah")
 habilitie1 = "+1/+1"
 habilitie2 = ""
 habilitie3 = ""
 damage = "1"
 health = "4"
 quote = "\"Item\""
-color_card = 3
+color_card = 2
 card_type = 0
 foil = false
 
@@ -27,7 +28,7 @@ size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("5_lt3ex")
+shader = ExtResource("5_8ie8j")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -41,18 +42,19 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("6_nw73a")
+shader = ExtResource("6_y5emc")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
-[node name="Cataclysm" type="Button"]
-offset_left = 245.0
-offset_top = 122.0
-offset_right = 713.0
-offset_bottom = 791.0
+[node name="LeaderOfThePack" type="Button"]
+offset_left = 251.0
+offset_top = 131.0
+offset_right = 719.0
+offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
+focus_mode = 0
 flat = true
-script = ExtResource("1_yjdq4")
+script = ExtResource("1_im3w3")
 item_Src = SubResource("Resource_jivrs")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -71,23 +73,23 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("2_y2y2k")
+texture = ExtResource("2_3miqt")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -5.0
-offset_top = 7.0
-offset_right = 803.0
-offset_bottom = 1155.0
+offset_left = -28.0
+offset_top = -31.0
+offset_right = 780.0
+offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("4_uc3ad")
+texture = ExtResource("4_46pqn")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("2_y2y2k")
+texture = ExtResource("2_3miqt")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
