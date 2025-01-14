@@ -7,6 +7,7 @@ var coin = preload("res://Scenes/Dropps/Coin.tscn")
 var sides = ["top", "bot", "right", "left"]
 
 func _ready() -> void:
+	Global.eraseLevel = false
 	var current_room = [Global.playerMapPositionX, Global.playerMapPositionY]
 	player = get_tree().get_root().find_child("player", true, false)
 	# Recorremos el array de habitaciones y objetos

@@ -1,11 +1,15 @@
 class_name Run
 extends Node
 
+
+#NACHETE ACUERDATE QUE EST OEN UN FUTURO TE VA A PASAR OTRA VEEEE FIJATE QUE LA ROOM CUANDO SE CREE NO ESTE EL ERASE_LEVEL EN TRUE*** QUE SI NO 
+#LA HABITACION SE BORRA TALCUAL ENTRAS
+
 const BATTLE_SCENE := preload("res://Scenes/Main.tscn")
-const CAMPFIRE_SCENE := preload("res://Scenes/Main.tscn")
-const SHOP_SCENE := preload("res://Scenes/Main.tscn")
-const TREASURE_SCENE := preload("res://Scenes/Main.tscn")
-const BOSS_SCENE := preload("res://Scenes/Main.tscn")
+const CAMPFIRE_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
+const SHOP_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
+const TREASURE_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
+const BOSS_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
 
 @onready var map: Map = $Map
 @onready var current_view: Node = $CurrentView
@@ -27,7 +31,7 @@ func _change_view(scene: PackedScene) -> Node:
 	var new_view := scene.instantiate()
 	current_view.add_child(new_view)
 	map.hide_map()
-	
+
 	return new_view
 
 func _show_map():
