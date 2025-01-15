@@ -103,8 +103,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		# Eliminar el enemigo si la salud llega a 0
 		if health <= 0:
 			Global.enemies_remaining -= 1
-			for i in 50:
-				dropitemfunc()
+			dropitemfunc()
 			queue_free()
 
 

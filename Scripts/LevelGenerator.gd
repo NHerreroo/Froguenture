@@ -153,7 +153,7 @@ func instanceRoom():
 	elif Global.map[x][y] == '$':
 		currentRoom = treasureRoom.instantiate()
 	elif Global.map[x][y] == '#':
-		currentRoom = room1.instantiate()
+		currentRoom = room1.instantiate() #ESTO ES PROVISIONL CAMBIAR POR LA QUE SEA DE ESE TIPO
 	else:
 		var room_scene = load("res://Scenes/Rooms/PreBuildedRooms/room" + str(Global.map[x][y]) +".tscn")
 		currentRoom = room_scene.instantiate()
@@ -198,5 +198,3 @@ func _process(delta):
 func set_global_stats():
 	Global.rooms_visited.clear() # a la mierda las rooms visitadas
 	Global.persistent_items.clear() # a la mierda los items del suelo
-	
-	Global.card_selected = false

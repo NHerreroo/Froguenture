@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbuwg7dnld20r"]
+
+[ext_resource type="Script" path="res://Scenes/Doors/bottom_door_special_room.gd" id="1_oy0ll"]
+[ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_73moe"]
+[ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_yyy5n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5e2nr"]
+size = Vector3(2, 2, 1.28438)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t1rt"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+disable_ambient_light = true
+albedo_texture = ExtResource("2_73moe")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_21eu8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrsg1"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("3_yyy5n")
+
+[sub_resource type="Animation" id="Animation_1rp3i"]
+resource_name = "BlockDoor"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trunk:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0071116, -0.256115, -0.0696204), Vector3(0.0071116, -0.121617, -0.0696204), Vector3(0.00711156, -2.20416, -1.06243)]
+}
+
+[sub_resource type="Animation" id="Animation_kmetc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trunk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0071116, -0.256115, -0.0696204)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xv473"]
+_data = {
+"BlockDoor": SubResource("Animation_1rp3i"),
+"RESET": SubResource("Animation_kmetc")
+}
+
+[node name="BottomDoorSpecialRoom" type="Area3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_mask = 2
+script = ExtResource("1_oy0ll")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.15, 0, 0, 0, 1, 0, 0, 0, 1, 0.112922, 0.684317, -0.987588)
+shape = SubResource("BoxShape3D_5e2nr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.79829e-07, 0, 5.32, 0, 1, 0, -4.114, 0, -2.32545e-07, -0.3, 0, -2.2)
+sorting_offset = 6.0
+material_override = SubResource("StandardMaterial3D_5t1rt")
+mesh = SubResource("PlaneMesh_21eu8")
+
+[node name="Trunk" type="Node3D" parent="."]
+transform = Transform3D(-1, 2.66454e-15, -8.74228e-08, 1.87295e-08, 0.976781, -0.214241, 8.53929e-08, -0.214241, -0.976781, 0.0071116, -0.256115, -0.0696204)
+
+[node name="Sprite3D" type="Sprite3D" parent="Trunk"]
+transform = Transform3D(0.285406, 9.99095e-09, 5.62875e-09, -9.80916e-09, 0.244593, 0.201812, 1.8489e-09, -0.244593, 0.201812, -1.12179, 1.113, -1.20277)
+material_override = SubResource("StandardMaterial3D_qrsg1")
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("3_yyy5n")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Trunk"]
+transform = Transform3D(0.285406, 9.99095e-09, 5.62875e-09, -9.80916e-09, 0.244593, 0.201812, 1.8489e-09, -0.244593, 0.201812, -0.028899, 1.113, -1.20277)
+material_override = SubResource("StandardMaterial3D_qrsg1")
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("3_yyy5n")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Trunk"]
+transform = Transform3D(0.285406, 9.99095e-09, 5.62875e-09, -9.80916e-09, 0.244593, 0.201812, 1.8489e-09, -0.244593, 0.201812, 1.09238, 1.113, -1.20277)
+material_override = SubResource("StandardMaterial3D_qrsg1")
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("3_yyy5n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xv473")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

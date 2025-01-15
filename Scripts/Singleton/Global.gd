@@ -13,6 +13,7 @@ var playerMapPositionY = 25
 #el errase level es para desinstanciar la habitación y las puertas y volver a generarlas
 var isMapGenerated = false
 var eraseLevel = false
+var specialRooms = false #variable para saber si la room que toca en el mapa es una que NO es de enemigos (tiendas, tesoros, campfires...)
 
 #funciones globales para hacer trigger de las collsiones en caso de no haber habitaciones a los lados (uso solo en el LevelGnerator que genera el mapa)
 var topCollider = false

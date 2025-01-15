@@ -30,6 +30,13 @@ func _change_view(scene: PackedScene) -> Node:
 	get_tree().paused = false
 	var new_view := scene.instantiate()
 	current_view.add_child(new_view)
+	
+	Global.rooms_visited.clear() # a la mierda las rooms visitadas
+	Global.persistent_items.clear() # a la mierda los items del suelo
+
+	Global.card_selected = false
+	Global.eraseLevel = false
+	
 	map.hide_map()
 
 	return new_view
@@ -44,12 +51,16 @@ func _show_map():
 func _on_map_exited(room:Room) -> void:
 	match  room.type:
 		Room.Type.MONSTER:
+			Global.specialRooms = false
 			_change_view(BATTLE_SCENE)
 		Room.Type.TREASURE:
+			Global.specialRooms = true
 			_change_view(TREASURE_SCENE)
 		Room.Type.CAMPFIRE:
+			Global.specialRooms = true
 			_change_view(CAMPFIRE_SCENE)
 		Room.Type.SHOP:
+			Global.specialRooms = true
 			_change_view(SHOP_SCENE)
 		Room.Type.BOSS:
 			_change_view(BOSS_SCENE)

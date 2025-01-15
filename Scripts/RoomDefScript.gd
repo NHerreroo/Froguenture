@@ -4,6 +4,11 @@ var player = null
 var collilsions_seted = false
 var coin = preload("res://Scenes/Dropps/Coin.tscn")
 
+var topDoorSpecialRoom = preload("res://Scenes/Doors/TopDoorSpecialRoom.tscn")
+var bottomDoorSpecialRoom = preload("res://Scenes/Doors/BottomDoorSpecialRoom.tscn")
+
+var isSpecialDoorInstanciates = false
+
 var sides = ["top", "bot", "right", "left"]
 
 func _ready() -> void:
@@ -30,6 +35,13 @@ func _ready() -> void:
 			break
 
 func _process(delta):
+	if Global.specialRooms == true:
+		Global.leftCollider = true
+		Global.rightCollider = true
+		if isSpecialDoorInstanciates == false:
+			instanciateDoorsSpecialRoom()
+			isSpecialDoorInstanciates = true
+			
 	if Global.enemies_remaining == 0:
 		setCollisions()
 	else:
@@ -49,3 +61,12 @@ func activateAllCollisions():
 		var collider = $BoundsColliders/StaticBody3D.get_node(side + "btwn")
 		collider.disabled = false
 	collilsions_seted = false  
+
+func instanciateDoorsSpecialRoom():
+	var bottomDoorInst = bottomDoorSpecialRoom.instantiate()
+	bottomDoorInst.position = Vector3(5, 0, 0)
+	add_child(bottomDoorInst)
+	
+	var topDoorInst = topDoorSpecialRoom.instantiate()
+	topDoorInst.position = Vector3(-5, 0, 0)
+	add_child(topDoorInst)
