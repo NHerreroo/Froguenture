@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfqo8c4n5r7h"]
+[gd_scene load_steps=12 format=3 uid="uid://dfqo8c4n5r7h"]
 
 [ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_8o6b7"]
 [ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="1_l4el7"]
+[ext_resource type="Texture2D" uid="uid://di74sbavsjdss" path="res://Sprites/Items/Arts/circuloconejosart.png" id="2_e7s6g"]
 [ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="2_lhrgs"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_41vp5"]
 [ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_dyir8"]
@@ -11,7 +12,7 @@
 script = ExtResource("2_lhrgs")
 name = "olaa"
 description = "Its a template"
-image = ExtResource("4_41vp5")
+image = ExtResource("2_e7s6g")
 habilitie1 = "+1/+1"
 habilitie2 = ""
 habilitie3 = ""
