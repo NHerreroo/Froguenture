@@ -10,5 +10,5 @@ func _process(delta: float) -> void:
 	$HudLabels/SpeedAttack.text = str(Player.atackSpeed / 10)
 	
 	
-	$HudLabels/VIDAS.text = str(Player.healt)
+	$HudLabels/VIDAS.text = str(Player.health)
 	$HudLabels/MONEDAS.text = str(Player.money)

@@ -41,6 +41,8 @@ var currentAtackAnimation = "Atack1_right" #def animation
 @onready var atackMesh = $AtackMesh
 @onready var attackCollider = $AtackMesh/Area3D/AttackCollider
 
+
+
 func _ready():
 	setPlayerPosition(Global.playerDirection)
 	
@@ -244,9 +246,41 @@ func perform_mini_dash(delta):
 		is_mini_dashing = false
 
 #hacerdaño
+var canReciveDamage = true
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemy"):
-		Player.healt -= 1 #hace daño
-		if camera:
-			camera.frameFreeze(0.05, 1.0)
-			camera.low_shake_camera()
+		if canReciveDamage == true: 
+			if camera:
+				camera.frameFreeze(0.05, 1.0)
+				camera.low_shake_camera()
+		take_damage(Player.damageToRecive)
+	
+
+func take_damage(amount: float) -> void:
+	canReciveDamage = false
+
+	# Primero reduce los corazones azules
+	if Player.shield > 0:
+		Player.shield -= amount
+		if Player.shield < 0:
+			Player.health += Player.shield  # Si sobra daño, lo pasa a los corazones rojos
+			Player.shield = 0
+	else:
+		Player.health -= amount
+
+	# Limita la salud mínima
+	if Player.health < 0:
+		Player.health = 0
+		
+	await get_tree().create_timer(Player.invencibleTime).timeout
+	canReciveDamage = true
+
+func heal(amount: float) -> void:
+	# Cura solo corazones rojos y respeta el límite de contenedores
+	Player.health += amount
+	if Player.health > Player.health_container:
+		Player.health = Player.health_container
+
+func add_shield(amount: float) -> void:
+	# Añade corazones azules
+	Player.shield += amount
