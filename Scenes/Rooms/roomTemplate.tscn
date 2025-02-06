@@ -108,3 +108,6 @@ transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111659, 0.895, 0
 shape = SubResource("BoxShape3D_wjxqr")
 
 [node name="Vegetation" type="Node3D" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68025, 0, -8.35926)
