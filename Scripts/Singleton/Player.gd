@@ -3,9 +3,9 @@ extends Node
 
 # STATS
 var money : int = 0
-var health : float = 3.0
+var health : float = 1.0
 var health_container : int = 3
-var shield : int = 0
+var shield : int = 2
 
 var atack : float = 3.0
 var speed : float= 5.0

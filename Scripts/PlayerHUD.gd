@@ -4,11 +4,14 @@ extends Control
 @onready var heart_scene = preload("res://Scenes/heart_hud.tscn")  # Escena del sprite de corazón
 @onready var shield_scene = preload("res://Scenes/shield_hud.tscn")  # Escena del sprite de escudo
 
-func _process(delta):
+var hearts_and_shields = []
+
+func _ready() -> void:
 	update_hearts()
+	print(hearts_and_shields)
+	
 
 func update_hearts():
-	print("Actualizando corazones...")  # Mensaje de depuración
 	if heart_container_node == null:
 		print("Error: heart_container_node no está inicializado.")  # Mensaje de depuración
 		return
@@ -17,33 +20,58 @@ func update_hearts():
 	for child in heart_container_node.get_children():
 		child.queue_free()
 
-	# Añade los corazones rojos
+	# Crear un array para almacenar los strings de corazones y escudos
+	hearts_and_shields = []
+
+	# Añadir corazones rojos al array
 	var health = Player.health
 	var health_container = Player.health_container
-	print("Salud: ", health, " Contenedores de salud: ", health_container)  # Mensaje de depuración
 	for i in range(health_container):
-		var heart = heart_scene.instantiate()
 		if health >= 1:
-			heart.set_full()  # Corazón lleno
+			hearts_and_shields.append("full_heart")  # Corazón lleno
 			health -= 1
 		elif health >= 0.5:
-			heart.set_half()  # Medio corazón
+			hearts_and_shields.append("half_heart")  # Medio corazón
 			health -= 0.5
 		else:
-			heart.set_empty()  # Corazón vacío
-		heart_container_node.add_child(heart)
-		print("Corazón añadido: ", heart)  # Mensaje de depuración
+			hearts_and_shields.append("empty_heart")  # Corazón vacío
 
-	# Añade los corazones azules (escudos)
+	# Añadir escudos azules al array
 	var shield = Player.shield
-	print("Escudos: ", shield)  # Mensaje de depuración
 	while shield > 0:
-		var shield_heart = shield_scene.instantiate()
 		if shield >= 1:
-			shield_heart.set_full()
+			hearts_and_shields.append("full_shield")  # Escudo lleno
 			shield -= 1
 		else:
-			shield_heart.set_half()
+			hearts_and_shields.append("half_shield")  # Medio escudo
 			shield -= 0.5
-		heart_container_node.add_child(shield_heart)
-		print("Escudo añadido: ", shield_heart)  # Mensaje de depuración
+
+	# Ordenar el array según el criterio: full_heart > half_heart > empty_heart > full_shield > half_shield
+	hearts_and_shields.sort_custom(func(a, b): 
+		var order = ["full_heart", "half_heart", "empty_heart", "full_shield", "half_shield"]
+		return order.find(a) < order.find(b)
+	)
+
+	# Dibujar los corazones y escudos en el HUD
+	for item in hearts_and_shields:
+		match item:
+			"full_heart":
+				var heart = heart_scene.instantiate()
+				heart.set_full()
+				heart_container_node.add_child(heart)
+			"half_heart":
+				var heart = heart_scene.instantiate()
+				heart.set_half()
+				heart_container_node.add_child(heart)
+			"empty_heart":
+				var heart = heart_scene.instantiate()
+				heart.set_empty()
+				heart_container_node.add_child(heart)
+			"full_shield":
+				var shield_heart = shield_scene.instantiate()
+				shield_heart.set_full()
+				heart_container_node.add_child(shield_heart)
+			"half_shield":
+				var shield_heart = shield_scene.instantiate()
+				shield_heart.set_half()
+				heart_container_node.add_child(shield_heart)
