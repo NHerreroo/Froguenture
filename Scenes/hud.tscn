@@ -24,18 +24,20 @@ metadata/_edit_vertical_guides_ = [194.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="PlayerLife" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 523.0
+
 [node name="MiniMap" parent="CanvasLayer" instance=ExtResource("1_lxgdj")]
 offset_left = 1758.0
 offset_top = 121.0
 offset_right = 1758.0
 offset_bottom = 121.0
 scale = Vector2(-0.75599, 0.75599)
-
-[node name="HeartContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 50.0
-offset_top = 30.0
-offset_right = 1600.0
-offset_bottom = 523.0
 
 [node name="HudSprites" type="Node2D" parent="."]
 
@@ -95,15 +97,6 @@ layout_mode = 0
 offset_left = 1442.0
 offset_top = 60.0
 offset_right = 1763.0
-offset_bottom = 207.0
-theme_override_font_sizes/font_size = 50
-text = "5"
-
-[node name="VIDAS" type="Label" parent="HudLabels"]
-layout_mode = 0
-offset_left = 717.0
-offset_top = 60.0
-offset_right = 1038.0
 offset_bottom = 207.0
 theme_override_font_sizes/font_size = 50
 text = "5"

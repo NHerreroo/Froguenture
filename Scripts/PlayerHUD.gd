@@ -1,6 +1,6 @@
 extends Control
 
-@onready var heart_container_node = $CanvasLayer/HeartContainer  # Nodo donde se dibujan los corazones
+@onready var heart_container_node = $CanvasLayer/PlayerLife # Nodo donde se dibujan los corazones
 @onready var heart_scene = preload("res://Scenes/heart_hud.tscn")  # Escena del sprite de corazón
 @onready var shield_scene = preload("res://Scenes/shield_hud.tscn")  # Escena del sprite de escudo
 
@@ -9,18 +9,8 @@ var hearts_and_shields = []
 func _ready() -> void:
 	update_hearts()
 	print(hearts_and_shields)
-	
 
 func update_hearts():
-	if heart_container_node == null:
-		print("Error: heart_container_node no está inicializado.")  # Mensaje de depuración
-		return
-
-	# Limpia los corazones actuales
-	for child in heart_container_node.get_children():
-		child.queue_free()
-
-	# Crear un array para almacenar los strings de corazones y escudos
 	hearts_and_shields = []
 
 	# Añadir corazones rojos al array
@@ -53,25 +43,37 @@ func update_hearts():
 	)
 
 	# Dibujar los corazones y escudos en el HUD
+	var start_x = 144  # Posición inicial en X
+	var start_y = 96   # Posición inicial en Y
+	var offset_x = 100 # Desplazamiento en X entre cada corazón/escudo
+
 	for item in hearts_and_shields:
 		match item:
 			"full_heart":
 				var heart = heart_scene.instantiate()
 				heart.set_full()
+				heart.position = Vector2(start_x, start_y)
 				heart_container_node.add_child(heart)
 			"half_heart":
 				var heart = heart_scene.instantiate()
 				heart.set_half()
+				heart.position = Vector2(start_x, start_y)
 				heart_container_node.add_child(heart)
 			"empty_heart":
 				var heart = heart_scene.instantiate()
 				heart.set_empty()
+				heart.position = Vector2(start_x, start_y)
 				heart_container_node.add_child(heart)
 			"full_shield":
 				var shield_heart = shield_scene.instantiate()
 				shield_heart.set_full()
+				shield_heart.position = Vector2(start_x, start_y)
 				heart_container_node.add_child(shield_heart)
 			"half_shield":
 				var shield_heart = shield_scene.instantiate()
 				shield_heart.set_half()
+				shield_heart.position = Vector2(start_x, start_y)
 				heart_container_node.add_child(shield_heart)
+
+		# Incrementar la posición en X para el siguiente corazón/escudo
+		start_x += offset_x
