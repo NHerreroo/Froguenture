@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c16x2a1kd867j"]
+
+[ext_resource type="Texture2D" uid="uid://dbfqludd4lps7" path="res://Sprites/icons/shield.png" id="1_so2gl"]
+[ext_resource type="Script" path="res://Scenes/shield_hud.gd" id="2_02yrd"]
+
+[node name="ShieldHud" type="TextureRect"]
+offset_left = -67.0
+offset_top = -70.0
+offset_right = 71.0
+offset_bottom = 74.0
+size_flags_horizontal = 4
+texture = ExtResource("1_so2gl")
+expand_mode = 1
+script = ExtResource("2_02yrd")
