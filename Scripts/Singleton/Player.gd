@@ -16,3 +16,9 @@ var dashCooldown : float = 1.0
 
 var damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon enetero 0.5 medio
 var invencibleTime = 1
+
+
+signal health_updated
+
+func notify_health_updated():
+	emit_signal("health_updated")

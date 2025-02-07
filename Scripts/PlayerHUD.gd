@@ -4,20 +4,21 @@ extends Control
 @onready var heart_scene = preload("res://Scenes/heart_hud.tscn")  # Escena del sprite de corazón
 @onready var shield_scene = preload("res://Scenes/shield_hud.tscn")  # Escena del sprite de escudo
 
-var hearts_and_shields = []
-
 func _ready() -> void:
+	# Conectar la señal del singleton Player
+	Player.connect("health_updated", Callable(self, "update_hearts"))
+	# Llamar a update_hearts() al inicio para mostrar la vida inicial
 	update_hearts()
-	print(hearts_and_shields)
 
 func update_hearts():
-	Global.eraseLife = true
+	print("La vida está actualizada")  # Mensaje de depuración
 
-	# Eliminar todos los nodos hijos de heart_container_node antes de volver a dibujar
+	# Limpiar todos los nodos hijos de heart_container_node antes de volver a dibujar
 	for child in heart_container_node.get_children():
 		child.queue_free()  # Elimina cada nodo hijo
 
-	hearts_and_shields = []
+	# Crear un array para almacenar los strings de corazones y escudos
+	var hearts_and_shields = []
 
 	# Añadir corazones rojos al array
 	var health = Player.health
@@ -48,12 +49,24 @@ func update_hearts():
 		return order.find(a) < order.find(b)
 	)
 
+	# Limitar el número total de elementos a 12
+	if hearts_and_shields.size() > 12:
+		hearts_and_shields = hearts_and_shields.slice(0, 12)
+
 	# Dibujar los corazones y escudos en el HUD
 	var start_x = 80  # Posición inicial en X
 	var start_y = 36   # Posición inicial en Y
 	var offset_x = 100 # Desplazamiento en X entre cada corazón/escudo
+	var offset_y = 100 # Desplazamiento en Y para la segunda fila
 
-	for item in hearts_and_shields:
+	for i in range(hearts_and_shields.size()):
+		var item = hearts_and_shields[i]
+
+		# Cambiar a la segunda fila después del 6to elemento
+		if i == 6:  # Cuando llegamos al 7mo elemento
+			start_x = 80  # Reiniciar la posición X para la segunda fila
+			start_y += offset_y  # Mover hacia abajo en Y
+
 		match item:
 			"full_heart":
 				var heart = heart_scene.instantiate()
@@ -83,5 +96,3 @@ func update_hearts():
 
 		# Incrementar la posición en X para el siguiente corazón/escudo
 		start_x += offset_x
-
-	Global.eraseLife = false

@@ -29,4 +29,7 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	print("LETAL FONGUS PRUIIIN")
+	# Aumentar el contenedor de vida
+	Player.health_container += 2
+	Player.health += 2  # Aumentar la vida también
+	Player.notify_health_updated()  # Notificar al HUD que la vida ha cambiado

@@ -28,6 +28,9 @@ metadata/_edit_vertical_guides_ = [194.0]
 auto_translate_mode = 2
 layout_mode = 3
 anchors_preset = 0
+offset_left = 18.0
+offset_right = 18.0
+scale = Vector2(0.809108, 0.809108)
 size_flags_horizontal = 4
 
 [node name="MiniMap" parent="CanvasLayer" instance=ExtResource("1_lxgdj")]
