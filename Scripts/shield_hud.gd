@@ -8,3 +8,7 @@ func set_full():
 
 func set_half():
 	texture = half_texture
+
+func _process(delta: float) -> void:
+	if Global.eraseLife == true:
+		queue_free()

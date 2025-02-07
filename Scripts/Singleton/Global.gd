@@ -43,6 +43,7 @@ var card_selected = false #controlador para comprobar si se ha seleccionado la c
 
 var can_walk = true #cuando quiera que el personaje no camine se pone a false
 var CurrentPlayerPosition = Vector2()
+var eraseLife = false
 
 #todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
 func _ready():

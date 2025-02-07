@@ -41,12 +41,13 @@ var currentAtackAnimation = "Atack1_right" #def animation
 @onready var atackMesh = $AtackMesh
 @onready var attackCollider = $AtackMesh/Area3D/AttackCollider
 
-
+var hud = null
 
 func _ready():
 	setPlayerPosition(Global.playerDirection)
 	
 func _process(delta: float) -> void:
+	hud = get_tree().get_root().find_child("Hud", true, false)
 	camera = get_tree().get_root().find_child("Camera", true, false) #esto lo pongo aqui por que al cambiar de nivel tmb cambia de camara
 	# Incrementa el temporizador de ataque si no está atacando
 	if can_atack:
@@ -271,9 +272,12 @@ func take_damage(amount: float) -> void:
 	# Limita la salud mínima
 	if Player.health < 0:
 		Player.health = 0
-		
+	
+	if hud:
+		hud.update_hearts()
 	await get_tree().create_timer(Player.invencibleTime).timeout
 	canReciveDamage = true
+
 
 func heal(amount: float) -> void:
 	# Cura solo corazones rojos y respeta el límite de contenedores

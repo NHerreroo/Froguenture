@@ -8,6 +8,7 @@ offset_left = -67.0
 offset_top = -85.0
 offset_right = 71.0
 offset_bottom = 59.0
+pivot_offset = Vector2(66, 85)
 size_flags_horizontal = 4
 texture = ExtResource("1_fncmd")
 expand_mode = 1
