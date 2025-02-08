@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbi5nch0is25o"]
+[gd_scene load_steps=12 format=3 uid="uid://cbi5nch0is25o"]
 
 [ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="1_6ca58"]
 [ext_resource type="Script" path="res://Scripts/PlayerHUD.gd" id="1_48xs0"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cah1wttpcmwvd" path="res://Sprites/icons/speedatack.png" id="7_1tm2w"]
 [ext_resource type="Texture2D" uid="uid://dvd6ws5u0krgb" path="res://Sprites/icons/money.png" id="7_8s83s"]
 [ext_resource type="Script" path="res://Scripts/DebugLabel.gd" id="9_v6t1x"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="10_fr4gg"]
+[ext_resource type="Texture2D" uid="uid://02h1ev11kx24" path="res://Sprites/icons/IsaacLevel.webp" id="10_pabya"]
 
 [node name="Hud" type="Control"]
 top_level = true
@@ -28,19 +30,21 @@ metadata/_edit_vertical_guides_ = [194.0]
 auto_translate_mode = 2
 layout_mode = 3
 anchors_preset = 0
-offset_left = 18.0
-offset_right = 18.0
+offset_left = 1.0
+offset_right = 1.0
 scale = Vector2(0.809108, 0.809108)
 size_flags_horizontal = 4
 
 [node name="MiniMap" parent="CanvasLayer" instance=ExtResource("1_lxgdj")]
-offset_left = 1758.0
-offset_top = 121.0
-offset_right = 1758.0
-offset_bottom = 121.0
-scale = Vector2(-0.75599, 0.75599)
+offset_left = 1697.0
+offset_top = 150.0
+offset_right = 1697.0
+offset_bottom = 150.0
+scale = Vector2(-0.658414, 0.658414)
 
 [node name="HudSprites" type="Node2D" parent="."]
+position = Vector2(4, 232)
+scale = Vector2(0.732403, 0.732403)
 
 [node name="Atack" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
@@ -73,14 +77,16 @@ scale = Vector2(0.111021, 0.111021)
 texture = ExtResource("7_1tm2w")
 
 [node name="Money" type="Sprite2D" parent="HudSprites"]
-position = Vector2(1559, 92)
-scale = Vector2(0.22215, 0.22215)
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(143.364, 61.4416)
+scale = Vector2(0.164943, 0.164943)
 texture = ExtResource("7_8s83s")
 
 [node name="HudLabels" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0.533333)
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -15.0
+offset_right = 25.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="HudLabels"]
@@ -95,54 +101,83 @@ script = ExtResource("9_v6t1x")
 
 [node name="MONEDAS" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 1442.0
-offset_top = 60.0
-offset_right = 1763.0
-offset_bottom = 207.0
+offset_left = 174.0
+offset_top = 243.0
+offset_right = 495.0
+offset_bottom = 390.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
 text = "5"
 
 [node name="Attack" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 195.0
-offset_top = 256.0
-offset_right = 516.0
-offset_bottom = 403.0
+offset_left = 175.0
+offset_top = 406.0
+offset_right = 496.0
+offset_bottom = 553.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
 text = "5"
 
 [node name="DashCooldown" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 194.0
-offset_top = 380.0
-offset_right = 515.0
-offset_bottom = 527.0
+offset_left = 175.0
+offset_top = 498.0
+offset_right = 496.0
+offset_bottom = 645.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
 text = "5"
 
 [node name="Poison" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 195.0
-offset_top = 495.0
-offset_right = 516.0
-offset_bottom = 642.0
+offset_left = 174.0
+offset_top = 587.0
+offset_right = 495.0
+offset_bottom = 734.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
 text = "5"
 
 [node name="Speed" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 194.0
-offset_top = 615.0
-offset_right = 515.0
-offset_bottom = 762.0
+offset_left = 174.0
+offset_top = 670.0
+offset_right = 495.0
+offset_bottom = 817.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
 text = "5"
 
 [node name="SpeedAttack" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 194.0
-offset_top = 733.0
-offset_right = 515.0
-offset_bottom = 880.0
+offset_left = 174.0
+offset_top = 758.0
+offset_right = 495.0
+offset_bottom = 905.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
 text = "5"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IsaacLevel" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.156863)
+position = Vector2(-4.00006, 1)
+scale = Vector2(2.51656, 2.51656)
+texture = ExtResource("10_pabya")
+offset = Vector2(382.995, 214.129)
