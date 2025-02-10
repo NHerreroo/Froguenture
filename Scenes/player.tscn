@@ -2281,6 +2281,7 @@ transform = Transform3D(1.32299, 0, 0, 0, 1.14575, 0.661499, 0, -0.661499, 1.145
 [node name="Head" type="AnimatedSprite3D" parent="Sprites"]
 transform = Transform3D(0.00146771, -7.7829e-05, -6.80917e-06, 7.78295e-05, 0.00146772, -1.80429e-07, 6.80922e-06, -1.80391e-07, 0.00146976, 0, 0.00475581, 0.000127883)
 sorting_offset = 12.0
+gi_mode = 2
 sprite_frames = SubResource("SpriteFrames_52wam")
 animation = &"walk"
 
@@ -2297,7 +2298,7 @@ sprite_frames = SubResource("SpriteFrames_mu4vd")
 animation = &"walk"
 
 [node name="Feet" type="AnimatedSprite3D" parent="Sprites"]
-transform = Transform3D(0.00158769, 0.000111574, 8.27385e-05, -0.000111575, 0.00158984, -2.90181e-06, -8.27386e-05, -2.90154e-06, 0.0015916, 0, 0.00494006, -0.000135261)
+transform = Transform3D(0.00158769, 0.000111574, 8.27385e-05, -0.000111575, 0.00158984, -2.90181e-06, -8.27387e-05, -2.90154e-06, 0.0015916, 0, 0.00494006, -0.000135261)
 sorting_offset = 9.0
 sprite_frames = SubResource("SpriteFrames_hvcuu")
 animation = &"walk"
@@ -2337,5 +2338,12 @@ transform = Transform3D(1.00063, 0, 0, 0, 1.00063, 0, 0, 0, 1.00063, 0, 0.006451
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerArea"]
 transform = Transform3D(0.00887973, 0, 0, 0, 0.00887973, 0, 0, 0, 0.00887973, 0, 0, 0)
 shape = SubResource("BoxShape3D_yo7h1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.00807559, 0, 0, 0, 0.00807559, 0, 0, 0, 0.00807559, 0, 0.00886636, -0.00154601)
+light_energy = 5.04
+shadow_enabled = true
+omni_range = 3.365
+omni_attenuation = 1.571
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]

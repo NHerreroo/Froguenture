@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://2w80s81wj2nn"]
+[gd_scene load_steps=22 format=3 uid="uid://2w80s81wj2nn"]
 
 [ext_resource type="Script" path="res://Scripts/RoomDefScript.gd" id="1_k32bv"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_yq4s2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d4e2o1ac2aa5o" path="res://Sprites/Vegetation/Misc/flags.png" id="11_umqe3"]
 [ext_resource type="Texture2D" uid="uid://deueptp5626aq" path="res://Sprites/Vegetation/Misc/lightPoster.png" id="12_302wq"]
 [ext_resource type="PackedScene" uid="uid://87pl0aihb3pw" path="res://Scenes/Enemies/EnemyTemplate.tscn" id="13_lhrso"]
+[ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="14_ree2u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -26,6 +27,9 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="Environment" id="Environment_ywln1"]
 background_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1342
+volumetric_fog_albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
@@ -80,6 +84,10 @@ directional_shadow_mode = 0
 directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
+
+[node name="AmbientFog" parent="WorldEnvironment" instance=ExtResource("14_ree2u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.549, 1.58555, 0.782349)
+size = Vector3(10.7983, 4.71533, 20.8299)
 
 [node name="Camera" parent="." instance=ExtResource("4_rqv88")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)
@@ -300,18 +308,6 @@ material_override = SubResource("StandardMaterial3D_nc405")
 cast_shadow = 0
 texture = ExtResource("6_8uvgd")
 
-[node name="Sprite3D30" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -6.60409, 0.680974, 8.19424)
-material_override = SubResource("StandardMaterial3D_qmxnj")
-cast_shadow = 0
-texture = ExtResource("7_vdrjd")
-
-[node name="Sprite3D31" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, -6.13806, 0.680974, -6.84425)
-material_override = SubResource("StandardMaterial3D_qmxnj")
-cast_shadow = 0
-texture = ExtResource("7_vdrjd")
-
 [node name="Sprite3D32" type="Sprite3D" parent="Vegetation"]
 transform = Transform3D(-2.58879e-08, -0.366192, -0.592246, -1.60068e-08, 0.592246, -0.366192, 0.696313, 0, -3.04368e-08, 7.8411, 0.680974, -3.68233)
 material_override = SubResource("StandardMaterial3D_qmxnj")
@@ -425,7 +421,7 @@ cast_shadow = 0
 texture = ExtResource("10_mkqs0")
 
 [node name="Sprite3D52" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -7.90171, 2.62393, -6.58147)
+transform = Transform3D(-5.30778e-08, -0.652508, -1.21428, -2.85221e-08, 1.21428, -0.652508, 1.37849, 0, -6.02558e-08, -8.08759, 2.62393, -6.58147)
 cast_shadow = 0
 texture = ExtResource("10_mkqs0")
 
