@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=40 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -2261,6 +2261,10 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yo7h1"]
 
+[sub_resource type="FogMaterial" id="FogMaterial_2l1o2"]
+density = -3.1189
+albedo = Color(0.858105, 0.768137, 0.715974, 1)
+
 [node name="player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(123.83, 0, 0, 0, 123.83, 0, 0, 0, 123.83, 0, 0.0214218, 0)
 collision_layer = 2
@@ -2281,7 +2285,6 @@ transform = Transform3D(1.32299, 0, 0, 0, 1.14575, 0.661499, 0, -0.661499, 1.145
 [node name="Head" type="AnimatedSprite3D" parent="Sprites"]
 transform = Transform3D(0.00146771, -7.7829e-05, -6.80917e-06, 7.78295e-05, 0.00146772, -1.80429e-07, 6.80922e-06, -1.80391e-07, 0.00146976, 0, 0.00475581, 0.000127883)
 sorting_offset = 12.0
-gi_mode = 2
 sprite_frames = SubResource("SpriteFrames_52wam")
 animation = &"walk"
 
@@ -2298,7 +2301,7 @@ sprite_frames = SubResource("SpriteFrames_mu4vd")
 animation = &"walk"
 
 [node name="Feet" type="AnimatedSprite3D" parent="Sprites"]
-transform = Transform3D(0.00158769, 0.000111574, 8.27385e-05, -0.000111575, 0.00158984, -2.90181e-06, -8.27387e-05, -2.90154e-06, 0.0015916, 0, 0.00494006, -0.000135261)
+transform = Transform3D(0.00158769, 0.000111574, 8.27385e-05, -0.000111575, 0.00158984, -2.90181e-06, -8.27386e-05, -2.90154e-06, 0.0015916, 0, 0.00494006, -0.000135261)
 sorting_offset = 9.0
 sprite_frames = SubResource("SpriteFrames_hvcuu")
 animation = &"walk"
@@ -2339,11 +2342,9 @@ transform = Transform3D(1.00063, 0, 0, 0, 1.00063, 0, 0, 0, 1.00063, 0, 0.006451
 transform = Transform3D(0.00887973, 0, 0, 0, 0.00887973, 0, 0, 0, 0.00887973, 0, 0, 0)
 shape = SubResource("BoxShape3D_yo7h1")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.00807559, 0, 0, 0, 0.00807559, 0, 0, 0, 0.00807559, 0, 0.00886636, -0.00154601)
-light_energy = 5.04
-shadow_enabled = true
-omni_range = 3.365
-omni_attenuation = 1.571
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00387189, 0.00409142, -0.00158313)
+size = Vector3(0.0726309, 0.0617816, 0.0776693)
+material = SubResource("FogMaterial_2l1o2")
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]

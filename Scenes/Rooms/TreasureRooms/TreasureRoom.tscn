@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dumewjinakxow"]
+[gd_scene load_steps=20 format=3 uid="uid://dumewjinakxow"]
 
 [ext_resource type="Script" path="res://Scripts/RoomDefScript.gd" id="1_o6hpw"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_sreyh"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_sbv4t"]
+[ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_c78r8"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_r1awb"]
 [ext_resource type="Texture2D" uid="uid://da61upnu41f0u" path="res://Sprites/Vegetation/Trees/Tree1Background.png" id="6_hithp"]
 [ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/Rocks/stone2.png" id="6_n8gxm"]
@@ -22,6 +23,10 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="Environment" id="Environment_ywln1"]
 background_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1342
+volumetric_fog_albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
@@ -86,6 +91,22 @@ directional_shadow_mode = 0
 directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
+
+[node name="AmbientFog" parent="WorldEnvironment" instance=ExtResource("4_c78r8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, 12.3753)
+size = Vector3(20.184, 3.56738, 7.23792)
+
+[node name="AmbientFog3" parent="WorldEnvironment" instance=ExtResource("4_c78r8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, -12.1718)
+size = Vector3(20.184, 3.56738, 7.23792)
+
+[node name="AmbientFog2" parent="WorldEnvironment" instance=ExtResource("4_c78r8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68955, 1.83862, -0.184692)
+size = Vector3(7.0752, 3.56738, 18)
+
+[node name="AmbientFog4" parent="WorldEnvironment" instance=ExtResource("4_c78r8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47569, 1.64174, 0.0329285)
+size = Vector3(7.0752, 3.56738, 17.5648)
 
 [node name="Camera" parent="." instance=ExtResource("4_r1awb")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)

@@ -1,7 +1,9 @@
 extends CharacterBody3D
 class_name Enemy
 
-var dropitem = preload("res://Scenes/Dropps/Coin.tscn")
+var coin = preload("res://Scenes/Dropps/Coin.tscn")
+var shield = preload("res://Scenes/Dropps/Shield.tscn")
+var heart = preload("res://Scenes/Dropps/Heart.tscn")
 
 @export var enemy_src : enemy_source
 
@@ -108,12 +110,15 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 
 func dropitemfunc():
-	var item = dropitem.instantiate()
-	item.position = Vector3(self.position.x + randf_range(0,3), self.position.y + 0.5, self.position.z + randf_range(0,3))
+	var items = [coin, shield, heart]
+	var random_index = randi() % items.size()
+	var selected_item = items[random_index]
+	var item = selected_item.instantiate()
+	item.position = Vector3(
+		self.position.x,  # Variación en el eje X
+		self.position.y + 0.3,                 # Un poco arriba del enemigo
+		self.position.z  # Variación en el eje Z
+	)
 	var parent_node = get_parent()
-
-	# Agrega el objeto dropeado al nodo padre
 	if parent_node:
 		parent_node.add_child(item)
-	else:
-		print("no hay padre")

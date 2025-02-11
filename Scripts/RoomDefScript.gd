@@ -3,6 +3,8 @@ extends Node3D
 var player = null
 var collilsions_seted = false
 var coin = preload("res://Scenes/Dropps/Coin.tscn")
+var heart = preload("res://Scenes/Dropps/Heart.tscn")
+var shield = preload("res://Scenes/Dropps/Shield.tscn")
 
 var topDoorSpecialRoom = preload("res://Scenes/Doors/TopDoorSpecialRoom.tscn")
 var bottomDoorSpecialRoom = preload("res://Scenes/Doors/BottomDoorSpecialRoom.tscn")
@@ -32,6 +34,14 @@ func _ready() -> void:
 						var coin_instance = coin.instantiate()
 						coin_instance.position = Vector3(pos_x, pos_y, pos_z)
 						add_child(coin_instance)  # Agregar la moneda como hijo del nodo actual
+					if item_name == "Heart":
+						var heart_instance = heart.instantiate()
+						heart_instance.position = Vector3(pos_x, pos_y, pos_z)
+						add_child(heart_instance)  # Agregar corazon como hijo del nodo actual
+					if item_name == "Shield":
+						var shield_instance = shield.instantiate()
+						shield_instance.position = Vector3(pos_x, pos_y, pos_z)
+						add_child(shield_instance)  # Agregar escudo como hijo del nodo actual
 			break
 
 func _process(delta):
