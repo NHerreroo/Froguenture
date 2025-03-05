@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://bkjv17kvi25ok"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_vle4m"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_vle4m"]
 [ext_resource type="Texture2D" uid="uid://2xmga4cr3hus" path="res://Sprites/Items/Arts/SelloCazador.png" id="2_be5c0"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="2_d37pj"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_87ik3"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="5_cs640"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_87ik3"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="5_cs640"]
 [ext_resource type="Texture2D" uid="uid://c6qnlhkbbnl6s" path="res://Sprites/Items/Redtemplate2.png" id="5_ua16c"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_osytn"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="6_osytn"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_87ik3")

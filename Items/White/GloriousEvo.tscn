@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://cgyohn8j8io63"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_g5q5r"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_g5q5r"]
 [ext_resource type="Texture2D" uid="uid://b3njiqaocqpv3" path="res://Sprites/Items/Arts/GloriousEvoArt.png" id="2_qt0i5"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_ng3n7"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_ng3n7"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_7el66"]
 [ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="5_6lae0"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="6_7i53i"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="7_aqn5p"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_7i53i"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_aqn5p"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_ng3n7")

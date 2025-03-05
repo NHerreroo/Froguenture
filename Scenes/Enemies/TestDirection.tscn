@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4754n1lt68yk"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/enemy_template.gd" id="1_xw7oj"]
-[ext_resource type="Script" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_410g7"]
+[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scenes/Enemies/enemy_template.gd" id="1_xw7oj"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_410g7"]
 
 [sub_resource type="Resource" id="Resource_mjjwl"]
 script = ExtResource("2_410g7")

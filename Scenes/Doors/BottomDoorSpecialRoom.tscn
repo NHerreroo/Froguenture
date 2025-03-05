@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bbuwg7dnld20r"]
 
-[ext_resource type="Script" path="res://Scenes/Doors/bottom_door_special_room.gd" id="1_oy0ll"]
+[ext_resource type="Script" uid="uid://c54nt6f5r03l3" path="res://Scenes/Doors/bottom_door_special_room.gd" id="1_oy0ll"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_73moe"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_yyy5n"]
 
@@ -59,8 +59,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xv473"]
 _data = {
-"BlockDoor": SubResource("Animation_1rp3i"),
-"RESET": SubResource("Animation_kmetc")
+&"BlockDoor": SubResource("Animation_1rp3i"),
+&"RESET": SubResource("Animation_kmetc")
 }
 
 [node name="BottomDoorSpecialRoom" type="Area3D"]

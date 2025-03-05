@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://cy0fd142pyiqt"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_q14el"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_q14el"]
 [ext_resource type="Texture2D" uid="uid://qriguq5m0vqx" path="res://Sprites/Items/Arts/Khaz'gal, Wrath of the SunArt.png" id="2_cntpk"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_w7m0t"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_w7m0t"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_5ro4o"]
 [ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="5_bfarn"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="6_qv2tj"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="7_0t2xe"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_qv2tj"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_0t2xe"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_w7m0t")

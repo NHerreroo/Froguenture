@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://87pl0aihb3pw"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/enemy_template.gd" id="1_y4qnf"]
-[ext_resource type="Script" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_j1apf"]
+[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scenes/Enemies/enemy_template.gd" id="1_y4qnf"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_j1apf"]
 [ext_resource type="Texture2D" uid="uid://cwinnm0ilk5pd" path="res://Sprites/Enemies/1.png" id="3_oyavr"]
 
 [sub_resource type="Resource" id="Resource_mjjwl"]
@@ -82,8 +82,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
 _data = {
-"RESET": SubResource("Animation_aupjf"),
-"idle": SubResource("Animation_mr116")
+&"RESET": SubResource("Animation_aupjf"),
+&"idle": SubResource("Animation_mr116")
 }
 
 [node name="EnemyTemplate" type="CharacterBody3D"]
@@ -117,7 +117,7 @@ texture = SubResource("GradientTexture1D_euaxv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_xu1it")
+&"": SubResource("AnimationLibrary_xu1it")
 }
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]

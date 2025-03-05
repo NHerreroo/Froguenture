@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b71vwvf2rm0kt"]
 
 [ext_resource type="Texture2D" uid="uid://dlas26r520c4s" path="res://Sprites/icons/heart.png" id="1_fncmd"]
-[ext_resource type="Script" path="res://Scripts/heart_hud.gd" id="2_sb1ev"]
+[ext_resource type="Script" uid="uid://bokkr57nai1bb" path="res://Scripts/heart_hud.gd" id="2_sb1ev"]
 
 [node name="HeartHud" type="TextureRect"]
 offset_left = -67.0

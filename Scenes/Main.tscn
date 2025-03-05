@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bo8j0g3r4edpv"]
 
-[ext_resource type="Script" path="res://Scripts/LevelGenerator.gd" id="1_3w0nh"]
+[ext_resource type="Script" uid="uid://bdpdmy43osr33" path="res://Scripts/LevelGenerator.gd" id="1_3w0nh"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_3w0nh")

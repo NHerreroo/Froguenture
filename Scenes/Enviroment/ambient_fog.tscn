@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b406fxf5y3j0l"]
 
-[ext_resource type="Shader" path="res://Shaders/ambient_fog.gdshader" id="1_gk2ht"]
+[ext_resource type="Shader" uid="uid://dinjy76134sbk" path="res://Shaders/ambient_fog.gdshader" id="1_gk2ht"]
 
 [sub_resource type="Gradient" id="Gradient_lfype"]
 
@@ -13,9 +13,9 @@ noise = SubResource("FastNoiseLite_4uxf1")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gst3s"]
 shader = ExtResource("1_gk2ht")
 shader_parameter/density = 3.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_iywnx")
 shader_parameter/noise_scale = 0.3
 shader_parameter/falloff = 3.0
-shader_parameter/noise_tex = SubResource("NoiseTexture2D_iywnx")
 
 [node name="AmbientFog" type="FogVolume"]
 material = SubResource("ShaderMaterial_gst3s")

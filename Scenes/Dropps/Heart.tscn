@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://jcqjj1gvyhba"]
 
-[ext_resource type="Script" path="res://Scripts/Dropps/heartDrop.gd" id="1_04apt"]
+[ext_resource type="Script" uid="uid://cqyjj05gvusx3" path="res://Scripts/Dropps/heartDrop.gd" id="1_04apt"]
 [ext_resource type="Texture2D" uid="uid://bkeor7wsuix54" path="res://Sprites/icons/heart_floor.png" id="2_e45ni"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ekt4"]
@@ -48,8 +48,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iut4q"]
 _data = {
-"RESET": SubResource("Animation_rtnk5"),
-"idle": SubResource("Animation_6h5vb")
+&"RESET": SubResource("Animation_rtnk5"),
+&"idle": SubResource("Animation_6h5vb")
 }
 
 [node name="Heart" type="Area3D" groups=["persistent"]]

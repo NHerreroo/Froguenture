@@ -14,6 +14,8 @@ var room2 = preload("res://Scenes/Rooms/PreBuildedRooms/room2.tscn")
 var finalRoom = preload("res://Scenes/Rooms/FinalRooms/FinalRoom.tscn")
 var treasureRoom = preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
 
+var tavern1 = preload("res://Scenes/Rooms/Taverns/Tavern1.tscn")
+
 # Constates Char para las salas
 var ROOM = ''
 const SHOP = '$'
@@ -151,9 +153,9 @@ func instanceRoom():
 	elif Global.map[x][y] == 'X':
 		currentRoom = finalRoom.instantiate()
 	elif Global.map[x][y] == '$':
-		currentRoom = treasureRoom.instantiate()
+		currentRoom = tavern1.instantiate()
 	elif Global.map[x][y] == '#':
-		currentRoom = room1.instantiate() #ESTO ES PROVISIONL CAMBIAR POR LA QUE SEA DE ESE TIPO
+		currentRoom = treasureRoom.instantiate() #ESTO ES PROVISIONL CAMBIAR POR LA QUE SEA DE ESE TIPO
 	else:
 		var room_scene = load("res://Scenes/Rooms/PreBuildedRooms/room" + str(Global.map[x][y]) +".tscn")
 		currentRoom = room_scene.instantiate()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://jiy0evqv08t7"]
 
-[ext_resource type="Script" path="res://Scripts/mini_map.gd" id="1_a4ck7"]
+[ext_resource type="Script" uid="uid://d3w7g1bgxr7wv" path="res://Scripts/mini_map.gd" id="1_a4ck7"]
 [ext_resource type="Texture2D" uid="uid://b4o6ojwji1c2w" path="res://Sprites/Player/Idle/head.png" id="3_4gvua"]
 
 [sub_resource type="Gradient" id="Gradient_ivvhh"]

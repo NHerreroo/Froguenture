@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=3 uid="uid://yemt84rb13g0"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pjjon"]
+[ext_resource type="Script" uid="uid://bn2g1yfcb815w" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
 [ext_resource type="Texture2D" uid="uid://b4o6ojwji1c2w" path="res://Sprites/Player/Idle/head.png" id="3_8ahrh"]
 [ext_resource type="Texture2D" uid="uid://d08qalrv8d1w1" path="res://Sprites/Player/down/head.png" id="3_wmjrn"]
@@ -2225,14 +2225,14 @@ tracks/18/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5h08q"]
 _data = {
-"Atack1_left": SubResource("Animation_4o1m2"),
-"Atack1_right": SubResource("Animation_hjiei"),
-"RESET": SubResource("Animation_dvfw8"),
-"down": SubResource("Animation_5u8o0"),
-"idle": SubResource("Animation_xm7yl"),
-"up": SubResource("Animation_mbg32"),
-"walk_left": SubResource("Animation_33wwg"),
-"walk_right": SubResource("Animation_ai0tb")
+&"Atack1_left": SubResource("Animation_4o1m2"),
+&"Atack1_right": SubResource("Animation_hjiei"),
+&"RESET": SubResource("Animation_dvfw8"),
+&"down": SubResource("Animation_5u8o0"),
+&"idle": SubResource("Animation_xm7yl"),
+&"up": SubResource("Animation_mbg32"),
+&"walk_left": SubResource("Animation_33wwg"),
+&"walk_right": SubResource("Animation_ai0tb")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i5v5n"]
@@ -2314,7 +2314,7 @@ animation = &"walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]
 libraries = {
-"": SubResource("AnimationLibrary_5h08q")
+&"": SubResource("AnimationLibrary_5h08q")
 }
 
 [node name="Atack" type="AnimatedSprite3D" parent="Sprites"]

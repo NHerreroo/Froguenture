@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://b8xsfykjjr4c0"]
 
-[ext_resource type="Script" path="res://Items/ItemTemplate.gd" id="1_a46mo"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_a46mo"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="2_ww210"]
-[ext_resource type="Script" path="res://Items/_ClassResource/Item_Res.gd" id="3_4n86f"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_4n86f"]
 [ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_v1wmx"]
-[ext_resource type="Shader" path="res://Shaders/FoilShader.gdshader" id="5_mx3l2"]
-[ext_resource type="Shader" path="res://Shaders/Foil2.gdshader" id="6_g1o76"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="5_mx3l2"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="6_g1o76"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("3_4n86f")

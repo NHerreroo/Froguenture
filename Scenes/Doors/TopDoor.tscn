@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://ou21dtyhd5d8"]
 
-[ext_resource type="Script" path="res://Scripts/Doors/TopDoor.gd" id="1_c6ou0"]
+[ext_resource type="Script" uid="uid://bbrdt3gj2vw05" path="res://Scripts/Doors/TopDoor.gd" id="1_c6ou0"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_cmn7x"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_m2ydn"]
 
@@ -59,8 +59,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6pbv"]
 _data = {
-"BlockDoor": SubResource("Animation_1a6ye"),
-"RESET": SubResource("Animation_form2")
+&"BlockDoor": SubResource("Animation_1a6ye"),
+&"RESET": SubResource("Animation_form2")
 }
 
 [node name="TopDoor" type="Area3D"]

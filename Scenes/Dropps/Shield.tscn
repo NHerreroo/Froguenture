@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cpiwno3tnl2d2"]
 
-[ext_resource type="Script" path="res://Scripts/Dropps/shield.gd" id="1_mgawe"]
+[ext_resource type="Script" uid="uid://cyqtiraxeg23d" path="res://Scripts/Dropps/shield.gd" id="1_mgawe"]
 [ext_resource type="Texture2D" uid="uid://chn0mynickbn8" path="res://Sprites/icons/shield_floor.png" id="2_10qjq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pe00n"]
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3dl0u"]
 _data = {
-"RESET": SubResource("Animation_7tyep"),
-"idle": SubResource("Animation_3yrpk")
+&"RESET": SubResource("Animation_7tyep"),
+&"idle": SubResource("Animation_3yrpk")
 }
 
 [node name="Shield" type="Area3D" groups=["persistent"]]

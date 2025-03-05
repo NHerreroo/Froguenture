@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://cbi5nch0is25o"]
 
 [ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="1_6ca58"]
-[ext_resource type="Script" path="res://Scripts/PlayerHUD.gd" id="1_48xs0"]
+[ext_resource type="Script" uid="uid://r4rdv5sn32dl" path="res://Scripts/PlayerHUD.gd" id="1_48xs0"]
 [ext_resource type="PackedScene" uid="uid://jiy0evqv08t7" path="res://Scenes/mini_map.tscn" id="1_lxgdj"]
 [ext_resource type="Texture2D" uid="uid://cwi1p5cfvdagp" path="res://Sprites/icons/poison.png" id="2_kp3v7"]
 [ext_resource type="Texture2D" uid="uid://lbfv2fom7d6w" path="res://Sprites/icons/speed.png" id="3_gbf7o"]
 [ext_resource type="Texture2D" uid="uid://c0ebf4qtfj2ow" path="res://Sprites/icons/dashcooldown.png" id="4_sqwj6"]
 [ext_resource type="Texture2D" uid="uid://cah1wttpcmwvd" path="res://Sprites/icons/speedatack.png" id="7_1tm2w"]
 [ext_resource type="Texture2D" uid="uid://dvd6ws5u0krgb" path="res://Sprites/icons/money.png" id="7_8s83s"]
-[ext_resource type="Script" path="res://Scripts/DebugLabel.gd" id="9_v6t1x"]
+[ext_resource type="Script" uid="uid://disrtqqw7rlp8" path="res://Scripts/DebugLabel.gd" id="9_v6t1x"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="10_fr4gg"]
 [ext_resource type="Texture2D" uid="uid://02h1ev11kx24" path="res://Sprites/icons/IsaacLevel.webp" id="10_pabya"]
 

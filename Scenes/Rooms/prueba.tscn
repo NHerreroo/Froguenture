@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c86n45vghcrrv"]
 
-[ext_resource type="Script" path="res://Scripts/RoomDefScript.gd" id="1_mhvj4"]
+[ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_mhvj4"]
 [ext_resource type="Texture2D" uid="uid://d2y55ouwxodk8" path="res://Sprites/Tavern/tambernFloor.png" id="2_hsmnq"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_is1ow"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_hte8x"]

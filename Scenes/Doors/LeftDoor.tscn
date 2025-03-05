@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dawngp5xmls0u"]
 
-[ext_resource type="Script" path="res://Scripts/Doors/LeftDoor.gd" id="1_lejbu"]
+[ext_resource type="Script" uid="uid://c1lcymxvor8y5" path="res://Scripts/Doors/LeftDoor.gd" id="1_lejbu"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_i4niy"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_hm378"]
 
@@ -59,8 +59,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qsaxw"]
 _data = {
-"BlockDoor": SubResource("Animation_vkgc6"),
-"RESET": SubResource("Animation_ly2ev")
+&"BlockDoor": SubResource("Animation_vkgc6"),
+&"RESET": SubResource("Animation_ly2ev")
 }
 
 [node name="LeftDoor" type="Area3D"]

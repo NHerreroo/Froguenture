@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cin32toqe3gk7"]
 
-[ext_resource type="Script" path="res://Scripts/Doors/RightDoor.gd" id="1_52ewd"]
+[ext_resource type="Script" uid="uid://bd1fwwb4xwge6" path="res://Scripts/Doors/RightDoor.gd" id="1_52ewd"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_rt3yu"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_8h607"]
 
@@ -59,8 +59,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t5hdg"]
 _data = {
-"BlockDoor": SubResource("Animation_0annx"),
-"RESET": SubResource("Animation_0iksm")
+&"BlockDoor": SubResource("Animation_0annx"),
+&"RESET": SubResource("Animation_0iksm")
 }
 
 [node name="RightDoor" type="Area3D"]

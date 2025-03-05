@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://7ujjmb0lt1o8"]
 
-[ext_resource type="Script" path="res://Scripts/grass_1.gd" id="1_he8qu"]
+[ext_resource type="Script" uid="uid://dcx3qyci6ou5d" path="res://Scripts/grass_1.gd" id="1_he8qu"]
 [ext_resource type="Texture2D" uid="uid://dmi2f0c3yuc50" path="res://Sprites/Vegetation/Grass/Grass1.png" id="1_kymt5"]
 [ext_resource type="Texture2D" uid="uid://d1ffy81qrj5cw" path="res://Sprites/Vegetation/Grass/Grass2.png" id="2_jwdh5"]
 [ext_resource type="Texture2D" uid="uid://lkmq3xg15yrp" path="res://Sprites/Vegetation/Grass/Grass1-6.png" id="2_x1w7u"]
@@ -285,12 +285,12 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cwu77"]
 _data = {
-"RESET": SubResource("Animation_1b0k2"),
-"grass1": SubResource("Animation_wl5td")
+&"RESET": SubResource("Animation_1b0k2"),
+&"grass1": SubResource("Animation_wl5td")
 }
 
 [node name="Grass1" type="Node3D"]
-transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 0.145888, 2.72415, -0.243326)
+transform = Transform3D(-3.22735e-08, -0.540497, 0.540497, -8.64767e-09, 0.540497, 0.540497, -0.764378, 1.6706e-08, -2.89357e-08, 0.145888, 2.72415, -0.243326)
 script = ExtResource("1_he8qu")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -330,7 +330,7 @@ sprite_frames = SubResource("SpriteFrames_a78wg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cwu77")
+&"": SubResource("AnimationLibrary_cwu77")
 }
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

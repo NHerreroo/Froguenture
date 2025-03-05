@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvgcd73rhdb2l"]
+
+[ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_awjkb"]
+[ext_resource type="Texture2D" uid="uid://d2y55ouwxodk8" path="res://Sprites/Tavern/tambernFloor.png" id="2_hdc40"]
+[ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_8wsem"]
+[ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_ochy7"]
+[ext_resource type="Texture2D" uid="uid://c1ch8c806ectq" path="res://Sprites/Vegetation/Misc/alfombra2.png" id="5_6vc42"]
+[ext_resource type="Texture2D" uid="uid://dum4qcycohuks" path="res://Sprites/Altar.png" id="6_alcn3"]
+[ext_resource type="Texture2D" uid="uid://d1gd3uxyai33f" path="res://Sprites/window1.png" id="7_m0ytj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_hdc40")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p6tl6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mk0ac"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Environment" id="Environment_ywln1"]
+background_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
+size = Vector3(1, 4, 10)
+
+[node name="InitialRoom" type="Node3D"]
+script = ExtResource("1_awjkb")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
+material_override = SubResource("StandardMaterial3D_lskdr")
+mesh = SubResource("PlaneMesh_p6tl6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(21.3409, 0, -1.13687e-13, 0, 8.78843, 0, 6.82121e-13, 0, 35.7898, 0, -0.951997, 0)
+shape = SubResource("ConcavePolygonShape3D_mk0ac")
+
+[node name="player" parent="." instance=ExtResource("3_8wsem")]
+process_priority = 75
+transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ywln1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.224144, -0.5, 0.836516, -0.12941, 0.866025, 0.482963, -0.965926, 0, -0.258819, 13, 16, 0)
+light_energy = 0.808
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.276
+directional_shadow_max_distance = 784.3
+directional_shadow_pancake_size = 9.1
+
+[node name="Camera" parent="." instance=ExtResource("4_ochy7")]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)
+
+[node name="BoundsColliders" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BoundsColliders"]
+transform = Transform3D(5.91273, 0, 0, 0, 5.91273, 0, 0, 0, 5.91273, 0, 0, 9)
+collision_mask = 2
+
+[node name="top1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111658, -0.872897, 0.163282, -0.617463)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="topbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.0611771, -0.872898, 0.163282, -1.50271)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="top2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111658, -0.873, 0.163, -2.399)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="right1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39277e-09, 0, -0.111659, 0, 0.169127, 0, 0.169127, 0, -4.88075e-09, -0.839889, 0.163282, -3.03449)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="rightbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39277e-09, 0, -0.0611772, 0, 0.169127, 0, 0.169127, 0, -2.67414e-09, 0.0453556, 0.163282, -3.0345)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="right2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39277e-09, 0, -0.111659, 0, 0.169127, 0, 0.169127, 0, -4.88075e-09, 0.94165, 0.163, -3.0346)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="left1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39276e-09, 0, 0.111659, 0, 0.169127, 0, -0.169127, 0, -4.88075e-09, 0.937967, 0.163282, 0.0157124)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="leftbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39276e-09, 0, 0.0611772, 0, 0.169127, 0, -0.169127, 0, -2.67414e-09, 0.0527225, 0.163282, 0.0157136)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="left2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(-7.39276e-09, 0, 0.111659, 0, 0.169127, 0, -0.169127, 0, -4.88075e-09, -0.843572, 0.163, 0.0158134)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="bot1" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111659, 0.895318, 0.163282, -0.617463)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="botbtwn" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.0659768, 0.895, 0.163, -1.503)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="bot2" type="CollisionShape3D" parent="BoundsColliders/StaticBody3D"]
+transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111659, 0.895, 0.163, -2.399)
+shape = SubResource("BoxShape3D_wjxqr")
+
+[node name="Vegetation" type="Node3D" parent="."]
+
+[node name="Alfombra" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(0.645319, 0, 0, 0, -3.72502e-08, -0.645319, 0, 0.852185, -2.82078e-08, 0, 0, 0)
+texture = ExtResource("5_6vc42")
+
+[node name="Altar" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(0.00155636, -0.392798, 0.391742, -0.00101759, 0.391741, 0.392801, -0.554753, -0.00182057, 0.000378528, -1.28497, 1.78805, 1.54224)
+alpha_cut = 1
+texture = ExtResource("6_alcn3")
+
+[node name="Window3" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(0.00165225, -0.370466, 0.639677, -0.00184649, 0.639675, 0.37047, -0.739209, -0.00242591, 0.000504388, -6.43519, 1.69727, 1.94878)
+modulate = Color(1, 1, 1, 0.258824)
+shaded = true
+texture = ExtResource("7_m0ytj")
+
+[node name="Window4" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(0.00165225, -0.370466, 0.639677, -0.00184649, 0.639675, 0.37047, -0.739209, -0.00242591, 0.000504388, -6.43519, 1.69727, -7.24749)
+modulate = Color(1, 1, 1, 0.258824)
+shaded = true
+texture = ExtResource("7_m0ytj")
+
+[node name="Altar2" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(0.00155636, -0.392798, 0.391742, -0.00101759, 0.391741, 0.392801, -0.554753, -0.00182057, 0.000378528, -0.203861, 1.78805, -0.397101)
+alpha_cut = 1
+texture = ExtResource("6_alcn3")
+
+[node name="Altar3" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(0.00155636, -0.392798, 0.391742, -0.00101759, 0.391741, 0.392801, -0.554753, -0.00182057, 0.000378528, -1.2849, 1.78805, -2.17138)
+alpha_cut = 1
+texture = ExtResource("6_alcn3")
