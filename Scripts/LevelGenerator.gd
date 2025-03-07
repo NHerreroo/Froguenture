@@ -102,6 +102,7 @@ func print_actual_pos(map: Array, x: int, y: int):
 
 # Generar puertas según la posición
 func generate_doors(map: Array):
+	set_all_colliders()
 	clean_previous_doors()  # Limpiamos las puertas anteriores
 
 	var x = Global.playerMapPositionX
@@ -200,3 +201,9 @@ func _process(delta):
 func set_global_stats():
 	Global.rooms_visited.clear() # a la mierda las rooms visitadas
 	Global.persistent_items.clear() # a la mierda los items del suelo
+
+func set_all_colliders():
+		Global.topCollider = false
+		Global.botCollider = false
+		Global.rightCollider = false
+		Global.leftCollider = false

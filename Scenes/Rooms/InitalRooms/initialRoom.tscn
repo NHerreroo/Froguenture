@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7fifk6tqomsr"]
+[gd_scene load_steps=17 format=3 uid="uid://7fifk6tqomsr"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_xar1c"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_2cx58"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://7ujjmb0lt1o8" path="res://Scenes/Enviroment/grass1.tscn" id="9_3xihf"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="9_w527a"]
 [ext_resource type="Texture2D" uid="uid://dq71hl2qx4gr5" path="res://Sprites/Vegetation/Trees/TreeeXmass2.png" id="10_uda6b"]
-[ext_resource type="PackedScene" uid="uid://87pl0aihb3pw" path="res://Scenes/Enemies/EnemyTemplate.tscn" id="11_77km4"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_te2ct"]
 vertices = PackedVector3Array(-4.33192, 0.464046, -8.07265, -4.33192, 0.464046, 8.17735, 4.41808, 0.464046, 8.17735, 4.41808, 0.464046, -8.07265)
@@ -276,6 +275,3 @@ light_volumetric_fog_energy = 1.808
 omni_range = 5.24309
 
 [node name="Items" type="Node3D" parent="."]
-
-[node name="EnemyTemplate" parent="." instance=ExtResource("11_77km4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058841, 0.0926343, 4.45772)

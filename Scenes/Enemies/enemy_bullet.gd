@@ -5,10 +5,11 @@ var direction = Vector3.ZERO
 var speed = 10
 
 func _process(delta):
-	if direction != Vector3.ZERO:
-		position += direction.normalized() * speed * delta
 	if Global.eraseLevel == true:
 		queue_free()
+	if direction != Vector3.ZERO:
+		position += direction.normalized() * speed * delta
+
 
 func _ready():
 	await get_tree().create_timer(4).timeout

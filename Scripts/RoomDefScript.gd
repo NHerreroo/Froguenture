@@ -51,12 +51,14 @@ func _process(delta):
 		if isSpecialDoorInstanciates == false:
 			instanciateDoorsSpecialRoom()
 			isSpecialDoorInstanciates = true
-			
+			setCollisions()  # Asegurar que las colisiones se actualicen correctamente
+
+				
 	if Global.enemies_remaining == 0:
 		setCollisions()
 	else:
 		activateAllCollisions()
-	
+		
 	if Global.eraseLevel == true:
 		queue_free()
 
@@ -70,7 +72,7 @@ func activateAllCollisions():
 	for side in sides:
 		var collider = $BoundsColliders/StaticBody3D.get_node(side + "btwn")
 		collider.disabled = false
-	collilsions_seted = false  
+	collilsions_seted = false
 
 func instanciateDoorsSpecialRoom():
 	var bottomDoorInst = bottomDoorSpecialRoom.instantiate()

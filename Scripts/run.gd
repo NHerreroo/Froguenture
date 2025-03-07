@@ -7,7 +7,7 @@ extends Node
 
 const BATTLE_SCENE := preload("res://Scenes/Main.tscn")
 const CAMPFIRE_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
-const SHOP_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
+const SHOP_SCENE := preload("res://Scenes/Rooms/Taverns/Tavern1.tscn")
 const TREASURE_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
 const BOSS_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
 

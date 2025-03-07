@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvgcd73rhdb2l"]
+[gd_scene load_steps=16 format=3 uid="uid://dvgcd73rhdb2l"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_awjkb"]
 [ext_resource type="Texture2D" uid="uid://d2y55ouwxodk8" path="res://Sprites/Tavern/tambernFloor.png" id="2_hdc40"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_8wsem"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_ochy7"]
 [ext_resource type="Texture2D" uid="uid://c1ch8c806ectq" path="res://Sprites/Vegetation/Misc/alfombra2.png" id="5_6vc42"]
-[ext_resource type="Texture2D" uid="uid://dum4qcycohuks" path="res://Sprites/Altar.png" id="6_alcn3"]
-[ext_resource type="Texture2D" uid="uid://d1gd3uxyai33f" path="res://Sprites/window1.png" id="7_m0ytj"]
+[ext_resource type="Texture2D" uid="uid://b2qb4gif0wcx1" path="res://Sprites/Vegetation/Misc/ligh1.png" id="7_snlxn"]
+[ext_resource type="Texture2D" uid="uid://4o1obfsscw3o" path="res://Sprites/Vegetation/Misc/fishhang.png" id="8_kyhau"]
+[ext_resource type="PackedScene" uid="uid://bynpbesuvxb41" path="res://Scenes/shop_altar.tscn" id="8_snlxn"]
+[ext_resource type="Texture2D" uid="uid://iddo5cwvh4vp" path="res://Sprites/Vegetation/Misc/table.png" id="8_xyyfi"]
+[ext_resource type="PackedScene" uid="uid://bxaaw4xxr28sn" path="res://Scenes/Npcs/cat_npc.tscn" id="10_kyhau"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -40,7 +43,7 @@ shape = SubResource("ConcavePolygonShape3D_mk0ac")
 
 [node name="player" parent="." instance=ExtResource("3_8wsem")]
 process_priority = 75
-transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
+transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 9.38203, 0.014, -0.205)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ywln1")
@@ -113,32 +116,116 @@ shape = SubResource("BoxShape3D_wjxqr")
 [node name="Vegetation" type="Node3D" parent="."]
 
 [node name="Alfombra" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(0.645319, 0, 0, 0, -3.72502e-08, -0.645319, 0, 0.852185, -2.82078e-08, 0, 0, 0)
+transform = Transform3D(0.645319, 0, 0, 0, -3.72502e-08, -0.645319, 0, 0.852185, -2.82078e-08, 0.0234668, 0, 0)
 texture = ExtResource("5_6vc42")
 
-[node name="Altar" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(0.00155636, -0.392798, 0.391742, -0.00101759, 0.391741, 0.392801, -0.554753, -0.00182057, 0.000378528, -1.28497, 1.78805, 1.54224)
+[node name="table" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-1.61993e-08, -0.370597, -0.370597, -1.61993e-08, 0.370597, -0.370597, 0.524104, 0, -2.29093e-08, 3.25637, 0.273595, 6.03531)
 alpha_cut = 1
-texture = ExtResource("6_alcn3")
+texture = ExtResource("8_xyyfi")
 
-[node name="Window3" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(0.00165225, -0.370466, 0.639677, -0.00184649, 0.639675, 0.37047, -0.739209, -0.00242591, 0.000504388, -6.43519, 1.69727, 1.94878)
-modulate = Color(1, 1, 1, 0.258824)
-shaded = true
-texture = ExtResource("7_m0ytj")
-
-[node name="Window4" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(0.00165225, -0.370466, 0.639677, -0.00184649, 0.639675, 0.37047, -0.739209, -0.00242591, 0.000504388, -6.43519, 1.69727, -7.24749)
-modulate = Color(1, 1, 1, 0.258824)
-shaded = true
-texture = ExtResource("7_m0ytj")
-
-[node name="Altar2" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(0.00155636, -0.392798, 0.391742, -0.00101759, 0.391741, 0.392801, -0.554753, -0.00182057, 0.000378528, -0.203861, 1.78805, -0.397101)
+[node name="light1" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -2.2929, 4.98264, 5.89301)
 alpha_cut = 1
-texture = ExtResource("6_alcn3")
+texture = ExtResource("7_snlxn")
 
-[node name="Altar3" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(0.00155636, -0.392798, 0.391742, -0.00101759, 0.391741, 0.392801, -0.554753, -0.00182057, 0.000378528, -1.2849, 1.78805, -2.17138)
+[node name="light2" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -14.0051, 3.33811, 2.60997)
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
 alpha_cut = 1
-texture = ExtResource("6_alcn3")
+texture = ExtResource("7_snlxn")
+
+[node name="light8" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -14.0051, 4.44281, 9.02505)
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light15" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, 0.913556, 4.44281, 14.7257)
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light17" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, 0.55408, 4.44281, -14.2401)
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light9" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -14.0051, 4.44281, -12.7954)
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light10" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -10.4256, 4.6444, -16.8776)
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light11" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -2.09467, 4.6444, 11.057)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light12" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, 1.07754, 4.6444, -6.95904)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light13" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, 4.34321, 4.6444, -11.4021)
+alpha_cut = 1
+texture = ExtResource("8_kyhau")
+
+[node name="light3" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -9.62336, 5.50395, -7.7089)
+alpha_cut = 1
+texture = ExtResource("7_snlxn")
+
+[node name="light4" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -9.62336, 3.36416, -3.65625)
+modulate = Color(0.485703, 0.485704, 0.485703, 1)
+alpha_cut = 1
+texture = ExtResource("7_snlxn")
+
+[node name="light5" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -9.62336, 3.36416, 12.5075)
+alpha_cut = 1
+texture = ExtResource("7_snlxn")
+
+[node name="light6" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -6.56967, 3.36416, 15.2497)
+alpha_cut = 1
+texture = ExtResource("7_snlxn")
+
+[node name="light7" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -6.56967, 3.36416, -12.3216)
+alpha_cut = 1
+texture = ExtResource("7_snlxn")
+
+[node name="table2" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-1.61993e-08, -0.370597, -0.370597, -1.61993e-08, 0.370597, -0.370597, 0.524104, 0, -2.29093e-08, 3.25637, 0.273595, -6.00092)
+alpha_cut = 1
+texture = ExtResource("8_xyyfi")
+
+[node name="table3" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-1.61993e-08, -0.370597, -0.370597, -1.61993e-08, 0.370597, -0.370597, 0.524104, 0, -2.29093e-08, -2.86217, 0.273595, -5.83251)
+alpha_cut = 1
+texture = ExtResource("8_xyyfi")
+
+[node name="table4" type="Sprite3D" parent="Vegetation"]
+transform = Transform3D(-1.61993e-08, -0.370597, -0.370597, -1.61993e-08, 0.370597, -0.370597, 0.524104, 0, -2.29093e-08, -2.86217, 0.273595, 5.30498)
+alpha_cut = 1
+texture = ExtResource("8_xyyfi")
+
+[node name="CatNpc" parent="Vegetation" instance=ExtResource("10_kyhau")]
+transform = Transform3D(-1.26895e-08, -0.167605, 0.290301, -7.32629e-09, 0.290301, 0.167605, -0.335211, 9.06609e-23, -1.46526e-08, -0.258639, 0.618332, -0.11936)
+
+[node name="ShopAltar" parent="." instance=ExtResource("8_snlxn")]
+transform = Transform3D(-4.10422e-08, -0.469468, 0.813142, 0, 0.813142, 0.469468, -0.938936, 2.05211e-08, -3.55436e-08, 1.55885, -0.189201, 1.9587)
+
+[node name="ShopAltar2" parent="." instance=ExtResource("8_snlxn")]
+transform = Transform3D(-4.10422e-08, -0.469468, 0.813142, 0, 0.813142, 0.469468, -0.938936, 2.05211e-08, -3.55436e-08, 1.55885, -0.189201, -1.84531)
