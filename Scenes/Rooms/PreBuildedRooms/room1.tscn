@@ -470,4 +470,4 @@ texture = ExtResource("12_302wq")
 transform = Transform3D(-4.95676e-08, -0.5, 0.866025, 2.18557e-08, 0.866025, 0.5, -1, 4.37114e-08, -3.1999e-08, 1.11415, -0.442172, 1.53938)
 
 [node name="EnemyTemplate" parent="." instance=ExtResource("15_nwfht")]
-transform = Transform3D(1.20914, 0, 0, 0, 1.20914, 0, 0, 0, 1.20914, 1.18925, 0.0314925, -2.9316)
+transform = Transform3D(0.87561, 0, 0, 0, 0.87561, 0, 0, 0, 0.87561, 1.18925, 0.0314925, -2.9316)

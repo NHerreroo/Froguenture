@@ -18,7 +18,7 @@ var damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon eneter
 var invencibleTime = 1
 
 
+#noificador de vida actualizada (general)
 signal health_updated
-
 func notify_health_updated():
 	emit_signal("health_updated")

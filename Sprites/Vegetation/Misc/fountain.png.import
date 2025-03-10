@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gmspc4ixnwc8"
-path="res://.godot/imported/Bluetemplate.png-91f8f6c19c67537caff4f637bb846681.ctex"
+uid="uid://lm1y0g125fhl"
+path="res://.godot/imported/fountain.png-bae332680d4f89297aceff672e648a7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Items/Bluetemplate.png"
-dest_files=["res://.godot/imported/Bluetemplate.png-91f8f6c19c67537caff4f637bb846681.ctex"]
+source_file="res://Sprites/Vegetation/Misc/fountain.png"
+dest_files=["res://.godot/imported/fountain.png-bae332680d4f89297aceff672e648a7d.ctex"]
 
 [params]
 
