@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://87pl0aihb3pw"]
+[gd_scene load_steps=12 format=3 uid="uid://ddmumrs6tfxbc"]
 
-[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_y4qnf"]
-[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_j1apf"]
-[ext_resource type="Texture2D" uid="uid://cwinnm0ilk5pd" path="res://Sprites/Enemies/1.png" id="3_oyavr"]
+[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_xow73"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_cunt7"]
+[ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="3_xow73"]
 
 [sub_resource type="Resource" id="Resource_mjjwl"]
-script = ExtResource("2_j1apf")
+script = ExtResource("2_cunt7")
 health = 20.0
 attack = 564.0
 speed = 3.0
@@ -14,6 +14,7 @@ knockback_duration = 0.2
 knockback_timer = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
+size = Vector3(1, 0.772949, 0.868652)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
 size = Vector3(3.50751, 3.1073, 2.86035)
@@ -88,8 +89,13 @@ _data = {
 
 [node name="EnemyTemplate" type="CharacterBody3D"]
 collision_layer = 4
-script = ExtResource("1_y4qnf")
+script = ExtResource("1_xow73")
 enemy_src = SubResource("Resource_mjjwl")
+
+[node name="Body" type="Sprite3D" parent="."]
+transform = Transform3D(-2.01799e-08, -0.266541, 0.461662, -1.16509e-08, 0.461662, 0.266541, -0.533082, 0, -2.33017e-08, 0.23692, 0, -0.144703)
+alpha_cut = 1
+texture = ExtResource("3_xow73")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
@@ -97,20 +103,24 @@ shape = SubResource("BoxShape3D_llsaf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="MeshInstance3D" type="Sprite3D" parent="."]
+[node name="MeshInstance3D" type="Node3D" parent="."]
 transform = Transform3D(-1.20452e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02256e-09, -1.04314e-08, 0, 0.309002, 0)
-alpha_cut = 1
-texture = ExtResource("3_oyavr")
 
 [node name="Area3D" type="Area3D" parent="MeshInstance3D" groups=["enemy"]]
 transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
-transform = Transform3D(0.999999, -2.13389e-08, -3.92733e-09, 1.67991e-08, 0.880849, -0.508562, 1.40709e-08, 0.499999, 0.866023, 0.0801088, 1.03579, 0.917103)
+transform = Transform3D(0.999989, -2.13389e-08, -3.92725e-09, 1.67988e-08, 0.880849, -0.50856, 1.40712e-08, 0.499998, 0.86602, 0.0801088, 1.03579, 0.917103)
 shape = SubResource("BoxShape3D_6cego")
 
 [node name="ProgressBar" type="Sprite3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.39698, 0)
+transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.49649, -0.0859188)
+billboard = 1
+alpha_cut = 1
+texture = SubResource("GradientTexture1D_euaxv")
+
+[node name="ProgressBar2" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.49649, -0.0859188)
 billboard = 1
 alpha_cut = 1
 texture = SubResource("GradientTexture1D_euaxv")

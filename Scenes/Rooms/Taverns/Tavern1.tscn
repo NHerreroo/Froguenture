@@ -171,7 +171,7 @@ alpha_cut = 1
 texture = ExtResource("8_kyhau")
 
 [node name="light12" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, 1.07754, 4.6444, -6.95904)
+transform = Transform3D(-2.86302e-08, -0.378155, -0.654983, -1.65297e-08, 0.654983, -0.378155, 0.756311, 1.52789e-22, -3.30594e-08, -2.10528, 4.6444, -6.95904)
 alpha_cut = 1
 texture = ExtResource("8_kyhau")
 

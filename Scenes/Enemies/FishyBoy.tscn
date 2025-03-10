@@ -1,0 +1,187 @@
+[gd_scene load_steps=13 format=3 uid="uid://k16p6uxsfc4e"]
+
+[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_k2k4b"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_q5h5u"]
+[ext_resource type="Texture2D" uid="uid://bca5b2fajmcie" path="res://Sprites/Enemies/fishyboy/body.png" id="3_q5h5u"]
+[ext_resource type="Texture2D" uid="uid://2oj3jn0rxmu0" path="res://Sprites/Enemies/fishyboy/leg.png" id="4_murji"]
+
+[sub_resource type="Resource" id="Resource_mjjwl"]
+script = ExtResource("2_q5h5u")
+health = 20.0
+attack = 564.0
+speed = 5.0
+accel = 10.0
+knockback_duration = 0.2
+knockback_timer = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+size = Vector3(3.50751, 3.1073, 2.86035)
+
+[sub_resource type="Gradient" id="Gradient_kgy45"]
+colors = PackedColorArray(0.676917, 0, 0.0837418, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_euaxv"]
+gradient = SubResource("Gradient_kgy45")
+
+[sub_resource type="Animation" id="Animation_aupjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Leg1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.82792e-08, 3.08042e-08, -0.828107)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Leg2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.07544e-08, -3.63024e-08, 1.05144)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0689807, 2.49915, 1.52818)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Head:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.42539, 1.29101, 1.42539)]
+}
+
+[sub_resource type="Animation" id="Animation_mr116"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Leg1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.82792e-08, 3.08042e-08, -0.828107), Vector3(-2.56261e-08, -3.30441e-08, 0.911166)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Leg2:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.07544e-08, -3.63024e-08, 1.05144), Vector3(-3.0031e-08, 2.9099e-08, -0.769638)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Head:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0689807, 2.49915, 1.52818), Vector3(-0.0689807, 2.75244, 1.52818)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Head:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.42539, 1.29101, 1.42539), Vector3(1.42539, 1.51926, 1.42539)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
+_data = {
+&"RESET": SubResource("Animation_aupjf"),
+&"idle": SubResource("Animation_mr116")
+}
+
+[node name="FishyBoy" type="CharacterBody3D"]
+transform = Transform3D(-3.78552e-08, 0.5, -0.866025, 2.18557e-08, 0.866025, 0.5, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 4
+script = ExtResource("1_k2k4b")
+enemy_src = SubResource("Resource_mjjwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
+shape = SubResource("BoxShape3D_llsaf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Sprites" type="Node3D" parent="."]
+transform = Transform3D(0.275561, 0, 0, 0, 0.275561, 0, 0, 0, 0.275561, 0, 0.279919, 0)
+
+[node name="Head" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1.42539, -1.0649e-29, 1.42109e-14, 0, 1.29101, 1.1793e-15, -1.42109e-14, -1.06812e-15, 1.42539, -0.0689807, 2.49915, 1.52818)
+alpha_cut = 1
+texture = ExtResource("3_q5h5u")
+
+[node name="Leg1" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.963952, 1.05002, 4.3908e-08, -1.05002, 0.963952, 4.03089e-08, -8.10241e-14, -5.96048e-08, 1.42539, 0.573064, 2.88372, 1.49833)
+alpha_cut = 1
+texture = ExtResource("4_murji")
+
+[node name="Leg2" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.707449, -1.23743, -5.17451e-08, 1.23743, 0.707449, 2.95831e-08, -6.07678e-14, -5.96044e-08, 1.42539, -0.151914, 3.06997, 1.49618)
+alpha_cut = 1
+texture = ExtResource("4_murji")
+
+[node name="Area3D" type="Area3D" parent="Sprites" groups=["enemy"]]
+transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprites/Area3D"]
+transform = Transform3D(0.999999, -2.13389e-08, -3.92733e-09, 1.67991e-08, 0.880849, -0.508562, 1.40709e-08, 0.499999, 0.866023, 0.0801088, 1.03579, 0.917103)
+shape = SubResource("BoxShape3D_6cego")
+
+[node name="ProgressBar" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 2.25373, 0)
+billboard = 1
+alpha_cut = 1
+texture = SubResource("GradientTexture1D_euaxv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xu1it")
+}
+
+[connection signal="area_entered" from="Sprites/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Sprites/Area3D" to="." method="_on_area_3d_body_entered"]

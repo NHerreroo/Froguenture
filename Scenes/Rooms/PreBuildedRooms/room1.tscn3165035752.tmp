@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://deueptp5626aq" path="res://Sprites/Vegetation/Misc/lightPoster.png" id="12_302wq"]
 [ext_resource type="PackedScene" uid="uid://k16p6uxsfc4e" path="res://Scenes/Enemies/FishyBoy.tscn" id="14_kwvrb"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="14_ree2u"]
-[ext_resource type="PackedScene" uid="uid://ddmumrs6tfxbc" path="res://Scenes/Enemies/Slime_Purple.tscn" id="15_nwfht"]
+[ext_resource type="PackedScene" uid="uid://dx57ohbjhjqc6" path="res://Scenes/Enemies/Slime_Purple.tscn" id="15_nwfht"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -469,5 +469,5 @@ texture = ExtResource("12_302wq")
 [node name="FishyBoy" parent="." instance=ExtResource("14_kwvrb")]
 transform = Transform3D(-4.95676e-08, -0.5, 0.866025, 2.18557e-08, 0.866025, 0.5, -1, 4.37114e-08, -3.1999e-08, 1.11415, -0.442172, 1.53938)
 
-[node name="EnemyTemplate" parent="." instance=ExtResource("15_nwfht")]
-transform = Transform3D(1.20914, 0, 0, 0, 1.20914, 0, 0, 0, 1.20914, 1.18925, 0.0314925, -2.9316)
+[node name="Slime" parent="." instance=ExtResource("15_nwfht")]
+transform = Transform3D(1.39385, 0, 0, 0, 1.39385, 0, 0, 0, 1.39385, 1.82691, -0.442809, -2.78749)

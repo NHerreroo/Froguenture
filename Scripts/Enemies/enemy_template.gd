@@ -1,9 +1,10 @@
 extends Enemy
 
-var bullet = preload("res://Scenes/Enemies/EnemyBullet.tscn")
+var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
 
 
 func _ready() -> void:
+	$AnimationPlayer.play("idle")  #could fail if enem no dont have animation named idle
 	Global.enemies_remaining += 1
 	get_random_state()
 	while true:
