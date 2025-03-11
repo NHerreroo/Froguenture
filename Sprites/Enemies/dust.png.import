@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gmspc4ixnwc8"
-valid=false
+uid="uid://02lt5yuhal5p"
+path="res://.godot/imported/dust.png-801db7ebd3d66ad58f74921ad98d614c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Sprites/Items/Bluetemplate.png"
+source_file="res://Sprites/Enemies/dust.png"
+dest_files=["res://.godot/imported/dust.png-801db7ebd3d66ad58f74921ad98d614c.ctex"]
 
 [params]
 

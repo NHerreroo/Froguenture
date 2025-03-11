@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gmspc4ixnwc8"
-valid=false
+uid="uid://cigejt8cuum3x"
+path="res://.godot/imported/pilar1.png-9361e201512921d0b9b4967b40486916.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Sprites/Items/Bluetemplate.png"
+source_file="res://Sprites/Vegetation/Misc/pilar1.png"
+dest_files=["res://.godot/imported/pilar1.png-9361e201512921d0b9b4967b40486916.ctex"]
 
 [params]
 

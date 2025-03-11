@@ -156,12 +156,12 @@ alpha_cut = 1
 texture = ExtResource("3_q5h5u")
 
 [node name="Leg1" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(0.963952, 1.05002, 4.3908e-08, -1.05002, 0.963952, 4.03089e-08, -8.10241e-14, -5.96048e-08, 1.42539, 0.573064, 2.88372, 1.49833)
+transform = Transform3D(0.963953, 1.05002, 4.3908e-08, -1.05002, 0.963953, 4.03089e-08, -8.10243e-14, -5.96048e-08, 1.42539, 0.573064, 2.88372, 1.49833)
 alpha_cut = 1
 texture = ExtResource("4_murji")
 
 [node name="Leg2" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(0.707449, -1.23743, -5.17451e-08, 1.23743, 0.707449, 2.95831e-08, -6.07678e-14, -5.96044e-08, 1.42539, -0.151914, 3.06997, 1.49618)
+transform = Transform3D(0.707448, -1.23743, -5.17451e-08, 1.23743, 0.707448, 2.95831e-08, -6.07677e-14, -5.96043e-08, 1.42539, -0.151914, 3.06997, 1.49618)
 alpha_cut = 1
 texture = ExtResource("4_murji")
 

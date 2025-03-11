@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gmspc4ixnwc8"
-valid=false
+uid="uid://noj400d06ote"
+path="res://.godot/imported/Tree3.png-fb4346123c6eace764c23e6db0a39a96.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Sprites/Items/Bluetemplate.png"
+source_file="res://Sprites/Vegetation/Trees/Tree3.png"
+dest_files=["res://.godot/imported/Tree3.png-fb4346123c6eace764c23e6db0a39a96.ctex"]
 
 [params]
 

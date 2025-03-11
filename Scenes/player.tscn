@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=41 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" uid="uid://bn2g1yfcb815w" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bfb6c5xeiaudy" path="res://Sprites/Player/up/feet2.png" id="15_e80vs"]
 [ext_resource type="Texture2D" uid="uid://crj1lxb6ab0tn" path="res://Sprites/Player/Atack/Atack.png" id="18_856i7"]
 [ext_resource type="PackedScene" uid="uid://cbi5nch0is25o" path="res://Scenes/hud.tscn" id="18_gvt84"]
+[ext_resource type="Texture2D" uid="uid://d1byh17wq03cx" path="res://Sprites/Player/Atack/Slash.png" id="19_l6n3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjemb"]
 
@@ -486,6 +487,42 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.000900546, -0.00454608, 0.222046)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Slash:position")
+tracks/24/interp = 2
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.09, 0.11, 0.128098, 0.145035, 0.163788),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00299157, 0.00728851, 0.00043174), Vector3(0.00273441, 0.00461399, 0.00043174), Vector3(0.00309444, 0.00168231, 0.000431741), Vector3(0.000677066, -0.0025352, 0.000431741), Vector3(-0.00199747, -0.000529314, 0.000431741), Vector3(-0.0043556, 0.00346088, 0.000132934), Vector3(-0.00194604, 0.00769997, 0.00043174)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Slash:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.09, 0.11, 0.128098, 0.163788, 0.166207),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.10505e-14, 0, 0), Vector3(-6.94561e-09, -3.52928e-08, -0.388632), Vector3(-7.68318e-08, -9.17009e-08, -1.3948), Vector3(-1.66889e-07, -5.68867e-08, -2.48456), Vector3(0, 0, -3.42783), Vector3(0, 0, -6.06327), Vector3(0, 0, -6.06327)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Slash:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.09, 0.11, 0.128098, 0.166207),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0025117, 0.0025117, 0.0025117), Vector3(0.0025117, 0.0025117, 0.0025117), Vector3(0.00257662, 0.00400301, 0.00302327), Vector3(0.00257662, 0.00400301, 0.00302327), Vector3(0.00242115, 0.00292594, 0.00251372), Vector3(0.00242115, 0.00292594, 0.00251372)]
 }
 
 [sub_resource type="Animation" id="Animation_hjiei"]
@@ -1105,6 +1142,42 @@ tracks/26/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.00146979, 0.00146978, 0.00146978)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Slash:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00299157, 0.00728851, 0.00043174)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Slash:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.10505e-14, 0, 0)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Slash:scale")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0025117, 0.0025117, 0.0025117)]
 }
 
 [sub_resource type="Animation" id="Animation_5u8o0"]
@@ -2321,6 +2394,11 @@ libraries = {
 transform = Transform3D(0.00226021, -0.000449502, 0, 0.000449502, 0.00226021, 0, 0, 0, 0.00230447, 1.83861e-05, 0.00617168, 0.000917482)
 sorting_offset = 13.0
 sprite_frames = SubResource("SpriteFrames_i5v5n")
+
+[node name="Slash" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.0025117, 0, 0, 0, 0.0025117, 2.77556e-17, 0, -2.77556e-17, 0.0025117, 0.00299157, 0.00728851, 0.00043174)
+modulate = Color(1, 1, 1, 0.470588)
+texture = ExtResource("19_l6n3p")
 
 [node name="Hud" parent="." instance=ExtResource("18_gvt84")]
 
