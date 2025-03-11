@@ -37,6 +37,7 @@ var attack_anim
 var attack_timer = 0.0
 var speedAtack = Player.atackSpeed
 var currentAtackAnimation = "Atack1_right" #def animation
+var attackCounter = 0
 
 @onready var atackMesh = $AtackMesh
 @onready var attackCollider = $AtackMesh/Area3D/AttackCollider
@@ -52,7 +53,8 @@ func _process(delta: float) -> void:
 	# Incrementa el temporizador de ataque si no está atacando
 	if can_atack:
 		attack_timer += delta
-		if attack_timer >= 0.15:
+		if attack_timer >= 0.2:
+			attackCounter = 0
 			SPEED = Player.speed
 
 
@@ -139,19 +141,40 @@ func update_attack_animation():
 
 	if Global.controller_active:
 		if direction.z > 0:
-			currentAtackAnimation = "Atack1_left"
+			if attackCounter == 0:
+				currentAtackAnimation = "Atack1_left"
+			elif attackCounter == 1:
+				currentAtackAnimation = "Atack2_left"
+			elif attackCounter == 2:
+				currentAtackAnimation = "Atack3_left"
+				
 		elif direction.z < 0:
-			currentAtackAnimation = "Atack1_right"
+			if attackCounter == 0:
+				currentAtackAnimation = "Atack1_right"
+			elif attackCounter == 1:
+				currentAtackAnimation = "Atack2_right"
+			elif attackCounter == 2:
+				currentAtackAnimation = "Atack3_right"
 		else:
 			# Si la componente horizontal no es dominante, mantenemos la última dirección
 			if currentAtackAnimation == "":
 				currentAtackAnimation = "Atack1_right"  # Valor por defecto, o puedes usar el último estado
 	else:
-		# Si el controlador no está activo, usa la posición del ratón
 		if mouse_pos.x < viewport_center:
-			currentAtackAnimation = "Atack1_left"
+			# Si el controlador no está activo, usa la posición del ratón
+			if attackCounter == 0:
+				currentAtackAnimation = "Atack1_left"
+			elif attackCounter == 1:
+				currentAtackAnimation = "Atack2_left"
+			elif attackCounter == 2:
+				currentAtackAnimation = "Atack3_left"
 		else:
-			currentAtackAnimation = "Atack1_right"
+			if attackCounter == 0:
+				currentAtackAnimation = "Atack1_right"
+			elif attackCounter == 1:
+				currentAtackAnimation = "Atack2_right"
+			elif attackCounter == 2:
+				currentAtackAnimation = "Atack3_right"
 
 
 #----------------Funciones de ataque ------------------
@@ -222,6 +245,10 @@ func attack():
 			return
 
 func perform_attack():
+	if attackCounter < 2:
+		attackCounter += 1
+	else:
+		attackCounter = 0
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
 	if Global.controller_active:
 		# Si no hay entrada de movimiento, usa la última dirección
@@ -233,6 +260,7 @@ func perform_attack():
 		var hit_position = shoot_raycast()
 		mini_dash_direction = (hit_position - self.global_position).normalized()
 		mini_dash_direction.y = 0  # Mantiene la Y constante
+
 
 	is_mini_dashing = true
 	mini_dash_timer = MINI_DASH_DURATION
