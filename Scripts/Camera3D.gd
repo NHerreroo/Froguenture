@@ -59,6 +59,24 @@ func low_shake_camera():
 	self.h_offset = lerp(self.h_offset, 0.0, 0.5)
 	self.v_offset = lerp(self.v_offset, 0.0, 0.5)
 	
+	
+func big_shake_camera():
+	var target_h_offset = 0.0
+	var target_v_offset = 0.0
+
+	for x in 5:
+		target_h_offset = get_random_shake_seed_x(-0.3, 0.3)
+		target_v_offset = get_random_shake_seed_x(-0.3, 0.3)
+		
+		self.h_offset = lerp(self.h_offset, target_h_offset, 0.5)
+		self.v_offset = lerp(self.v_offset, target_v_offset, 0.5)
+		
+		await get_tree().create_timer(0.04).timeout
+
+	# Vuelve a cero al terminar
+	self.h_offset = lerp(self.h_offset, 0.0, 0.5)
+	self.v_offset = lerp(self.v_offset, 0.0, 0.5)
+	
 func frameFreeze(timeScale, duration):
 	Engine.time_scale = timeScale
 	await get_tree().create_timer(duration * timeScale).timeout
