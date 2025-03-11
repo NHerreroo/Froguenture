@@ -1,0 +1,134 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnyfoxjq8c1rc"]
+
+[ext_resource type="Texture2D" uid="uid://02lt5yuhal5p" path="res://Sprites/Enemies/dust.png" id="1_3epmt"]
+
+[sub_resource type="Animation" id="Animation_h8fqr"]
+resource_name = "ready"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dust:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.088061, 0.088061, 0.088061), Vector3(0.512392, 0.512392, 0.512392), Vector3(0.573964, 0.573964, 0.573964)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dust:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.664297, 0.073338), Vector3(0, 2.09679, 0.073338), Vector3(0, 2.38139, 0.073338)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dust:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.14447e-15, 1.5708, -0.432842), Vector3(0, 1.5708, 6.06676)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dust:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_brmwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dust:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.088061, 0.088061, 0.088061)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dust:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.664297, 0.073338)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dust:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.14447e-15, 1.5708, -0.432842)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dust:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y3rc2"]
+_data = {
+&"RESET": SubResource("Animation_brmwk"),
+&"ready": SubResource("Animation_h8fqr")
+}
+
+[node name="Dust" type="Node3D"]
+
+[node name="Dust" type="Sprite3D" parent="."]
+transform = Transform3D(-3.49428e-09, -1.61458e-09, 0.088061, -0.0369374, 0.0799398, 1.00784e-16, -0.0799398, -0.0369374, -3.84927e-09, 0, 0.664297, 0.073338)
+alpha_cut = 1
+texture = ExtResource("1_3epmt")
+
+[node name="Dust2" type="Sprite3D" parent="."]
+transform = Transform3D(-1.28067e-08, 0, 0.292982, 0, 0.292982, 0, -0.292982, 0, -1.28067e-08, -0.0661019, 1.5063, 0.941176)
+alpha_cut = 1
+texture = ExtResource("1_3epmt")
+
+[node name="Dust3" type="Sprite3D" parent="."]
+transform = Transform3D(-1.62317e-08, 0, 0.371338, 0, 0.371338, 0, -0.371338, 0, -1.62317e-08, -0.023126, 1.63278, -0.746858)
+alpha_cut = 1
+texture = ExtResource("1_3epmt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y3rc2")
+}

@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gmspc4ixnwc8"
-valid=false
+path="res://.godot/imported/Bluetemplate.png-91f8f6c19c67537caff4f637bb846681.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/Items/Bluetemplate.png"
+dest_files=["res://.godot/imported/Bluetemplate.png-91f8f6c19c67537caff4f637bb846681.ctex"]
 
 [params]
 

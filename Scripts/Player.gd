@@ -194,7 +194,6 @@ func rotate_atack_mesh():
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
-		$Sprites/Slash.visible = true
 		attackCollider.disabled = false
 		update_attack_animation()
 		play_animation(currentAtackAnimation)
@@ -214,14 +213,12 @@ func attack():
 			can_atack = true
 			attack_count = 0
 			attackCollider.disabled = true
-			$Sprites/Slash.visible = false
 			return
 		else:
 			perform_attack()
 			await get_tree().create_timer(speedAtack).timeout
 			can_atack = true
 			attackCollider.disabled = true
-			$Sprites/Slash.visible = false
 			return
 
 func perform_attack():
