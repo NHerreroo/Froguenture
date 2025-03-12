@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfvycex802cb5"
-path="res://.godot/imported/randomBG.png-9c15795e1f5955e1558b2d33ac96099b.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Sprites/Items/Arts/randomBG.png"
-dest_files=["res://.godot/imported/randomBG.png-9c15795e1f5955e1558b2d33ac96099b.ctex"]
 
 [params]
 

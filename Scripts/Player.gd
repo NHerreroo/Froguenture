@@ -37,7 +37,7 @@ var attack_anim
 var attack_timer = 0.0
 var speedAtack = Player.atackSpeed
 var currentAtackAnimation = "Atack1_right" #def animation
-var attackCounter = 0
+
 
 @onready var atackMesh = $AtackMesh
 @onready var attackCollider = $AtackMesh/Area3D/AttackCollider
@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 	if can_atack:
 		attack_timer += delta
 		if attack_timer >= 0.2:
-			attackCounter = 0
+			attack_count = 0
 			SPEED = Player.speed
 
 
@@ -141,19 +141,19 @@ func update_attack_animation():
 
 	if Global.controller_active:
 		if direction.z > 0:
-			if attackCounter == 0:
+			if attack_count == 0:
 				currentAtackAnimation = "Atack1_left"
-			elif attackCounter == 1:
+			elif attack_count == 1:
 				currentAtackAnimation = "Atack2_left"
-			elif attackCounter == 2:
+			elif attack_count == 2:
 				currentAtackAnimation = "Atack3_left"
 				
 		elif direction.z < 0:
-			if attackCounter == 0:
+			if attack_count == 0:
 				currentAtackAnimation = "Atack1_right"
-			elif attackCounter == 1:
+			elif attack_count == 1:
 				currentAtackAnimation = "Atack2_right"
-			elif attackCounter == 2:
+			elif attack_count == 2:
 				currentAtackAnimation = "Atack3_right"
 		else:
 			# Si la componente horizontal no es dominante, mantenemos la última dirección
@@ -162,18 +162,18 @@ func update_attack_animation():
 	else:
 		if mouse_pos.x < viewport_center:
 			# Si el controlador no está activo, usa la posición del ratón
-			if attackCounter == 0:
+			if attack_count == 0:
 				currentAtackAnimation = "Atack1_left"
-			elif attackCounter == 1:
+			elif attack_count == 1:
 				currentAtackAnimation = "Atack2_left"
-			elif attackCounter == 2:
+			elif attack_count == 2:
 				currentAtackAnimation = "Atack3_left"
 		else:
-			if attackCounter == 0:
+			if attack_count == 0:
 				currentAtackAnimation = "Atack1_right"
-			elif attackCounter == 1:
+			elif attack_count == 1:
 				currentAtackAnimation = "Atack2_right"
-			elif attackCounter == 2:
+			elif attack_count == 2:
 				currentAtackAnimation = "Atack3_right"
 
 
@@ -223,12 +223,11 @@ func attack():
 		$Sprites/AnimationPlayer.seek(0, false)
 		
 		SPEED = 0
-		can_atack = false  # Desactiva el ataque temporalmente
-		attack_count += 1  # Incrementa el contador de ataques en el combo
+		can_atack = false  # Desactiva el ataque temporalmente  
 		attack_timer = 0  # Reinicia el temporizador de ataque
 
 		
-		if attack_count >= 3: #ataque pro (tercer ataque)
+		if attack_count >= 2: #ataque pro (tercer ataque)
 			perform_attack() 
 			camera.big_shake_camera()
 			await get_tree().create_timer(speedAtack + 0.4).timeout
@@ -245,10 +244,10 @@ func attack():
 			return
 
 func perform_attack():
-	if attackCounter < 2:
-		attackCounter += 1
+	if attack_count < 2:
+		attack_count += 1
 	else:
-		attackCounter = 0
+		attack_count = 0
 	rotate_atack_mesh()  # Orienta el ataque en dirección del raycast
 	if Global.controller_active:
 		# Si no hay entrada de movimiento, usa la última dirección
