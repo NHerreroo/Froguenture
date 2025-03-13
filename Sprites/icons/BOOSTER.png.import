@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gmspc4ixnwc8"
-path="res://.godot/imported/Bluetemplate.png-91f8f6c19c67537caff4f637bb846681.ctex"
+uid="uid://rypyd8t2nm5p"
+path="res://.godot/imported/BOOSTER.png-525f1522600882e3c5d7a8d758cff34c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Items/Bluetemplate.png"
-dest_files=["res://.godot/imported/Bluetemplate.png-91f8f6c19c67537caff4f637bb846681.ctex"]
+source_file="res://Sprites/icons/BOOSTER.png"
+dest_files=["res://.godot/imported/BOOSTER.png-525f1522600882e3c5d7a8d758cff34c.ctex"]
 
 [params]
 
