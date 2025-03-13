@@ -1646,10 +1646,10 @@ tracks/22/path = NodePath("Atack:scale")
 tracks/22/interp = 2
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0, 0.0358033, 0.0694366, 0.110665, 0.141043),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0358033, 0.0694366, 0.110665, 0.141043, 0.165945),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00253339, 0.00202013, 0.00199334), Vector3(0.00261911, 0.00323656, 0.00206079), Vector3(0.00263074, 0.00408125, 0.00245919), Vector3(0.00204071, 0.00442435, 0.00214307), Vector3(0.00193115, 0.00418683, 0.00202802)]
+"values": [Vector3(0.00253339, 0.00202013, 0.00199334), Vector3(0.00261911, 0.00323656, 0.00206079), Vector3(0.00263074, 0.00408125, 0.00245919), Vector3(0.00204071, 0.00442435, 0.00214307), Vector3(0.00193115, 0.00418683, 0.00202802), Vector3(0.0021879, 0.0032604, 0.00202802)]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
@@ -1949,10 +1949,10 @@ tracks/22/path = NodePath("Atack:scale")
 tracks/22/interp = 2
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"times": PackedFloat32Array(0, 0.0318733, 0.0551653, 0.093168, 0.121364),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0318733, 0.0551653, 0.093168, 0.121364, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00232591, 0.00216757, 0.00208012), Vector3(0.00190419, 0.00351644, 0.00218285), Vector3(0.00218185, 0.00372049, 0.00218285), Vector3(0.00252328, 0.0043027, 0.00252444), Vector3(0.00201665, 0.00511966, 0.00252444)]
+"values": [Vector3(0.00232591, 0.00216757, 0.00208012), Vector3(0.00190419, 0.00351644, 0.00218285), Vector3(0.00218185, 0.00372049, 0.00218285), Vector3(0.00252328, 0.0043027, 0.00252444), Vector3(0.00201665, 0.00511966, 0.00252444), Vector3(0.00238651, 0.00334936, 0.00252444)]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
