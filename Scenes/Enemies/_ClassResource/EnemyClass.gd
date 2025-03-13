@@ -5,6 +5,8 @@ var coin = preload("res://Scenes/Dropps/Coin.tscn")
 var shield = preload("res://Scenes/Dropps/Shield.tscn")
 var heart = preload("res://Scenes/Dropps/Heart.tscn")
 
+var dust = preload("res://Scenes/Enemies/dust.tscn")
+
 @export var enemy_src : enemy_source
 
 @onready var area: Area3D = $MeshInstance3D/Area3D  # Referencia al Area3D dentro del CharacterBody3D
@@ -106,6 +108,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		if health <= 0:
 			Global.enemies_remaining -= 1
 			dropitemfunc()
+			spawn_dust()
 			queue_free()
 
 
@@ -122,3 +125,10 @@ func dropitemfunc():
 	var parent_node = get_parent()
 	if parent_node:
 		parent_node.add_child(item)
+		
+	
+	
+func spawn_dust():
+	var dust_inst = dust.instantiate()
+	dust_inst.position = Vector3(self.position.x, 0 ,self.position.z)
+	get_tree().root.add_child(dust_inst)

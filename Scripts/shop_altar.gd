@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var nine_patch_rect = $CanvasLayer/NinePatchRect
+var dust = preload("res://Scenes/Enemies/dust.tscn")
 
 # Diccionario con ítems, precios, iconos y probabilidades
 var items = {
@@ -24,7 +25,9 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		spawn_dust()
 		animate_nine_patch_rect(true)
+		queue_free()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -63,3 +66,9 @@ func get_random_item():
 			$CanvasLayer/NinePatchRect/Price.text = str(current_item.price)
 			$Item.texture = current_item.icon
 			return
+
+
+func spawn_dust():
+	var dust_inst = dust.instantiate()
+	dust_inst.position = Vector3(self.position.x, 0 ,self.position.z)
+	get_tree().root.add_child(dust_inst)
