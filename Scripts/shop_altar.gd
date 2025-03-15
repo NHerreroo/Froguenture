@@ -1,9 +1,9 @@
 extends Node3D
 
 @onready var nine_patch_rect = $CanvasLayer/NinePatchRect
+@onready var item_sprite = $Item
 var dust = preload("res://Scenes/Enemies/dust.tscn")
 
-# Diccionario con ítems, precios, iconos y probabilidades
 var items = {
 	"PACK": {"price": 15, "icon": preload("res://Sprites/icons/PACK.png"), "probability": 10},
 	"COLLECTOR": {"price": 20, "icon": preload("res://Sprites/icons/BOOSTER.png"), "probability": 5},
@@ -16,22 +16,61 @@ var items = {
 	"CRITICALCHANCE": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 2}
 }
 
+var currentItem : String
+var playerInArea = false
+
 func _ready() -> void:
 	$AnimationPlayer.play("float")
-	get_random_item()
+	
+	# Solo se generarán los ítems si no están ya en Global
+	if Global.shopItem1 == null:
+		Global.shopItem1 = get_random_item()
+	if Global.shopItem2 == null:
+		Global.shopItem2 = get_random_item()
+	
+	if self.name == "Altar1":
+		currentItem = Global.shopItem1
+	
+	elif self.name == "Altar2":
+		currentItem = Global.shopItem2
+
+	set_item()
 
 func _process(delta: float) -> void:
 	set_controller_text()
+	
+	if self.name == "Altar1":
+		if Global.shopItem1Purchased:
+			item_sprite.visible = false
+	elif self.name == "Altar2":
+		if Global.shopItem2Purchased:
+			item_sprite.visible = false
+	if playerInArea:
+		buy_item()
+
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		spawn_dust()
 		animate_nine_patch_rect(true)
-		queue_free()
+		playerInArea = true
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		animate_nine_patch_rect(false)
+		playerInArea = false
+
+func buy_item():
+	var item_data = items[currentItem]
+	if Input.is_action_just_pressed("Confirm"):
+		if Player.money >= item_data.price:
+			Player.money -= item_data.price
+			spawn_dust()
+			animate_nine_patch_rect(true)
+			if self.name == "Altar1":
+				Global.shopItem1Purchased = true  
+			elif self.name == "Altar2":
+				Global.shopItem2Purchased = true
+
 
 func animate_nine_patch_rect(show: bool) -> void:
 	var tween = create_tween().set_parallel(true)
@@ -46,12 +85,22 @@ func animate_nine_patch_rect(show: bool) -> void:
 		nine_patch_rect.visible = false
 
 func set_controller_text():
-	if Global.controller_active == true:
+	if Global.controller_active:
 		$CanvasLayer/NinePatchRect/Text.text = "Press 'O' to buy"
 	else:
 		$CanvasLayer/NinePatchRect/Text.text = "Press 'E' to buy"
 
-func get_random_item():
+#setear el item una vez establecido que item es
+func set_item():
+	if currentItem in items:
+		var item_data = items[currentItem]
+		$CanvasLayer/NinePatchRect/Price.text = str(item_data.price)
+		$Item.texture = item_data.icon
+	else:
+		print("El ítem", currentItem, "no existe en el diccionario.")
+
+# devuelve item reandom
+func get_random_item() -> String:
 	var total_probability = 0
 	for item in items.values():
 		total_probability += item.probability
@@ -62,11 +111,8 @@ func get_random_item():
 	for key in items.keys():
 		cumulative += items[key].probability
 		if random_value < cumulative:
-			var current_item = items[key]
-			$CanvasLayer/NinePatchRect/Price.text = str(current_item.price)
-			$Item.texture = current_item.icon
-			return
-
+			return key
+	return ""
 
 func spawn_dust():
 	var dust_inst = dust.instantiate()

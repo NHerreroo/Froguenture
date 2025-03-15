@@ -4,6 +4,9 @@ extends Control
 @onready var heart_scene = preload("res://Scenes/heart_hud.tscn")  # Escena del sprite de corazón
 @onready var shield_scene = preload("res://Scenes/shield_hud.tscn")  # Escena del sprite de escudo
 
+func _process(delta: float) -> void:
+	$HudLabels/MONEDAS.text = str(Player.money)
+
 func _ready() -> void:
 	# Conectar la señal del singleton Player
 	Player.connect("health_updated", Callable(self, "update_hearts"))

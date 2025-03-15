@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_awjkb"]
 [ext_resource type="Texture2D" uid="uid://d2y55ouwxodk8" path="res://Sprites/Tavern/tambernFloor.png" id="2_hdc40"]
+[ext_resource type="Script" uid="uid://chl6uh8kjfjk6" path="res://Scripts/altar_spawner.gd" id="2_o78dr"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_8wsem"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_ochy7"]
 [ext_resource type="Texture2D" uid="uid://c1ch8c806ectq" path="res://Sprites/Vegetation/Misc/alfombra2.png" id="5_6vc42"]
 [ext_resource type="Texture2D" uid="uid://b2qb4gif0wcx1" path="res://Sprites/Vegetation/Misc/ligh1.png" id="7_snlxn"]
 [ext_resource type="Texture2D" uid="uid://4o1obfsscw3o" path="res://Sprites/Vegetation/Misc/fishhang.png" id="8_kyhau"]
-[ext_resource type="PackedScene" uid="uid://bynpbesuvxb41" path="res://Scenes/shop_altar.tscn" id="8_snlxn"]
 [ext_resource type="Texture2D" uid="uid://iddo5cwvh4vp" path="res://Sprites/Vegetation/Misc/table.png" id="8_xyyfi"]
 [ext_resource type="PackedScene" uid="uid://bxaaw4xxr28sn" path="res://Scenes/Npcs/cat_npc.tscn" id="10_kyhau"]
 
@@ -29,6 +29,9 @@ size = Vector3(1, 4, 10)
 
 [node name="InitialRoom" type="Node3D"]
 script = ExtResource("1_awjkb")
+
+[node name="AltarSpawner" type="Node3D" parent="."]
+script = ExtResource("2_o78dr")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
@@ -223,9 +226,3 @@ texture = ExtResource("8_xyyfi")
 
 [node name="CatNpc" parent="Vegetation" instance=ExtResource("10_kyhau")]
 transform = Transform3D(-1.26895e-08, -0.167605, 0.290301, -7.32629e-09, 0.290301, 0.167605, -0.335211, 9.06609e-23, -1.46526e-08, -0.258639, 0.618332, -0.11936)
-
-[node name="ShopAltar" parent="." instance=ExtResource("8_snlxn")]
-transform = Transform3D(-4.10422e-08, -0.469468, 0.813142, 0, 0.813142, 0.469468, -0.938936, 2.05211e-08, -3.55436e-08, 0.85137, -0.189201, 1.9587)
-
-[node name="ShopAltar2" parent="." instance=ExtResource("8_snlxn")]
-transform = Transform3D(-4.10422e-08, -0.469468, 0.813142, 0, 0.813142, 0.469468, -0.938936, 2.05211e-08, -3.55436e-08, 0.85137, -0.189201, -1.84531)

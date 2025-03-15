@@ -2,7 +2,7 @@ extends Node
 
 
 # STATS
-var money : int = 0
+var money : int = 100
 var health : float = 3.5
 var health_container : int = 5
 var shield : float = 0.5

@@ -26,6 +26,12 @@ var enemies_remaining = 0 #enemigos en pantalla restantes, si es 0 la habitacion
 var rooms_visited = []
 var persistent_items = []
 
+#items de la tienda persistentes si cambias de room
+var shopItem1
+var shopItem2
+var shopItem1Purchased = false
+var shopItem2Purchased = false
+
 
 var map = [] #contiene el mapa generado para que al reinicial la escena no se pierda
 

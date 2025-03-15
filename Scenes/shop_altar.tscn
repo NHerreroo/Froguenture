@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bk43hxk614csr" path="res://Scripts/shop_altar.gd" id="1_4q1ao"]
 [ext_resource type="Texture2D" uid="uid://dum4qcycohuks" path="res://Sprites/Altar.png" id="1_rjjd3"]
-[ext_resource type="Texture2D" uid="uid://bquyh3fske1hd" path="res://Sprites/icons/PACK.png" id="2_32o6v"]
+[ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="3_lphn8"]
 [ext_resource type="Texture2D" uid="uid://i6asn0og0ggp" path="res://Sprites/Hud/textbox.png" id="4_lphn8"]
 
 [sub_resource type="Animation" id="Animation_4q1ao"]
@@ -46,7 +46,7 @@ _data = {
 size = Vector3(1.83918, 1, 2.27591)
 
 [node name="ShopAltar" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, 0, 0, 0)
 script = ExtResource("1_4q1ao")
 
 [node name="Altar" type="Sprite3D" parent="."]
@@ -58,7 +58,7 @@ texture = ExtResource("1_rjjd3")
 transform = Transform3D(0.149907, 0, 0, 0, 0.149907, 0, 0, 0, 0.149907, 0.0736421, 1.92981, 0.0089277)
 billboard = 1
 alpha_cut = 1
-texture = ExtResource("2_32o6v")
+texture = ExtResource("3_lphn8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
