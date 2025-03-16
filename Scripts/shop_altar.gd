@@ -18,6 +18,7 @@ var items = {
 
 var currentItem : String
 var playerInArea = false
+var disableShop = false
 
 func _ready() -> void:
 	$AnimationPlayer.play("float")
@@ -42,9 +43,11 @@ func _process(delta: float) -> void:
 	if self.name == "Altar1":
 		if Global.shopItem1Purchased:
 			item_sprite.visible = false
+			animate_nine_patch_rect(false)
 	elif self.name == "Altar2":
 		if Global.shopItem2Purchased:
 			item_sprite.visible = false
+			animate_nine_patch_rect(false)
 	if playerInArea:
 		buy_item()
 
@@ -62,14 +65,15 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func buy_item():
 	var item_data = items[currentItem]
 	if Input.is_action_just_pressed("Confirm"):
-		if Player.money >= item_data.price:
+		if Player.money >= item_data.price and disableShop == false:
 			Player.money -= item_data.price
 			spawn_dust()
-			animate_nine_patch_rect(true)
+			animate_nine_patch_rect(false)
 			if self.name == "Altar1":
-				Global.shopItem1Purchased = true  
+				Global.shopItem1Purchased = true
 			elif self.name == "Altar2":
 				Global.shopItem2Purchased = true
+			disableShop = true
 
 
 func animate_nine_patch_rect(show: bool) -> void:
@@ -94,7 +98,8 @@ func set_controller_text():
 func set_item():
 	if currentItem in items:
 		var item_data = items[currentItem]
-		$CanvasLayer/NinePatchRect/Price.text = str(item_data.price)
+		var boxText = "Purchase " + str(currentItem) + " for: " + str(item_data.price) + "$" 
+		$CanvasLayer/NinePatchRect/Price.text = str(boxText)
 		$Item.texture = item_data.icon
 	else:
 		print("El ítem", currentItem, "no existe en el diccionario.")

@@ -101,23 +101,25 @@ patch_margin_bottom = 153
 
 [node name="Price" type="Label" parent="CanvasLayer/NinePatchRect"]
 layout_mode = 0
-offset_left = 617.345
-offset_top = 97.7094
-offset_right = 4104.35
-offset_bottom = 738.709
+offset_left = 333.783
+offset_top = 79.3928
+offset_right = 8105.78
+offset_bottom = 1143.39
 scale = Vector2(0.132417, 0.132417)
 theme_override_font_sizes/font_size = 470
 text = "Buy Pack for 3$"
+horizontal_alignment = 1
 
 [node name="Text" type="Label" parent="CanvasLayer/NinePatchRect"]
 layout_mode = 0
-offset_left = 759.69
-offset_top = 185.482
-offset_right = 3133.69
-offset_bottom = 622.482
+offset_left = 337.492
+offset_top = 168.71
+offset_right = 16528.5
+offset_bottom = 958.71
 scale = Vector2(0.0634455, 0.0634455)
-theme_override_font_sizes/font_size = 320
+theme_override_font_sizes/font_size = 580
 text = "Buy Pack for 3$"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

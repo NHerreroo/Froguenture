@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://5rlgxgli6k0h"]
+[gd_scene load_steps=16 format=3 uid="uid://5rlgxgli6k0h"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_ii5ag"]
 [ext_resource type="Texture2D" uid="uid://gvukteeufumy" path="res://Sprites/floor3.png" id="2_v1383"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_4lija"]
+[ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_2jjxg"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_ts2yi"]
 [ext_resource type="Texture2D" uid="uid://b5dbip7uiuhil" path="res://Sprites/Vegetation/Rocks/rock4.png" id="5_85hl5"]
 [ext_resource type="Texture2D" uid="uid://ceamt0coewtth" path="res://Sprites/Vegetation/Rocks/rock5.png" id="6_uae70"]
@@ -19,8 +20,12 @@ albedo_texture = ExtResource("2_v1383")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mk0ac"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="Environment" id="Environment_ywln1"]
+[sub_resource type="Environment" id="Environment_bgxfi"]
 background_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1342
+volumetric_fog_albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
@@ -52,15 +57,31 @@ process_priority = 75
 transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ywln1")
+environment = SubResource("Environment_bgxfi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-0.224144, -0.5, 0.836516, -0.12941, 0.866025, 0.482963, -0.965926, 0, -0.258819, 13, 16, 0)
-light_energy = 0.808
+light_energy = 0.838
 directional_shadow_mode = 0
 directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
+
+[node name="AmbientFog" parent="WorldEnvironment" instance=ExtResource("4_2jjxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, 12.3753)
+size = Vector3(20.184, 3.56738, 7.23792)
+
+[node name="AmbientFog3" parent="WorldEnvironment" instance=ExtResource("4_2jjxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, -12.1718)
+size = Vector3(20.184, 3.56738, 7.23792)
+
+[node name="AmbientFog2" parent="WorldEnvironment" instance=ExtResource("4_2jjxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.68955, 1.83862, -0.184692)
+size = Vector3(7.0752, 3.56738, 18)
+
+[node name="AmbientFog4" parent="WorldEnvironment" instance=ExtResource("4_2jjxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47569, 1.64174, 0.0329285)
+size = Vector3(7.0752, 3.56738, 17.5648)
 
 [node name="Camera" parent="." instance=ExtResource("4_ts2yi")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)
