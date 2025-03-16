@@ -10,7 +10,7 @@ var items = {
 	"HEART": {"price": 5, "icon": preload("res://Sprites/icons/heart.png"), "probability": 30},
 	"SHIELD": {"price": 5, "icon": preload("res://Sprites/icons/shield.png"), "probability": 25},
 	"SPEED": {"price": 10, "icon": preload("res://Sprites/icons/speed.png"), "probability": 15},
-	"ATTACK": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 10},
+	"ATTACK": {"price": 10, "icon": preload("res://Sprites/icons/Atack2.png"), "probability": 10},
 	"ATTACKSPEED": {"price": 10, "icon": preload("res://Sprites/icons/speedatack.png"), "probability": 5},
 	"CRITICALDMG": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 5},
 	"CRITICALCHANCE": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 2}

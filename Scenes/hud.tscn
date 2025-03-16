@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbi5nch0is25o"]
+[gd_scene load_steps=13 format=3 uid="uid://cbi5nch0is25o"]
 
 [ext_resource type="Texture2D" uid="uid://cqo5xvbv0v8dy" path="res://Sprites/icons/Atack.png" id="1_6ca58"]
 [ext_resource type="Script" uid="uid://r4rdv5sn32dl" path="res://Scripts/PlayerHUD.gd" id="1_48xs0"]
 [ext_resource type="PackedScene" uid="uid://jiy0evqv08t7" path="res://Scenes/mini_map.tscn" id="1_lxgdj"]
 [ext_resource type="Texture2D" uid="uid://cwi1p5cfvdagp" path="res://Sprites/icons/poison.png" id="2_kp3v7"]
 [ext_resource type="Texture2D" uid="uid://lbfv2fom7d6w" path="res://Sprites/icons/speed.png" id="3_gbf7o"]
+[ext_resource type="Texture2D" uid="uid://dutw8v8ohbpjy" path="res://Sprites/icons/Atack2.png" id="3_piegi"]
 [ext_resource type="Texture2D" uid="uid://c0ebf4qtfj2ow" path="res://Sprites/icons/dashcooldown.png" id="4_sqwj6"]
 [ext_resource type="Texture2D" uid="uid://cah1wttpcmwvd" path="res://Sprites/icons/speedatack.png" id="7_1tm2w"]
 [ext_resource type="Texture2D" uid="uid://dvd6ws5u0krgb" path="res://Sprites/icons/money.png" id="7_8s83s"]
@@ -50,29 +51,35 @@ scale = Vector2(0.732403, 0.732403)
 modulate = Color(1, 1, 1, 0.533333)
 position = Vector2(144, 278)
 scale = Vector2(0.112442, 0.112442)
+texture = ExtResource("3_piegi")
+
+[node name="Critical" type="Sprite2D" parent="HudSprites"]
+modulate = Color(1, 1, 1, 0.533333)
+position = Vector2(143.364, 394.592)
+scale = Vector2(0.112442, 0.112442)
 texture = ExtResource("1_6ca58")
 
 [node name="CooldownDash" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
-position = Vector2(144, 407)
+position = Vector2(143.471, 520.622)
 scale = Vector2(0.137235, 0.137235)
 texture = ExtResource("4_sqwj6")
 
 [node name="Poison" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
-position = Vector2(139, 529)
+position = Vector2(138.471, 642.622)
 scale = Vector2(0.113684, 0.113684)
 texture = ExtResource("2_kp3v7")
 
 [node name="Speed" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
-position = Vector2(134, 644)
+position = Vector2(133.471, 757.622)
 scale = Vector2(0.118699, 0.118699)
 texture = ExtResource("3_gbf7o")
 
 [node name="Speedatack" type="Sprite2D" parent="HudSprites"]
 modulate = Color(1, 1, 1, 0.533333)
-position = Vector2(132, 760)
+position = Vector2(131.471, 873.622)
 scale = Vector2(0.111021, 0.111021)
 texture = ExtResource("7_1tm2w")
 
@@ -124,12 +131,24 @@ theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
 text = "5"
 
-[node name="DashCooldown" type="Label" parent="HudLabels"]
+[node name="Critcal" type="Label" parent="HudLabels"]
 layout_mode = 0
 offset_left = 175.0
-offset_top = 498.0
+offset_top = 496.0
 offset_right = 496.0
-offset_bottom = 645.0
+offset_bottom = 643.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("10_fr4gg")
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="DashCooldown" type="Label" parent="HudLabels"]
+layout_mode = 0
+offset_left = 174.612
+offset_top = 581.217
+offset_right = 495.612
+offset_bottom = 728.217
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("10_fr4gg")
@@ -138,10 +157,10 @@ text = "5"
 
 [node name="Poison" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 587.0
-offset_right = 495.0
-offset_bottom = 734.0
+offset_left = 173.612
+offset_top = 670.217
+offset_right = 494.612
+offset_bottom = 817.217
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
@@ -149,10 +168,10 @@ text = "5"
 
 [node name="Speed" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 670.0
-offset_right = 495.0
-offset_bottom = 817.0
+offset_left = 173.612
+offset_top = 753.217
+offset_right = 494.612
+offset_bottom = 900.217
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
@@ -160,10 +179,10 @@ text = "5"
 
 [node name="SpeedAttack" type="Label" parent="HudLabels"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 758.0
-offset_right = 495.0
-offset_bottom = 905.0
+offset_left = 173.612
+offset_top = 841.217
+offset_right = 494.612
+offset_bottom = 988.217
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("10_fr4gg")
 theme_override_font_sizes/font_size = 50
