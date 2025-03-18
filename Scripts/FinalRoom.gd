@@ -34,4 +34,7 @@ func reset_globals_set_def_stats():
 	Global.botCollider = false
 	Global.rightCollider = false
 	Global.leftCollider = false
-	
+	Global.shopItem1 = null
+	Global.shopItem2 = null
+	Global.shopItem1Purchased = false
+	Global.shopItem2Purchased = false

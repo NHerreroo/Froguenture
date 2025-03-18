@@ -44,10 +44,12 @@ func _process(delta: float) -> void:
 		if Global.shopItem1Purchased:
 			item_sprite.visible = false
 			animate_nine_patch_rect(false)
+			$Area3D/CollisionShape3D.disabled = true
 	elif self.name == "Altar2":
 		if Global.shopItem2Purchased:
 			item_sprite.visible = false
 			animate_nine_patch_rect(false)
+			$Area3D/CollisionShape3D.disabled = true
 	if playerInArea:
 		buy_item()
 
@@ -65,7 +67,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func buy_item():
 	var item_data = items[currentItem]
 	if Input.is_action_just_pressed("Confirm"):
-		if Player.money >= item_data.price and disableShop == false:
+		if Player.money >= item_data.price:
 			Player.money -= item_data.price
 			spawn_dust()
 			animate_nine_patch_rect(false)
@@ -73,7 +75,6 @@ func buy_item():
 				Global.shopItem1Purchased = true
 			elif self.name == "Altar2":
 				Global.shopItem2Purchased = true
-			disableShop = true
 
 
 func animate_nine_patch_rect(show: bool) -> void:

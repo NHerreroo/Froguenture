@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c777b47rum74y"
-valid=false
+path="res://.godot/imported/Blacktemplate.png-cf1a083e7761eecd566791e3fc69775d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Sprites/Items/Blacktemplate.png"
+dest_files=["res://.godot/imported/Blacktemplate.png-cf1a083e7761eecd566791e3fc69775d.ctex"]
 
 [params]
 

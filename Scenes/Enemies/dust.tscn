@@ -314,12 +314,12 @@ sorting_offset = 29.24
 texture = ExtResource("1_3epmt")
 
 [node name="Dust2" type="Sprite3D" parent="."]
-transform = Transform3D(-5.97248e-09, 8.60647e-10, 0.138046, 0.0196893, 0.136634, -8.39634e-18, -0.136634, 0.0196893, -6.03417e-09, -0.169199, 1.62591, 0.775671)
+transform = Transform3D(-4.94616e-07, 7.12753e-08, 0.138046, 0.0196894, 0.136635, -8.39636e-18, -0.136635, 0.0196894, -4.99725e-07, -0.169199, 1.62591, 0.775671)
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_3epmt")
 
 [node name="Dust3" type="Sprite3D" parent="."]
-transform = Transform3D(-1.06982e-08, 1.54163e-09, 0.247274, 0.0352685, 0.244746, -1.2668e-16, -0.244746, 0.0352685, -1.08087e-08, -0.126721, 1.57314, -0.689225)
+transform = Transform3D(-8.85978e-07, 1.27671e-07, 0.247274, 0.0352684, 0.244746, -1.2668e-16, -0.244746, 0.0352684, -8.95129e-07, -0.126721, 1.57314, -0.689225)
 texture = ExtResource("1_3epmt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
