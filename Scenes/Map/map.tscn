@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://dre10dkwxryfy"]
 
-[ext_resource type="Script" uid="uid://jxjokaih0hys" path="res://Scripts/MapGeneration/map_generator.gd" id="1_1ym53"]
-[ext_resource type="Script" uid="uid://bsxhkr0c4xdii" path="res://Scripts/MapGeneration/map.gd" id="1_345j5"]
+[ext_resource type="Script" uid="uid://bh22vljcsma3t" path="res://Scripts/MapGeneration/map_generator.gd" id="1_1ym53"]
+[ext_resource type="Script" uid="uid://37tkqsuevvvf" path="res://Scripts/MapGeneration/map.gd" id="1_345j5"]
 [ext_resource type="PackedScene" uid="uid://bv8dx1tpasadh" path="res://Scenes/Map/pointer.tscn" id="3_185ku"]
-[ext_resource type="Shader" uid="uid://ce4108au11ujg" path="res://Shaders/mapBackground.gdshader" id="4_1sbwm"]
+[ext_resource type="Shader" uid="uid://c4eeyuf78lgdq" path="res://Shaders/mapBackground.gdshader" id="4_1sbwm"]
 
-[sub_resource type="Gradient" id="Gradient_uy7a7"]
+[sub_resource type="Gradient" id="Gradient_pvgv4"]
 offsets = PackedFloat32Array(0, 0.577922, 0.727273, 1)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.472082, 0, 0, 0, 0.423529, 0, 0, 0, 0.678431)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pvudi"]
-gradient = SubResource("Gradient_uy7a7")
+gradient = SubResource("Gradient_pvgv4")
 width = 1024
 height = 1024
 fill = 1

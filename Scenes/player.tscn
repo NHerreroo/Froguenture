@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=49 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" uid="uid://bn2g1yfcb815w" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -21,6 +21,77 @@
 [ext_resource type="PackedScene" uid="uid://cbi5nch0is25o" path="res://Scenes/hud.tscn" id="18_gvt84"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjemb"]
+
+[sub_resource type="Gradient" id="Gradient_uy7a7"]
+offsets = PackedFloat32Array(0, 0.561404, 0.859649)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.32037, 0, 0, 0, 0.905882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fs7ks"]
+gradient = SubResource("Gradient_uy7a7")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.509174, 0.495413)
+
+[sub_resource type="Animation" id="Animation_bi64h"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2ijsl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ijsl"]
+_data = {
+&"RESET": SubResource("Animation_2ijsl"),
+&"new_animation": SubResource("Animation_bi64h")
+}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52wam"]
 animations = [{
@@ -3482,6 +3553,19 @@ shape = SubResource("BoxShape3D_mjemb")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_sdemu")]
 visible = false
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_fs7ks")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_2ijsl")
+}
 
 [node name="Sprites" type="Node3D" parent="."]
 transform = Transform3D(1.32299, 0, 0, 0, 1.14575, 0.6615, 0, -0.6615, 1.14575, 0, 0.00123598, 0.00155214)

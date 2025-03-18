@@ -45,6 +45,7 @@ var currentAtackAnimation = "Atack1_right" #def animation
 var hud = null
 
 func _ready():
+	$CanvasLayer/ColorRect.visible = false
 	setPlayerPosition(Global.playerDirection)
 	
 func _process(delta: float) -> void:
@@ -286,7 +287,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 func take_damage(amount: float) -> void:
 	canReciveDamage = false
-
+	$CanvasLayer/ColorRect/AnimationPlayer.play("new_animation")
 	# Primero reduce los corazones azules
 	if Player.shield > 0:
 		Player.shield -= amount
@@ -302,6 +303,7 @@ func take_damage(amount: float) -> void:
 	
 	if hud:
 		hud.update_hearts()
+	
 	await get_tree().create_timer(Player.invencibleTime).timeout
 	canReciveDamage = true
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvf1kbcgb1ppa"]
 
 [ext_resource type="Texture2D" uid="uid://t44kf77lld8b" path="res://Sprites/icons/skull.png" id="1_b804r"]
-[ext_resource type="Script" uid="uid://ec5qtvwpr54e" path="res://Scripts/MapGeneration/map_room.gd" id="1_p0bye"]
+[ext_resource type="Script" uid="uid://dbii64lqqobaq" path="res://Scripts/MapGeneration/map_room.gd" id="1_p0bye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5x0u"]
 size = Vector2(49.7768, 49.0514)
@@ -95,7 +95,7 @@ offset = Vector2(0, 119.957)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yme1v")
+&"": SubResource("AnimationLibrary_yme1v")
 }
 
 [node name="Button" type="Button" parent="."]

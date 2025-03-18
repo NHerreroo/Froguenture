@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmmexe242j8rs"]
+
+[ext_resource type="Texture2D" uid="uid://bnrfbk0pefkfa" path="res://Sprites/Enemies/Spike.png" id="1_onke6"]
+
+[sub_resource type="Gradient" id="Gradient_gyo8m"]
+offsets = PackedFloat32Array(0, 0.640351, 0.75)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7cnee"]
+gradient = SubResource("Gradient_gyo8m")
+fill = 1
+fill_from = Vector2(0.487179, 0.474359)
+fill_to = Vector2(0.730769, 0.15812)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gyo8m"]
+size = Vector3(2.22211, 1.48975, 1.23309)
+
+[node name="Spikes" type="Node3D"]
+transform = Transform3D(0.688766, 0, 0, 0, 0.688766, 0, 0, 0, 0.688766, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.124086, 0, 0, 0, 0.107462, 0.0620431, 0, -0.0620431, 0.107462, -0.023715, 0.270444, 0.162889)
+alpha_cut = 1
+texture = ExtResource("1_onke6")
+
+[node name="Shadow" type="Sprite3D" parent="."]
+transform = Transform3D(2.61726, 0, 0, 0, 3.05003e-07, 1.93941, 0, -1.31021, 3.3464e-07, 0.0240995, 0.0495953, 0.287204)
+modulate = Color(1, 1, 1, 0.74902)
+texture = SubResource("GradientTexture2D_7cnee")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.124086, 0, 0, 0, 0.107462, 0.0620431, 0, -0.0620431, 0.107462, -0.626174, 0.270444, -0.259324)
+alpha_cut = 1
+texture = ExtResource("1_onke6")
+
+[node name="Shadow2" type="Sprite3D" parent="."]
+transform = Transform3D(2.61726, 0, 0, 0, 3.05003e-07, 1.93941, 0, -1.31021, 3.3464e-07, -0.578359, 0.0495953, -0.135009)
+modulate = Color(1, 1, 1, 0.74902)
+texture = SubResource("GradientTexture2D_7cnee")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(0.124086, 0, 0, 0, 0.107462, 0.0620431, 0, -0.0620431, 0.107462, 0.558518, 0.270444, -0.259324)
+alpha_cut = 1
+texture = ExtResource("1_onke6")
+
+[node name="Shadow3" type="Sprite3D" parent="."]
+transform = Transform3D(2.61726, 0, 0, 0, 3.05003e-07, 1.93941, 0, -1.31021, 3.3464e-07, 0.606332, 0.0495953, -0.135009)
+modulate = Color(1, 1, 1, 0.74902)
+texture = SubResource("GradientTexture2D_7cnee")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(0.124086, 0, 0, 0, 0.107462, 0.0620431, 0, -0.0620431, 0.107462, -0.626173, 0.270444, 0.539574)
+alpha_cut = 1
+texture = ExtResource("1_onke6")
+
+[node name="Shadow4" type="Sprite3D" parent="."]
+transform = Transform3D(2.61726, 0, 0, 0, 3.05003e-07, 1.93941, 0, -1.31021, 3.3464e-07, -0.578359, 0.0495953, 0.663889)
+modulate = Color(1, 1, 1, 0.74902)
+texture = SubResource("GradientTexture2D_7cnee")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(0.124086, 0, 0, 0, 0.107462, 0.0620431, 0, -0.0620431, 0.107462, 0.617184, 0.270444, 0.539574)
+alpha_cut = 1
+texture = ExtResource("1_onke6")
+
+[node name="Shadow5" type="Sprite3D" parent="."]
+transform = Transform3D(2.61726, 0, 0, 0, 3.05003e-07, 1.93941, 0, -1.31021, 3.3464e-07, 0.664997, 0.0495953, 0.663889)
+modulate = Color(1, 1, 1, 0.74902)
+texture = SubResource("GradientTexture2D_7cnee")
+
+[node name="Area3D" type="Area3D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00210571, 0.244873, 0.108917)
+shape = SubResource("BoxShape3D_gyo8m")

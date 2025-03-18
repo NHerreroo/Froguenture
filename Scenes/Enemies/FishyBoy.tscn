@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://k16p6uxsfc4e"]
 
 [ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_k2k4b"]
-[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_q5h5u"]
+[ext_resource type="Script" uid="uid://bhgt7us588ofj" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_q5h5u"]
 [ext_resource type="Texture2D" uid="uid://bca5b2fajmcie" path="res://Sprites/Enemies/fishyboy/body.png" id="3_q5h5u"]
 [ext_resource type="Texture2D" uid="uid://2oj3jn0rxmu0" path="res://Sprites/Enemies/fishyboy/leg.png" id="4_murji"]
 

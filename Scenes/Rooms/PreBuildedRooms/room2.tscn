@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5rlgxgli6k0h"]
+[gd_scene load_steps=17 format=3 uid="uid://5rlgxgli6k0h"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_ii5ag"]
 [ext_resource type="Texture2D" uid="uid://gvukteeufumy" path="res://Sprites/floor3.png" id="2_v1383"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ceamt0coewtth" path="res://Sprites/Vegetation/Rocks/rock5.png" id="6_uae70"]
 [ext_resource type="Texture2D" uid="uid://bb4c8b72inihs" path="res://Sprites/Vegetation/Trees/Tree3Background.png" id="7_d7olp"]
 [ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="8_w25y1"]
+[ext_resource type="PackedScene" uid="uid://bmmexe242j8rs" path="res://Scenes/Enemies/Spikes.tscn" id="10_bgxfi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -226,3 +227,6 @@ transform = Transform3D(-3.95381e-08, -0.522229, 0.904527, -2.28274e-08, 0.90452
 flip_h = true
 alpha_cut = 1
 texture = ExtResource("8_w25y1")
+
+[node name="Spikes" parent="." instance=ExtResource("10_bgxfi")]
+transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, 2.55056, -0.0442567, 6.18329)

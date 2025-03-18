@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://noj400d06ote"
-path.s3tc="res://.godot/imported/Tree3.png-fb4346123c6eace764c23e6db0a39a96.s3tc.ctex"
+uid="uid://bnrfbk0pefkfa"
+path.s3tc="res://.godot/imported/Spike.png-675b714405ade812a6c4b94aa21f08dc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Vegetation/Trees/Tree3.png"
-dest_files=["res://.godot/imported/Tree3.png-fb4346123c6eace764c23e6db0a39a96.s3tc.ctex"]
+source_file="res://Sprites/Enemies/Spike.png"
+dest_files=["res://.godot/imported/Spike.png-675b714405ade812a6c4b94aa21f08dc.s3tc.ctex"]
 
 [params]
 

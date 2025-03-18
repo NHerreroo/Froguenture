@@ -6,6 +6,7 @@ var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
 func _ready() -> void:
 	$AnimationPlayer.play("idle")  #could fail if enem no dont have animation named idle
 	Global.enemies_remaining += 1
+	await get_tree().create_timer(1).timeout
 	get_random_state()
 	while true:
 		await get_tree().create_timer(1).timeout
