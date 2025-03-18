@@ -104,7 +104,7 @@ texture = ExtResource("3_t2l0e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j6pbv")
+&"": SubResource("AnimationLibrary_j6pbv")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

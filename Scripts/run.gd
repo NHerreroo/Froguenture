@@ -73,5 +73,6 @@ func _setup_event_connections() -> void:
 	
 var transition = preload("res://Scenes/Others/transition.tscn")
 func do_transition():
-	var inst_transiontion = transition.instantiate()
-	add_child(inst_transiontion)
+	var inst_transition = transition.instantiate()
+	add_child(inst_transition)
+	move_child(inst_transition, 0)
