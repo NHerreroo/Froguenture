@@ -2088,7 +2088,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"walk"]
+"values": [&"idle"]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -2100,7 +2100,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"walk"]
+"values": [&"idle"]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -2112,7 +2112,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"walk"]
+"values": [&"idle"]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -2124,7 +2124,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"walk"]
+"values": [&"idle"]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -2136,7 +2136,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"walk"]
+"values": [&"idle"]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -2280,7 +2280,7 @@ tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"default"]
+"values": [&"none"]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -3490,31 +3490,31 @@ transform = Transform3D(1.32299, 0, 0, 0, 1.14575, 0.6615, 0, -0.6615, 1.14575, 
 transform = Transform3D(0.00146771, -7.7829e-05, -6.80917e-06, 7.78295e-05, 0.00146772, -1.80429e-07, 6.80922e-06, -1.80391e-07, 0.00146976, 0, 0.00475581, 0.000127883)
 sorting_offset = 12.0
 sprite_frames = SubResource("SpriteFrames_52wam")
-animation = &"walk"
+animation = &"idle"
 
 [node name="Scarf" type="AnimatedSprite3D" parent="Sprites"]
 transform = Transform3D(0.00159245, -6.42152e-05, -5.6181e-06, 6.42152e-05, 0.00159246, -1.13213e-07, 5.61811e-06, -1.13243e-07, 0.00159374, 0, 0.00484535, 4.36557e-11)
 sorting_offset = 11.0
 sprite_frames = SubResource("SpriteFrames_ky4op")
-animation = &"walk"
+animation = &"idle"
 
 [node name="Body" type="AnimatedSprite3D" parent="Sprites"]
 transform = Transform3D(0.00158791, 0.000135753, 1.18769e-05, -0.000135753, 0.00158796, -5.06815e-07, -1.18769e-05, -5.06697e-07, 0.00159371, 0, 0.00491357, -9.7423e-05)
 sorting_offset = 10.0
 sprite_frames = SubResource("SpriteFrames_mu4vd")
-animation = &"walk"
+animation = &"idle"
 
 [node name="Feet" type="AnimatedSprite3D" parent="Sprites"]
 transform = Transform3D(0.00158769, 0.000111574, 8.27385e-05, -0.000111575, 0.00158984, -2.90181e-06, -8.27386e-05, -2.90154e-06, 0.0015916, 0, 0.00494006, -0.000135261)
 sorting_offset = 9.0
 sprite_frames = SubResource("SpriteFrames_hvcuu")
-animation = &"walk"
+animation = &"idle"
 
 [node name="Feet2" type="AnimatedSprite3D" parent="Sprites"]
 transform = Transform3D(0.0016, 0, 0, 0, 0.0016, -4.76837e-11, 0, 4.76837e-11, 0.0016, -0.000492727, 0.00462707, -6.33027e-05)
 sorting_offset = 9.0
 sprite_frames = SubResource("SpriteFrames_eatej")
-animation = &"walk"
+animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]
 libraries = {
@@ -3525,6 +3525,7 @@ libraries = {
 transform = Transform3D(0.00226021, -0.000449502, 0, 0.000449502, 0.00226021, 0, 0, 0, 0.00230447, 1.83861e-05, 0.00617168, 0.000917482)
 sorting_offset = 13.0
 sprite_frames = SubResource("SpriteFrames_i5v5n")
+animation = &"none"
 
 [node name="Slash_Light" type="OmniLight3D" parent="Sprites"]
 transform = Transform3D(0.00610404, 0, 0, 0, 0.00610401, 0, 0, 0, 0.00610401, 0.00299157, 0.00728851, 0.00043174)

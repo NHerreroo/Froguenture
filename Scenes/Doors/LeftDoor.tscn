@@ -104,7 +104,7 @@ texture = ExtResource("3_hm378")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qsaxw")
+&"": SubResource("AnimationLibrary_qsaxw")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

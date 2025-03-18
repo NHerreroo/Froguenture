@@ -18,6 +18,7 @@ func _ready():
 	_start_run()
 	_setup_event_connections()
 	map.connect("map_exited", Callable(self, "_on_map_exited"))
+	Player.connect("do_transition", Callable(self, "do_transition"))
 
 func _start_run():
 	map.generate_new_map()
@@ -68,3 +69,9 @@ func _on_map_exited(room:Room) -> void:
 
 func _setup_event_connections() -> void:
 	Events.level_done.connect(_show_map)
+	
+	
+var transition = preload("res://Scenes/Others/transition.tscn")
+func do_transition():
+	var inst_transiontion = transition.instantiate()
+	add_child(inst_transiontion)

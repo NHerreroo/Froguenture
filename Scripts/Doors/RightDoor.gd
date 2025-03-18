@@ -22,7 +22,9 @@ func _on_body_entered(body):
 		 #Mete en el array de salas vistas la habitacion en la que acabas de estar
 		if current_pos not in Global.rooms_visited:
 			Global.rooms_visited.append(current_pos)
-			
+
+		Player.notifyTransition()
+		await get_tree().create_timer(0.2).timeout
 		Global.playerMapPositionY += 1
 		Global.eraseLevel = true
 		Global.playerDirection = 3 #arriba (saldra por arriba en la sigente sala)

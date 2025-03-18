@@ -15,15 +15,15 @@ func _process(delta):
 			doorsOpen = true
 	if Global.eraseLevel == true:
 		queue_free()
-
-
+		
+		
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		
-		 #Mete en el array de salas vistas la habitacion en la que acabas de estar
 		if current_pos not in Global.rooms_visited:
 			Global.rooms_visited.append(current_pos)
-			
+
+		Player.notifyTransition()
+		await get_tree().create_timer(0.2).timeout
 		Global.playerMapPositionY -= 1
 		Global.eraseLevel = true
-		Global.playerDirection = 2 #izqu (saldra por izquierda en la sigente sala)
+		Global.playerDirection = 2

@@ -22,3 +22,8 @@ var invencibleTime = 1
 signal health_updated
 func notify_health_updated():
 	emit_signal("health_updated")
+
+
+signal do_transition
+func notifyTransition():
+	emit_signal("do_transition")

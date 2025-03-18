@@ -5,6 +5,8 @@ func _ready() -> void:
 	
 func _process(delta):
 	if Global.eraseLevel == true:
+		Player.notifyTransition()
+		await get_tree().create_timer(0.2).timeout
 		Events.emit_signal("level_done")
 		queue_free()
 		
