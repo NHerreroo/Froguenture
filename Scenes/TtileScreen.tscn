@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://66cbs0n1ub8"]
+[gd_scene load_steps=20 format=3 uid="uid://66cbs0n1ub8"]
 
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="1_3qh5k"]
 [ext_resource type="Script" uid="uid://duy7cforghd4i" path="res://Scripts/tile_screen.gd" id="1_dh5jj"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cs4m4msh6cdd7" path="res://Sprites/Vegetation/Trees/Tree1.png" id="3_lqrl7"]
 [ext_resource type="Texture2D" uid="uid://cibo125j8cc43" path="res://Sprites/Vegetation/Trees/bush2.png" id="4_0y5ux"]
 [ext_resource type="Texture2D" uid="uid://bb4c8b72inihs" path="res://Sprites/Vegetation/Trees/Tree3Background.png" id="5_85l5a"]
+[ext_resource type="PackedScene" uid="uid://7ujjmb0lt1o8" path="res://Scenes/Enviroment/grass1.tscn" id="8_imu2k"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="10_cuicn"]
+[ext_resource type="Texture2D" uid="uid://drukflp2a8wdw" path="res://Sprites/text-1742574767511-_2_ (1).png" id="10_dh5jj"]
 [ext_resource type="Script" uid="uid://tivs3np7qswg" path="res://Scripts/cameraTitleScreen.gd" id="11_cuicn"]
 
 [sub_resource type="Environment" id="Environment_0y5ux"]
@@ -73,6 +76,17 @@ _data = {
 &"idle": SubResource("Animation_imu2k")
 }
 
+[sub_resource type="Gradient" id="Gradient_uy7a7"]
+offsets = PackedFloat32Array(0, 0.561404, 0.859649)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.32037, 0, 0, 0, 0.905882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dh5jj"]
+gradient = SubResource("Gradient_uy7a7")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.509174, 0.495413)
+
 [node name="TitleScreen" type="Node3D"]
 script = ExtResource("1_dh5jj")
 
@@ -100,6 +114,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47569, 0.469404, 0.0329285)
 size = Vector3(7.0752, 3.56738, 17.5648)
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.216684)
 
 [node name="2" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.48486e-08, 0, -0.797243, -0.297052, 0.739835, 1.29846e-08, 0.739835, 0.297052, -3.23392e-08, -8.40195, 1.73953, -2.80197)
@@ -187,6 +202,16 @@ transform = Transform3D(-3.38291e-08, -3.98466e-16, -0.943743, -0.0314772, 0.936
 alpha_cut = 1
 texture = ExtResource("3_lqrl7")
 
+[node name="23" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.38291e-08, -3.98466e-16, -0.943743, -0.0314772, 0.936054, 1.67783e-09, 0.77328, 0.0381031, -4.12182e-08, 1.76324, 4.30004, -3.18953)
+alpha_cut = 1
+texture = ExtResource("3_lqrl7")
+
+[node name="24" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.38291e-08, -3.98466e-16, -0.943743, -0.0314772, 0.936054, 1.67783e-09, 0.77328, 0.0381031, -4.12182e-08, 2.18601, 4.30004, 4.65841)
+alpha_cut = 1
+texture = ExtResource("3_lqrl7")
+
 [node name="21" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-4.40003e-08, -5.18269e-16, -1.22749, -0.0409411, 1.21749, 2.18229e-09, 1.00578, 0.0495592, -5.36109e-08, -2.41753, 5.23872, -8.38906)
 alpha_cut = 1
@@ -207,8 +232,119 @@ transform = Transform3D(-2.56206e-08, -5.15647e-16, -0.73456, -0.0238394, 1.2113
 alpha_cut = 1
 texture = ExtResource("5_85l5a")
 
+[node name="25" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 12.0962, 4.41767, -1.63748)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="26" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 9.75239, 4.41767, 5.54483)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="27" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 9.75239, 4.41767, 5.54483)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="28" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 9.75239, 4.41767, -6.288)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="29" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 23.1771, 4.41767, 6.19741)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="30" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 4.98127, 4.41767, 9.34084)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="31" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 4.98127, 4.41767, -6.6106)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="32" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 4.98127, 4.41767, -6.6106)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="33" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 6.70319, 4.41767, -2.38703)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="34" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 8.19903, 4.41767, 2.85534)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="35" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 5.02259, 4.41767, 2.98788)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="36" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 5.02259, 4.41767, -8.80892)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="37" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 2.74627, 4.41767, -1.4923)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="38" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 2.74627, 4.41767, 4.26504)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="39" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 4.02358, 4.41767, -0.700962)
+alpha_cut = 1
+texture = ExtResource("5_85l5a")
+
+[node name="Grass1" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -3.99376, 1.07094, -4.02261)
+
+[node name="Grass2" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -0.11842, 1.07094, -4.02261)
+
+[node name="Grass3" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 2.32107, 1.07094, -1.76357)
+
+[node name="Grass4" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 2.32107, 1.07094, 3.15779)
+
+[node name="Grass5" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -0.429733, 1.19644, 4.49244)
+
+[node name="Grass6" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -0.429733, 1.19644, 6.50106)
+
+[node name="Grass7" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -5.28382, 1.19644, 4.39963)
+
+[node name="Grass8" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -3.5942, 1.19644, 5.95166)
+
+[node name="Grass9" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -6.69789, 1.19644, -2.8121)
+
+[node name="Grass10" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 3.79864, 1.19644, -0.136901)
+
+[node name="Grass11" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 3.79864, 1.19644, 2.93351)
+
+[node name="Grass12" parent="Node3D" instance=ExtResource("8_imu2k")]
+transform = Transform3D(-1.83255e-08, 6.82678e-16, -0.235009, 5.13627e-09, 0.235009, 3.89495e-16, 0.235009, -5.13627e-09, 9.16275e-09, -6.5897, 0.731695, 2.73261)
+
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.7595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.9762)
 
 [node name="2" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.48486e-08, 1.31421e-15, -0.797243, 0.313095, 0.73319, -1.36858e-08, 0.73319, -0.313095, -3.20488e-08, -8.40195, 1.95658, -6.31263)
@@ -308,11 +444,68 @@ libraries = {
 &"": SubResource("AnimationLibrary_dh5jj")
 }
 
-[node name="Button" type="Button" parent="."]
-offset_left = 636.0
-offset_top = 686.0
-offset_right = 1347.0
-offset_bottom = 799.0
-text = "START"
+[node name="ColorRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_dh5jj")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="NewGame" type="Button" parent="."]
+offset_left = 634.0
+offset_top = 560.0
+offset_right = 1345.0
+offset_bottom = 645.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_font_sizes/font_size = 56
+text = "New Game
+"
+flat = true
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 634.0
+offset_top = 675.0
+offset_right = 1345.0
+offset_bottom = 760.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_font_sizes/font_size = 56
+text = "Continue
+"
+flat = true
+
+[node name="Options" type="Button" parent="."]
+offset_left = 634.0
+offset_top = 781.0
+offset_right = 1345.0
+offset_bottom = 866.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_font_sizes/font_size = 56
+text = "Options"
+flat = true
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 634.0
+offset_top = 889.0
+offset_right = 1345.0
+offset_bottom = 974.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_font_sizes/font_size = 56
+text = "Exit"
+flat = true
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(988, 347)
+scale = Vector2(0.652505, 0.652505)
+texture = ExtResource("10_dh5jj")
+
+[connection signal="pressed" from="NewGame" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]

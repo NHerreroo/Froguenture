@@ -22,12 +22,12 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjemb"]
 
-[sub_resource type="Gradient" id="Gradient_uy7a7"]
+[sub_resource type="Gradient" id="Gradient_fs7ks"]
 offsets = PackedFloat32Array(0, 0.561404, 0.859649)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.32037, 0, 0, 0, 0.905882)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fs7ks"]
-gradient = SubResource("Gradient_uy7a7")
+gradient = SubResource("Gradient_fs7ks")
 width = 1024
 height = 1024
 fill = 1
