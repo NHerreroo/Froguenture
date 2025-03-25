@@ -56,8 +56,7 @@ func _process(delta: float) -> void:
 		attack_timer += delta
 		if attack_timer >= 0.2:
 			attack_count = 0
-			SPEED = Player.speed
-
+			SPEED = Player.speed   
 
 func setPlayerPosition(position: int):
 	match position:
@@ -84,7 +83,7 @@ func _physics_process(delta):
 		if not is_dashing:
 			velocity.x = lerp(velocity.x, direction.x * SPEED, LERP_AMOUNT)
 			velocity.z = lerp(velocity.z, direction.z * SPEED, LERP_AMOUNT)
-	
+
 	# Control de acciones
 	if Global.can_walk:
 		# Animaciones de movimiento

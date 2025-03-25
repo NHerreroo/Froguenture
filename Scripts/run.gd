@@ -36,6 +36,7 @@ func _change_view(scene: PackedScene) -> Node:
 	Global.persistent_items.clear() # a la mierda los items del suelo
 
 	Global.card_selected = false
+	Global.treasure_card_selected = false
 	Global.eraseLevel = false
 	
 	map.hide_map()

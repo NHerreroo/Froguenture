@@ -82,7 +82,9 @@ func _on_pressed():
 		emit_signal("item_pressed")  # Emitir la señal
 
 		await get_tree().create_timer(1).timeout
+		Global.treasure_card_selected = true
 		Global.card_selected = false  
+		
 
 
 func setSorurceParam():
