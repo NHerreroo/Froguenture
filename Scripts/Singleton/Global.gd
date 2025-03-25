@@ -33,6 +33,11 @@ var shopItem2
 var shopItem1Purchased = false
 var shopItem2Purchased = false
 
+#lo mismo que los alteares de tienda pero para tesoro
+var treasureItem
+var treasureItemPurchased = false
+
+
 
 var map = [] #contiene el mapa generado para que al reinicial la escena no se pierda
 

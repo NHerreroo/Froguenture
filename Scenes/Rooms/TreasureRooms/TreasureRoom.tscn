@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dumewjinakxow"]
+[gd_scene load_steps=21 format=3 uid="uid://dumewjinakxow"]
 
 [ext_resource type="Script" uid="uid://da8213wvj8ho8" path="res://Scripts/treasure_room.gd" id="1_wxi7m"]
+[ext_resource type="Script" uid="uid://cuwuf1a531yul" path="res://Scripts/treasure_altar_spawner.gd" id="2_rd5r4"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_sreyh"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_sbv4t"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_c78r8"]
@@ -67,6 +68,9 @@ size = Vector3(4.0918, 2.58105, 4.62379)
 
 [node name="TreasureRoom" type="Node3D"]
 script = ExtResource("1_wxi7m")
+
+[node name="AltarSpawner" type="Node3D" parent="."]
+script = ExtResource("2_rd5r4")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
