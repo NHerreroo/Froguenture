@@ -81,7 +81,7 @@ shape = SubResource("ConcavePolygonShape3D_mk0ac")
 
 [node name="player" parent="." instance=ExtResource("3_sbv4t")]
 process_priority = 75
-transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
+transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 4.30442, 0.014, -0.205)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ywln1")

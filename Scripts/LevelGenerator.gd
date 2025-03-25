@@ -99,7 +99,6 @@ func print_map(map: Array) -> void:
 
 func print_actual_pos(map: Array, x: int, y: int):
 	print("actual position = " + Global.map[x][y])
-
 # Generar puertas según la posición
 func generate_doors(map: Array):
 	set_all_colliders()
@@ -195,6 +194,7 @@ func _ready():
 	instanceRoom()
 
 func _process(delta):
+	Global.actRoomChar = Global.map[Global.playerMapPositionX][Global.playerMapPositionY]
 	updateLevel()
 
 

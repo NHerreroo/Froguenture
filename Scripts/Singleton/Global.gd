@@ -8,6 +8,7 @@ var card_focused = false
 # se utiliza para ver la posicion y generar la habitacion empieza en 25 por que el mapa siempre es de 50, el 25 indica el centro siempre empieza ahi
 var playerMapPositionX = 25
 var playerMapPositionY = 25
+var actRoomChar
 
 #bool para saber si se ha generado el mapa y no volver a generar hasta q se pase el boss
 #el errase level es para desinstanciar la habitación y las puertas y volver a generarlas

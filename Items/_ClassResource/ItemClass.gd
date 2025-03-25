@@ -41,7 +41,6 @@ var selected = false
 
 signal item_pressed
 
-	
 func _process(delta: float) -> void:
 	if Global.card_selected == true and selected == false:
 		card_not_selected_animation()
@@ -82,7 +81,8 @@ func _on_pressed():
 		emit_signal("item_pressed")  # Emitir la señal
 
 		await get_tree().create_timer(1).timeout
-		Global.treasure_card_selected = true
+		if Global.actRoomChar == "#":
+			Global.treasure_card_selected = true
 		Global.card_selected = false  
 		
 
