@@ -81,6 +81,10 @@ func _on_pressed():
 		animate_to_player()
 		emit_signal("item_pressed")  # Emitir la señal
 
+		await get_tree().create_timer(1).timeout
+		Global.card_selected = false  
+
+
 func setSorurceParam():
 	setFoil()
 		

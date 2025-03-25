@@ -1,4 +1,5 @@
 extends Node3D
+class_name DefRoom
 
 var player = null
 var collilsions_seted = false
@@ -9,12 +10,14 @@ var shield = preload("res://Scenes/Dropps/Shield.tscn")
 var topDoorSpecialRoom = preload("res://Scenes/Doors/TopDoorSpecialRoom.tscn")
 var bottomDoorSpecialRoom = preload("res://Scenes/Doors/BottomDoorSpecialRoom.tscn")
 
+
 var isSpecialDoorInstanciates = false
 
 var sides = ["top", "bot", "right", "left"]
 
 func _ready() -> void:
 	Global.eraseLevel = false
+	
 	var current_room = [Global.playerMapPositionX, Global.playerMapPositionY]
 	player = get_tree().get_root().find_child("player", true, false)
 	# Recorremos el array de habitaciones y objetos
