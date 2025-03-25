@@ -6,6 +6,13 @@ extends Control
 
 func _process(delta: float) -> void:
 	$HudLabels/MONEDAS.text = str(Player.money)
+	$HudLabels/Attack.text = str(Player.atack)
+	$HudLabels/Critcal.text = str(Player.criticalDamage)
+	$HudLabels/DashCooldown.text = str(Player.dashCooldown)
+	$HudLabels/Poison.text = str(Player.poisonDamage)
+	$HudLabels/Speed.text = str(Player.speed)
+	$HudLabels/SpeedAttack.text = str(Player.atackSpeed)
+
 
 func _ready() -> void:
 	# Conectar la señal del singleton Player
@@ -14,8 +21,6 @@ func _ready() -> void:
 	update_hearts()
 
 func update_hearts():
-	print("La vida está actualizada")  # Mensaje de depuración
-
 	# Limpiar todos los nodos hijos de heart_container_node antes de volver a dibujar
 	for child in heart_container_node.get_children():
 		child.queue_free()  # Elimina cada nodo hijo

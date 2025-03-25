@@ -3,10 +3,11 @@ extends Node3D
 @onready var nine_patch_rect = $CanvasLayer/NinePatchRect
 @onready var item_sprite = $Item
 var dust = preload("res://Scenes/Enemies/dust.tscn")
+var pack = preload("res://Items/ItemCardSelector.tscn")
 
 var items = {
-	"PACK": {"price": 15, "icon": preload("res://Sprites/icons/PACK.png"), "probability": 10},
-	"COLLECTOR": {"price": 20, "icon": preload("res://Sprites/icons/BOOSTER.png"), "probability": 5},
+	"PACK": {"price": 15, "icon": preload("res://Sprites/icons/PACK.png"), "probability": 100},
+	"COLLECTOR": {"price": 20, "icon": preload("res://Sprites/icons/BOOSTER.png"), "probability": 115},
 	"HEART": {"price": 5, "icon": preload("res://Sprites/icons/heart.png"), "probability": 30},
 	"SHIELD": {"price": 5, "icon": preload("res://Sprites/icons/shield.png"), "probability": 25},
 	"SPEED": {"price": 10, "icon": preload("res://Sprites/icons/speed.png"), "probability": 15},
@@ -15,6 +16,23 @@ var items = {
 	"CRITICALDMG": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 5},
 	"CRITICALCHANCE": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 2}
 }
+
+var item_effects = {
+	"PACK": func(): spawn_pack(),
+	"COLLECTOR": func(): spawn_pack(),
+	"HEART": func():
+		Player.health += 1.0 
+		Player.notify_health_updated(),
+	"SHIELD": func(): 
+		Player.shield += 1.0 
+		Player.notify_health_updated(),
+	"SPEED": func(): Player.speed += 0.2,
+	"ATTACK": func(): Player.atack += 0.3,
+	"ATTACKSPEED": func(): Player.atackSpeed += 0.1,
+	"CRITICALDMG": func(): Player.criticalDamage += 0.3,
+	"CRITICALCHANCE": func(): print("chance comprado")
+}
+
 
 var currentItem : String
 var playerInArea = false
@@ -52,8 +70,7 @@ func _process(delta: float) -> void:
 			$Area3D/CollisionShape3D.disabled = true
 	if playerInArea:
 		buy_item()
-
-
+		
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		animate_nine_patch_rect(true)
@@ -65,17 +82,19 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		playerInArea = false
 
 func buy_item():
-	var item_data = items[currentItem]
-	if Input.is_action_just_pressed("Confirm"):
+	var item_data = items.get(currentItem, null)
+	if item_data and Input.is_action_just_pressed("Confirm"):
 		if Player.money >= item_data.price:
 			Player.money -= item_data.price
 			spawn_dust()
 			animate_nine_patch_rect(false)
+			
 			if self.name == "Altar1":
 				Global.shopItem1Purchased = true
 			elif self.name == "Altar2":
 				Global.shopItem2Purchased = true
-
+			if currentItem in item_effects:
+				item_effects[currentItem].call()  
 
 func animate_nine_patch_rect(show: bool) -> void:
 	var tween = create_tween().set_parallel(true)
@@ -124,3 +143,18 @@ func spawn_dust():
 	var dust_inst = dust.instantiate()
 	dust_inst.position = Vector3(self.position.x, 0 ,self.position.z)
 	get_tree().root.add_child(dust_inst)
+	
+	
+func spawn_pack():
+	var pack_inst = pack.instantiate()  # Instancia el objeto
+	pack_inst.position = Vector2(292, 184)
+
+	# Asegurar que se agrega al CanvasLayer para que esté al frente
+	var canvas_layer = get_tree().root.find_child("CanvasLayer", true, false)
+	if canvas_layer:
+		canvas_layer.add_child(pack_inst)
+	else:
+		add_child(pack_inst)  # Como fallback, lo agrega al mismo nodo
+
+	# Asegurar que esté en el frente
+	pack_inst.move_to_front()

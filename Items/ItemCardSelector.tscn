@@ -8,6 +8,7 @@ shader = ExtResource("2_2iobf")
 shader_parameter/lod = 1.629
 
 [node name="ItemCardSelector" type="Control"]
+z_index = 115
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
