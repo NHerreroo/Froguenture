@@ -18,7 +18,8 @@ var card_instance1
 var card_instance2
 
 func _ready() -> void:
-	Global.can_walk = false
+	if Global.card_selected == false:
+		Global.can_walk = false
 	set_background_opacity_in()
 	load_all_scene_paths()
 	left_card_inst(get_item_card(get_random_color()))
