@@ -8,5 +8,5 @@ func spawn_altars():
 
 	# Primer altar
 	var altar_instance = altar_scene.instantiate()
-	altar_instance.position = Vector3(0.851, -0.189, 1.959)
+	altar_instance.position = Vector3(0.5, -0.189, -1.59)
 	add_child(altar_instance)

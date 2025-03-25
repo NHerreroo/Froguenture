@@ -38,3 +38,5 @@ func reset_globals_set_def_stats():
 	Global.shopItem2 = null
 	Global.shopItem1Purchased = false
 	Global.shopItem2Purchased = false
+	Global.treasureItem = null
+	Global.treasureItemPurchased = false

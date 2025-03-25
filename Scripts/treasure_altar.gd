@@ -6,31 +6,13 @@ var dust = preload("res://Scenes/Enemies/dust.tscn")
 var pack = preload("res://Items/ItemCardSelector.tscn")
 
 var items = {
-	"PACK": {"price": 15, "icon": preload("res://Sprites/icons/PACK.png"), "probability": 100},
-	"COLLECTOR": {"price": 20, "icon": preload("res://Sprites/icons/BOOSTER.png"), "probability": 115},
-	"HEART": {"price": 5, "icon": preload("res://Sprites/icons/heart.png"), "probability": 30},
-	"SHIELD": {"price": 5, "icon": preload("res://Sprites/icons/shield.png"), "probability": 25},
-	"SPEED": {"price": 10, "icon": preload("res://Sprites/icons/speed.png"), "probability": 15},
-	"ATTACK": {"price": 10, "icon": preload("res://Sprites/icons/Atack2.png"), "probability": 10},
-	"ATTACKSPEED": {"price": 10, "icon": preload("res://Sprites/icons/speedatack.png"), "probability": 5},
-	"CRITICALDMG": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 5},
-	"CRITICALCHANCE": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 2}
+	"PACK": {"price": 0, "icon": preload("res://Sprites/icons/PACK.png"), "probability": 10},
+	"COLLECTOR": {"price": 0, "icon": preload("res://Sprites/icons/BOOSTER.png"), "probability": 30},
 }
 
 var item_effects = {
 	"PACK": func(): spawn_pack(),
 	"COLLECTOR": func(): spawn_pack(),
-	"HEART": func():
-		Player.health += 1.0 
-		Player.notify_health_updated(),
-	"SHIELD": func(): 
-		Player.shield += 1.0 
-		Player.notify_health_updated(),
-	"SPEED": func(): Player.speed += 0.2,
-	"ATTACK": func(): Player.atack += 0.3,
-	"ATTACKSPEED": func(): Player.atackSpeed += 0.1,
-	"CRITICALDMG": func(): Player.criticalDamage += 0.3,
-	"CRITICALCHANCE": func(): print("chance comprado")
 }
 
 
@@ -104,7 +86,7 @@ func set_controller_text():
 func set_item():
 	if currentItem in items:
 		var item_data = items[currentItem]
-		var boxText = "Purchase " + str(currentItem) + " for: " + str(item_data.price) + "$" 
+		var boxText = "Get " + str(currentItem) + " for free!" 
 		$CanvasLayer/NinePatchRect/Price.text = str(boxText)
 		$Item.texture = item_data.icon
 	else:

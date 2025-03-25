@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://dumewjinakxow"]
+[gd_scene load_steps=20 format=3 uid="uid://dumewjinakxow"]
 
-[ext_resource type="Script" uid="uid://da8213wvj8ho8" path="res://Scripts/treasure_room.gd" id="1_wxi7m"]
+[ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_rd5r4"]
 [ext_resource type="Script" uid="uid://cuwuf1a531yul" path="res://Scripts/treasure_altar_spawner.gd" id="2_rd5r4"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_sreyh"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_sbv4t"]
@@ -63,11 +63,8 @@ fill = 1
 fill_from = Vector2(0.509174, 0.490826)
 fill_to = Vector2(0.834862, 0.155963)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wxi7m"]
-size = Vector3(4.0918, 2.58105, 4.62379)
-
 [node name="TreasureRoom" type="Node3D"]
-script = ExtResource("1_wxi7m")
+script = ExtResource("1_rd5r4")
 
 [node name="AltarSpawner" type="Node3D" parent="."]
 script = ExtResource("2_rd5r4")
@@ -251,18 +248,10 @@ alpha_cut = 2
 texture = ExtResource("7_eejst")
 
 [node name="CatNpc" parent="." instance=ExtResource("9_q76rf")]
-transform = Transform3D(-1.20055e-08, -0.158572, 0.274655, -6.9314e-09, 0.274655, 0.158572, -0.317144, 0, -1.38628e-08, 0.310485, 0.910852, -0.100891)
+transform = Transform3D(-1.20055e-08, -0.158572, 0.274655, -6.9314e-09, 0.274655, 0.158572, -0.317144, 0, -1.38628e-08, 0.271045, 0.910852, 1.01019)
+script = null
 
 [node name="Sprite3D" type="Sprite3D" parent="CatNpc"]
-transform = Transform3D(12.0552, 2.29338e-07, 1.32408e-07, -4.56352e-07, 3.02915, 5.24665, 2.63475e-07, -5.24665, 3.02915, -0.268382, -2.23323, -1.72652)
+transform = Transform3D(12.0552, 2.29338e-07, 1.32408e-07, -4.56352e-07, 3.02915, 5.24665, 2.63475e-07, -5.24665, 3.02915, -0.268382, -2.31889, -1.57815)
+sorting_offset = 3.135
 texture = SubResource("GradientTexture2D_e23hq")
-
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 2
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169922, 0.790527, 0.0300064)
-shape = SubResource("BoxShape3D_wxi7m")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
