@@ -148,13 +148,5 @@ func spawn_dust():
 func spawn_pack():
 	var pack_inst = pack.instantiate()  # Instancia el objeto
 	pack_inst.position = Vector2(292, 184)
-
-	# Asegurar que se agrega al CanvasLayer para que esté al frente
-	var canvas_layer = get_tree().root.find_child("CanvasLayer", true, false)
-	if canvas_layer:
-		canvas_layer.add_child(pack_inst)
-	else:
-		add_child(pack_inst)  # Como fallback, lo agrega al mismo nodo
-
-	# Asegurar que esté en el frente
-	pack_inst.move_to_front()
+	
+	add_child(pack_inst)

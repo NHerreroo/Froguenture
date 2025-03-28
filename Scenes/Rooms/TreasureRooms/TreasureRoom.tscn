@@ -66,9 +66,6 @@ fill_to = Vector2(0.834862, 0.155963)
 [node name="TreasureRoom" type="Node3D"]
 script = ExtResource("1_rd5r4")
 
-[node name="AltarSpawner" type="Node3D" parent="."]
-script = ExtResource("2_rd5r4")
-
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
 material_override = SubResource("StandardMaterial3D_lskdr")
@@ -255,3 +252,6 @@ script = null
 transform = Transform3D(12.0552, 2.29338e-07, 1.32408e-07, -4.56352e-07, 3.02915, 5.24665, 2.63475e-07, -5.24665, 3.02915, -0.268382, -2.31889, -1.57815)
 sorting_offset = 3.135
 texture = SubResource("GradientTexture2D_e23hq")
+
+[node name="AltarSpawner" type="Node3D" parent="."]
+script = ExtResource("2_rd5r4")
