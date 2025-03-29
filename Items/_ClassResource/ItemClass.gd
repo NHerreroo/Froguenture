@@ -10,6 +10,8 @@ const GREEN_CARD = preload("res://Sprites/Items/GreenTemplate2.png")
 const BLUE_CARD = preload("res://Sprites/Items/Bluetemplate2.png")
 const COLORLESS = preload("res://Sprites/Items/ColorLessTemplate2.png")
 #COASA DEL SHADER DE LA CARTA
+
+
 @export var angle_x_max: float = 15.0
 @export var angle_y_max: float = 15.0
 @export var max_offset_shadow: float = 50.0

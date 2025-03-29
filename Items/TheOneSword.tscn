@@ -1,26 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfqo8c4n5r7h"]
+[gd_scene load_steps=12 format=3 uid="uid://gxycog1c8fck"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_8o6b7"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="1_l4el7"]
-[ext_resource type="Texture2D" uid="uid://di74sbavsjdss" path="res://Sprites/Items/Arts/circuloconejosart.png" id="2_e7s6g"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="2_lhrgs"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_41vp5"]
-[ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_dyir8"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="5_i62hw"]
-[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_hxb8l"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_gv4d0"]
+[ext_resource type="Texture2D" uid="uid://dsd2571yihgtm" path="res://Sprites/Items/Arts/the one swordART.png" id="2_gv4d0"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_xua5t"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_yxkfp"]
+[ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="5_4hi5i"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_7r4sa"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_y04ww"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("2_lhrgs")
+script = ExtResource("3_xua5t")
 name = "olaa"
 description = "Its a template"
-image = ExtResource("2_e7s6g")
+image = ExtResource("2_gv4d0")
 habilitie1 = "+1/+1"
 habilitie2 = ""
 habilitie3 = ""
 damage = "1"
 health = "4"
 quote = "\"Item\""
-color_card = 5
+color_card = 2
 card_type = 0
 foil = false
 
@@ -29,7 +28,7 @@ size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("1_l4el7")
+shader = ExtResource("6_7r4sa")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -43,7 +42,7 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("5_i62hw")
+shader = ExtResource("7_y04ww")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
@@ -55,7 +54,7 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_8o6b7")
+script = ExtResource("1_gv4d0")
 item_Src = SubResource("Resource_jivrs")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -74,7 +73,7 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("4_41vp5")
+texture = ExtResource("4_yxkfp")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -83,14 +82,14 @@ offset_top = -31.0
 offset_right = 780.0
 offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("4_dyir8")
+texture = ExtResource("5_4hi5i")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("4_41vp5")
+texture = ExtResource("4_yxkfp")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
@@ -117,20 +116,16 @@ offset_left = 151.808
 offset_top = 128.39
 offset_right = 728.808
 offset_bottom = 194.39
-theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
 
 [node name="Type" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 117.894
+offset_left = 113.049
 offset_top = 580.964
-offset_right = 694.894
+offset_right = 690.049
 offset_bottom = 646.964
-theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -141,8 +136,6 @@ offset_left = 140.503
 offset_top = 670.837
 offset_right = 680.503
 offset_bottom = 900.837
-theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 30
 text = "HABILITIE 1
 HABILITIE 2
@@ -156,8 +149,6 @@ offset_left = 198.643
 offset_top = 881.076
 offset_right = 595.643
 offset_bottom = 971.076
-theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 25
 text = "\"Quote\"
 "
@@ -171,8 +162,6 @@ offset_left = 145.348
 offset_top = 938.851
 offset_right = 242.348
 offset_bottom = 1054.85
-theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
@@ -184,8 +173,6 @@ offset_left = 624.998
 offset_top = 938.851
 offset_right = 721.998
 offset_bottom = 1054.85
-theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
