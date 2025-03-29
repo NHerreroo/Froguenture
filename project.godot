@@ -36,6 +36,7 @@ project/assembly_name="Uncommon Like"
 [editor]
 
 movie_writer/fps=120
+export/convert_text_resources_to_binary=false
 
 [global_group]
 

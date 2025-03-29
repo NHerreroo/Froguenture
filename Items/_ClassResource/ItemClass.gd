@@ -6,7 +6,7 @@ class_name Item
 const WHITE_CARD = preload("res://Sprites/Items/Whitetemplate2.png")
 const BLACK_CARD = preload("res://Sprites/Items/Blacktemplate2.png")
 const RED_CARD = preload("res://Sprites/Items/Redtemplate2.png")
-const GREEN_CARD = preload("res://Sprites/Items/Greentemplate2.png")
+const GREEN_CARD = preload("res://Sprites/Items/GreenTemplate2.png")
 const BLUE_CARD = preload("res://Sprites/Items/Bluetemplate2.png")
 const COLORLESS = preload("res://Sprites/Items/ColorLessTemplate2.png")
 #COASA DEL SHADER DE LA CARTA
