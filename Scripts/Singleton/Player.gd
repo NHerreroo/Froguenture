@@ -1,6 +1,5 @@
 extends Node
 
-
 # STATS
 var money : int = 100
 var health : float = 3.5
@@ -27,3 +26,18 @@ func notify_health_updated():
 signal do_transition
 func notifyTransition():
 	emit_signal("do_transition")
+
+
+func _process(delta: float) -> void:
+	
+	#limitar contenedores 
+	if health_container >= 12:
+		health_container = 12
+
+	#limitar vida
+	if health >= health_container:
+		health = health_container
+		
+	
+	#limitar escudos
+	
