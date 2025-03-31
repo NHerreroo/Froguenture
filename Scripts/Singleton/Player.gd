@@ -28,6 +28,7 @@ func notifyTransition():
 	emit_signal("do_transition")
 
 
+var total
 func _process(delta: float) -> void:
 	
 	#limitar contenedores 
@@ -40,4 +41,8 @@ func _process(delta: float) -> void:
 		
 	
 	#limitar escudos
+	total = health_container + shield
+	if total > 12:
+		shield -= (total - 12) # Ajustar escudo si el total excede 12
+		
 	
