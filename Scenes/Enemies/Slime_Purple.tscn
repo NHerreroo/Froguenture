@@ -1,29 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddmumrs6tfxbc"]
+[gd_scene load_steps=10 format=3 uid="uid://ddmumrs6tfxbc"]
 
 [ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_xow73"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_cunt7"]
 [ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="3_xow73"]
 
-[sub_resource type="Resource" id="Resource_mjjwl"]
+[sub_resource type="Resource" id="Resource_xow73"]
 script = ExtResource("2_cunt7")
-health = 20.0
-attack = 564.0
+health = 50.0
+attack = 1.0
 speed = 3.0
 accel = 10.0
 knockback_duration = 0.2
 knockback_timer = 0.0
+metadata/_custom_type_script = "uid://cal3n5r6347g2"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
 size = Vector3(1, 0.772949, 0.868652)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
 size = Vector3(3.50751, 3.1073, 2.86035)
-
-[sub_resource type="Gradient" id="Gradient_kgy45"]
-colors = PackedColorArray(0.676917, 0, 0.0837418, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_euaxv"]
-gradient = SubResource("Gradient_kgy45")
 
 [sub_resource type="Animation" id="Animation_aupjf"]
 length = 0.001
@@ -66,7 +61,7 @@ _data = {
 [node name="EnemyTemplate" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_xow73")
-enemy_src = SubResource("Resource_mjjwl")
+enemy_src = SubResource("Resource_xow73")
 
 [node name="Body" type="Sprite3D" parent="."]
 transform = Transform3D(-1.17943e-08, -0.336527, 0.413432, -1.41372e-08, 0.413432, 0.336527, -0.533082, -3.51854e-09, -1.80717e-08, 0.23692, 0, -0.144703)
@@ -88,18 +83,6 @@ transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
 transform = Transform3D(0.999989, -2.13389e-08, -3.92725e-09, 1.67988e-08, 0.880849, -0.50856, 1.40712e-08, 0.499998, 0.86602, 0.0801088, 1.03579, 0.917103)
 shape = SubResource("BoxShape3D_6cego")
-
-[node name="ProgressBar" type="Sprite3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.49649, -0.0859188)
-billboard = 1
-alpha_cut = 1
-texture = SubResource("GradientTexture1D_euaxv")
-
-[node name="ProgressBar2" type="Sprite3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 0.962, 0, 25.199, 0, -1, 0, -4.20504e-08, 0, 1.49649, -0.0859188)
-billboard = 1
-alpha_cut = 1
-texture = SubResource("GradientTexture1D_euaxv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
