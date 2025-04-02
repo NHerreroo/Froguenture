@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		if Player.health_container + Player.shield <= 12:
+		if Player.health_container + Player.shield >= 12:
 			return
 		var shield_position = [position.x, position.y, position.z]
 

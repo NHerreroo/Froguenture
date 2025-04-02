@@ -38,8 +38,7 @@ func _process(delta: float) -> void:
 	#limitar vida
 	if health >= health_container:
 		health = health_container
-		
-	
+
 	#limitar escudos
 	total = health_container + shield
 	if total > 12:
