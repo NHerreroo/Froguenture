@@ -67,6 +67,9 @@ func setPlayerPosition(position: int):
 		4: self.position = Vector3(2.638, 0.014, -0.207)  # mitad (inicio partida)
 
 func _physics_process(delta):
+	if !Global.can_walk:
+		$Sprites/AnimationPlayer.play("idle")
+		
 	var input_dir = Input.get_vector("Keyboard_A", "Keyboard_D", "Keyboard_W", "Keyboard_S")
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	

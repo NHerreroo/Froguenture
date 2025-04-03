@@ -27,7 +27,8 @@ enum State {
 	WALK,
 	ATTACK
 	}
-
+	
+	
 func _physics_process(delta: float) -> void:
 	var player_pos_array = [Global.playerMapPositionX, Global.playerMapPositionY]
 	if player_pos_array in Global.rooms_visited:
