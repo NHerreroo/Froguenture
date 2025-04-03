@@ -281,6 +281,7 @@ var canReciveDamage = true
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemy"):
 		if canReciveDamage == true: 
+			canReciveDamage = false
 			if camera:
 				camera.frameFreeze(0.05, 1.0)
 				camera.low_shake_camera()
@@ -288,7 +289,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	
 
 func take_damage(amount: float) -> void:
-	canReciveDamage = false
 	$CanvasLayer/ColorRect/AnimationPlayer.play("new_animation")
 	# Primero reduce los corazones azules
 	if Player.shield > 0:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://d1h8bno760f3r"]
 
 [ext_resource type="Script" uid="uid://chf4xqbuff3hk" path="res://Scripts/Enemies/rock_boy.gd" id="1_u4srq"]
-[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_u4srq"]
+[ext_resource type="Script" uid="uid://bhgt7us588ofj" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_u4srq"]
 [ext_resource type="Texture2D" uid="uid://dnvfokhvmuoog" path="res://Sprites/Enemies/RockEnem/rock.png" id="3_hc2y8"]
 [ext_resource type="Texture2D" uid="uid://b7bgargkrpoik" path="res://Sprites/Enemies/RockEnem/body2.png" id="4_fma3x"]
 [ext_resource type="Texture2D" uid="uid://8oxmdqq3l544" path="res://Sprites/Enemies/RockEnem/body1.png" id="5_466cu"]
@@ -80,21 +80,6 @@ tracks/2/keys = {
 "values": [&"idle"]
 }
 
-[sub_resource type="Animation" id="Animation_hc2y8"]
-resource_name = "protected"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rock:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.56057, -0.468784, -0.114518)]
-}
-
 [sub_resource type="Animation" id="Animation_fma3x"]
 resource_name = "attack"
 length = 2.5
@@ -137,6 +122,21 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_hc2y8"]
+resource_name = "protected"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.56057, -0.468784, -0.114518)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
 _data = {
 &"RESET": SubResource("Animation_aupjf"),
@@ -153,7 +153,7 @@ script = ExtResource("1_u4srq")
 enemy_src = SubResource("Resource_hc2y8")
 
 [node name="Rock" type="Sprite3D" parent="."]
-transform = Transform3D(-1.14648e-08, -0.280262, 0.453464, -1.91522e-08, 0.453464, 0.280262, -0.533082, -1.02643e-08, -1.98215e-08, 0.541171, -0.468784, -0.114518)
+transform = Transform3D(-1.14648e-08, -0.280262, 0.453464, -1.91522e-08, 0.453464, 0.280262, -0.533082, -1.02642e-08, -1.98215e-08, 0.541171, -0.468784, -0.114518)
 alpha_cut = 1
 texture = ExtResource("3_hc2y8")
 

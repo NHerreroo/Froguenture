@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ebf4qtfj2ow" path="res://Sprites/icons/dashcooldown.png" id="4_sqwj6"]
 [ext_resource type="Texture2D" uid="uid://cah1wttpcmwvd" path="res://Sprites/icons/speedatack.png" id="7_1tm2w"]
 [ext_resource type="Texture2D" uid="uid://dvd6ws5u0krgb" path="res://Sprites/icons/money.png" id="7_8s83s"]
-[ext_resource type="Script" uid="uid://disrtqqw7rlp8" path="res://Scripts/DebugLabel.gd" id="9_v6t1x"]
+[ext_resource type="Script" uid="uid://02cfk5gohbno" path="res://Scripts/DebugLabel.gd" id="9_v6t1x"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="10_fr4gg"]
 [ext_resource type="Texture2D" uid="uid://02h1ev11kx24" path="res://Sprites/icons/IsaacLevel.webp" id="10_pabya"]
 

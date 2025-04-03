@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvvfna71hrjte"]
 
-[ext_resource type="Script" uid="uid://btndilk2gijlo" path="res://Scripts/pause_menu.gd" id="1_0wnvf"]
-[ext_resource type="Shader" uid="uid://o7fvdpw88bkm" path="res://Shaders/pause_menu.gdshader" id="1_od1fx"]
-[ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="3_xjagq"]
+[ext_resource type="Script" uid="uid://chnvslh1e8aqr" path="res://Scripts/pause_menu.gd" id="1_0wnvf"]
+[ext_resource type="Shader" uid="uid://bingy4yh4y8an" path="res://Shaders/pause_menu.gdshader" id="1_od1fx"]
+[ext_resource type="Shader" uid="uid://df4560bfikspk" path="res://Shaders/pause_menu_Wave.gdshader" id="3_xjagq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0gf7"]
 shader = ExtResource("1_od1fx")
