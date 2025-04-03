@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://2w80s81wj2nn"]
+[gd_scene load_steps=23 format=3 uid="uid://2w80s81wj2nn"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_k32bv"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_yq4s2"]
@@ -12,9 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="10_mkqs0"]
 [ext_resource type="Texture2D" uid="uid://d4e2o1ac2aa5o" path="res://Sprites/Vegetation/Misc/flags.png" id="11_umqe3"]
 [ext_resource type="Texture2D" uid="uid://deueptp5626aq" path="res://Sprites/Vegetation/Misc/lightPoster.png" id="12_302wq"]
+[ext_resource type="PackedScene" uid="uid://d1h8bno760f3r" path="res://Scenes/Enemies/RockBoy.tscn" id="14_kwvrb"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="14_ree2u"]
-[ext_resource type="PackedScene" uid="uid://ddmumrs6tfxbc" path="res://Scenes/Enemies/Slime_Purple.tscn" id="15_nwfht"]
-[ext_resource type="PackedScene" uid="uid://k16p6uxsfc4e" path="res://Scenes/Enemies/FishyBoy.tscn" id="15_s3eke"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -479,8 +478,5 @@ texture = ExtResource("11_umqe3")
 transform = Transform3D(-3.36246e-08, 0, 0.769241, 0, 0.769241, 0, -0.769241, 0, -3.36246e-08, -6.25425, 2.18346, 3.04213)
 texture = ExtResource("12_302wq")
 
-[node name="EnemyTemplate" parent="." instance=ExtResource("15_nwfht")]
-transform = Transform3D(0.87561, 0, 0, 0, 0.87561, 0, 0, 0, 0.87561, 1.18925, 0.0314925, -2.9316)
-
-[node name="FishyBoy" parent="." instance=ExtResource("15_s3eke")]
-transform = Transform3D(1.49012e-07, -0.5, 0.866025, -5.95025e-09, 0.866025, 0.5, -1, 0, 0, 0.154274, -0.428444, 2.87109)
+[node name="Rock" parent="." instance=ExtResource("14_kwvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47046, -0.0801629, 2.2258)

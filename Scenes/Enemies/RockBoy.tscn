@@ -1,0 +1,197 @@
+[gd_scene load_steps=15 format=3 uid="uid://d1h8bno760f3r"]
+
+[ext_resource type="Script" uid="uid://chf4xqbuff3hk" path="res://Scripts/Enemies/rock_boy.gd" id="1_u4srq"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_u4srq"]
+[ext_resource type="Texture2D" uid="uid://dnvfokhvmuoog" path="res://Sprites/Enemies/RockEnem/rock.png" id="3_hc2y8"]
+[ext_resource type="Texture2D" uid="uid://b7bgargkrpoik" path="res://Sprites/Enemies/RockEnem/body2.png" id="4_fma3x"]
+[ext_resource type="Texture2D" uid="uid://8oxmdqq3l544" path="res://Sprites/Enemies/RockEnem/body1.png" id="5_466cu"]
+
+[sub_resource type="Resource" id="Resource_hc2y8"]
+script = ExtResource("2_u4srq")
+health = 5.0
+attack = 0.0
+speed = 0.0
+accel = 0.0
+knockback_duration = 0.0
+knockback_timer = 0.0
+metadata/_custom_type_script = "uid://cal3n5r6347g2"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6yeg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fma3x")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_466cu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
+size = Vector3(1, 0.772949, 0.868652)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+size = Vector3(3.50751, 3.1073, 2.86035)
+
+[sub_resource type="Animation" id="Animation_aupjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rock:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.533082, 0.533082, 0.533082)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rock:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.541171, -0.468784, -0.114518)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_hc2y8"]
+resource_name = "protected"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.56057, -0.468784, -0.114518)]
+}
+
+[sub_resource type="Animation" id="Animation_fma3x"]
+resource_name = "attack"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rock:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.36, 0.433333, 1.9, 1.93333, 2.1, 2.28534),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.532293, -0.468784, -0.114518), Vector3(0.286906, 0.139834, -0.114518), Vector3(0.286906, 0.0214913, -0.114518), Vector3(0.286906, 0.0214913, -0.114518), Vector3(0.286906, 0.0214913, -0.114518), Vector3(0.286906, 0.0214913, -0.114518), Vector3(0.286906, 0.151104, -0.114518), Vector3(0.564402, -0.469, -0.115)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.833333, 0.933333, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [&"idle", &"attack", &"attack", &"idle"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_in_four_directions"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
+_data = {
+&"RESET": SubResource("Animation_aupjf"),
+&"attack": SubResource("Animation_fma3x"),
+&"protected": SubResource("Animation_hc2y8")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u4srq"]
+radius = 5.3623
+
+[node name="Rock" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_u4srq")
+enemy_src = SubResource("Resource_hc2y8")
+
+[node name="Rock" type="Sprite3D" parent="."]
+transform = Transform3D(-1.14648e-08, -0.280262, 0.453464, -1.91522e-08, 0.453464, 0.280262, -0.533082, -1.02643e-08, -1.98215e-08, 0.541171, -0.468784, -0.114518)
+alpha_cut = 1
+texture = ExtResource("3_hc2y8")
+
+[node name="Body" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-1.55437e-08, -0.280262, 0.453464, -1.91522e-08, 0.453464, 0.280262, -0.533082, -8.11984e-09, -2.32913e-08, 0.245641, -0.0110569, -0.144703)
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_n6yeg")
+animation = &"idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
+shape = SubResource("BoxShape3D_llsaf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MeshInstance3D" type="Node3D" parent="."]
+transform = Transform3D(-1.20452e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02256e-09, -1.04314e-08, 0, 0.309002, 0)
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" groups=["enemy"]]
+transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.999989, -2.13389e-08, -3.92725e-09, 1.67988e-08, 0.880849, -0.50856, 1.40712e-08, 0.499998, 0.86602, 0.0801088, 1.03579, 0.917103)
+shape = SubResource("BoxShape3D_6cego")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xu1it")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_u4srq")
+
+[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -7,6 +7,8 @@ var heart = preload("res://Scenes/Dropps/Heart.tscn")
 
 var dust = preload("res://Scenes/Enemies/dust.tscn")
 
+var canReciveDamage = true
+
 @export var enemy_src : enemy_source
 
 @onready var area: Area3D = $MeshInstance3D/Area3D  
@@ -61,13 +63,13 @@ func get_random_state() -> State:
 
 # REACCIÓN AL ATAQUE
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.is_in_group("attack"):
+	if area.is_in_group("attack") and canReciveDamage:
 		var knockback_direction = (global_transform.origin - area.global_transform.origin).normalized()
 		knockback_velocity = knockback_direction * 10.0  
 		knockback_timer = knockback_duration
 
 		# Restar salud por el ataque
-		var damage = 15
+		var damage = Player.atack
 		health -= damage
 		health = max(0, health) 
 
