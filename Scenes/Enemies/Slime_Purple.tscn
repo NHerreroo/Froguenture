@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddmumrs6tfxbc"]
+[gd_scene load_steps=12 format=3 uid="uid://ddmumrs6tfxbc"]
 
-[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_xow73"]
+[ext_resource type="Script" uid="uid://b8lmj805y1255" path="res://Scripts/Enemies/slime_purple.gd" id="1_3b132"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_cunt7"]
 [ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="3_xow73"]
 
 [sub_resource type="Resource" id="Resource_xow73"]
 script = ExtResource("2_cunt7")
-health = 50.0
-attack = 1.0
+health = 100.0
+attack = 0.0
 speed = 3.0
 accel = 10.0
 knockback_duration = 0.2
@@ -52,19 +52,53 @@ tracks/0/keys = {
 "values": [Vector3(0.533082, 0.449251, 0.484542), Vector3(0.533082, 0.486648, 0.524394)]
 }
 
+[sub_resource type="Animation" id="Animation_xow73"]
+resource_name = "prepare"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.533082, 0.449251, 0.484542), Vector3(0.533082, 0.426328, 0.4838), Vector3(0.533082, 0.349481, 0.481185)]
+}
+
+[sub_resource type="Animation" id="Animation_cunt7"]
+resource_name = "attack"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.500522, 0.623643, 0.490184)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
 _data = {
 &"RESET": SubResource("Animation_aupjf"),
-&"idle": SubResource("Animation_mr116")
+&"attack": SubResource("Animation_cunt7"),
+&"idle": SubResource("Animation_mr116"),
+&"prepare": SubResource("Animation_xow73")
 }
 
 [node name="EnemyTemplate" type="CharacterBody3D"]
 collision_layer = 4
-script = ExtResource("1_xow73")
+script = ExtResource("1_3b132")
 enemy_src = SubResource("Resource_xow73")
 
 [node name="Body" type="Sprite3D" parent="."]
-transform = Transform3D(-1.17943e-08, -0.336527, 0.413432, -1.41372e-08, 0.413432, 0.336527, -0.533082, -3.51854e-09, -1.80717e-08, 0.23692, 0, -0.144703)
+transform = Transform3D(-1.25375e-08, -0.280262, 0.453464, -1.74166e-08, 0.453464, 0.280262, -0.533082, -8.22392e-09, -1.98215e-08, 0.23692, 0, -0.144703)
 alpha_cut = 1
 texture = ExtResource("3_xow73")
 

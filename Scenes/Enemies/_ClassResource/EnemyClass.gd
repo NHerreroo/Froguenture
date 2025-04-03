@@ -22,6 +22,12 @@ var player
 @onready var health = enemy_src.health
 @onready var maxHealth = enemy_src.health
 
+enum State {
+	IDLE,
+	WALK,
+	ATTACK
+	}
+
 func _physics_process(delta: float) -> void:
 	var player_pos_array = [Global.playerMapPositionX, Global.playerMapPositionY]
 	if player_pos_array in Global.rooms_visited:
@@ -46,6 +52,11 @@ func _physics_process(delta: float) -> void:
 	var current_position = global_transform.origin
 	current_position.y = 0
 	global_transform.origin = current_position
+
+
+func get_random_state() -> State:
+	var states = [State.IDLE, State.WALK, State.ATTACK]
+	return states[randi() % states.size()]
 
 # REACCIÓN AL ATAQUE
 func _on_area_3d_area_entered(area: Area3D) -> void:
