@@ -479,4 +479,4 @@ transform = Transform3D(-3.36246e-08, 0, 0.769241, 0, 0.769241, 0, -0.769241, 0,
 texture = ExtResource("12_302wq")
 
 [node name="Rock" parent="." instance=ExtResource("14_kwvrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47046, -0.0801629, 2.2258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54452, 0.00982833, 4.67932)
