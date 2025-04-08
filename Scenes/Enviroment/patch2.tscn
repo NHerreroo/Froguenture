@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk2b4yx6xw1n4"]
+
+[ext_resource type="Texture2D" uid="uid://i1eavackwurv" path="res://Sprites/patch2.png" id="1_plm2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2tbxf"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_plm2s")
+
+[node name="Patch" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_2tbxf")
+texture = ExtResource("1_plm2s")

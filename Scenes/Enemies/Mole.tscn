@@ -400,7 +400,7 @@ alpha_cut = 1
 texture = ExtResource("3_e51of")
 
 [node name="Floor" type="AnimatedSprite3D" parent="Node3D"]
-transform = Transform3D(-1.40003e-08, -0.00971262, 0.323819, -5.35673e-09, 0.323819, 0.00971262, -0.323965, -4.93459e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
+transform = Transform3D(-1.40003e-08, -0.00971263, 0.323819, -5.35673e-09, 0.323819, 0.00971263, -0.323965, -4.93459e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_rweo1")
 animation = &"idle"
