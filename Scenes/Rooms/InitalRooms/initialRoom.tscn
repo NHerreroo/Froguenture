@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7fifk6tqomsr"]
+[gd_scene load_steps=17 format=3 uid="uid://7fifk6tqomsr"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_xar1c"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="2_2cx58"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="8_uu3pl"]
 [ext_resource type="PackedScene" uid="uid://7ujjmb0lt1o8" path="res://Scenes/Enviroment/grass1.tscn" id="9_3xihf"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="9_w527a"]
-[ext_resource type="Texture2D" uid="uid://dq71hl2qx4gr5" path="res://Sprites/Vegetation/Trees/TreeeXmass2.png" id="10_uda6b"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_te2ct"]
 vertices = PackedVector3Array(-4.33192, 0.464046, -8.07265, -4.33192, 0.464046, 8.17735, 4.41808, 0.464046, 8.17735, 4.41808, 0.464046, -8.07265)
@@ -282,17 +281,5 @@ texture = ExtResource("9_w527a")
 transform = Transform3D(-1.55374e-08, -0.228711, -0.396139, -8.9705e-09, 0.396139, -0.228711, 0.410442, 0, -1.99946e-08, -1.51938, 0.567593, -7.33686)
 alpha_cut = 1
 texture = ExtResource("8_fqcp3")
-
-[node name="Sprite3D5" type="Sprite3D" parent="Vegetation"]
-transform = Transform3D(-2.31936e-08, -0.281495, -0.55546, -1.33909e-08, 0.487564, -0.320695, 0.612694, 0, -2.80361e-08, -0.963659, 2.33499, 0.255654)
-texture = ExtResource("10_uda6b")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Vegetation/Sprite3D5"]
-transform = Transform3D(1.32671, 1.23992e-14, -3.55271e-15, -1.45086e-14, 1.32671, -1.19209e-07, -7.10543e-15, 1.19209e-07, 1.32671, 0.0177906, -1.42079, -1.10978)
-light_color = Color(0.895503, 0.534933, 0.126063, 1)
-light_energy = 6.01
-light_indirect_energy = 5.657
-light_volumetric_fog_energy = 1.808
-omni_range = 5.24309
 
 [node name="Items" type="Node3D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b6mlvmq7gc7v5"]
 
-[ext_resource type="Script" path="res://Scripts/Enemies/mole.gd" id="1_80bv1"]
-[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_uhdfd"]
+[ext_resource type="Script" uid="uid://2gp8a5gkgre5" path="res://Scripts/Enemies/mole.gd" id="1_80bv1"]
+[ext_resource type="Script" uid="uid://bhgt7us588ofj" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_uhdfd"]
 [ext_resource type="Texture2D" uid="uid://ccasr37trecl2" path="res://Sprites/Enemies/mole/hat.png" id="3_80bv1"]
 [ext_resource type="Texture2D" uid="uid://wpltu1stj07m" path="res://Sprites/Enemies/mole/body.png" id="3_e51of"]
 [ext_resource type="Texture2D" uid="uid://bqtf1x650jh8f" path="res://Sprites/Enemies/mole/floor2.png" id="5_80bv1"]
@@ -400,7 +400,7 @@ alpha_cut = 1
 texture = ExtResource("3_e51of")
 
 [node name="Floor" type="AnimatedSprite3D" parent="Node3D"]
-transform = Transform3D(-1.40003e-08, -0.00971261, 0.323819, -5.35673e-09, 0.323819, 0.00971261, -0.323965, -4.93459e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
+transform = Transform3D(-1.40003e-08, -0.00971262, 0.323819, -5.35673e-09, 0.323819, 0.00971262, -0.323965, -4.93459e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_rweo1")
 animation = &"idle"
