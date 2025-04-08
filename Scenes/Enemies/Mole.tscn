@@ -45,107 +45,6 @@ size = Vector3(1, 0.772949, 0.868652)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
 size = Vector3(3.50751, 3.1073, 2.86035)
 
-[sub_resource type="Animation" id="Animation_80bv1"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/Floor:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"stop"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/Floor:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.215322, 0.526582, -0.144703)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D/Floor:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.323965, 0.323965, 0.323965)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node3D/Body:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.382722, 0.733333, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.236383, -1.43229, -0.144703), Vector3(0.189263, 0.476191, -0.144703), Vector3(0.189263, 0.476191, -0.144703), Vector3(0.189263, 0.476191, -0.144703)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node3D/Hat:position")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.382722, 0.733333, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.237158, -1.42603, -0.144703), Vector3(0.190189, 0.483669, -0.144703), Vector3(0.190189, 0.483669, -0.144703), Vector3(0.190189, 0.483669, -0.144703)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node3D/Body:scale")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.376448, 0.733333, 1.16667, 1.56667, 1.90487),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.28054, 0.269317, 0.269317), Vector3(0.26009, 0.334804, 0.29305), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Node3D/Hat:scale")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.376448, 0.733333, 1.16667, 1.56667, 1.90487),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.28054, 0.269317, 0.269317), Vector3(0.26009, 0.334804, 0.29305), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Node3D/Floor:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_uhdfd"]
 length = 0.001
 tracks/0/type = "value"
@@ -373,6 +272,107 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_80bv1"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Floor:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"stop"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/Floor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.215322, 0.526582, -0.144703)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/Floor:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.323965, 0.323965, 0.323965)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/Body:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.382722, 0.733333, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.236383, -1.43229, -0.144703), Vector3(0.189263, 0.476191, -0.144703), Vector3(0.189263, 0.476191, -0.144703), Vector3(0.189263, 0.476191, -0.144703)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node3D/Hat:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.382722, 0.733333, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.237158, -1.42603, -0.144703), Vector3(0.190189, 0.483669, -0.144703), Vector3(0.190189, 0.483669, -0.144703), Vector3(0.190189, 0.483669, -0.144703)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Node3D/Body:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.376448, 0.733333, 1.16667, 1.56667, 1.90487),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.28054, 0.269317, 0.269317), Vector3(0.26009, 0.334804, 0.29305), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Node3D/Hat:scale")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.376448, 0.733333, 1.16667, 1.56667, 1.90487),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.28054, 0.269317, 0.269317), Vector3(0.26009, 0.334804, 0.29305), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592), Vector3(0.308221, 0.299242, 0.292164), Vector3(0.257749, 0.348008, 0.293592)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node3D/Floor:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rweo1"]
 _data = {
 &"RESET": SubResource("Animation_uhdfd"),
@@ -390,17 +390,17 @@ enemy_src = SubResource("Resource_rweo1")
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 0, -0.217962, 0)
 
 [node name="Hat" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(-1.13214e-08, -0.00787507, 0.262555, -5.34821e-09, 0.262555, 0.00787507, -0.262673, -5.00638e-09, -1.14767e-08, 0.237158, -1.42603, -0.144703)
+transform = Transform3D(-1.13214e-08, -0.00787507, 0.262555, -5.34821e-09, 0.262555, 0.00787507, -0.262673, -5.00639e-09, -1.14766e-08, 0.237158, -1.42603, -0.144703)
 alpha_cut = 1
 texture = ExtResource("3_80bv1")
 
 [node name="Body" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(-1.13214e-08, -0.00787504, 0.262555, -5.34821e-09, 0.262555, 0.00787504, -0.262673, -5.00639e-09, -1.14767e-08, 0.236383, -1.43229, -0.144703)
+transform = Transform3D(-1.13214e-08, -0.00787504, 0.262555, -5.34821e-09, 0.262555, 0.00787504, -0.262673, -5.00639e-09, -1.14766e-08, 0.236383, -1.43229, -0.144703)
 alpha_cut = 1
 texture = ExtResource("3_e51of")
 
 [node name="Floor" type="AnimatedSprite3D" parent="Node3D"]
-transform = Transform3D(-1.40003e-08, -0.00971258, 0.323819, -5.35673e-09, 0.323819, 0.00971258, -0.323965, -4.93458e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
+transform = Transform3D(-1.40003e-08, -0.0097126, 0.323819, -5.35673e-09, 0.323819, 0.0097126, -0.323965, -4.93459e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_rweo1")
 animation = &"idle"

@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="10_mkqs0"]
 [ext_resource type="Texture2D" uid="uid://d4e2o1ac2aa5o" path="res://Sprites/Vegetation/Misc/flags.png" id="11_umqe3"]
 [ext_resource type="Texture2D" uid="uid://deueptp5626aq" path="res://Sprites/Vegetation/Misc/lightPoster.png" id="12_302wq"]
-[ext_resource type="PackedScene" uid="uid://b6mlvmq7gc7v5" path="res://Scenes/Enemies/Mole.tscn" id="14_kwvrb"]
+[ext_resource type="PackedScene" uid="uid://ddmumrs6tfxbc" path="res://Scenes/Enemies/Slime_Purple.tscn" id="14_kwvrb"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="14_ree2u"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -478,5 +478,5 @@ texture = ExtResource("11_umqe3")
 transform = Transform3D(-3.36246e-08, 0, 0.769241, 0, 0.769241, 0, -0.769241, 0, -3.36246e-08, -6.25425, 2.18346, 3.04213)
 texture = ExtResource("12_302wq")
 
-[node name="Mole" parent="." instance=ExtResource("14_kwvrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22748, -0.0661862, -2.30477)
+[node name="EnemyTemplate" parent="." instance=ExtResource("14_kwvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64962, 0.0311017, 2.29807)
