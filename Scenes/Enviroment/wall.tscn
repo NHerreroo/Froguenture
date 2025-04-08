@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8l0xw6lysdb"]
+
+[ext_resource type="Texture2D" uid="uid://dbs4p76lp7nku" path="res://Sprites/Vegetation/Misc/wall.png" id="1_rn221"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn56t"]
+transparency = 2
+alpha_scissor_threshold = 0.871
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_rn221")
+distance_fade_mode = 2
+distance_fade_min_distance = 6.0
+
+[node name="Wall" type="Node3D"]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 0.145888, 2.72415, -0.243326)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.08108, 8.88178e-15, -2.4869e-14, -5.32907e-15, 1.08108, -2.98023e-08, 7.10543e-15, 2.98023e-08, 1.08108, -0.305844, -2.03187, -1.1731)
+material_override = SubResource("StandardMaterial3D_mn56t")
+texture = ExtResource("1_rn221")

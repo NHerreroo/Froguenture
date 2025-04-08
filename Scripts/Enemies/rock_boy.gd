@@ -54,16 +54,24 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		attack()
 
 
-func shoot_in_four_directions():
-	var directions = [
-		Vector3(0, 0, -1),  # Adelante
-		Vector3(0, 0, 1),   # Atrás 
-		Vector3(-1, 0, 0),  # Izquierda 
-		Vector3(1, 0, 0)    # Derecha 
-	]
-	
-	for direction in directions:
+func shoot_fan_towards_player():
+	var player = get_tree().get_root().find_child("player", true, false)  # Cambia esto según tu escena
+	if player == null:
+		return
+
+	var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
+
+	# Configuración del abanico
+	var num_bullets = 5
+	var spread_angle_deg = 30  # Ángulo total del abanico en grados
+
+	for i in range(num_bullets):
+		var t = float(i) / float(num_bullets - 1)  # Valor entre 0 y 1
+		var angle_offset_deg = (t - 0.5) * spread_angle_deg  # De -spread/2 a +spread/2
+		var rotated_direction = direction_to_player.rotated(Vector3.UP, deg_to_rad(angle_offset_deg))
+
 		var bullet_instance = bullet.instantiate()
-		bullet_instance.global_transform.origin = self.global_transform.origin
-		bullet_instance.direction = direction
+		bullet_instance.global_transform.origin = global_transform.origin
+		bullet_instance.scale = Vector3(0.6, 0.6, 0.6)
+		bullet_instance.direction = rotated_direction
 		get_tree().root.add_child(bullet_instance)

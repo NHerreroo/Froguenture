@@ -1,20 +1,43 @@
 extends Node3D
 
-var enemie = preload("res://Scenes/Enemies/EnemyTemplate.tscn")
-var num1
-var num2
+var slime = preload("res://Scenes/Enemies/Slime_Purple.tscn")
+var rock = preload("res://Scenes/Enemies/RockBoy.tscn")
+var mole = preload("res://Scenes/Enemies/Mole.tscn")
+var fishy = preload("res://Scenes/Enemies/FishyBoy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	while true:
-		await get_tree().create_timer(3).timeout
-		get_random_pos()
-		var enemigo = enemie.instantiate()
-		get_random_pos()
-		enemigo.position = Vector3(num1, 0 ,num2)
-		get_tree().root.add_child(enemigo)
-		
+	var randEnem = randi_range(1,4)
+	
+	match randEnem:
+		1:
+			spawnSlime()
+		2:
+			spawnRock()
+		3:
+			spawnMole()
+		4:
+			spawnFish()
+		_:
+			spawnSlime()
 
-func get_random_pos():
-	num1 = randi_range(-3.5, 4)
-	num2 = randi_range(7, -7)
+func spawnSlime():
+	var slimeInst = slime.instantiate()
+	slimeInst.position = Vector3(0, 0 ,0)
+	get_tree().root.add_child(slimeInst)
+
+
+func spawnRock():
+	var rockInst = rock.instantiate()
+	rockInst.position = Vector3(0, 0 ,0)
+	get_tree().root.add_child(rockInst)
+	
+func spawnMole():
+	var moleInst = mole.instantiate()
+	moleInst.position = Vector3(0, 0 ,0)
+	get_tree().root.add_child(moleInst)
+	
+func spawnFish():
+	var fishInst = fishy.instantiate()
+	fishInst.position = Vector3(0, 0 ,0)
+	get_tree().root.add_child(fishInst)

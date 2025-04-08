@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://d1h8bno760f3r"]
 
 [ext_resource type="Script" uid="uid://chf4xqbuff3hk" path="res://Scripts/Enemies/rock_boy.gd" id="1_u4srq"]
-[ext_resource type="Script" uid="uid://bhgt7us588ofj" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_u4srq"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_u4srq"]
 [ext_resource type="Texture2D" uid="uid://dnvfokhvmuoog" path="res://Sprites/Enemies/RockEnem/rock.png" id="3_hc2y8"]
 [ext_resource type="Texture2D" uid="uid://b7bgargkrpoik" path="res://Sprites/Enemies/RockEnem/body2.png" id="4_fma3x"]
 [ext_resource type="Texture2D" uid="uid://8oxmdqq3l544" path="res://Sprites/Enemies/RockEnem/body1.png" id="5_466cu"]
@@ -114,11 +114,11 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.9),
+"times": PackedFloat32Array(0.933333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"shoot_in_four_directions"
+"method": &"shoot_fan_towards_player"
 }]
 }
 
