@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfaek108l8kmx"]
+[gd_scene load_steps=13 format=3 uid="uid://cfaek108l8kmx"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_idjqp"]
 [ext_resource type="Texture2D" uid="uid://cythq6dl33set" path="res://Sprites/floor4.png" id="3_4kdoy"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_hir6l"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_t37p4"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="6_3p68e"]
-[ext_resource type="PackedScene" uid="uid://b6mlvmq7gc7v5" path="res://Scenes/Enemies/Mole.tscn" id="7_ntlc3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -1.97404, -4.35007, 0.215489, 2.02596, -1.60007, 0.215489, 2.02596, -1.35007, 0.215489, -1.97404, 1.39993, 0.215489, 2.02596, 1.39993, 0.215489, -2.22404, 4.39993, 0.215489, 2.02596, 4.39993, 0.215489, -2.22404, -1.60007, 0.215489, 8.27596, 1.39993, 0.215489, 8.27596, 1.39993, 0.215489, -8.22404, -1.35007, 0.215489, -8.22404)
@@ -200,6 +199,3 @@ transform = Transform3D(0.169127, 0, 0, 0, 0.169127, 0, 0, 0, 0.111659, 0.895, 0
 shape = SubResource("BoxShape3D_wjxqr")
 
 [node name="Vegetation" type="Node3D" parent="."]
-
-[node name="Mole" parent="." instance=ExtResource("7_ntlc3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68061, -0.0382438, -1.27832)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://dot6j8m2r1y6u"]
+[gd_scene load_steps=14 format=3 uid="uid://dot6j8m2r1y6u"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_1nsjm"]
-[ext_resource type="PackedScene" uid="uid://b6mlvmq7gc7v5" path="res://Scenes/Enemies/Mole.tscn" id="3_1nsjm"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_baqg3"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_dfhub"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_y5jgg"]
@@ -94,9 +93,6 @@ debug_color = Color(0.956863, 0.2, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.614579, -0.109924, 0.336191)
 shape = SubResource("BoxShape3D_i1hmx")
 debug_color = Color(0.956863, 0.2, 0, 1)
-
-[node name="Mole" parent="NavigationRegion3D/Floor/StaticBody3D2" instance=ExtResource("3_1nsjm")]
-transform = Transform3D(-5.09894e-09, 0, -0.11665, 0, 1.9451, 0, 0.20599, 0, -9.00409e-09, -0.27265, 0.0877605, 0.608673)
 
 [node name="NavigationObstacle3D4" type="NavigationObstacle3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 0, 0, 1, -0.0224009, -0.273355, 8.08209)
