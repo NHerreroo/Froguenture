@@ -12,6 +12,11 @@ var room1 = preload("res://Scenes/Rooms/PreBuildedRooms/room1.tscn")
 var room2 = preload("res://Scenes/Rooms/PreBuildedRooms/room2.tscn")
 var room3 = preload("res://Scenes/Rooms/PreBuildedRooms/room3.tscn")
 var room4 = preload("res://Scenes/Rooms/PreBuildedRooms/room4.tscn")
+var room5 = preload("res://Scenes/Rooms/PreBuildedRooms/room5.tscn")
+var room6 = preload("res://Scenes/Rooms/PreBuildedRooms/room6.tscn")
+var room7 = preload("res://Scenes/Rooms/PreBuildedRooms/room7.tscn")
+var room8 = preload("res://Scenes/Rooms/PreBuildedRooms/room8.tscn")
+var room9 = preload("res://Scenes/Rooms/PreBuildedRooms/room9.tscn")
 
 var finalRoom = preload("res://Scenes/Rooms/FinalRooms/FinalRoom.tscn")
 var treasureRoom = preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
@@ -32,7 +37,7 @@ var activeDoors = []  # lista para las puertas actuales
 var currentRoom = null  # referencia a la habitación actual
 
 func defaultRoomGen():
-	var randRoom = randi_range(1, 4)
+	var randRoom = randi_range(1, 9)
 	ROOM = str(randRoom)
 
 func map_generator(map_size: int, steps: int) -> void:

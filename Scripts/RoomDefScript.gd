@@ -17,8 +17,7 @@ var isSpecialDoorInstanciates = false
 var sides = ["top", "bot", "right", "left"]
 
 func _ready() -> void:
-	Global.NavRegion = get_tree().get_root().find_child("NavigationRegion3D", true, false)
-	
+
 	Global.eraseLevel = false
 	
 	var current_room = [Global.playerMapPositionX, Global.playerMapPositionY]

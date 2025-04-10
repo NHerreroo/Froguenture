@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcdac8suowkat"]
+[gd_scene load_steps=15 format=3 uid="uid://dcdac8suowkat"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_6qurv"]
-[ext_resource type="PackedScene" uid="uid://cyphpw537byxx" path="res://Scenes/Enemies/Misc/spawner.tscn" id="2_qdsot"]
+[ext_resource type="PackedScene" uid="uid://b6mlvmq7gc7v5" path="res://Scenes/Enemies/Mole.tscn" id="3_0gtl5"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_tjfp8"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_1pi2s"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_artqa"]
@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bk2b4yx6xw1n4" path="res://Scenes/Enviroment/patch2.tscn" id="7_0gtl5"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
-vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -2.97404, -1.35007, 0.215489, -2.97404, -1.35007, 0.215489, -4.97404, -4.35007, 0.215489, -8.22404, 1.14993, 0.215489, -4.97404, 1.39993, 0.215489, 2.52596, 4.39993, 0.215489, 2.52596, 4.39993, 0.215489, -8.22404, 1.39993, 0.215489, 4.77596, 4.39993, 0.215489, 8.27596, -1.10007, 0.215489, 5.02596, -4.35007, 0.215489, 8.27596)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(6, 7, 8), PackedInt32Array(8, 7, 11), PackedInt32Array(9, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(5, 14, 4), PackedInt32Array(4, 14, 15), PackedInt32Array(12, 13, 14), PackedInt32Array(14, 13, 15)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -22,6 +22,9 @@ albedo_texture = ExtResource("3_tjfp8")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mk0ac"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tu3c1"]
+size = Vector3(2.66223, 0.780151, 9.88943)
+
 [sub_resource type="Environment" id="Environment_nwfht"]
 background_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
@@ -32,13 +35,17 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
 
-[node name="Room1" type="Node3D"]
+[node name="Room7" type="Node3D"]
 script = ExtResource("1_6qurv")
-
-[node name="Spawner" parent="." instance=ExtResource("2_qdsot")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kwvrb")
+
+[node name="NavigationObstacle3D4" type="NavigationObstacle3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0224009, 0, 6.20771)
+vertices = PackedVector3Array(-1.32579, 0, -11.1252, 1.25504, 0, -11.074, 1.32867, 0, -1.48595, -1.1252, 0, -1.28236)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
 
 [node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
@@ -51,6 +58,16 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
 transform = Transform3D(21.3409, 0, -1.13687e-13, 0, 8.78843, 0, 6.82121e-13, 0, 35.7898, 0, -0.951997, 0)
 shape = SubResource("ConcavePolygonShape3D_mk0ac")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0931373, -0.109924, -0.140494)
+shape = SubResource("BoxShape3D_tu3c1")
+debug_color = Color(0.956863, 0.2, 0, 1)
+
+[node name="Mole" parent="NavigationRegion3D" instance=ExtResource("3_0gtl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68109, -0.0186853, 0.884903)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nwfht")

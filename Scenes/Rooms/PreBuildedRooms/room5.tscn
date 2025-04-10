@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfaek108l8kmx"]
+[gd_scene load_steps=14 format=3 uid="uid://cfaek108l8kmx"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_idjqp"]
-[ext_resource type="PackedScene" uid="uid://cyphpw537byxx" path="res://Scenes/Enemies/Misc/spawner.tscn" id="2_nk5kx"]
 [ext_resource type="Texture2D" uid="uid://cythq6dl33set" path="res://Sprites/floor4.png" id="3_4kdoy"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_hir6l"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_t37p4"]
@@ -40,10 +39,8 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
 
-[node name="Room1" type="Node3D"]
+[node name="Room5" type="Node3D"]
 script = ExtResource("1_idjqp")
-
-[node name="Spawner" parent="." instance=ExtResource("2_nk5kx")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kwvrb")
