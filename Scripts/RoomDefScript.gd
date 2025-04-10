@@ -10,12 +10,15 @@ var shield = preload("res://Scenes/Dropps/Shield.tscn")
 var topDoorSpecialRoom = preload("res://Scenes/Doors/TopDoorSpecialRoom.tscn")
 var bottomDoorSpecialRoom = preload("res://Scenes/Doors/BottomDoorSpecialRoom.tscn")
 
+var region
 
 var isSpecialDoorInstanciates = false
 
 var sides = ["top", "bot", "right", "left"]
 
 func _ready() -> void:
+	Global.NavRegion = get_tree().get_root().find_child("NavigationRegion3D", true, false)
+	
 	Global.eraseLevel = false
 	
 	var current_room = [Global.playerMapPositionX, Global.playerMapPositionY]

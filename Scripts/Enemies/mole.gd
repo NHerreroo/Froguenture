@@ -22,8 +22,22 @@ func logic():
 
 func entry():
 	$MeshInstance3D/Area3D/CollisionShape3D.disabled = true
-	self.position.x = randf_range(-4,4)
-	self.position.z = randf_range(-8,8)
+	var region : NavigationRegion3D = Global.NavRegion
+	var nav_map = region.get_navigation_map()
+
+	var attempts = 10
+	var random_pos : Vector3
+
+	for i in attempts:
+		var x = randf_range(-4, 4)
+		var z = randf_range(-8, 8)
+		var test_point = Vector3(x, 0, z)
+
+		random_pos = NavigationServer3D.map_get_closest_point(nav_map, test_point)
+		# Verifica si el punto es válido
+		if random_pos != Vector3.ZERO:
+			self.position = random_pos
+			break
 	$AnimationPlayer.play("entry")
 	
 func attack():

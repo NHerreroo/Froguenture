@@ -24,6 +24,7 @@ var leftCollider = false
 
 
 var enemies_remaining = 0 #enemigos en pantalla restantes, si es 0 la habitacion estara abierta permantentemente :D
+var NavRegion; #esto para los enemigos pa saber la zona por la que pueeden camnar y la que no
 var rooms_visited = []
 var persistent_items = []
 
