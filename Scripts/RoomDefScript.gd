@@ -17,37 +17,36 @@ var isSpecialDoorInstanciates = false
 var sides = ["top", "bot", "right", "left"]
 
 func _ready() -> void:
-
 	Global.eraseLevel = false
-	
-	var current_room = [Global.playerMapPositionX, Global.playerMapPositionY]
-	player = get_tree().get_root().find_child("player", true, false)
-	# Recorremos el array de habitaciones y objetos
-	for room_items in Global.persistent_items:
-		var room_position = room_items[0]
-		# Comprobamos si la posición coincide con la habitación actual
-		if room_position == current_room:
-			# Iterar sobre los elementos del array desde el segundo elemento
-			for i in range(1, room_items.size()):
-				var item = room_items[i]
-				if item is Array and item.size() >= 4:
-					var item_name = item[0]
-					var pos_x = item[1]
-					var pos_y = item[2]
-					var pos_z = item[3]
-					if item_name == "Coin":
-						var coin_instance = coin.instantiate()
-						coin_instance.position = Vector3(pos_x, pos_y, pos_z)
-						add_child(coin_instance)  # Agregar la moneda como hijo del nodo actual
-					if item_name == "Heart":
-						var heart_instance = heart.instantiate()
-						heart_instance.position = Vector3(pos_x, pos_y, pos_z)
-						add_child(heart_instance)  # Agregar corazon como hijo del nodo actual
-					if item_name == "Shield":
-						var shield_instance = shield.instantiate()
-						shield_instance.position = Vector3(pos_x, pos_y, pos_z)
-						add_child(shield_instance)  # Agregar escudo como hijo del nodo actual
-			break
+	var x = Global.playerMapPositionX
+	var y = Global.playerMapPositionY
+
+	var items = Global.get_items_in_room(x, y)
+
+	print("Instanciando ítems de sala: %s,%s" % [x, y])
+	print("Ítems:", items)
+
+	for item in items:
+		if not item.has("type") or not item.has("position"):
+			continue
+
+		var item_type = item["type"]
+		var pos = item["position"]
+
+		var instance = null
+		match item_type:
+			"Coin":
+				instance = coin.instantiate()
+			"Heart":
+				instance = heart.instantiate()
+			"Shield":
+				instance = shield.instantiate()
+
+		if instance:
+			instance.position = pos
+			instance.is_from_persistence = true  # ← ¡ESTO es clave!
+			add_child(instance)
+
 
 func _process(delta):
 	if Global.specialRooms == true:
@@ -56,16 +55,12 @@ func _process(delta):
 		if isSpecialDoorInstanciates == false:
 			instanciateDoorsSpecialRoom()
 			isSpecialDoorInstanciates = true
-			setCollisions()  # Asegurar que las colisiones se actualicen correctamente
+			setCollisions()
 
-				
 	if Global.enemies_remaining == 0:
 		setCollisions()
 	else:
 		activateAllCollisions()
-		
-	if Global.eraseLevel == true:
-		queue_free()
 
 func setCollisions():
 	for side in sides:

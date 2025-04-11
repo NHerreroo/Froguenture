@@ -80,7 +80,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			queue_free()
 
 func dropitemfunc():
-	var items = [coin, shield, heart]
+	#var items = [coin, shield, heart]
+	var items = [coin]
 	var random_index = randi() % items.size()
 	var selected_item = items[random_index]
 	var item = selected_item.instantiate()

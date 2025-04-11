@@ -21,7 +21,7 @@ func _ready() -> void:
 				return
 
 	# Si la habitación no existe, crearla con escuedo como primer objeto
-	Global.persistent_items.append([room_position, ["Shield", shield_position[0], shield_position[1], shield_position[2]]])
+	#Global.persistent_items.append([room_position, ["Shield", shield_position[0], shield_position[1], shield_position[2]]])
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):

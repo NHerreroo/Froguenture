@@ -13,6 +13,7 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		Player.notifyTransition()
 		await get_tree().create_timer(0.2).timeout
+		Events.room_exited.emit()
 		Global.eraseLevel = true
 
 

@@ -37,7 +37,7 @@ var activeDoors = []  # lista para las puertas actuales
 var currentRoom = null  # referencia a la habitación actual
 
 func defaultRoomGen():
-	var randRoom = randi_range(1, 9)
+	var randRoom = randi_range(1, 1)
 	ROOM = str(randRoom)
 
 func map_generator(map_size: int, steps: int) -> void:

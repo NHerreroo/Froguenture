@@ -26,7 +26,7 @@ var leftCollider = false
 var enemies_remaining = 0 #enemigos en pantalla restantes, si es 0 la habitacion estara abierta permantentemente :D
 var NavRegion; #esto para los enemigos pa saber la zona por la que pueeden camnar y la que no
 var rooms_visited = []
-var persistent_items = []
+var Apersistent_items = []
 
 #items de la tienda persistentes si cambias de room
 var shopItem1
@@ -67,3 +67,31 @@ func _on_joy_connection_changed(device_id, connected):
 		controller_active = true
 	else:
 		controller_active = false
+
+
+
+# -------------------- SISTEMA DE PERSISTENCIA DE ITEMS ------------------------
+var persistent_items := {}
+
+func add_item_to_room(room_x: int, room_y: int, item_type: String, position: Vector3):
+	var room_key = "%d,%d" % [room_x, room_y]
+	if not persistent_items.has(room_key):
+		persistent_items[room_key] = []
+
+	persistent_items[room_key].append({
+		"type": item_type,
+		"position": position
+	})
+	print(persistent_items)
+
+func get_items_in_room(room_x: int, room_y: int) -> Array:
+	var room_key = "%d,%d" % [room_x, room_y]
+	return persistent_items.get(room_key, [])
+
+	
+func remove_item_from_room(room_x: int, room_y: int, position: Vector3):
+	var room_key = "%d,%d" % [room_x, room_y]
+	if not persistent_items.has(room_key): return
+	
+	persistent_items[room_key] = persistent_items[room_key].filter(func(item):
+		return item.position != position)

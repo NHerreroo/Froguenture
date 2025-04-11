@@ -21,7 +21,7 @@ func _ready() -> void:
 				return
 
 	# Si la habitación no existe, crearla con el corazon como primer objeto
-	Global.persistent_items.append([room_position, ["Heart", heart_position[0], heart_position[1], heart_position[2]]])
+	#Global.persistent_items.append([room_position, ["Heart", heart_position[0], heart_position[1], heart_position[2]]])
 
 func _on_body_entered(body: Node3D) -> void:
 	if Player.health >= Player.health_container:

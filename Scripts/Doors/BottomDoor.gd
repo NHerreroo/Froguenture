@@ -19,6 +19,7 @@ func _on_body_entered(body):
 		Player.notifyTransition()
 		await get_tree().create_timer(0.2).timeout
 		Global.playerMapPositionX += 1
+		Events.room_exited.emit()
 		Global.eraseLevel = true
 		Global.playerDirection = 1 #abajo (saldra por abajo en la sigente sala)
 
