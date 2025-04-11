@@ -4,6 +4,7 @@ var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
 
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
+	Global.enemies_remaining += 1
 	await get_tree().create_timer(1).timeout
 	logic()
 

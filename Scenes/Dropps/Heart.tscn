@@ -73,7 +73,7 @@ shape = SubResource("BoxShape3D_oif08")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iut4q")
+&"": SubResource("AnimationLibrary_iut4q")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
