@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://5rlgxgli6k0h"]
+[gd_scene load_steps=19 format=3 uid="uid://5rlgxgli6k0h"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_ii5ag"]
-[ext_resource type="Texture2D" uid="uid://gvukteeufumy" path="res://Sprites/floor3.png" id="2_v1383"]
+[ext_resource type="PackedScene" uid="uid://cyphpw537byxx" path="res://Scenes/Enemies/Misc/spawner.tscn" id="2_1ashh"]
+[ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_1ashh"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_4lija"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_2jjxg"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_ts2yi"]
@@ -11,14 +12,18 @@
 [ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="8_w25y1"]
 [ext_resource type="PackedScene" uid="uid://bmmexe242j8rs" path="res://Scenes/Enemies/Spikes.tscn" id="10_bgxfi"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_bgxfi"]
+vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ashh"]
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("2_v1383")
+albedo_texture = ExtResource("3_1ashh")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_p6tl6"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_gwynx"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mk0ac"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_akfu8"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="Environment" id="Environment_bgxfi"]
@@ -42,20 +47,22 @@ albedo_texture = ExtResource("5_85hl5")
 [node name="Room2" type="Node3D"]
 script = ExtResource("1_ii5ag")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Spawner" parent="." instance=ExtResource("2_1ashh")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_bgxfi")
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(-3.74722e-07, 0, 4.85461, 0, 0.514113, 0, -8.57265, 0, -2.12202e-07, 0.0226865, -0.035954, 0)
-material_override = SubResource("StandardMaterial3D_lskdr")
-mesh = SubResource("PlaneMesh_p6tl6")
+material_override = SubResource("StandardMaterial3D_1ashh")
+mesh = SubResource("PlaneMesh_gwynx")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
 transform = Transform3D(21.3409, 0, -1.13687e-13, 0, 8.78843, 0, 6.82121e-13, 0, 35.7898, 0, -0.951997, 0)
-shape = SubResource("ConcavePolygonShape3D_mk0ac")
-
-[node name="player" parent="." instance=ExtResource("3_4lija")]
-process_priority = 75
-transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
+shape = SubResource("ConcavePolygonShape3D_akfu8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bgxfi")
@@ -83,6 +90,10 @@ size = Vector3(7.0752, 3.56738, 18)
 [node name="AmbientFog4" parent="WorldEnvironment" instance=ExtResource("4_2jjxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47569, 1.64174, 0.0329285)
 size = Vector3(7.0752, 3.56738, 17.5648)
+
+[node name="player" parent="." instance=ExtResource("3_4lija")]
+process_priority = 75
+transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
 
 [node name="Camera" parent="." instance=ExtResource("4_ts2yi")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)
