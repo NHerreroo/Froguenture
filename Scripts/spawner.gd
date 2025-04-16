@@ -5,39 +5,37 @@ var rock = preload("res://Scenes/Enemies/RockBoy.tscn")
 var mole = preload("res://Scenes/Enemies/Mole.tscn")
 var fishy = preload("res://Scenes/Enemies/FishyBoy.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var randEnem = randi_range(1,4)
+	var habitacion_id = str(Global.map[Global.playerMapPositionX][Global.playerMapPositionY])
 	
-	match randEnem:
+	if SpawnPoints.spawn_points.has(habitacion_id):
+		var patrones = SpawnPoints.spawn_points[habitacion_id]
+		var keys = patrones.keys()
+		
+		# Elegimos un patrón aleatorio
+		var patron_random = keys[randi() % keys.size()]
+		var posiciones = patrones[patron_random]
+		
+		for posicion in posiciones:
+			spawn_random_enemy(posicion)
+	else:
+		print("No hay patrones definidos para la habitación:", habitacion_id)
+
+func spawn_random_enemy(posicion: Vector3):
+	var rand_enem = randi_range(1, 4)
+	var enemy
+	
+	match rand_enem:
 		1:
-			spawnSlime()
+			enemy = slime.instantiate()
 		2:
-			spawnRock()
+			enemy = rock.instantiate()
 		3:
-			spawnMole()
+			enemy = mole.instantiate()
 		4:
-			spawnFish()
+			enemy = fishy.instantiate()
 		_:
-			spawnSlime()
-
-func spawnSlime():
-	var slimeInst = slime.instantiate()
-	slimeInst.position = Vector3(0, 0 ,0)
-	get_tree().root.add_child(slimeInst)
-
-
-func spawnRock():
-	var rockInst = rock.instantiate()
-	rockInst.position = Vector3(0, 0 ,0)
-	get_tree().root.add_child(rockInst)
+			enemy = slime.instantiate()
 	
-func spawnMole():
-	var moleInst = mole.instantiate()
-	moleInst.position = Vector3(0, 0 ,0)
-	get_tree().root.add_child(moleInst)
-	
-func spawnFish():
-	var fishInst = fishy.instantiate()
-	fishInst.position = Vector3(0, 0 ,0)
-	get_tree().root.add_child(fishInst)
+	enemy.position = posicion
+	get_tree().root.add_child(enemy)

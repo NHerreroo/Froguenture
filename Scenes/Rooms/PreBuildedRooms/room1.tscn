@@ -479,3 +479,6 @@ texture = ExtResource("11_umqe3")
 [node name="Sprite3D61" type="Sprite3D" parent="Vegetation"]
 transform = Transform3D(-3.36246e-08, 0, 0.769241, 0, 0.769241, 0, -0.769241, 0, -3.36246e-08, -6.25425, 2.18346, 3.04213)
 texture = ExtResource("12_302wq")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -0.005, 0, -3.682)

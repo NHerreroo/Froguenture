@@ -23,6 +23,7 @@ var rightCollider = false
 var leftCollider = false
 
 
+
 var enemies_remaining = 0 #enemigos en pantalla restantes, si es 0 la habitacion estara abierta permantentemente :D
 var NavRegion; #esto para los enemigos pa saber la zona por la que pueeden camnar y la que no
 var rooms_visited = []
@@ -47,8 +48,6 @@ var playerDirection = 4; # lo uso para saber la direccion en la que aprece en un
 
 
 var pointer_click = false #cuando esta en el mapa si se pulsa X con mando se pone true pero se vuelve a poner en false (solo al tocar)
-
-
 
 
 # PLAYER VARIABLES 

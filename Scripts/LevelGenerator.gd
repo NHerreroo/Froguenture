@@ -188,7 +188,7 @@ func updateLevel():
 		clean_previous_doors()
 		instanceRoom()
 		generate_doors(Global.map)
-		
+		print_actual_pos(Global.map, Global.playerMapPositionX, Global.playerMapPositionY)	
 		Global.eraseLevel = false  # Resetear la condición
 		
 func _ready():
