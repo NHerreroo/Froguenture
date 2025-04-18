@@ -182,7 +182,7 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -9.97277, 1.72415, -5.66683)
 
 [node name="Tree1" parent="Vegetation" instance=ExtResource("9_vnpym")]
-transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -11.1042, 3.10792, 0.651199)
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -13.45, 3.10792, 0.651199)
 
 [node name="Tree3" parent="Vegetation" instance=ExtResource("9_vnpym")]
 transform = Transform3D(-5.07936e-08, -0.581012, 1.00634, 0, 1.00634, 0.581012, -1.16202, 2.53968e-08, -4.39887e-08, -19.9513, 6.70837, -7.54361)
@@ -240,3 +240,6 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 
 [node name="Tree20" parent="Vegetation" instance=ExtResource("11_p27dr")]
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 10.201, 2.97544, -3.22779)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93829, 0, 2.52385)

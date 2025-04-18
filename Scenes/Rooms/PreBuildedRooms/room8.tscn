@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://gv6h3ai3txm6"]
+[gd_scene load_steps=15 format=3 uid="uid://gv6h3ai3txm6"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_fpo0k"]
+[ext_resource type="PackedScene" uid="uid://cyphpw537byxx" path="res://Scenes/Enemies/Misc/spawner.tscn" id="2_fpo0k"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_v0y0m"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_u4622"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_6dcfv"]
@@ -36,6 +37,8 @@ size = Vector3(1, 4, 10)
 
 [node name="Room8" type="Node3D"]
 script = ExtResource("1_fpo0k")
+
+[node name="Spawner" parent="." instance=ExtResource("2_fpo0k")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kwvrb")

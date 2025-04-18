@@ -7,19 +7,17 @@ var fishy = preload("res://Scenes/Enemies/FishyBoy.tscn")
 
 func _ready() -> void:
 	var habitacion_id = str(Global.map[Global.playerMapPositionX][Global.playerMapPositionY])
-	
+		
 	if SpawnPoints.spawn_points.has(habitacion_id):
 		var patrones = SpawnPoints.spawn_points[habitacion_id]
 		var keys = patrones.keys()
-		
-		# Elegimos un patrón aleatorio
+			
+			# Elegimos un patrón aleatorio
 		var patron_random = keys[randi() % keys.size()]
 		var posiciones = patrones[patron_random]
-		
+			
 		for posicion in posiciones:
 			spawn_random_enemy(posicion)
-	else:
-		print("No hay patrones definidos para la habitación:", habitacion_id)
 
 func spawn_random_enemy(posicion: Vector3):
 	var rand_enem = randi_range(1, 4)

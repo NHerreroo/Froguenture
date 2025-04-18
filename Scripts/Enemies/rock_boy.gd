@@ -62,7 +62,7 @@ func shoot_fan_towards_player():
 	var direction_to_player = (player.global_transform.origin - global_transform.origin).normalized()
 
 	# Configuración del abanico
-	var num_bullets = 5
+	var num_bullets = 3
 	var spread_angle_deg = 30  # Ángulo total del abanico en grados
 
 	for i in range(num_bullets):

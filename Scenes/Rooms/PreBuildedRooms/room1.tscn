@@ -1,7 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://2w80s81wj2nn"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_k32bv"]
-[ext_resource type="PackedScene" uid="uid://cyphpw537byxx" path="res://Scenes/Enemies/Misc/spawner.tscn" id="2_kwvrb"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_yq4s2"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="3_31oyj"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="4_rqv88"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="10_mkqs0"]
 [ext_resource type="Texture2D" uid="uid://d4e2o1ac2aa5o" path="res://Sprites/Vegetation/Misc/flags.png" id="11_umqe3"]
 [ext_resource type="Texture2D" uid="uid://deueptp5626aq" path="res://Sprites/Vegetation/Misc/lightPoster.png" id="12_302wq"]
+[ext_resource type="PackedScene" uid="uid://ddmumrs6tfxbc" path="res://Scenes/Enemies/Slime_Purple.tscn" id="14_kwvrb"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="14_ree2u"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -31,6 +31,8 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="Environment" id="Environment_nwfht"]
 background_mode = 1
+ambient_light_source = 2
+ambient_light_energy = 3.02
 fog_light_color = Color(0, 0, 0, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.1342
@@ -63,8 +65,6 @@ distance_fade_min_distance = 6.0
 
 [node name="Room1" type="Node3D"]
 script = ExtResource("1_k32bv")
-
-[node name="Spawner" parent="." instance=ExtResource("2_kwvrb")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kwvrb")
@@ -482,3 +482,7 @@ texture = ExtResource("12_302wq")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -0.005, 0, -3.682)
+
+[node name="EnemyTemplate" parent="." instance=ExtResource("14_kwvrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10318, 0.0267739, 0.279991)
+collision_layer = 2
