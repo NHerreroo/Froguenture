@@ -38,7 +38,7 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
 
-[node name="Room1" type="Node3D"]
+[node name="Room2" type="Node3D"]
 script = ExtResource("1_a46md")
 
 [node name="Spawner" parent="." instance=ExtResource("2_nk43m")]

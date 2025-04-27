@@ -21,47 +21,36 @@ func entry():
 	$MeshInstance3D/Area3D/CollisionShape3D.disabled = true
 	
 	$AnimationPlayer.play("entry")
-	var nav_region = get_parent().find_child("NavigationRegion3D")
-	if not nav_region:
-		return
 	
-	var nav_map = nav_region.get_navigation_map()
+	# Buscar una posición válida usando NavigationAgent
+	var valid_position_found = false
+	var attempts = 0
+	var max_attempts = 30
 	
-	var nav_mesh = nav_region.navigation_mesh
-	if not nav_mesh:
-		return
-	
-	var vertices = nav_mesh.get_vertices()
-	if vertices.size() == 0:
-		return
-	
-	# Calcular límites manualmente
-	var min_pos = vertices[0]
-	var max_pos = vertices[0]
-	for v in vertices:
-		min_pos = min_pos.min(v)
-		max_pos = max_pos.max(v)
-	
-	var attempts = 20 
-	var found_position = false
-	
-	for i in range(attempts):
-		var random_pos = Vector3(
-			randf_range(min_pos.x, max_pos.x),
-			0,
-			randf_range(min_pos.z, max_pos.z)
-		)
-
-		var closest_point = NavigationServer3D.map_get_closest_point(nav_map, random_pos)
+	while not valid_position_found and attempts < max_attempts:
+		attempts += 1
 		
-		if closest_point.distance_to(random_pos) < 2.0:
-			global_position = closest_point
-			found_position = true
-			break
+		var random_pos = Vector3(
+			randf_range(-7.5, 7.5),
+			0,
+			randf_range(-3.5, 3.5)
+		)
+		print(random_pos)
+		
+		nav.target_position = random_pos
+		await get_tree().process_frame 
+		
+		if nav.is_navigation_finished():
+			global_position = nav.get_final_position()
+			valid_position_found = true
+		else:
+			var suggested_pos = nav.get_next_path_position()
+			if suggested_pos.distance_to(random_pos) < 2.0: 
+				global_position = suggested_pos
+				valid_position_found = true
 	
-	if not found_position:
+	if not valid_position_found:
 		global_position = Vector3.ZERO
-
 
 func attack():
 	$MeshInstance3D/Area3D/CollisionShape3D.disabled = false
@@ -87,4 +76,4 @@ func shoot_in_four_directions():
 		bullet_instance.global_transform.origin = global_position
 		bullet_instance.scale = Vector3(0.6, 0.6, 0.6)
 		bullet_instance.direction = direction
-		get_parent().add_child(bullet_instance)  # Añadir al nivel en lugar de a root
+		get_parent().add_child(bullet_instance)

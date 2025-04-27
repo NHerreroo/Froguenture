@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://2w80s81wj2nn"]
+[gd_scene load_steps=22 format=3 uid="uid://2w80s81wj2nn"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_k32bv"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_yq4s2"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="10_mkqs0"]
 [ext_resource type="Texture2D" uid="uid://d4e2o1ac2aa5o" path="res://Sprites/Vegetation/Misc/flags.png" id="11_umqe3"]
 [ext_resource type="Texture2D" uid="uid://deueptp5626aq" path="res://Sprites/Vegetation/Misc/lightPoster.png" id="12_302wq"]
-[ext_resource type="PackedScene" uid="uid://ddmumrs6tfxbc" path="res://Scenes/Enemies/Slime_Purple.tscn" id="14_kwvrb"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="14_ree2u"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -481,8 +480,4 @@ transform = Transform3D(-3.36246e-08, 0, 0.769241, 0, 0.769241, 0, -0.769241, 0,
 texture = ExtResource("12_302wq")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -0.005, 0, -5.87698)
-
-[node name="EnemyTemplate" parent="." instance=ExtResource("14_kwvrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10318, 0.0267739, 0.279991)
-collision_layer = 2
+transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -3.56748, 0, -7.53312)
