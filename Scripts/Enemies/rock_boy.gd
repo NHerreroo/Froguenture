@@ -9,6 +9,7 @@ var is_player_in_area: bool = false  # Nuevo: para saber si el jugador está den
 
 
 func _ready() -> void:
+	enem_area_disabled()
 	Global.enemies_remaining += 1
 	protect()  # Iniciar en estado de protección
 
@@ -63,11 +64,11 @@ func shoot_fan_towards_player():
 
 	# Configuración del abanico
 	var num_bullets = 3
-	var spread_angle_deg = 30  # Ángulo total del abanico en grados
+	var spread_angle_deg = 40 
 
 	for i in range(num_bullets):
-		var t = float(i) / float(num_bullets - 1)  # Valor entre 0 y 1
-		var angle_offset_deg = (t - 0.5) * spread_angle_deg  # De -spread/2 a +spread/2
+		var t = float(i) / float(num_bullets - 1) 
+		var angle_offset_deg = (t - 0.5) * spread_angle_deg 
 		var rotated_direction = direction_to_player.rotated(Vector3.UP, deg_to_rad(angle_offset_deg))
 
 		var bullet_instance = bullet.instantiate()

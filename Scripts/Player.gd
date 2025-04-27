@@ -290,11 +290,10 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 func take_damage(amount: float) -> void:
 	$CanvasLayer/ColorRect/AnimationPlayer.play("new_animation")
-	# Primero reduce los corazones azules
 	if Player.shield > 0:
 		Player.shield -= amount
 		if Player.shield < 0:
-			Player.health += Player.shield  # Si sobra daño, lo pasa a los corazones rojos
+			Player.health += Player.shield 
 			Player.shield = 0
 	else:
 		Player.health -= amount

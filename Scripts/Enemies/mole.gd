@@ -3,6 +3,7 @@ extends Enemy
 var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
 
 func _ready() -> void:
+	enem_area_disabled()
 	Global.enemies_remaining += 1
 	$AnimationPlayer.play("RESET")
 	await get_tree().create_timer(1).timeout

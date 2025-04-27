@@ -20,7 +20,7 @@ func _ready() -> void:
 			spawn_random_enemy(posicion)
 
 func spawn_random_enemy(posicion: Vector3):
-	var rand_enem = randi_range(3, 3)
+	var rand_enem = randi_range(1, 4)
 	var enemy
 	
 	match rand_enem:

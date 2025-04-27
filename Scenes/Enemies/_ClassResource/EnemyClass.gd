@@ -94,3 +94,9 @@ func spawn_dust():
 	var dust_inst = dust.instantiate()
 	dust_inst.position = Vector3(self.position.x, 0 ,self.position.z)
 	get_tree().root.add_child(dust_inst)
+
+func enem_area_enabled():
+	$MeshInstance3D/Area3D.add_to_group("enemy")
+
+func enem_area_disabled():
+	$MeshInstance3D/Area3D.remove_from_group("enemy")

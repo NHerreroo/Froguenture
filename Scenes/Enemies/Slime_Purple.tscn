@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ddmumrs6tfxbc"]
 
 [ext_resource type="Script" uid="uid://b8lmj805y1255" path="res://Scripts/Enemies/slime_purple.gd" id="1_3b132"]
-[ext_resource type="Script" uid="uid://bhgt7us588ofj" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_xow73"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_xow73"]
 [ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="3_xow73"]
 
 [sub_resource type="Resource" id="Resource_cunt7"]
@@ -107,6 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
 shape = SubResource("BoxShape3D_llsaf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
 
 [node name="MeshInstance3D" type="Node3D" parent="."]
 transform = Transform3D(-1.20452e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02256e-09, -1.04314e-08, 0, 0.309002, 0)
