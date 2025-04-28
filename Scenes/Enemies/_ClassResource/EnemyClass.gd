@@ -67,6 +67,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		var knockback_direction = (global_transform.origin - area.global_transform.origin).normalized()
 		knockback_velocity = knockback_direction * 10.0  
 		knockback_timer = knockback_duration
+		flash_sprite3d()
 
 		# Restar salud por el ataque
 		var damage = Player.atack
@@ -100,3 +101,49 @@ func enem_area_enabled():
 
 func enem_area_disabled():
 	$MeshInstance3D/Area3D.remove_from_group("enemy")
+
+
+const FLASH_SHADER : Shader = preload("res://Shaders/flash_sahder.gdshader")
+func flash_sprite3d() -> void:
+	var flash_shader = load("res://Shaders/flash_sahder.gdshader")
+	
+	var affected_nodes = []
+	
+	find_and_apply_flash(self, flash_shader, affected_nodes)
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	for node_data in affected_nodes:
+		var node = node_data[0]
+		var original_material = node_data[1]
+		if is_instance_valid(node):
+			node.material_override = original_material
+
+func find_and_apply_flash(node: Node, shader: Shader, affected_nodes: Array) -> void:
+	for child in node.get_children():
+		if child is Sprite3D or child is AnimatedSprite3D:
+			var original_material = child.material_override
+			var new_material = ShaderMaterial.new()
+			new_material.shader = shader
+			
+			if child is Sprite3D and child.texture:
+				new_material.set_shader_parameter("albedo_texture", child.texture)
+			elif child is AnimatedSprite3D and child.sprite_frames:
+				var current_animation = child.animation
+				var current_frame = child.frame
+				var texture = child.sprite_frames.get_frame_texture(current_animation, current_frame)
+				if texture:
+					new_material.set_shader_parameter("albedo_texture", texture)
+				else:
+					continue
+			else:
+				continue
+				
+			new_material.set_shader_parameter("flash_color", Color(1,1,1,1))
+			new_material.set_shader_parameter("flash_value", 1.0)
+			
+			child.material_override = new_material
+			
+			affected_nodes.append([child, original_material])
+		
+		find_and_apply_flash(child, shader, affected_nodes)
