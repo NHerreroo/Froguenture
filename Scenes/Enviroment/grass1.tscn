@@ -302,30 +302,38 @@ shape = SubResource("BoxShape3D_1j2jm")
 
 [node name="Sprite3D1" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 4.23516e-22, 7.10543e-15, 0, 1, -5.96046e-08, -7.10543e-15, 5.96046e-08, 1, 0, 0.350882, -0.607746)
+shaded = true
 alpha_cut = 1
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jf131")
 
 [node name="Sprite3D2" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, 0, 0.104183, -0.180451)
+shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_v65qk")
 
 [node name="Sprite3D3" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, 0, 0.0628479, -0.108855)
+shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_jypj4")
 
 [node name="Sprite3D4" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, -5.96046e-08, -0.106185, 0.183917)
+shaded = true
+double_sided = false
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_2qwp4")
 
 [node name="Sprite3D5" type="AnimatedSprite3D" parent="."]
+shaded = true
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_45536")
 
 [node name="Sprite3D6" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 1.05879e-22, 3.55271e-15, 0, 1, -2.98023e-08, -3.55271e-15, 2.98023e-08, 1, 0, 0.0801997, -0.13891)
+shaded = true
 sprite_frames = SubResource("SpriteFrames_a78wg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

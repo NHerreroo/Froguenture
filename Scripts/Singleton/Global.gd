@@ -1,6 +1,6 @@
 extends Node
 
-var lvlCount = 110
+var lvlCount = 0
 
 var controller_active = false #el nombre lo dice todo AJAJA
 var is_game_paused = false 

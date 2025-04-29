@@ -9,5 +9,6 @@ void fragment() {
     vec4 final_color = mix(tex_color, flash_color, flash_value);
 
     ALBEDO = final_color.rgb;
+    EMISSION = flash_color.rgb * flash_value; // Emisión blanca para ignorar luces lilas
     ALPHA = tex_color.a;
 }

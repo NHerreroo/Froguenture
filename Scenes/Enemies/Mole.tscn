@@ -409,14 +409,14 @@ alpha_cut = 1
 texture = ExtResource("3_e51of")
 
 [node name="Floor" type="AnimatedSprite3D" parent="Node3D"]
-transform = Transform3D(-1.40003e-08, -0.00971273, 0.323819, -5.35673e-09, 0.323819, 0.00971273, -0.323965, -4.93458e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
+transform = Transform3D(-1.40003e-08, -0.00971275, 0.323819, -5.35673e-09, 0.323819, 0.00971275, -0.323965, -4.93458e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_rweo1")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(2.10648, 1.17293, 0, -1.21618, 2.03157, 0, 0, 0, 2.18442, -0.582879, -1.00957, 0)
+transform = Transform3D(2.10648, 1.17293, 0, -1.21618, 2.03157, 0, 0, 0, 2.18442, -0.667284, -1.15576, 0)
 mesh = SubResource("BoxMesh_rweo1")
 skeleton = NodePath("../..")
 
@@ -441,6 +441,10 @@ shape = SubResource("BoxShape3D_6cego")
 libraries = {
 &"": SubResource("AnimationLibrary_rweo1")
 }
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.817823, 0)
+omni_range = 3.89871
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
