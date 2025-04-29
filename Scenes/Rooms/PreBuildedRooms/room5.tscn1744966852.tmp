@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfaek108l8kmx"]
+[gd_scene load_steps=17 format=3 uid="uid://cfaek108l8kmx"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_idjqp"]
+[ext_resource type="PackedScene" uid="uid://cyphpw537byxx" path="res://Scenes/Enemies/Misc/spawner.tscn" id="2_4kdoy"]
 [ext_resource type="Texture2D" uid="uid://cythq6dl33set" path="res://Sprites/floor4.png" id="3_4kdoy"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_hir6l"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_t37p4"]
@@ -43,6 +44,8 @@ size = Vector3(1, 4, 10)
 
 [node name="Room5" type="Node3D"]
 script = ExtResource("1_idjqp")
+
+[node name="Spawner" parent="." instance=ExtResource("2_4kdoy")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kwvrb")
@@ -207,7 +210,7 @@ shape = SubResource("BoxShape3D_wjxqr")
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -3.40491, 2.52521, 5.91215)
 
 [node name="Tree4" parent="Vegetation" instance=ExtResource("7_idfdi")]
-transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 2.68545, 2.52521, -4.24441)
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 2.48086, 2.52521, -4.22508)
 
 [node name="Tree11" parent="Vegetation" instance=ExtResource("7_idfdi")]
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -6.00985, 2.52521, -4.22508)
@@ -239,36 +242,6 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 [node name="Tree2" parent="Vegetation" instance=ExtResource("8_1gwrv")]
 transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, -5.68044, 3.45053, 10.5942)
 
-[node name="Tree37" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, -3.30194, 3.45053, 16.3192)
-
-[node name="Tree38" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, 5.36849, 3.45053, 16.3192)
-
-[node name="Tree39" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, -3.28879, 4.94072, -14.1468)
-
-[node name="Tree40" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, 2.43414, 4.94072, -14.6038)
-
-[node name="Tree41" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, 7.04428, 4.94072, -11.4747)
-
-[node name="Tree42" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, 7.04428, 4.94072, 11.6689)
-
-[node name="Tree45" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, 9.86882, 4.94072, 7.2385)
-
-[node name="Tree46" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, 9.86882, 4.94072, -7.12144)
-
-[node name="Tree43" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, -11.9812, 4.94072, 18.1668)
-
-[node name="Tree44" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-1.21087e-07, -1.38507, 2.39901, 0, 2.39901, 1.38507, -2.77014, 6.05433e-08, -1.04864e-07, -20.3656, 4.94072, 14.8169)
-
 [node name="Tree5" parent="Vegetation" instance=ExtResource("8_1gwrv")]
 transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, -1.29081, 2.82116e-08, -4.88639e-08, -11.4291, 3.45053, 7.88306)
 
@@ -282,7 +255,7 @@ transform = Transform3D(-5.64231e-08, -0.645406, 1.11788, 0, 1.11788, 0.645406, 
 transform = Transform3D(-1.06612e-07, -1.2195, 2.11224, 0, 2.11224, 1.2195, -2.439, 5.33061e-08, -9.2329e-08, -13.1144, 8.5422, -18.6196)
 
 [node name="Tree6" parent="Vegetation" instance=ExtResource("8_1gwrv")]
-transform = Transform3D(-8.4367e-08, -0.965047, 1.67151, 0, 1.67151, 0.965047, -1.93009, 4.21835e-08, -7.30642e-08, -13.5783, 7.26763, 0.327799)
+transform = Transform3D(-8.4367e-08, -0.965047, 1.67151, 0, 1.67151, 0.965047, -1.93009, 4.21835e-08, -7.30642e-08, -13.5783, 5.40312, 0.327799)
 
 [node name="Tree7" parent="Vegetation" instance=ExtResource("8_1gwrv")]
 transform = Transform3D(-8.4367e-08, -0.965047, 1.67151, 0, 1.67151, 0.965047, -1.93009, 4.21835e-08, -7.30642e-08, -17.6608, 5.40312, -12.8136)
@@ -306,7 +279,7 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 1.91289, 2.67931, 3.42932)
 
 [node name="Tree25" parent="Vegetation" instance=ExtResource("9_45v3u")]
-transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 6.62202, 2.67931, 11.2865)
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 1.91289, 2.67931, -3.12186)
 
 [node name="Tree26" parent="Vegetation" instance=ExtResource("9_45v3u")]
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 1.91289, 2.67931, -7.24726)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6mlvmq7gc7v5"]
+[gd_scene load_steps=18 format=3 uid="uid://b6mlvmq7gc7v5"]
 
 [ext_resource type="Script" uid="uid://2gp8a5gkgre5" path="res://Scripts/Enemies/mole.gd" id="1_80bv1"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_uhdfd"]
@@ -38,6 +38,15 @@ animations = [{
 "name": &"stop",
 "speed": 5.0
 }]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhdfd"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture_force_srgb = true
+albedo_texture_msdf = true
+metallic_specular = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_rweo1"]
+material = SubResource("StandardMaterial3D_uhdfd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
 size = Vector3(1, 0.772949, 0.868652)
@@ -400,11 +409,16 @@ alpha_cut = 1
 texture = ExtResource("3_e51of")
 
 [node name="Floor" type="AnimatedSprite3D" parent="Node3D"]
-transform = Transform3D(-1.40003e-08, -0.00971271, 0.323819, -5.35673e-09, 0.323819, 0.00971271, -0.323965, -4.93458e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
+transform = Transform3D(-1.40003e-08, -0.00971273, 0.323819, -5.35673e-09, 0.323819, 0.00971273, -0.323965, -4.93458e-09, -1.41546e-08, 0.215322, 0.526582, -0.144703)
 alpha_cut = 1
 sprite_frames = SubResource("SpriteFrames_rweo1")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(2.10648, 1.17293, 0, -1.21618, 2.03157, 0, 0, 0, 2.18442, -0.582879, -1.00957, 0)
+mesh = SubResource("BoxMesh_rweo1")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
