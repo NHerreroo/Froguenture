@@ -1,5 +1,7 @@
 extends Node
 
+var lvlCount = 110
+
 var controller_active = false #el nombre lo dice todo AJAJA
 var is_game_paused = false 
 var card_focused = false

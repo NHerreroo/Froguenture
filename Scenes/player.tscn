@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=52 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" uid="uid://bn2g1yfcb815w" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://cvvfna71hrjte" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -3540,6 +3540,44 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 density = -3.1189
 albedo = Color(0.858105, 0.768137, 0.715974, 1)
 
+[sub_resource type="Animation" id="Animation_p1odr"]
+resource_name = "Light"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.0, 7.0]
+}
+
+[sub_resource type="Animation" id="Animation_0gysh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:omni_range")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfarp"]
+_data = {
+&"Light": SubResource("Animation_p1odr"),
+&"RESET": SubResource("Animation_0gysh")
+}
+
 [node name="player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(123.83, 0, 0, 0, 123.83, 0, 0, 0, 123.83, 0, 0.0214218, 0)
 collision_layer = 2
@@ -3640,5 +3678,16 @@ shape = SubResource("BoxShape3D_yo7h1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00387189, 0.00409142, -0.00158313)
 size = Vector3(0.0726309, 0.0617816, 0.0776693)
 material = SubResource("FogMaterial_2l1o2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.00807559, 0, 0, 0, 0.00807559, 0, 0, 0, 0.00807559, 0, 0.00437307, 0)
+light_energy = 0.8
+omni_attenuation = 0.81
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OmniLight3D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_vfarp")
+}
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]

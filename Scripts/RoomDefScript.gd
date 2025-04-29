@@ -17,6 +17,7 @@ var isSpecialDoorInstanciates = false
 var sides = ["top", "bot", "right", "left"]
 
 func _ready() -> void:
+	setWorldEnviroment()
 	Global.eraseLevel = false
 	var x = Global.playerMapPositionX
 	var y = Global.playerMapPositionY
@@ -82,3 +83,14 @@ func instanciateDoorsSpecialRoom():
 	var topDoorInst = topDoorSpecialRoom.instantiate()
 	topDoorInst.position = Vector3(-5, 0, 0)
 	add_child(topDoorInst)
+
+
+func setWorldEnviroment():
+	var worldLight : DirectionalLight3D = $WorldEnvironment/DirectionalLight3D
+	
+	if Global.lvlCount >= 10:
+		worldLight.light_color = Color8(145, 107, 251, 255) # noche, con poca opacidad
+	elif Global.lvlCount >= 5:
+		worldLight.light_color = Color8(247, 170, 169, 255) # atardecer
+	else:
+		worldLight.light_color = Color8(255, 255, 255, 255) # default (día)

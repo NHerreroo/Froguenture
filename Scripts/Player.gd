@@ -45,6 +45,7 @@ var currentAtackAnimation = "Atack1_right" #def animation
 var hud = null
 
 func _ready():
+	$OmniLight3D/AnimationPlayer.play("Light")
 	$CanvasLayer/ColorRect.visible = false
 	setPlayerPosition(Global.playerDirection)
 	
