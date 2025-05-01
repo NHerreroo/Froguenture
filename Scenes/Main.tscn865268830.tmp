@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo8j0g3r4edpv"]
+
+[ext_resource type="Script" uid="uid://bdpdmy43osr33" path="res://Scripts/LevelGenerator.gd" id="1_3w0nh"]
+[ext_resource type="AudioStream" uid="uid://bqpv0sfcvbvyd" path="res://Sounds/Music/Normal.mp3" id="2_rgh2o"]
+[ext_resource type="AudioStream" uid="uid://gq8b8cs3tvap" path="res://Sounds/Music/Fight.mp3" id="3_pbw6q"]
+[ext_resource type="AudioStream" uid="uid://dytxqtva38g81" path="res://Sounds/Music/Shop.mp3" id="4_v1gob"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_3w0nh")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Normal" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_rgh2o")
+autoplay = true
+
+[node name="Fight" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("3_pbw6q")
+
+[node name="Shop" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("4_v1gob")

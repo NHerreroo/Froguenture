@@ -221,6 +221,7 @@ func rotate_atack_mesh():
 
 func attack():
 	if Input.is_action_just_pressed("atack") and can_atack:
+		hitSound()
 		attackCollider.disabled = false
 		update_attack_animation()
 		play_animation(currentAtackAnimation)
@@ -319,3 +320,17 @@ func heal(amount: float) -> void:
 func add_shield(amount: float) -> void:
 	# Añade corazones azules
 	Player.shield += amount
+
+
+var hit1 = preload("res://Sounds/SFX/WHSH_Whoosh_HoveAud_SwordCombat_07.wav")
+var hit2 = preload("res://Sounds/SFX/WHSH_Whoosh_HoveAud_SwordCombat_26.wav")
+
+
+func hitSound():
+	if attack_count >= 2:
+		$AudioStreamPlayer.stream = hit2
+	else:
+		$AudioStreamPlayer.stream = hit1
+		
+	$AudioStreamPlayer.volume_db = -30  
+	$AudioStreamPlayer.play()

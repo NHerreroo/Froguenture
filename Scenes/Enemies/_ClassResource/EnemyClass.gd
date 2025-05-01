@@ -68,6 +68,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		knockback_velocity = knockback_direction * 10.0  
 		knockback_timer = knockback_duration
 		flash_sprite3d()
+		hitSound()
 
 		# Restar salud por el ataque
 		var damage = Player.atack
@@ -147,3 +148,14 @@ func find_and_apply_flash(node: Node, shader: Shader, affected_nodes: Array) -> 
 			affected_nodes.append([child, original_material])
 		
 		find_and_apply_flash(child, shader, affected_nodes)
+
+
+var hit1 = preload("res://Sounds/SFX/PUNCH_DESIGNED_HEAVY_86.wav")
+var hit2 = preload("res://Sounds/SFX/PUNCH_PERCUSSIVE_HEAVY_09.wav")  
+var hit3 = preload("res://Sounds/SFX/PUNCH_SQUELCH_HEAVY_01.wav")
+
+func hitSound():
+	var sounds = [hit1, hit2, hit3]
+	$AudioStreamPlayer.stream = sounds[randi() % sounds.size()]
+	$AudioStreamPlayer.volume_db = -40  # Baja el volumen a -10 dB (ajusta este valor)
+	$AudioStreamPlayer.play()
