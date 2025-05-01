@@ -58,10 +58,6 @@ func get_room_texture(room_type: String) -> Texture2D:
 	match room_type:
 		'@':
 			return texture_first_room
-		'1':
-			return texture_room
-		'2':
-			return texture_room
 		'X':
 			return texture_boss
 		'#':
@@ -69,7 +65,7 @@ func get_room_texture(room_type: String) -> Texture2D:
 		'$':
 			return texture_shop
 		_:
-			return texture_empty  # Opcional
+			return texture_room  # Opcional
 
 func update_minimap(new_position: Vector2):
 	player_position = new_position
