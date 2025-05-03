@@ -14,7 +14,7 @@ fill_from = Vector2(0.512821, 0.508547)
 fill_to = Vector2(0.833333, 0.119658)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_03kxj"]
-size = Vector3(0.824097, 1, 0.868774)
+size = Vector3(0.513886, 0.794434, 0.491119)
 
 [node name="EnemyBullet" type="Node3D"]
 transform = Transform3D(0.446367, 0, 0, 0, 0.446367, 0, 0, 0, 0.446367, 0, 0.401745, 0)
@@ -36,7 +36,7 @@ texture = SubResource("GradientTexture2D_r5s5n")
 transform = Transform3D(0.612907, 0, 0, 0, 0.612907, 0, 0, 0, 0.612907, 0, 1.18778, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 0.0160523, 0.664571, 0.00347898)
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 0.0241306, 0.150482, 0.0312655)
 shape = SubResource("BoxShape3D_03kxj")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

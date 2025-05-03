@@ -1,19 +1,20 @@
 [gd_scene load_steps=12 format=3 uid="uid://dwl03mgcqw7n2"]
 
-[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_g88hb"]
+[ext_resource type="Script" uid="uid://djbkfrymf33r" path="res://Scripts/Enemies/owl.gd" id="1_1etgl"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_1etgl"]
 [ext_resource type="Texture2D" uid="uid://dgop06fhp22s" path="res://Sprites/Enemies/Owl/body.png" id="3_ageh5"]
 [ext_resource type="Texture2D" uid="uid://dnfbgi2tbf5us" path="res://Sprites/Enemies/Owl/wing1.png" id="4_ardd2"]
 [ext_resource type="Texture2D" uid="uid://dpb4wcijbptqe" path="res://Sprites/Enemies/Owl/wing2.png" id="5_ured8"]
 
-[sub_resource type="Resource" id="Resource_mjjwl"]
+[sub_resource type="Resource" id="Resource_ageh5"]
 script = ExtResource("2_1etgl")
-health = 20.0
-attack = 564.0
+health = 1000.0
+attack = 0.0
 speed = 0.0
 accel = 10.0
 knockback_duration = 0.2
 knockback_timer = 0.0
+metadata/_custom_type_script = "uid://cal3n5r6347g2"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
 
@@ -155,9 +156,10 @@ _data = {
 }
 
 [node name="EnemyTemplate" type="CharacterBody3D"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 0, 0)
 collision_layer = 4
-script = ExtResource("1_g88hb")
-enemy_src = SubResource("Resource_mjjwl")
+script = ExtResource("1_1etgl")
+enemy_src = SubResource("Resource_ageh5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
@@ -183,7 +185,7 @@ alpha_cut = 1
 texture = ExtResource("3_ageh5")
 
 [node name="Wings1" type="Sprite3D" parent="Sprites"]
-transform = Transform3D(0.978706, -0.205265, 0, 0.205265, 0.978706, 0, 0, 0, 1, 0.700294, -0.558553, -0.073926)
+transform = Transform3D(0.978706, -0.205264, 0, 0.205264, 0.978706, 0, 0, 0, 1, 0.700294, -0.558553, -0.073926)
 alpha_cut = 1
 texture = ExtResource("4_ardd2")
 
@@ -208,6 +210,8 @@ texture = ExtResource("5_ured8")
 libraries = {
 &"": SubResource("AnimationLibrary_xu1it")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
