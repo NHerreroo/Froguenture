@@ -1,0 +1,213 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwl03mgcqw7n2"]
+
+[ext_resource type="Script" uid="uid://jtabt8t3pxku" path="res://Scripts/Enemies/enemy_template.gd" id="1_g88hb"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_1etgl"]
+[ext_resource type="Texture2D" uid="uid://dgop06fhp22s" path="res://Sprites/Enemies/Owl/body.png" id="3_ageh5"]
+[ext_resource type="Texture2D" uid="uid://dnfbgi2tbf5us" path="res://Sprites/Enemies/Owl/wing1.png" id="4_ardd2"]
+[ext_resource type="Texture2D" uid="uid://dpb4wcijbptqe" path="res://Sprites/Enemies/Owl/wing2.png" id="5_ured8"]
+
+[sub_resource type="Resource" id="Resource_mjjwl"]
+script = ExtResource("2_1etgl")
+health = 20.0
+attack = 564.0
+speed = 0.0
+accel = 10.0
+knockback_duration = 0.2
+knockback_timer = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+size = Vector3(3.50751, 3.1073, 2.86035)
+
+[sub_resource type="Animation" id="Animation_aupjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Wings1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.206734)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Wings3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.214117)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Wings2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.00174533)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Wings4:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0696735)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mr116"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Wings1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.206734), Vector3(0, 0, -0.13453)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Wings3:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.214117), Vector3(0, 0, 0.136537)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Wings2:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.00174533), Vector3(0, 0, 0.239302)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Wings4:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0696735), Vector3(0, 0, -0.217032)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.34191, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
+_data = {
+&"RESET": SubResource("Animation_aupjf"),
+&"idle": SubResource("Animation_mr116")
+}
+
+[node name="EnemyTemplate" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_g88hb")
+enemy_src = SubResource("Resource_mjjwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
+shape = SubResource("BoxShape3D_llsaf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MeshInstance3D" type="Node3D" parent="."]
+transform = Transform3D(-1.20452e-08, -0.135026, 0.238643, 0, 0.233873, 0.13778, -0.275561, 5.90218e-09, -1.04314e-08, 0, 0.300841, 0)
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" groups=["enemy"]]
+transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.999999, -2.13389e-08, -3.92733e-09, 1.67991e-08, 0.880849, -0.508562, 1.40709e-08, 0.499999, 0.866023, 0.0801088, 1.03579, 0.917103)
+shape = SubResource("BoxShape3D_6cego")
+
+[node name="Sprites" type="Node3D" parent="."]
+
+[node name="Body" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87096, 0, 0.0805254)
+alpha_cut = 1
+texture = ExtResource("3_ageh5")
+
+[node name="Wings1" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.978706, -0.205265, 0, 0.205265, 0.978706, 0, 0, 0, 1, 0.700294, -0.558553, -0.073926)
+alpha_cut = 1
+texture = ExtResource("4_ardd2")
+
+[node name="Wings2" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.999998, -0.00174533, 0, 0.00174533, 0.999998, 0, 0, 0, 1, 0.913429, -0.730742, 0)
+alpha_cut = 1
+texture = ExtResource("5_ured8")
+
+[node name="Wings3" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.977164, 0.212485, 0, -0.212485, 0.977164, 0, 0, 0, 1, -0.982156, -0.558553, -0.073926)
+flip_h = true
+alpha_cut = 1
+texture = ExtResource("4_ardd2")
+
+[node name="Wings4" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.997574, -0.0696172, 0, 0.0696172, 0.997574, 0, 0, 0, 1, -0.769021, -0.730742, 0)
+flip_h = true
+alpha_cut = 1
+texture = ExtResource("5_ured8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xu1it")
+}
+
+[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
