@@ -17,5 +17,5 @@ func _ready():
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-		if area.is_in_group("player"):
+		if area.is_in_group("player") and Player.is_dashing == false:
 			queue_free()

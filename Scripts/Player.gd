@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 var pauseMenu = preload("res://Scenes/pause_menu.tscn")
+var ghost = preload("res://Scenes/Ghost.tscn")
 
 var SPEED = Player.speed
 var direction
@@ -17,11 +18,11 @@ const MINI_DASH_DURATION = 0.1
 var current_animation = ""
 var camera  # Variable para la cámara
 
-# Variables para el dash
-var is_dashing = false
 var dash_timer = 0.0
 var dash_cooldown_timer = 0.0
 var dash_direction = Vector3.ZERO
+var ghost_spawn_timer = 0.0
+const GHOST_SPAWN_INTERVAL = 0.05  # Intervalo entre aparición de ghosts
 
 # Variables para el mini-dash
 var is_mini_dashing = false
@@ -84,7 +85,7 @@ func _physics_process(delta):
 		perform_mini_dash(delta)
 	else:
 		# Movimiento normal si no hay dash activo
-		if not is_dashing:
+		if not Player.is_dashing:
 			velocity.x = lerp(velocity.x, direction.x * SPEED, LERP_AMOUNT)
 			velocity.z = lerp(velocity.z, direction.z * SPEED, LERP_AMOUNT)
 
@@ -109,19 +110,28 @@ func _physics_process(delta):
 
 # Dash principal
 func perform_dash(delta, direction):
-	if is_dashing:
+	if Player.is_dashing:
 		velocity.x = lerp(velocity.x, dash_direction.x * DASH_SPEED, DASH_LERP_AMOUNT)
 		velocity.z = lerp(velocity.z, dash_direction.z * DASH_SPEED, DASH_LERP_AMOUNT)
 		
+		# Spawn ghosts durante el dash
+		ghost_spawn_timer += delta
+		if ghost_spawn_timer >= GHOST_SPAWN_INTERVAL:
+			ghost_spawn_timer = 0
+			spawnGhost()
+		
 		dash_timer -= delta
 		if dash_timer <= 0:
-			is_dashing = false
+			Player.is_dashing = false
 			velocity = Vector3.ZERO
 	elif dash_cooldown_timer <= 0 and Input.is_action_just_pressed("dash"):
-		is_dashing = true
+		Player.is_dashing = true
 		dash_timer = DASH_DURATION
 		dash_cooldown_timer = DASH_COOLDOWN
-		dash_direction = direction
+		dash_direction = direction if direction != Vector3.ZERO else last_direction
+		ghost_spawn_timer = 0
+		# Spawn primer ghost inmediatamente
+		spawnGhost()
 
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
@@ -281,6 +291,8 @@ func perform_mini_dash(delta):
 #hacerdaño
 var canReciveDamage = true
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	if Player.is_dashing:
+		return
 	if area.is_in_group("enemy"):
 		if canReciveDamage == true: 
 			canReciveDamage = false
@@ -334,3 +346,10 @@ func hitSound():
 		
 	$AudioStreamPlayer.volume_db = -30  
 	$AudioStreamPlayer.play()
+
+func spawnGhost():
+	var newGhost = ghost.instantiate()
+	newGhost.position = self.position
+	newGhost.rotation = self.rotation
+	get_parent().add_child(newGhost)
+	
