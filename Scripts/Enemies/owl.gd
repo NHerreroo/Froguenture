@@ -9,8 +9,8 @@ func _ready() -> void:
 	$AnimationPlayer.play("idle")  #could fail if enem no dont have animation named idle
 	await get_tree().create_timer(1).timeout
 	while true:
-		await get_tree().create_timer(2).timeout
-		shoot_in_multiple_directions()
+		await get_tree().create_timer(1).timeout
+		spawn_marks()
 		
 var rotation_offset := 0.0
 func shoot_in_multiple_directions():

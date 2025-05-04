@@ -1,0 +1,264 @@
+[gd_scene load_steps=24 format=3 uid="uid://bn8agb7fntekf"]
+
+[ext_resource type="Script" uid="uid://dquskv4t06bu1" path="res://Scripts/ghost.gd" id="1_1jqgt"]
+[ext_resource type="Texture2D" uid="uid://d08qalrv8d1w1" path="res://Sprites/Player/down/head.png" id="1_pqtmc"]
+[ext_resource type="Texture2D" uid="uid://b4o6ojwji1c2w" path="res://Sprites/Player/Idle/head.png" id="2_f8qbu"]
+[ext_resource type="Texture2D" uid="uid://fvte0jk601oj" path="res://Sprites/Player/up/head.png" id="3_1jqgt"]
+[ext_resource type="Texture2D" uid="uid://c0sigihkkdsf6" path="res://Sprites/Player/Walk/head.png" id="4_8p8ky"]
+[ext_resource type="Texture2D" uid="uid://cdmfipoxxhbd7" path="res://Sprites/Player/Idle/scarf.png" id="5_jfoi3"]
+[ext_resource type="Texture2D" uid="uid://0m3stlwl2our" path="res://Sprites/Player/up/scarf.png" id="6_geyl3"]
+[ext_resource type="Texture2D" uid="uid://bxjy0g3hr3js7" path="res://Sprites/Player/Walk/scarf.png" id="7_f0llo"]
+[ext_resource type="Texture2D" uid="uid://yjgx05m5t1f6" path="res://Sprites/Player/Idle/body.png" id="8_fly6c"]
+[ext_resource type="Texture2D" uid="uid://pjqes7st7sgf" path="res://Sprites/Player/up/body.png" id="9_c7te5"]
+[ext_resource type="Texture2D" uid="uid://blo4pgrve26mu" path="res://Sprites/Player/Walk/body.png" id="10_swka4"]
+[ext_resource type="Texture2D" uid="uid://sg7eevca83el" path="res://Sprites/Player/up/feet.png" id="11_7kq3s"]
+[ext_resource type="Texture2D" uid="uid://bs8k7cru0ntna" path="res://Sprites/Player/Idle/feet.png" id="12_qsxfa"]
+[ext_resource type="Texture2D" uid="uid://c5yyb7exros7m" path="res://Sprites/Player/Walk/feet1.png" id="13_wi86l"]
+[ext_resource type="Texture2D" uid="uid://bfb6c5xeiaudy" path="res://Sprites/Player/up/feet2.png" id="14_nemqc"]
+[ext_resource type="Texture2D" uid="uid://bv8yxgiigvi7l" path="res://Sprites/Player/Walk/feet2.png" id="15_pwobk"]
+[ext_resource type="Texture2D" uid="uid://crj1lxb6ab0tn" path="res://Sprites/Player/Atack/Atack.png" id="16_f8qbu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52wam"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pqtmc")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f8qbu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1jqgt")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8p8ky")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ky4op"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jfoi3")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jfoi3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_geyl3")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f0llo")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mu4vd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_fly6c")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_fly6c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_c7te5")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_swka4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvcuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7kq3s")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_qsxfa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7kq3s")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_wi86l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eatej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_nemqc")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_nemqc")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_pwobk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5v5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_f8qbu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(123.83, 0, 0, 0, 123.83, 0, 0, 0, 123.83, 0, 0.0214218, 0)
+collision_layer = 2
+
+[node name="Sprites" type="Node3D" parent="."]
+transform = Transform3D(1.32299, 0, 0, 0, 1.14575, 0.6615, 0, -0.6615, 1.14575, 0, 0.00123598, 0.00155214)
+script = ExtResource("1_1jqgt")
+
+[node name="Head" type="AnimatedSprite3D" parent="Sprites"]
+transform = Transform3D(0.00143369, -0.000323687, -6.68169e-06, 0.000323685, 0.0014337, -1.3236e-06, 6.8092e-06, -1.80391e-07, 0.00146976, -0.000301842, 0.00466957, 0.000127883)
+sorting_offset = 12.0
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_52wam")
+animation = &"idle"
+
+[node name="Scarf" type="AnimatedSprite3D" parent="Sprites"]
+transform = Transform3D(0.00159245, -6.42152e-05, -5.6181e-06, 6.42152e-05, 0.00159246, -1.13213e-07, 5.61811e-06, -1.13243e-07, 0.00159374, 0, 0.00484535, 9.77527e-05)
+sorting_offset = 11.0
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_ky4op")
+animation = &"walk"
+
+[node name="Body" type="AnimatedSprite3D" parent="Sprites"]
+transform = Transform3D(0.00158791, 0.000135753, 1.1877e-05, -0.000135753, 0.00158796, -5.06816e-07, -1.18769e-05, -5.06701e-07, 0.00159371, 0, 0.00490115, -9.7423e-05)
+sorting_offset = 10.0
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_mu4vd")
+animation = &"walk"
+
+[node name="Feet" type="AnimatedSprite3D" parent="Sprites"]
+transform = Transform3D(0.00159078, -5.1495e-05, 8.26019e-05, 5.12752e-05, 0.00159292, 5.56956e-06, -8.27387e-05, -2.90165e-06, 0.0015916, -0.00074707, 0.00509137, -9.30608e-05)
+sorting_offset = 9.0
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_hvcuu")
+animation = &"walk"
+
+[node name="Feet2" type="AnimatedSprite3D" parent="Sprites"]
+transform = Transform3D(0.0016, 0, 0, 0, 0.0016, -2.91038e-11, 0, 2.91038e-11, 0.0016, -0.000492727, 0.00462707, -6.33027e-05)
+sorting_offset = 9.0
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_eatej")
+animation = &"walk"
+
+[node name="Atack" type="AnimatedSprite3D" parent="Sprites"]
+transform = Transform3D(0.00226021, -0.000449502, 0, 0.000449502, 0.00226021, 0, 0, 0, 0.00230447, 0.00518666, 0.0046335, 0.000917482)
+sorting_offset = 13.0
+sprite_frames = SubResource("SpriteFrames_i5v5n")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00807559, 0, 0, 0, 0.00807559, 0, 0, 0, 0.00807559, 0, 0.0113662, 0.0412257)
