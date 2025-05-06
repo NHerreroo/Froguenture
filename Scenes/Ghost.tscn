@@ -3481,7 +3481,7 @@ sprite_frames = SubResource("SpriteFrames_mu4vd")
 animation = &"idle"
 
 [node name="Feet" type="AnimatedSprite3D" parent="Sprites"]
-transform = Transform3D(0.00158769, 0.000111575, 8.27385e-05, -0.000111575, 0.00158984, -2.90181e-06, -8.27387e-05, -2.90154e-06, 0.0015916, 0, 0.00494006, -0.000135261)
+transform = Transform3D(0.00158769, 0.000111574, 8.27385e-05, -0.000111575, 0.00158984, -2.90181e-06, -8.27386e-05, -2.90154e-06, 0.0015916, 0, 0.00494006, -0.000135261)
 sorting_offset = 9.0
 sprite_frames = SubResource("SpriteFrames_hvcuu")
 animation = &"idle"
