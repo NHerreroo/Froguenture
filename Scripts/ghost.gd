@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var fade_time := 0.5
+@export var fade_time := 0.3
 var timer := 0.0
 var start_modulate := Color(1, 1, 1, 1)
 

@@ -247,7 +247,7 @@ texture = ExtResource("8_xyyfi")
 transform = Transform3D(-1.26895e-08, -0.167605, 0.290301, -7.32629e-09, 0.290301, 0.167605, -0.335211, 9.06609e-23, -1.46526e-08, -0.258639, 0.618332, -0.11936)
 
 [node name="TextBoxSystem" parent="Vegetation/CatNpc" instance=ExtResource("11_biled")]
-transform = Transform3D(1, -7.10543e-15, -3.55271e-15, -3.35943e-16, 1, 2.15944e-21, 0, -2.32942e-22, 1, 1.90044, 14.6325, 0.128078)
+transform = Transform3D(0.0610681, -2.64263e-22, 0, -9.17341e-17, 0.0610681, 1.31873e-22, 2.22045e-16, -1.15513e-29, 0.0610681, 16.4211, 3.40409, 0.693568)
 
 [node name="AltarSpawner" type="Node3D" parent="."]
 script = ExtResource("2_o78dr")

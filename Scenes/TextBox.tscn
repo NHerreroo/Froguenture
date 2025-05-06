@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjigme0clcsuv"]
+[gd_scene load_steps=8 format=3 uid="uid://bjigme0clcsuv"]
 
 [ext_resource type="Shader" uid="uid://cxgmj36tjtjga" path="res://Shaders/waveShaders.gdshader" id="1_lgpka"]
 [ext_resource type="Texture2D" uid="uid://dopg0evrsk70k" path="res://Sprites/icons/textbox.png" id="2_ui8g0"]
@@ -20,19 +20,43 @@ shader_parameter/freq2 = 9.0
 shader_parameter/speed2 = 1.46
 shader_parameter/corner_radius = 0.05
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ui8g0"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ui8g0"]
+resource_local_to_scene = true
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+albedo_texture = SubResource("ViewportTexture_ui8g0")
+albedo_texture_force_srgb = true
+refraction_scale = -0.93
+billboard_mode = 1
+billboard_keep_scale = true
+point_size = 72.7
+distance_fade_mode = 2
+distance_fade_min_distance = 6.0
+distance_fade_max_distance = 9.0
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_p7q1j"]
 viewport_path = NodePath("SubViewport")
 
 [node name="TextBoxSystem" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.984, 0)
+transform = Transform3D(0.0610681, 0, 0, 0, 0.0610681, 0, 0, 0, 0.0610681, 13.8723, -0.625868, 0)
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
-size = Vector2i(1797, 852)
+size = Vector2i(3027, 1832)
 
 [node name="MarginContainer" type="MarginContainer" parent="SubViewport"]
-offset_right = 4256.0
-offset_bottom = 1714.0
+offset_top = 203.0
+offset_right = 4959.0
+offset_bottom = 1787.0
 scale = Vector2(0.442336, 0.442336)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="SubViewport/MarginContainer"]
@@ -48,26 +72,28 @@ patch_margin_bottom = 31
 [node name="MarginContainer" type="MarginContainer" parent="SubViewport/MarginContainer"]
 layout_mode = 2
 tooltip_text = "K"
-theme_override_constants/margin_left = 715
-theme_override_constants/margin_top = 365
-theme_override_constants/margin_right = 715
-theme_override_constants/margin_bottom = 365
+theme_override_constants/margin_left = 725
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 725
+theme_override_constants/margin_bottom = 300
 
 [node name="Label" type="Label" parent="SubViewport/MarginContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.164706)
-theme_override_constants/shadow_offset_x = 9
-theme_override_constants/shadow_offset_y = 9
-theme_override_constants/shadow_outline_size = 33
+theme_override_constants/shadow_offset_x = 14
+theme_override_constants/shadow_offset_y = 18
 theme_override_fonts/font = ExtResource("3_rq1sc")
 theme_override_font_sizes/font_size = 240
-text = "Para evitar daño puedes probar a
-usart tu DASH con la tecla 
-espaciadora "
+text = "ESTO ES UNA PRUEBA PARA LAS
+TEXTBOX DEL JUEGO
+POR AHORA ESTAN BASTANTE BACANAS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextBox" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46639, -7.87504, 0)
-billboard = 1
+transform = Transform3D(11.9227, 0, 0, 0, 11.9227, 0, 0, 0, 11.9227, -57.1088, 11.8497, 0)
+material_override = SubResource("StandardMaterial3D_ui8g0")
 no_depth_test = true
+alpha_cut = 1
 texture = SubResource("ViewportTexture_p7q1j")
