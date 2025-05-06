@@ -12,7 +12,7 @@ uniform float speed1 = 5.0;
 uniform float amp2 = 0.125;
 uniform float freq2 = 9;
 uniform float speed2 = 1.46;
-uniform float corner_radius : hint_range(0.0, 0.5, 0.01) = 0.1; // Tamaño de las esquinas redondeadas
+uniform float corner_radius : hint_range(0.0, 0.5, 0.01) = 0.1;
 uniform sampler2D cols;
 uniform sampler2D base_offset;
 
@@ -37,17 +37,21 @@ void fragment() {
         h += c_off * coff_mul;
         h /= 2.0 * (amp1 + amp2) + offset_mul;
 
-        // Mantener forma cuadrada con norma L∞
-        float r_square = max(abs(UV.x - 0.5), abs(UV.y - 0.5)); // Forma cuadrada usando norma L∞
+        // Usamos solo distancia euclidiana para esquinas redondeadas
+        vec2 centered_uv = UV - vec2(0.5);
+        float r = length(centered_uv) * 2.0 / shrink;
+        
+        // Aplicamos el redondeado en todas las esquinas
+        vec2 abs_uv = abs(centered_uv);
+        float corner_dist = length(max(abs_uv - vec2(0.5 - corner_radius), vec2(0.0)));
+        
+        // Mezclamos entre la forma principal y las esquinas redondeadas
+        float final_r = min(r, corner_dist * (1.0/corner_radius));
 
-        // Aplicar redondeado solo en las esquinas
-        float r_corners = length(vec2(UV.x - 0.5, UV.y - 0.5)); // Distancia circular para esquinas
-        float r = mix(r_square, r_corners, step(1.0 - corner_radius, r_square)) * 2.0 / shrink;
-
-        if (r < h) {
-            COLOR = texture(cols, vec2(r / h));
+        if (final_r < h) {
+            COLOR = texture(cols, vec2(final_r / h));
         } else {
-            COLOR = vec4(0.0, 0.0, 0.0, 0.0);
+            discard; // Mejor que usar alpha=0 para performance
         }
     }
 }

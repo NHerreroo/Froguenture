@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvgcd73rhdb2l"]
+[gd_scene load_steps=18 format=3 uid="uid://dvgcd73rhdb2l"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_awjkb"]
 [ext_resource type="Texture2D" uid="uid://d2y55ouwxodk8" path="res://Sprites/Tavern/tambernFloor.png" id="2_hdc40"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://4o1obfsscw3o" path="res://Sprites/Vegetation/Misc/fishhang.png" id="8_kyhau"]
 [ext_resource type="Texture2D" uid="uid://iddo5cwvh4vp" path="res://Sprites/Vegetation/Misc/table.png" id="8_xyyfi"]
 [ext_resource type="PackedScene" uid="uid://bxaaw4xxr28sn" path="res://Scenes/Npcs/cat_npc.tscn" id="10_kyhau"]
+[ext_resource type="PackedScene" uid="uid://bjigme0clcsuv" path="res://Scenes/TextBox.tscn" id="11_biled"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -244,6 +245,9 @@ texture = ExtResource("8_xyyfi")
 
 [node name="CatNpc" parent="Vegetation" instance=ExtResource("10_kyhau")]
 transform = Transform3D(-1.26895e-08, -0.167605, 0.290301, -7.32629e-09, 0.290301, 0.167605, -0.335211, 9.06609e-23, -1.46526e-08, -0.258639, 0.618332, -0.11936)
+
+[node name="TextBoxSystem" parent="Vegetation/CatNpc" instance=ExtResource("11_biled")]
+transform = Transform3D(1, -7.10543e-15, -3.55271e-15, -3.35943e-16, 1, 2.15944e-21, 0, -2.32942e-22, 1, 1.90044, 14.6325, 0.128078)
 
 [node name="AltarSpawner" type="Node3D" parent="."]
 script = ExtResource("2_o78dr")
