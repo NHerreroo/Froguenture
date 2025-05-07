@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjigme0clcsuv"]
+[gd_scene load_steps=11 format=3 uid="uid://bjigme0clcsuv"]
 
 [ext_resource type="Shader" uid="uid://cxgmj36tjtjga" path="res://Shaders/waveShaders.gdshader" id="1_lgpka"]
+[ext_resource type="Script" uid="uid://drp365bj8jna" path="res://Scenes/text_box.gd" id="1_rq1sc"]
 [ext_resource type="Texture2D" uid="uid://dopg0evrsk70k" path="res://Sprites/icons/textbox.png" id="2_ui8g0"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_rq1sc"]
+[ext_resource type="AudioStream" uid="uid://b33pqbtbnblqr" path="res://Sounds/SFX/Textbox.wav" id="5_632vg"]
+[ext_resource type="AudioStream" uid="uid://cg5bayylb7rdo" path="res://Sounds/SFX/Accept.wav" id="6_eqrqp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ui8g0"]
 shader = ExtResource("1_lgpka")
@@ -48,15 +51,20 @@ viewport_path = NodePath("SubViewport")
 
 [node name="TextBoxSystem" type="Node3D"]
 transform = Transform3D(0.0610681, 0, 0, 0, 0.0610681, 0, 0, 0, 0.0610681, 0, 0, 0)
+script = ExtResource("1_rq1sc")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2962, 1832)
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport"]
 offset_left = 1081.0
 offset_top = 671.0
 offset_right = 2625.0
 offset_bottom = 1597.0
 scale = Vector2(0.442336, 0.442336)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="SubViewport/MarginContainer"]
 material = SubResource("ShaderMaterial_ui8g0")
 layout_mode = 2
 texture = ExtResource("2_ui8g0")
@@ -66,7 +74,7 @@ patch_margin_top = 31
 patch_margin_right = 36
 patch_margin_bottom = 31
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/MarginContainer"]
 layout_mode = 2
 tooltip_text = "K"
 theme_override_constants/margin_left = 725
@@ -74,7 +82,7 @@ theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 725
 theme_override_constants/margin_bottom = 300
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+[node name="Label" type="Label" parent="SubViewport/MarginContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.164706)
@@ -82,12 +90,9 @@ theme_override_constants/shadow_offset_x = 14
 theme_override_constants/shadow_offset_y = 18
 theme_override_fonts/font = ExtResource("3_rq1sc")
 theme_override_font_sizes/font_size = 240
+text = "HOAL"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-size = Vector2i(2962, 1832)
 
 [node name="TextBox" type="Sprite3D" parent="."]
 transform = Transform3D(11.9227, 0, 0, 0, 11.9227, 0, 0, 0, 11.9227, 0, 0, 0)
@@ -95,3 +100,9 @@ material_override = SubResource("StandardMaterial3D_ui8g0")
 no_depth_test = true
 alpha_cut = 1
 texture = SubResource("ViewportTexture_p7q1j")
+
+[node name="Speak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_632vg")
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_eqrqp")
