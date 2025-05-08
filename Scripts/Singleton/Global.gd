@@ -1,6 +1,11 @@
 extends Node
 
-var lvlCount = 16
+#TUTORIAL VARS
+var is_in_tutorial = true
+
+
+
+var lvlCount = 0
 
 var controller_active = false #el nombre lo dice todo AJAJA
 var is_game_paused = false 
@@ -8,8 +13,8 @@ var card_focused = false
 
 # posiciones del jugador real en la matrz del mapa, esta ira cambiando mientras pase por las puertas
 # se utiliza para ver la posicion y generar la habitacion empieza en 25 por que el mapa siempre es de 50, el 25 indica el centro siempre empieza ahi
-var playerMapPositionX = 25
-var playerMapPositionY = 25
+var playerMapPositionX 
+var playerMapPositionY
 var actRoomChar
 
 #bool para saber si se ha generado el mapa y no volver a generar hasta q se pase el boss

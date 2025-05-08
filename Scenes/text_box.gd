@@ -7,7 +7,7 @@ var current_line := 0
 var char_index := 0
 var is_typing := false
 
-var typing_speed := 0.03  # Velocidad entre letras (en segundos)
+var typing_speed := 0.03
 
 var typing_timer: Timer
 
@@ -30,7 +30,6 @@ func start_dialog(path: String) -> void:
 		file.close()
 		show_next_line()
 	else:
-		push_error("No se pudo abrir el archivo: %s" % path)
 		queue_free()
 
 func show_next_line():

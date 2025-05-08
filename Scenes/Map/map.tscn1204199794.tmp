@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://dre10dkwxryfy"]
+
+[ext_resource type="Script" uid="uid://jxjokaih0hys" path="res://Scripts/MapGeneration/map_generator.gd" id="1_1ym53"]
+[ext_resource type="Script" uid="uid://bsxhkr0c4xdii" path="res://Scripts/MapGeneration/map.gd" id="1_345j5"]
+[ext_resource type="PackedScene" uid="uid://bv8dx1tpasadh" path="res://Scenes/Map/pointer.tscn" id="3_185ku"]
+[ext_resource type="Shader" uid="uid://ce4108au11ujg" path="res://Shaders/mapBackground.gdshader" id="4_1sbwm"]
+
+[sub_resource type="Gradient" id="Gradient_pvgv4"]
+offsets = PackedFloat32Array(0, 0.577922, 0.727273, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.472082, 0, 0, 0, 0.423529, 0, 0, 0, 0.678431)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pvudi"]
+gradient = SubResource("Gradient_pvgv4")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.509174, 0.495413)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3fx58"]
+shader = ExtResource("4_1sbwm")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 4.91
+shader_parameter/spin_speed = 3.16
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.161501, 0.153655, 0.144592, 1)
+shader_parameter/colour_2 = Color(0.359974, 0.44825, 0.301182, 1)
+shader_parameter/colour_3 = Color(0, 0, 0, 1)
+shader_parameter/contrast = -0.57
+shader_parameter/spin_amount = 0.36
+shader_parameter/pixel_filter = 5000.0
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_345j5")
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("1_1ym53")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Lines" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Rooms" type="Node2D" parent="Visuals"]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(959, 777)
+scale = Vector2(0.142629, 0.18672)
+zoom = Vector2(1.8, 1.8)
+
+[node name="Pointer" parent="Camera2D" instance=ExtResource("3_185ku")]
+scale = Vector2(7.0112, 5.35561)
+
+[node name="MapBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="TextureRect" parent="MapBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_pvudi")
+
+[node name="ColorRectBG" type="ColorRect" parent="MapBackground"]
+modulate = Color(0.683077, 0.683077, 0.683077, 0.784314)
+z_index = -1
+material = SubResource("ShaderMaterial_3fx58")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

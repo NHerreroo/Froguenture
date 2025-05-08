@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=3 uid="uid://pbkgy1k2ckyh"]
+
+[ext_resource type="Script" uid="uid://cc14pvcnbfny2" path="res://Scripts/Enemies/obstacle.gd" id="1_sbk0i"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_cihyr"]
+[ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/Rocks/stone2.png" id="3_n3vq3"]
+
+[sub_resource type="Resource" id="Resource_n3vq3"]
+script = ExtResource("2_cihyr")
+health = 10.0
+attack = 0.0
+speed = 0.0
+accel = 0.0
+knockback_duration = 0.0
+knockback_timer = 0.0
+metadata/_custom_type_script = "uid://cal3n5r6347g2"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
+size = Vector3(1.13232, 0.772949, 2.28841)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+size = Vector3(5.15087, 3.1073, 2.02722)
+
+[sub_resource type="Animation" id="Animation_aupjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.533082, 0.533082, 0.533082)]
+}
+
+[sub_resource type="Animation" id="Animation_cunt7"]
+resource_name = "attack"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.500522, 0.623643, 0.490184)]
+}
+
+[sub_resource type="Animation" id="Animation_mr116"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.533082, 0.449251, 0.484542), Vector3(0.533082, 0.486648, 0.524394)]
+}
+
+[sub_resource type="Animation" id="Animation_xow73"]
+resource_name = "prepare"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.533082, 0.449251, 0.484542), Vector3(0.533082, 0.426328, 0.4838), Vector3(0.533082, 0.349481, 0.481185)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
+_data = {
+&"RESET": SubResource("Animation_aupjf"),
+&"attack": SubResource("Animation_cunt7"),
+&"idle": SubResource("Animation_mr116"),
+&"prepare": SubResource("Animation_xow73")
+}
+
+[node name="EnemyTemplate" type="CharacterBody3D"]
+collision_layer = 7
+collision_mask = 3
+script = ExtResource("1_sbk0i")
+enemy_src = SubResource("Resource_n3vq3")
+
+[node name="Body" type="Sprite3D" parent="."]
+transform = Transform3D(-1.25375e-08, -0.280262, 0.453464, -1.74166e-08, 0.453464, 0.280262, -0.533082, -8.22392e-09, -1.98215e-08, -0.312546, 0.884269, -0.134039)
+alpha_cut = 1
+texture = ExtResource("3_n3vq3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144366, 0.63139, -0.188829)
+shape = SubResource("BoxShape3D_llsaf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+
+[node name="MeshInstance3D" type="Node3D" parent="."]
+transform = Transform3D(-1.20452e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02256e-09, -1.04314e-08, 0, 0.309002, 0)
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.99998, -2.13389e-08, -3.92718e-09, 1.67984e-08, 0.880849, -0.508558, 1.40715e-08, 0.499998, 0.866016, 0.214272, 1.01552, 0.951618)
+shape = SubResource("BoxShape3D_6cego")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xu1it")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.817823, 0)
+omni_range = 3.89871
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]

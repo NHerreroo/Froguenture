@@ -23,6 +23,15 @@ var treasureRoom = preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
 
 var tavern1 = preload("res://Scenes/Rooms/Taverns/Tavern1.tscn")
 
+#TUTORIAL ROOMS 
+var initRoom_t = preload("res://Scenes/Tutorial/InitRoom-T.tscn")
+var room2_t = preload("res://Scenes/Tutorial/room2-T.tscn")
+var room3_t = preload("res://Scenes/Tutorial/room3-T.tscn")
+var room4_t = preload("res://Scenes/Tutorial/room4-T.tscn")
+var room5_t = preload("res://Scenes/Tutorial/room5-T.tscn")
+var room6_t = preload("res://Scenes/Tutorial/room6-T.tscn")
+
+
 # Constates Char para las salas
 var ROOM = ''
 const SHOP = '$'
@@ -41,24 +50,39 @@ func defaultRoomGen():
 	ROOM = str(randRoom)
 
 func map_generator(map_size: int, steps: int) -> void:
-	
 	set_global_stats()
-		
-	Global.map = []  # Crear la matriz del mapa
 
-	# Creo la matriz con espacios vacíos
+	if Global.is_in_tutorial:
+		Global.playerMapPositionX = 2
+		Global.playerMapPositionY = 2
+		var walker_pos_x = 2
+		var walker_pos_y = 2
+		Global.map = [
+			[EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+			[EMPTY, EMPTY,  "2",  "3",  "4", "5", "6", EMPTY, EMPTY],
+			[EMPTY, EMPTY, FIRST_ROOM, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+			[EMPTY, EMPTY,  EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+			[EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+		]
+		Global.isMapGenerated = true
+		print_map(Global.map)
+		return  # Salir para no ejecutar la generación aleatoria
+
+#se genrea el mapa si no esta en el tutoril
+	Global.map = [] 
 	for i in range(map_size):
-		Global.map.append([])  # Crear una nueva fila
+		Global.map.append([])
 		for j in range(map_size):
-			Global.map[i].append(EMPTY)  # Llenar la fila con espacios vacíos
+			Global.map[i].append(EMPTY)
 
-	var walker_pos_x = map_size / 2  # Posición inicial del walker en el centro
+	var walker_pos_x = map_size / 2
 	var walker_pos_y = map_size / 2
+	Global.playerMapPositionX = 25
+	Global.playerMapPositionY = 25
 
 	var shop_room = randi_range(1, steps - 2)
 	var treasure_room = randi_range(1, steps - 2)
 
-	# El centro de la matriz se marca con el @ para la sala inicial
 	Global.map[walker_pos_x][walker_pos_y] = FIRST_ROOM
 
 	var step_count = 1
@@ -71,16 +95,17 @@ func map_generator(map_size: int, steps: int) -> void:
 		match direction:
 			0:
 				if walker_pos_x > 0:
-					new_pos_x -= 1  # Izquierda
+					new_pos_x -= 1
 			1:
 				if walker_pos_x < map_size - 1:
-					new_pos_x += 1  # Derecha
+					new_pos_x += 1
 			2:
 				if walker_pos_y > 0:
-					new_pos_y -= 1  # Arriba
+					new_pos_y -= 1
 			3:
 				if walker_pos_y < map_size - 1:
-					new_pos_y += 1  # Abajo
+					new_pos_y += 1
+
 		if Global.map[new_pos_x][new_pos_y] == EMPTY:
 			walker_pos_x = new_pos_x
 			walker_pos_y = new_pos_y
@@ -94,10 +119,12 @@ func map_generator(map_size: int, steps: int) -> void:
 			else:
 				defaultRoomGen()
 				Global.map[walker_pos_x][walker_pos_y] = ROOM
-				
+
 			step_count += 1
+
 	print_map(Global.map)
 	Global.isMapGenerated = true
+
 
 # Print de la matriz
 func print_map(map: Array) -> void:
@@ -156,7 +183,10 @@ func instanceRoom():
 	var y = Global.playerMapPositionY
 
 	if Global.map[x][y] == '@':
-		currentRoom = initRoom.instantiate()
+		if Global.is_in_tutorial:
+			currentRoom = initRoom_t.instantiate()
+		else:
+			currentRoom = initRoom.instantiate()
 	elif Global.map[x][y] == 'X':
 		currentRoom = finalRoom.instantiate()
 	elif Global.map[x][y] == '$':
@@ -164,8 +194,12 @@ func instanceRoom():
 	elif Global.map[x][y] == '#':
 		currentRoom = treasureRoom.instantiate() #ESTO ES PROVISIONL CAMBIAR POR LA QUE SEA DE ESE TIPO
 	else:
-		var room_scene = load("res://Scenes/Rooms/PreBuildedRooms/room" + str(Global.map[x][y]) +".tscn")
-		currentRoom = room_scene.instantiate()
+		if Global.is_in_tutorial:
+			var room_scene = load("res://Scenes/Tutorial/room" + str(Global.map[x][y]) +"-T.tscn")
+			currentRoom = room_scene.instantiate()
+		else:
+			var room_scene = load("res://Scenes/Rooms/PreBuildedRooms/room" + str(Global.map[x][y]) +".tscn")
+			currentRoom = room_scene.instantiate()
 
 	currentRoom.position = Vector3(0, 0, 0)
 	add_child(currentRoom)
@@ -194,7 +228,10 @@ func updateLevel():
 func _ready():
 	Global.eraseLevel = false
 	if Global.isMapGenerated == false:
-		map_generator(50, 8)
+		if Global.is_in_tutorial:
+			map_generator(20, 20)
+		else:
+			map_generator(50, 8)
 
 	generate_doors(Global.map)
 	print_actual_pos(Global.map, Global.playerMapPositionX, Global.playerMapPositionY)
