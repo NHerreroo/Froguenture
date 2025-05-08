@@ -4,6 +4,8 @@ extends Node
 var is_in_tutorial = true
 
 
+var dialog_ended := true
+
 
 var lvlCount = 0
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkgi3ojl4rysj"]
+[gd_scene load_steps=12 format=3 uid="uid://dkgi3ojl4rysj"]
 
 [ext_resource type="Script" uid="uid://cjy1237df63v8" path="res://Scripts/Doors/BottomDoor.gd" id="1_8o63y"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_jn3d0"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_veqxk"]
+[ext_resource type="Texture2D" uid="uid://djgao4g566liv" path="res://Sprites/line.png" id="4_qcfhw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5e2nr"]
 size = Vector3(2, 2, 1.28438)
@@ -106,5 +107,10 @@ texture = ExtResource("3_veqxk")
 libraries = {
 &"": SubResource("AnimationLibrary_xv473")
 }
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-5.47845e-08, -0.838856, -3.66675e-08, 2.73922e-08, -3.66676e-08, 0.838856, -0.626661, 7.33351e-08, 3.66676e-08, 2.24214e-07, -0.137379, 5.12941)
+alpha_cut = 1
+texture = ExtResource("4_qcfhw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

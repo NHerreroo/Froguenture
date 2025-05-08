@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckgdrbpg81eaq"]
+[gd_scene load_steps=19 format=3 uid="uid://ckgdrbpg81eaq"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_u8j0y"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_6sprg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bu8l0xw6lysdb" path="res://Scenes/Enviroment/wall.tscn" id="8_rwrwa"]
 [ext_resource type="PackedScene" uid="uid://7ujjmb0lt1o8" path="res://Scenes/Enviroment/grass1.tscn" id="10_fw3k1"]
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="11_0u3gk"]
+[ext_resource type="PackedScene" uid="uid://uk0vr6wsyiad" path="res://Scenes/Tutorial/TutoNpc.tscn" id="12_baynt"]
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="12_d8mdf"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="13_l7y2u"]
 
@@ -353,3 +354,6 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 
 [node name="Tree26" parent="Vegetation" instance=ExtResource("12_d8mdf")]
 transform = Transform3D(-9.6568e-08, -1.10461, 1.91324, 0, 1.91324, 1.10461, -2.20922, 4.8284e-08, -8.36305e-08, -19.0029, 11.7266, -2.12162)
+
+[node name="TutoNpc" parent="." instance=ExtResource("12_baynt")]
+transform = Transform3D(-2.79686e-08, 0, 0.639848, 0, 0.639848, 0, -0.639848, 0, -2.79686e-08, -1.45081, 0.0320525, 1.17168)

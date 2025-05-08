@@ -19,27 +19,45 @@ func _ready():
 	typing_timer.timeout.connect(_on_typing_timer_timeout)
 
 func start_dialog(path: String) -> void:
-	lines.clear()
-	current_line = 0
-	char_index = 0
+	if Global.dialog_ended == true:
+		self.visible = true
+		Global.dialog_ended = false
+		lines.clear()
+		current_line = 0
+		char_index = 0
 
-	var file := FileAccess.open(path, FileAccess.READ)
-	if file:
-		while not file.eof_reached():
-			lines.append(file.get_line())
-		file.close()
-		show_next_line()
-	else:
-		queue_free()
+		var file := FileAccess.open(path, FileAccess.READ)
+		if file:
+			while not file.eof_reached():
+				var line = file.get_line()
+				line = line.replace("\\n", "\n")
+				lines.append(line)
+			file.close()
+
+			# Elimina la última línea si está vacía (muy común en .txt)
+			if lines.size() > 0 and lines[-1].strip_edges() == "":
+				lines.pop_back()
+
+			# Si después de limpiar no hay nada, oculta el diálogo
+			if lines.is_empty():
+				self.visible = false
+				Global.dialog_ended = true
+				return
+
+			show_next_line()
+		else:
+			self.visible = true
+
 
 func show_next_line():
+	if current_line == lines.size():
+		self.visible = false
+		Global.dialog_ended = true
 	if current_line < lines.size():
 		label.text = ""
 		char_index = 0
 		is_typing = true
 		typing_timer.start()
-	else:
-		queue_free()
 
 func _on_typing_timer_timeout():
 	if current_line >= lines.size():
