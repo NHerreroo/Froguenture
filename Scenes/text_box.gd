@@ -20,6 +20,7 @@ func _ready():
 
 func start_dialog(path: String) -> void:
 	if Global.dialog_ended == true:
+		Global.can_walk = false
 		self.visible = true
 		Global.dialog_ended = false
 		lines.clear()
@@ -43,6 +44,7 @@ func start_dialog(path: String) -> void:
 				self.visible = false
 				await get_tree().create_timer(2).timeout
 				Global.dialog_ended = true
+				Global.can_walk = false
 				queue_free()
 				return
 
@@ -50,12 +52,12 @@ func start_dialog(path: String) -> void:
 		else:
 			self.visible = true
 
-
 func show_next_line():
 	if current_line == lines.size():
 		self.visible = false
 		await get_tree().create_timer(0.5).timeout
 		Global.dialog_ended = true
+		Global.can_walk = true
 		queue_free()
 	if current_line < lines.size():
 		label.text = ""

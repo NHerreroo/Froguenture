@@ -2,9 +2,9 @@ extends Camera3D
 
 var player = null  # Referencia al nodo del jugador
 
-var start_positionX = 7
-var start_positionY = 8
-var start_positionZ = 0
+var start_positionX = 7.0
+var start_positionY = 8.0
+var start_positionZ = 0.0
 
 var followPlayer = false
 
@@ -25,17 +25,25 @@ func _ready():
 	followPlayer = true
 
 func _process(delta):
-	
 	if Global.eraseLevel == true:
 		self.queue_free()
-	move_camera_to_player()
+
+	if Global.dialog_ended:
+		move_camera_to_player()
+	else:
+		move_camera_to_initial()
+
 
 		
 func move_camera_to_player(): #mueve la cam al player con un Linera interpolation(sauvizado)
 	if followPlayer == true:
 		self.position.z = lerp(self.position.z, player.position.z, 0.05)  # Lerp para el eje Z
 		self.position.x = lerp(self.position.x, player.position.x + start_positionX, 0.05)  # Lerp para el eje X
-
+		self.position.y = lerp(self.position.y, start_positionY - 1, 0.03)
+func move_camera_to_initial():
+	self.position.z = lerp(self.position.z, start_positionZ, 0.03)
+	self.position.x = lerp(self.position.x, start_positionX, 0.03)
+	self.position.y = lerp(self.position.y, start_positionY, 0.03)
 
 
 
