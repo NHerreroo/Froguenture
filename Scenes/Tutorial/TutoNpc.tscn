@@ -28,6 +28,7 @@ shape = SubResource("CylinderShape3D_ut5jh")
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(0.356063, 0, 0, 0, 0.30836, 0.178032, 0, -0.178032, 0.30836, -0.194679, 3.17853, -1.12613)
 billboard = 1
+outline_modulate = Color(1, 1, 1, 0)
 text = "[E]"
 font_size = 827
 

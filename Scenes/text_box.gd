@@ -41,7 +41,9 @@ func start_dialog(path: String) -> void:
 			# Si después de limpiar no hay nada, oculta el diálogo
 			if lines.is_empty():
 				self.visible = false
+				await get_tree().create_timer(2).timeout
 				Global.dialog_ended = true
+				queue_free()
 				return
 
 			show_next_line()
@@ -52,7 +54,9 @@ func start_dialog(path: String) -> void:
 func show_next_line():
 	if current_line == lines.size():
 		self.visible = false
+		await get_tree().create_timer(0.5).timeout
 		Global.dialog_ended = true
+		queue_free()
 	if current_line < lines.size():
 		label.text = ""
 		char_index = 0
