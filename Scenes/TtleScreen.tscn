@@ -1,17 +1,17 @@
 [gd_scene load_steps=20 format=3 uid="uid://66cbs0n1ub8"]
 
-[ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="1_3qh5k"]
-[ext_resource type="Script" uid="uid://duy7cforghd4i" path="res://Scripts/tile_screen.gd" id="1_dh5jj"]
-[ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="1_s14wi"]
-[ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="2_yxnym"]
-[ext_resource type="Texture2D" uid="uid://dgqy5dx06y0kd" path="res://Sprites/Vegetation/Trees/bush.png" id="3_85l5a"]
-[ext_resource type="Texture2D" uid="uid://cs4m4msh6cdd7" path="res://Sprites/Vegetation/Trees/Tree1.png" id="3_lqrl7"]
-[ext_resource type="Texture2D" uid="uid://cibo125j8cc43" path="res://Sprites/Vegetation/Trees/bush2.png" id="4_0y5ux"]
-[ext_resource type="Texture2D" uid="uid://bb4c8b72inihs" path="res://Sprites/Vegetation/Trees/Tree3Background.png" id="5_85l5a"]
-[ext_resource type="PackedScene" uid="uid://7ujjmb0lt1o8" path="res://Scenes/Enviroment/grass1.tscn" id="8_imu2k"]
-[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="10_cuicn"]
-[ext_resource type="Texture2D" uid="uid://drukflp2a8wdw" path="res://Sprites/text-1742574767511-_2_ (1).png" id="10_dh5jj"]
-[ext_resource type="Script" uid="uid://tivs3np7qswg" path="res://Scripts/cameraTitleScreen.gd" id="11_cuicn"]
+[ext_resource type="Script" uid="uid://duy7cforghd4i" path="res://Scripts/tile_screen.gd" id="1_nklds"]
+[ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="2_7csxt"]
+[ext_resource type="Texture2D" uid="uid://dgqy5dx06y0kd" path="res://Sprites/Vegetation/Trees/bush.png" id="3_4a0gr"]
+[ext_resource type="Texture2D" uid="uid://cibo125j8cc43" path="res://Sprites/Vegetation/Trees/bush2.png" id="4_qfu61"]
+[ext_resource type="Texture2D" uid="uid://bb4c8b72inihs" path="res://Sprites/Vegetation/Trees/Tree3Background.png" id="5_0j85a"]
+[ext_resource type="Texture2D" uid="uid://cs4m4msh6cdd7" path="res://Sprites/Vegetation/Trees/Tree1.png" id="6_vobo1"]
+[ext_resource type="Texture2D" uid="uid://btgyxqlwg5km6" path="res://Sprites/Vegetation/Trees/tree2.png" id="7_hk5lf"]
+[ext_resource type="PackedScene" uid="uid://7ujjmb0lt1o8" path="res://Scenes/Enviroment/grass1.tscn" id="8_bxifi"]
+[ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="9_hxdt8"]
+[ext_resource type="Script" uid="uid://tivs3np7qswg" path="res://Scripts/cameraTitleScreen.gd" id="10_t22tq"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="11_yii4h"]
+[ext_resource type="Texture2D" uid="uid://drukflp2a8wdw" path="res://Sprites/text-1742574767511-_2_ (1).png" id="12_u3pti"]
 
 [sub_resource type="Environment" id="Environment_0y5ux"]
 background_mode = 1
@@ -88,7 +88,7 @@ fill = 1
 fill_from = Vector2(0.509174, 0.495413)
 
 [node name="TitleScreen" type="Node3D"]
-script = ExtResource("1_dh5jj")
+script = ExtResource("1_nklds")
 
 [node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0y5ux")
@@ -101,15 +101,15 @@ directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
 
-[node name="AmbientFog" parent="WorldEnvironment2" instance=ExtResource("1_s14wi")]
+[node name="AmbientFog" parent="WorldEnvironment2" instance=ExtResource("2_7csxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 0.666284, 12.3753)
 size = Vector3(20.184, 3.56738, 7.23792)
 
-[node name="AmbientFog3" parent="WorldEnvironment2" instance=ExtResource("1_s14wi")]
+[node name="AmbientFog3" parent="WorldEnvironment2" instance=ExtResource("2_7csxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 0.666284, -12.1718)
 size = Vector3(20.184, 3.56738, 7.23792)
 
-[node name="AmbientFog4" parent="WorldEnvironment2" instance=ExtResource("1_s14wi")]
+[node name="AmbientFog4" parent="WorldEnvironment2" instance=ExtResource("2_7csxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.47569, 0.469404, 0.0329285)
 size = Vector3(7.0752, 3.56738, 17.5648)
 
@@ -119,228 +119,228 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.216684)
 [node name="2" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.48486e-08, 0, -0.797243, -0.297052, 0.739835, 1.29846e-08, 0.739835, 0.297052, -3.23392e-08, -8.40195, 1.73953, -2.80197)
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="6" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.48486e-08, 1.31421e-15, -0.797243, 0.112663, 0.789242, -4.92466e-09, 0.789242, -0.112663, -3.44989e-08, -8.58232, 1.17674, -0.670271)
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="7" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.48486e-08, 1.31421e-15, -0.797243, 0.112663, 0.789242, -4.92466e-09, 0.789242, -0.112663, -3.44989e-08, -8.62624, 1.17674, 2.17696)
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="8" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.56789e-08, 0, -0.816238, -0.767886, 0.276759, 3.35654e-08, 0.276759, 0.767886, -1.20975e-08, -6.90578, 3.55161, -4.62739)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="10" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.56789e-08, 0, -0.816238, -0.767886, 0.276759, 3.35654e-08, 0.276759, 0.767886, -1.20975e-08, -4.85003, 2.65221, -4.62739)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="16" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.56789e-08, -9.83245e-16, -0.816238, -0.526629, 0.623623, 2.30197e-08, 0.623623, 0.526629, -2.72594e-08, -2.69975, 2.00714, -5.12818)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="19" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.56789e-08, -2.09102e-15, -0.816238, -0.290278, 0.762878, 1.26885e-08, 0.762878, 0.290278, -3.33465e-08, 0.910174, 1.87044, -3.58784)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="20" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.56789e-08, -1.05975e-15, -0.816238, 0.369459, 0.727835, -1.61496e-08, 0.727835, -0.369459, -3.18147e-08, 0.910174, 1.53061, 3.94471)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="11" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.56789e-08, -9.83245e-16, -0.816238, -0.347279, 0.738675, 1.51801e-08, 0.738675, 0.347279, -3.22885e-08, -6.25206, 1.74845, -4.01824)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="4" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.21086e-08, 0, -0.73456, -0.273696, 0.681666, 1.19636e-08, 0.681666, 0.273696, -2.97966e-08, -7.6448, 2.13365, -3.04098)
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="12" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.21086e-08, 0, -0.73456, -0.0879422, 0.729276, 3.84408e-09, 0.729276, 0.0879422, -3.18777e-08, -6.83297, 5.05225, -4.17455)
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="13" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.21086e-08, 0, -0.73456, -0.0879422, 0.729276, 3.84408e-09, 0.729276, 0.0879422, -3.18777e-08, -4.83499, 6.37676, -4.54742)
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="14" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.21086e-08, -1.16277e-16, -0.73456, -0.130041, 0.722957, 5.6843e-09, 0.722957, 0.130041, -3.16015e-08, -3.97865, 6.90546, -2.64088)
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="18" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-4.09981e-08, -1.32828e-15, -0.937926, -0.399305, 0.848681, 1.74542e-08, 0.848681, 0.399305, -3.70971e-08, -1.97671, 8.6947, -1.51864)
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="5" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-2.63308e-08, -3.10145e-16, -0.73456, -0.0245002, 0.728576, 1.30593e-09, 0.601881, 0.0296574, -3.20821e-08, -6.06846, 4.05784, -5.57311)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="15" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.38291e-08, -3.98466e-16, -0.943743, -0.0314772, 0.936054, 1.67783e-09, 0.77328, 0.0381031, -4.12182e-08, -1.86307, 4.30004, -4.57393)
 alpha_cut = 1
-texture = ExtResource("3_lqrl7")
+texture = ExtResource("6_vobo1")
 
 [node name="23" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.38291e-08, -3.98466e-16, -0.943743, -0.0314772, 0.936054, 1.67783e-09, 0.77328, 0.0381031, -4.12182e-08, 1.76324, 4.30004, -3.18953)
 alpha_cut = 1
-texture = ExtResource("3_lqrl7")
+texture = ExtResource("6_vobo1")
 
 [node name="24" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.38291e-08, -3.98466e-16, -0.943743, -0.0314772, 0.936054, 1.67783e-09, 0.77328, 0.0381031, -4.12182e-08, 2.18601, 4.30004, 4.65841)
 alpha_cut = 1
-texture = ExtResource("3_lqrl7")
+texture = ExtResource("6_vobo1")
 
 [node name="21" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-4.40003e-08, -5.18269e-16, -1.22749, -0.0409411, 1.21749, 2.18229e-09, 1.00578, 0.0495592, -5.36109e-08, -2.41753, 5.23872, -8.38906)
 alpha_cut = 1
-texture = ExtResource("2_yxnym")
+texture = ExtResource("7_hk5lf")
 
 [node name="22" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-4.40003e-08, -5.18269e-16, -1.22749, -0.0409411, 1.21749, 2.18229e-09, 1.00578, 0.0495592, -5.36109e-08, -1.86307, 5.23872, 8.90448)
 alpha_cut = 1
-texture = ExtResource("2_yxnym")
+texture = ExtResource("7_hk5lf")
 
 [node name="9" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-2.56206e-08, -5.15647e-16, -0.73456, -0.0238394, 1.21133, 1.30593e-09, 0.585647, 0.0493085, -3.20821e-08, -3.33955, 4.05784, -5.11736)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="17" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-2.56206e-08, -5.15647e-16, -0.73456, -0.0238394, 1.21133, 1.30593e-09, 0.585647, 0.0493085, -3.20821e-08, 0.317773, 4.41767, -3.94774)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="25" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 12.0962, 4.41767, -1.63748)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="26" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 9.75239, 4.41767, 5.54483)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="27" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 9.75239, 4.41767, 5.54483)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="28" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 9.75239, 4.41767, -6.288)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="29" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 23.1771, 4.41767, 6.19741)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="30" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 4.98127, 4.41767, 9.34084)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="31" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 4.98127, 4.41767, -6.6106)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="32" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-6.76893e-08, -1.36233e-15, -1.9407, -0.0629833, 3.20032, 3.45025e-09, 1.54727, 0.130272, -8.47604e-08, 4.98127, 4.41767, -6.6106)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="33" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 6.70319, 4.41767, -2.38703)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="34" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 8.19903, 4.41767, 2.85534)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="35" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 5.02259, 4.41767, 2.98788)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="36" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 5.02259, 4.41767, -8.80892)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="37" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 2.74627, 4.41767, -1.4923)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="38" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 2.74627, 4.41767, 4.26504)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="39" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(-3.46488e-08, -1.3338e-15, -1.9407, -0.03224, 3.13328, 3.45025e-09, 0.792018, 0.127544, -8.47604e-08, 4.02358, 4.41767, -0.700962)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
-[node name="Grass1" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass1" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -3.99376, 1.07094, -4.02261)
 
-[node name="Grass2" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass2" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -0.11842, 1.07094, -4.02261)
 
-[node name="Grass3" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass3" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 2.32107, 1.07094, -1.76357)
 
-[node name="Grass4" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass4" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 2.32107, 1.07094, 3.15779)
 
-[node name="Grass5" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass5" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -0.429733, 1.19644, 4.49244)
 
-[node name="Grass6" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass6" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -0.429733, 1.19644, 6.50106)
 
-[node name="Grass7" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass7" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -5.28382, 1.19644, 4.39963)
 
-[node name="Grass8" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass8" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -3.5942, 1.19644, 5.95166)
 
-[node name="Grass9" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass9" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, -6.69789, 1.19644, -2.8121)
 
-[node name="Grass10" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass10" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 3.79864, 1.19644, -0.136901)
 
-[node name="Grass11" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass11" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-2.86115e-08, 1.06586e-15, -0.366918, 8.01922e-09, 0.366918, 6.08116e-16, 0.366917, -8.01923e-09, 1.43057e-08, 3.79864, 1.19644, 2.93351)
 
-[node name="Grass12" parent="Node3D" instance=ExtResource("8_imu2k")]
+[node name="Grass12" parent="Node3D" instance=ExtResource("8_bxifi")]
 transform = Transform3D(-1.83255e-08, 6.82678e-16, -0.235009, 5.13627e-09, 0.235009, 3.89495e-16, 0.235009, -5.13627e-09, 9.16275e-09, -6.5897, 0.731695, 2.73261)
 
 [node name="Node3D2" type="Node3D" parent="."]
@@ -349,95 +349,95 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.9762)
 [node name="2" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.48486e-08, 1.31421e-15, -0.797243, 0.313095, 0.73319, -1.36858e-08, 0.73319, -0.313095, -3.20488e-08, -8.40195, 1.95658, -6.31263)
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="8" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-4.27663e-08, -5.43156e-15, -0.978379, 0.646308, 0.734513, -2.8251e-08, 0.734513, -0.646308, -3.21066e-08, -7.08222, 3.47216, -5.13199)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="10" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.56789e-08, -9.83245e-16, -0.816238, 0.466072, 0.67009, -2.03727e-08, 0.67009, -0.466072, -2.92906e-08, -4.79694, 2.82725, -5.52735)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="16" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.56789e-08, -4.30658e-15, -0.816238, 0.0685849, 0.813351, -2.99794e-09, 0.813351, -0.0685849, -3.55527e-08, -2.69975, 1.6063, -5.5657)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="11" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.56789e-08, 3.28906e-16, -0.816238, 0.0730555, 0.812962, -3.19336e-09, 0.812962, -0.0730555, -3.55357e-08, -6.25206, 1.74845, -6.81774)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="4" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.21086e-08, -2.65492e-15, -0.73456, 0.310729, 0.665602, -1.35824e-08, 0.665602, -0.310729, -2.90944e-08, -7.77047, 2.30968, -6.69835)
 alpha_cut = 1
-texture = ExtResource("3_85l5a")
+texture = ExtResource("3_4a0gr")
 
 [node name="12" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.21086e-08, 0, -0.73456, -0.0879422, 0.729276, 3.84408e-09, 0.729276, 0.0879422, -3.18777e-08, -6.83297, 4.81407, -5.41696)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="13" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.21086e-08, 0, -0.73456, -0.0879422, 0.729276, 3.84408e-09, 0.729276, 0.0879422, -3.18777e-08, -4.83499, 6.37676, -5.369)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="14" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.21086e-08, 3.45723e-16, -0.73456, 0.139959, 0.721103, -6.11781e-09, 0.721103, -0.139959, -3.15204e-08, -4.16966, 7.18742, -6.90676)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="18" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-4.09981e-08, -2.83584e-15, -0.937926, 0.0785325, 0.934632, -3.43276e-09, 0.934632, -0.0785325, -4.08541e-08, -1.89496, 8.6947, -8.21838)
 flip_h = true
 alpha_cut = 1
-texture = ExtResource("4_0y5ux")
+texture = ExtResource("4_qfu61")
 
 [node name="5" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-2.63308e-08, -3.10145e-16, -0.73456, -0.0245002, 0.728576, 1.30593e-09, 0.601881, 0.0296574, -3.20821e-08, -6.06846, 4.05784, -3.6911)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="15" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-3.38291e-08, -3.98466e-16, -0.943743, -0.0314772, 0.936054, 1.67783e-09, 0.77328, 0.0381031, -4.12182e-08, -1.86307, 4.30004, -4.57393)
 alpha_cut = 1
-texture = ExtResource("3_lqrl7")
+texture = ExtResource("6_vobo1")
 
 [node name="9" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-2.56206e-08, -5.15647e-16, -0.73456, -0.0238394, 1.21133, 1.30593e-09, 0.585647, 0.0493085, -3.20821e-08, -3.33955, 4.05784, -3.94234)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="17" type="Sprite3D" parent="Node3D2"]
 transform = Transform3D(-2.53594e-08, -6.44803e-16, -0.73456, -0.0235963, 1.51474, 1.30593e-09, 0.579676, 0.0616589, -3.20821e-08, 0.317773, 6.34544, -4.75018)
 alpha_cut = 1
-texture = ExtResource("5_85l5a")
+texture = ExtResource("5_0j85a")
 
 [node name="Floor" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -8.38495e-08, 1, 0, -1.91825, -4.37114e-08, 0, 0, 0)
-texture = ExtResource("1_3qh5k")
+texture = ExtResource("9_hxdt8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.3622e-08, -0.0639227, -0.997955, -2.79415e-09, 0.997955, -0.0639227, 1, 0, -4.37114e-08, -11.3873, 2.45074, 0.499609)
 size = 0.206
 near = 0.092
-script = ExtResource("11_cuicn")
+script = ExtResource("10_t22tq")
 
 [node name="1" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 3.46428, -21.2666)
 alpha_cut = 1
-texture = ExtResource("2_yxnym")
+texture = ExtResource("7_hk5lf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -460,7 +460,7 @@ offset_top = 560.0
 offset_right = 1345.0
 offset_bottom = 645.0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
 text = "New Game
 "
@@ -472,7 +472,7 @@ offset_top = 675.0
 offset_right = 1345.0
 offset_bottom = 760.0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
 text = "Continue
 "
@@ -484,7 +484,7 @@ offset_top = 781.0
 offset_right = 1345.0
 offset_bottom = 866.0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
 text = "Options"
 flat = true
@@ -495,7 +495,7 @@ offset_top = 889.0
 offset_right = 1345.0
 offset_bottom = 974.0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("10_cuicn")
+theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
 text = "Exit"
 flat = true
@@ -503,7 +503,7 @@ flat = true
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(988, 347)
 scale = Vector2(0.652505, 0.652505)
-texture = ExtResource("10_dh5jj")
+texture = ExtResource("12_u3pti")
 
 [connection signal="pressed" from="NewGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_button_pressed"]

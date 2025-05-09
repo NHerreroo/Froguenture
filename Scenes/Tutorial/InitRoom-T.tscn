@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ioe3od6lmghv"]
+[gd_scene load_steps=18 format=3 uid="uid://ioe3od6lmghv"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_785xy"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_785xy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://7ujjmb0lt1o8" path="res://Scenes/Enviroment/grass1.tscn" id="8_mxqvv"]
 [ext_resource type="Texture2D" uid="uid://ce4l8iuji132n" path="res://Sprites/Vegetation/Misc/Barrel.png" id="9_587xq"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="10_uc74a"]
+[ext_resource type="Texture2D" uid="uid://dvho8bafp7ksy" path="res://Sprites/icons/wasd.png" id="10_wtyve"]
 
 [sub_resource type="Environment" id="Environment_5x67m"]
 background_mode = 1
@@ -288,3 +289,8 @@ alpha_cut = 1
 texture = ExtResource("9_587xq")
 
 [node name="Items" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0, -0.714304, -9.57956e-08, 0, 2.12879e-08, 0.714304, -0.714304, 0, 0, 0, -0.0303147, 0)
+alpha_cut = 1
+texture = ExtResource("10_wtyve")

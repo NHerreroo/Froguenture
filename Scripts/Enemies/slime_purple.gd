@@ -4,9 +4,15 @@ var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
 var currentState
 
 func _ready() -> void:
+	Global.enemies_remaining += 1
+	await get_tree().create_timer(1).timeout
+	var canStart = false
+	while !canStart:
+		await get_tree().create_timer(0.2).timeout
+		if Global.dialog_ended == true:
+			canStart = true
 	enem_area_disabled()
 	$AnimationPlayer.play("idle")
-	Global.enemies_remaining += 1
 	selectState()
 	
 func selectState():

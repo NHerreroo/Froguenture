@@ -38,6 +38,7 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 size = Vector3(1, 4, 10)
 
 [node name="OwlBoss" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019695, 0)
 script = ExtResource("1_8ym6q")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

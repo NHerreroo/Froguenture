@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh1nruqdehsjt"]
+[gd_scene load_steps=19 format=3 uid="uid://bh1nruqdehsjt"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_hlpma"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="2_qyb3e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ce4l8iuji132n" path="res://Sprites/Vegetation/Misc/Barrel.png" id="8_b443h"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="9_63n16"]
 [ext_resource type="PackedScene" uid="uid://ddmumrs6tfxbc" path="res://Scenes/Enemies/Slime_Purple.tscn" id="10_npc6p"]
+[ext_resource type="PackedScene" uid="uid://bth4jlxo815ld" path="res://Scenes/Npcs/Tutorial/TutoNpc-5.tscn" id="11_qyb3e"]
 
 [sub_resource type="Environment" id="Environment_5x67m"]
 background_mode = 1
@@ -298,3 +299,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48178, 0, -3.42524)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01854, 0, -6.0709)
 
 [node name="Items" type="Node3D" parent="."]
+
+[node name="TutoNpc" parent="." instance=ExtResource("11_qyb3e")]
+transform = Transform3D(-2.22011e-08, 0, 0.507902, 0, 0.507902, 0, -0.507902, 0, -2.22011e-08, 0.217462, -0.0595741, -0.248051)

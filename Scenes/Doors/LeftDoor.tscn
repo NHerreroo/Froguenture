@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dawngp5xmls0u"]
+[gd_scene load_steps=14 format=3 uid="uid://dawngp5xmls0u"]
 
 [ext_resource type="Script" uid="uid://c1lcymxvor8y5" path="res://Scripts/Doors/LeftDoor.gd" id="1_lejbu"]
 [ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_i4niy"]
@@ -64,6 +64,14 @@ _data = {
 &"RESET": SubResource("Animation_ly2ev")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcfhw"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_phbok"]
+material = SubResource("StandardMaterial3D_qcfhw")
+
 [node name="LeftDoor" type="Area3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0454791, 0)
 collision_mask = 2
@@ -109,8 +117,12 @@ libraries = {
 }
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(-5.47845e-08, -0.838856, -3.66675e-08, 2.73922e-08, -3.66676e-08, 0.838856, -0.626661, 7.33351e-08, 3.66676e-08, 2.24214e-07, -0.137379, 5.12941)
+transform = Transform3D(-5.47845e-08, -0.838856, -3.66675e-08, 2.73922e-08, -3.66676e-08, 0.838856, -0.626661, 7.33351e-08, 3.66676e-08, 2.24214e-07, -0.0487855, 5.12941)
 alpha_cut = 1
 texture = ExtResource("4_phbok")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.77744, 0, 0, 0, 2.3115, 0, 0, 0, 3.15077, 2.48416e-08, -1.09406, -1.81359)
+mesh = SubResource("BoxMesh_phbok")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

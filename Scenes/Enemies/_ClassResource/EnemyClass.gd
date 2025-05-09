@@ -32,6 +32,8 @@ enum State {
 	
 	
 func _physics_process(delta: float) -> void:
+	if Global.dialog_ended == false:
+		return
 	var player_pos_array = [Global.playerMapPositionX, Global.playerMapPositionY]
 	if player_pos_array in Global.rooms_visited:
 		Global.enemies_remaining = 0

@@ -23,7 +23,7 @@ var minimap_sprites = {}
 
 func _ready():
 	map = Global.map
-	player_position = Vector2(Global.playerMapPositionX, Global.playerMapPositionY)
+	#player_position = Vector2(Global.playerMapPositionX, Global.playerMapPositionY)
 	draw_minimap()
 
 func draw_minimap():
