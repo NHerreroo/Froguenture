@@ -1,21 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://uk0vr6wsyiad"]
+[gd_scene load_steps=4 format=3 uid="uid://g026kskbf0eq"]
 
-[ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="1_our35"]
-[ext_resource type="Script" uid="uid://crb0vmtgsyxbt" path="res://Scenes/Tutorial/tuto_npc.gd" id="1_tk4ff"]
-[ext_resource type="PackedScene" uid="uid://bjigme0clcsuv" path="res://Scenes/TextBox.tscn" id="2_ut5jh"]
+[ext_resource type="Script" uid="uid://dn06b8xdgj6dt" path="res://Scripts/Npc/Tutorial/tuto_npc_3.gd" id="1_pt0s2"]
+[ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="2_xjg7v"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ut5jh"]
 radius = 3.42822
 
 [node name="TutoNpc" type="Node3D"]
-script = ExtResource("1_tk4ff")
+script = ExtResource("1_pt0s2")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
-texture = ExtResource("1_our35")
-
-[node name="TextBoxSystem" parent="Sprite3D" instance=ExtResource("2_ut5jh")]
-transform = Transform3D(0.0610681, 0, 0, 0, 0.0610681, -1.86265e-09, 0, 1.86265e-09, 0.0610681, 3.78754, 3.9606, 0.693431)
+texture = ExtResource("2_xjg7v")
 
 [node name="Area3D" type="Area3D" parent="Sprite3D"]
 collision_layer = 2

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf88nc3sh47l3"]
+
+[ext_resource type="Script" uid="uid://b1fp1r5l6plft" path="res://Scripts/Npc/Tutorial/tuto_npc_2.gd" id="1_3r4q8"]
+[ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="2_p4h3k"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ut5jh"]
+radius = 3.42822
+
+[node name="TutoNpc" type="Node3D"]
+script = ExtResource("1_3r4q8")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+texture = ExtResource("2_p4h3k")
+
+[node name="Area3D" type="Area3D" parent="Sprite3D"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="IteracArea" type="CollisionShape3D" parent="Sprite3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0.107062, -0.185437)
+shape = SubResource("CylinderShape3D_ut5jh")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.356063, 0, 0, 0, 0.30836, 0.178032, 0, -0.178032, 0.30836, -0.194679, 3.17853, -1.12613)
+billboard = 1
+outline_modulate = Color(1, 1, 1, 0)
+text = "[E]"
+font_size = 827
+
+[connection signal="body_entered" from="Sprite3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Sprite3D/Area3D" to="." method="_on_area_3d_body_exited"]

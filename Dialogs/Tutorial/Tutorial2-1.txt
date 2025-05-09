@@ -1,0 +1,3 @@
+The rock still stands?
+Left click near it to strike.
+Aim with the mouse,\nand it will break.

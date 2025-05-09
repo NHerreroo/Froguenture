@@ -67,12 +67,12 @@ directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
 
 [node name="AmbientFog" parent="WorldEnvironment" instance=ExtResource("2_k268r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, 10.3032)
-size = Vector3(20.184, 3.56738, 11.3821)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, 12.3912)
+size = Vector3(20.184, 3.56738, 7.20619)
 
 [node name="AmbientFog3" parent="WorldEnvironment" instance=ExtResource("2_k268r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, -10.2869)
-size = Vector3(20.184, 3.56738, 11.0077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 1.83862, -12.2136)
+size = Vector3(20.184, 3.56738, 7.15436)
 
 [node name="AmbientFog2" parent="WorldEnvironment" instance=ExtResource("2_k268r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77988, 1.83862, -0.184692)
@@ -84,7 +84,7 @@ size = Vector3(4.62256, 3.56738, 17.5648)
 
 [node name="player" parent="." instance=ExtResource("3_wypch")]
 process_priority = 75
-transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
+transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, 3.45659)
 
 [node name="Camera" parent="." instance=ExtResource("4_fjtbc")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)
@@ -271,47 +271,65 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 [node name="Tree26" parent="Vegetation" instance=ExtResource("7_rkiod")]
 transform = Transform3D(-9.6568e-08, -1.10461, 1.91324, 0, 1.91324, 1.10461, -2.20922, 4.8284e-08, -8.36305e-08, -19.0029, 11.7266, -2.12162)
 
-[node name="Spikes" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, 0.00601681, -0.0547496, 3.45307)
-
-[node name="Spikes2" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, 0.00601681, -0.0547496, 1.72975)
-
-[node name="Spikes3" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, 0.00601681, -0.0547496, 0.0366604)
-
-[node name="Spikes4" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, 0.00601681, -0.0547496, -1.67069)
-
-[node name="Spikes5" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, 0.00601681, -0.0547496, -3.40355)
-
-[node name="Spikes6" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -1.19118, -0.0547496, 3.45307)
-
-[node name="Spikes7" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -1.19118, -0.0547496, 1.72975)
-
-[node name="Spikes8" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -1.19118, -0.0547496, 0.0366604)
-
-[node name="Spikes9" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -1.19118, -0.0547496, -1.67069)
-
-[node name="Spikes10" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -1.19118, -0.0547496, -3.40355)
-
-[node name="Spikes11" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -2.33425, -0.0547496, 3.45307)
-
-[node name="Spikes12" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -2.33425, -0.0547496, 1.72975)
-
-[node name="Spikes13" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -2.33425, -0.0547496, 0.0366604)
-
-[node name="Spikes14" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -2.33425, -0.0547496, -1.67069)
-
 [node name="Spikes15" parent="." instance=ExtResource("8_miy53")]
-transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, -2.33425, -0.0547496, -3.40355)
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -0.178194, -0.0547496, 0.00391392)
+
+[node name="Spikes16" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -1.4418, -0.0547496, 0.00391392)
+
+[node name="Spikes17" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 1.14787, -0.0547496, 0.00391392)
+
+[node name="Spikes18" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -2.57628, -0.0547496, 0.00391392)
+
+[node name="Spikes19" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -3.8032, -0.0547496, 0.00391392)
+
+[node name="Spikes20" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 2.34683, -0.0547496, 0.00391392)
+
+[node name="Spikes21" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 3.55663, -0.0547496, 0.00391392)
+
+[node name="Spikes22" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -0.178194, -0.0547496, -1.42538)
+
+[node name="Spikes23" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -1.4418, -0.0547496, -1.42538)
+
+[node name="Spikes24" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 1.14787, -0.0547496, -1.42538)
+
+[node name="Spikes25" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -2.57628, -0.0547496, -1.42538)
+
+[node name="Spikes26" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -3.8032, -0.0547496, -1.42538)
+
+[node name="Spikes27" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 2.34683, -0.0547496, -1.42538)
+
+[node name="Spikes28" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 3.55663, -0.0547496, -1.42538)
+
+[node name="Spikes29" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -0.178194, -0.0547496, 1.40302)
+
+[node name="Spikes30" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -1.4418, -0.0547496, 1.40302)
+
+[node name="Spikes31" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 1.14787, -0.0547496, 1.40302)
+
+[node name="Spikes32" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -2.57628, -0.0547496, 1.40302)
+
+[node name="Spikes33" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, -3.8032, -0.0547496, 1.40302)
+
+[node name="Spikes34" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 2.34683, -0.0547496, 1.40302)
+
+[node name="Spikes35" parent="." instance=ExtResource("8_miy53")]
+transform = Transform3D(-2.81954e-08, 0, 0.688766, 0, 0.688766, 0, -0.645036, 0, -3.01069e-08, 3.55663, -0.0547496, 1.40302)

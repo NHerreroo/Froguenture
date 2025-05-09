@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csrkidfkcpxxn"]
+[gd_scene load_steps=18 format=3 uid="uid://csrkidfkcpxxn"]
 
 [ext_resource type="Texture2D" uid="uid://cag1oflhliwyr" path="res://Sprites/tutoFloor1.png" id="1_h2rww"]
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_w2nki"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="7_347di"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="8_jkr01"]
 [ext_resource type="PackedScene" uid="uid://pbkgy1k2ckyh" path="res://Scenes/Enemies/Obstacle.tscn" id="9_2arrg"]
+[ext_resource type="PackedScene" uid="uid://cf88nc3sh47l3" path="res://Scenes/Npcs/Tutorial/TutoNpc-2.tscn" id="11_6bdtc"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -213,24 +214,6 @@ transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.18851
 [node name="Grass18" parent="Vegetation" instance=ExtResource("5_36t0k")]
 transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.188518, 0.188518, -0.266605, 5.82683e-09, -1.00924e-08, -3.98039, 0.554269, -7.67129)
 
-[node name="Grass19" parent="Vegetation" instance=ExtResource("5_36t0k")]
-transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.188518, 0.188518, -0.266605, 5.82683e-09, -1.00924e-08, -3.14113, 0.554269, 6.97204)
-
-[node name="Grass20" parent="Vegetation" instance=ExtResource("5_36t0k")]
-transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.188518, 0.188518, -0.266605, 5.82683e-09, -1.00924e-08, -3.52296, 0.554269, 6.18502)
-
-[node name="Grass21" parent="Vegetation" instance=ExtResource("5_36t0k")]
-transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.188518, 0.188518, -0.266605, 5.82683e-09, -1.00924e-08, -3.19319, 0.554269, 5.68151)
-
-[node name="Grass22" parent="Vegetation" instance=ExtResource("5_36t0k")]
-transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.188518, 0.188518, -0.266605, 5.82683e-09, -1.00924e-08, -3.92833, 0.554269, 6.97204)
-
-[node name="Grass23" parent="Vegetation" instance=ExtResource("5_36t0k")]
-transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.188518, 0.188518, -0.266605, 5.82683e-09, -1.00924e-08, -4.31016, 0.554269, 6.3742)
-
-[node name="Grass24" parent="Vegetation" instance=ExtResource("5_36t0k")]
-transform = Transform3D(-1.12566e-08, -0.188518, 0.188518, -3.01619e-09, 0.188518, 0.188518, -0.266605, 5.82683e-09, -1.00924e-08, -3.98039, 0.554269, 5.61139)
-
 [node name="Tree3" parent="Vegetation" instance=ExtResource("6_qjapx")]
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -10.5772, 3.02382, 3.29294)
 
@@ -368,3 +351,6 @@ transform = Transform3D(-9.6568e-08, -1.10461, 1.91324, 0, 1.91324, 1.10461, -2.
 
 [node name="EnemyTemplate" parent="." instance=ExtResource("9_2arrg")]
 transform = Transform3D(1.79852, 0, 0, 0, 1.79852, 0, 0, 0, 1.79852, 0.032006, -0.0360366, 0.473235)
+
+[node name="TutoNpc" parent="." instance=ExtResource("11_6bdtc")]
+transform = Transform3D(-3.02935e-08, 0, 0.693035, 0, 0.693035, 0, -0.693035, 0, -3.02935e-08, -3.01679, -0.0538708, 6.73186)

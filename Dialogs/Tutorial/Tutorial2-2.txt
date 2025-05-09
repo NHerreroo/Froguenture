@@ -1,0 +1,2 @@
+Get close,\nthen left click to attack.
+The cursor shows the way.

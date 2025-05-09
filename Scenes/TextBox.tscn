@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjigme0clcsuv"]
 
 [ext_resource type="Shader" uid="uid://cxgmj36tjtjga" path="res://Shaders/waveShaders.gdshader" id="1_lgpka"]
-[ext_resource type="Script" uid="uid://drp365bj8jna" path="res://Scenes/text_box.gd" id="1_rq1sc"]
+[ext_resource type="Script" uid="uid://drp365bj8jna" path="res://Scripts/text_box.gd" id="1_rq1sc"]
 [ext_resource type="Texture2D" uid="uid://dopg0evrsk70k" path="res://Sprites/icons/textbox.png" id="2_ui8g0"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_rq1sc"]
 [ext_resource type="AudioStream" uid="uid://b33pqbtbnblqr" path="res://Sounds/SFX/Textbox.wav" id="5_632vg"]

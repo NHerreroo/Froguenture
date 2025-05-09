@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds2kchqeuclke"]
+[gd_scene load_steps=17 format=3 uid="uid://ds2kchqeuclke"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_ftupi"]
 [ext_resource type="Texture2D" uid="uid://b1v6vhxm20e7r" path="res://Sprites/floorCircular.png" id="1_n82e7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="5_klqe6"]
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="6_hlsr5"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="7_qbas7"]
+[ext_resource type="PackedScene" uid="uid://cuvgtcbnws8y7" path="res://Scenes/treasure_altar.tscn" id="9_puewr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-4.33192, 0.464046, -5.43019, -4.33192, 0.464046, 5.31981, 4.41808, 0.464046, 5.31981, 4.41808, 0.464046, -5.43019)
@@ -335,3 +336,6 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 
 [node name="Tree26" parent="Vegetation" instance=ExtResource("6_hlsr5")]
 transform = Transform3D(-9.6568e-08, -1.10461, 1.91324, 0, 1.91324, 1.10461, -2.20922, 4.8284e-08, -8.36305e-08, -19.0029, 11.7266, -2.12162)
+
+[node name="TreasureAltar" parent="." instance=ExtResource("9_puewr")]
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, 1.32952, -0.219459, -0.0706226)
