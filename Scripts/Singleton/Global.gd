@@ -14,18 +14,15 @@ extends Node
 #var SHOP_ROOM_WEIGHT := 30
 #var CAMPFIRE_ROOM_WEIGHT := 30
 
-var X_DIST := 100
-var Y_DIST := 100
-var PLACEMENT_RANDOMNESS := 2
-var FLOORS := 6
-var MAP_WIDTH := 7
-var PATHS := 2
-var MONSTERS_ROOM_WEIGHT := 50
-var SHOP_ROOM_WEIGHT := 20
-var CAMPFIRE_ROOM_WEIGHT := 30
-
-
-
+var X_DIST = 100
+var Y_DIST = 100
+var PLACEMENT_RANDOMNESS = 5
+var FLOORS = 5
+var MAP_WIDTH = 7
+var PATHS = 2
+var MONSTERS_ROOM_WEIGHT = 30
+var SHOP_ROOM_WEIGHT = 30
+var CAMPFIRE_ROOM_WEIGHT = 30
 
 #TUTORIAL VARS
 var is_in_tutorial = true
@@ -128,3 +125,23 @@ func remove_item_from_room(room_x: int, room_y: int, position: Vector3):
 	
 	persistent_items[room_key] = persistent_items[room_key].filter(func(item):
 		return item.position != position)
+
+
+
+func resetall():
+	is_in_tutorial = false
+	dialog_ended = true
+	lvlCount = 0
+	playerMapPositionX = 25
+	playerMapPositionY = 25
+	isMapGenerated = false
+	eraseLevel = false
+	specialRooms = false 
+	topCollider = false
+	botCollider = false
+	rightCollider = false
+	leftCollider = false
+	enemies_remaining = 0 
+	rooms_visited = []
+	Apersistent_items = []
+	map = [] 

@@ -11,7 +11,6 @@ const MONSTERS_ROOM_WEIGHT := 30
 const SHOP_ROOM_WEIGHT := 30
 const CAMPFIRE_ROOM_WEIGHT := 30
 
-
 var random_room_type_weights = {
 	Room.Type.MONSTER: 0.0,
 	Room.Type.CAMPFIRE: 0.0,

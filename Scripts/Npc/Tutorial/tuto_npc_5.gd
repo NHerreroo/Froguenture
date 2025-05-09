@@ -11,7 +11,7 @@ func _ready() -> void:
 			break
 	while Global.dialog_ended == false:
 		await get_tree().create_timer(1).timeout
-	Global.is_in_tutorial = false
+	Global.resetall()
 	get_tree().change_scene_to_file("res://Scenes/run.tscn")
 	
 	
