@@ -58,7 +58,7 @@ func map_generator(map_size: int, steps: int) -> void:
 		var walker_pos_x = 2
 		var walker_pos_y = 2
 		Global.map = [
-			[EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+			[EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, "7", EMPTY, EMPTY],
 			[EMPTY, EMPTY,  "2",  "3",  "4", "5", "6", EMPTY, EMPTY],
 			[EMPTY, EMPTY, FIRST_ROOM, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
 			[EMPTY, EMPTY,  EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],

@@ -40,11 +40,11 @@ void fragment() {
         // Usamos solo distancia euclidiana para esquinas redondeadas
         vec2 centered_uv = UV - vec2(0.5);
         float r = length(centered_uv) * 2.0 / shrink;
-        
+
         // Aplicamos el redondeado en todas las esquinas
         vec2 abs_uv = abs(centered_uv);
         float corner_dist = length(max(abs_uv - vec2(0.5 - corner_radius), vec2(0.0)));
-        
+
         // Mezclamos entre la forma principal y las esquinas redondeadas
         float final_r = min(r, corner_dist * (1.0/corner_radius));
 

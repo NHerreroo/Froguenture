@@ -4,12 +4,13 @@ extends Node
 const X_DIST := 100
 const Y_DIST := 100
 const PLACEMENT_RANDOMNESS := 5
-const FLOORS := 15
+const FLOORS := 13
 const MAP_WIDTH := 7
 const PATHS := 6
 const MONSTERS_ROOM_WEIGHT := 30
 const SHOP_ROOM_WEIGHT := 30
 const CAMPFIRE_ROOM_WEIGHT := 30
+
 
 var random_room_type_weights = {
 	Room.Type.MONSTER: 0.0,
@@ -146,13 +147,17 @@ func _setup_random_types():
 		if room.next_rooms.size() > 0:
 			room.type = Room.Type.MONSTER
 			
-	for room in map_data[8]:
-		if room.next_rooms.size() > 0:
-			room.type = Room.Type.TREASURE
+	var treasure_floor := floori(FLOORS * 0.6)
+	if treasure_floor < FLOORS:
+		for room in map_data[treasure_floor]:
+			if room.next_rooms.size() > 0:
+				room.type = Room.Type.TREASURE
 			
-	for room in map_data[13]:
-		if room.next_rooms.size() > 0:
-			room.type = Room.Type.CAMPFIRE
+	var campfire_floor := FLOORS - 2
+	if FLOORS >= 7 and campfire_floor >= 0:
+		for room in map_data[campfire_floor]:
+			if room.next_rooms.size() > 0:
+				room.type = Room.Type.CAMPFIRE
 			
 	for current_floor in map_data:
 		for room in current_floor:

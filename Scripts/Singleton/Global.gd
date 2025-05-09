@@ -1,11 +1,37 @@
 extends Node
 
+#--------------------------- VARIABLES PARA LA GENERACIN DEL MAPA----------------------
+
+# DEFAULT
+
+#var X_DIST := 100
+#var Y_DIST := 100
+#var PLACEMENT_RANDOMNESS := 5
+#var FLOORS := 15
+#var MAP_WIDTH := 7
+#var PATHS := 6
+#var MONSTERS_ROOM_WEIGHT := 30
+#var SHOP_ROOM_WEIGHT := 30
+#var CAMPFIRE_ROOM_WEIGHT := 30
+
+var X_DIST := 100
+var Y_DIST := 100
+var PLACEMENT_RANDOMNESS := 2
+var FLOORS := 6
+var MAP_WIDTH := 7
+var PATHS := 2
+var MONSTERS_ROOM_WEIGHT := 50
+var SHOP_ROOM_WEIGHT := 20
+var CAMPFIRE_ROOM_WEIGHT := 30
+
+
+
+
 #TUTORIAL VARS
 var is_in_tutorial = true
 
 
 var dialog_ended := true
-
 
 var lvlCount = 0
 
