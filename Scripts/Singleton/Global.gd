@@ -18,14 +18,14 @@ var X_DIST = 100
 var Y_DIST = 100
 var PLACEMENT_RANDOMNESS = 5
 var FLOORS = 5
-var MAP_WIDTH = 7
+var MAP_WIDTH = 3
 var PATHS = 2
 var MONSTERS_ROOM_WEIGHT = 30
 var SHOP_ROOM_WEIGHT = 30
 var CAMPFIRE_ROOM_WEIGHT = 30
 
 #TUTORIAL VARS
-var is_in_tutorial = true
+var is_in_tutorial = false
 
 var dialog_ended := true
 

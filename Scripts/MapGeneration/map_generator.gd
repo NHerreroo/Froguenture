@@ -1,15 +1,15 @@
 class_name MapGenerator
 extends Node
 
-const X_DIST := 100
-const Y_DIST := 100
-const PLACEMENT_RANDOMNESS := 5
-const FLOORS := 13
-const MAP_WIDTH := 7
-const PATHS := 6
-const MONSTERS_ROOM_WEIGHT := 30
-const SHOP_ROOM_WEIGHT := 30
-const CAMPFIRE_ROOM_WEIGHT := 30
+var X_DIST = Global.X_DIST
+var Y_DIST =  Global.Y_DIST
+var PLACEMENT_RANDOMNESS =  Global.PLACEMENT_RANDOMNESS
+var FLOORS =  Global.FLOORS
+var MAP_WIDTH =  Global.MAP_WIDTH
+var PATHS =  Global.PATHS
+var MONSTERS_ROOM_WEIGHT =  Global.MONSTERS_ROOM_WEIGHT
+var SHOP_ROOM_WEIGHT =  Global.SHOP_ROOM_WEIGHT
+var CAMPFIRE_ROOM_WEIGHT =  Global.CAMPFIRE_ROOM_WEIGHT
 
 var random_room_type_weights = {
 	Room.Type.MONSTER: 0.0,
@@ -53,7 +53,7 @@ func _generate_initial_grid() -> Array[Array]:
 		
 		for j in MAP_WIDTH:
 			var current_room := Room.new()
-			var offset := Vector2(randf(), randf()) * PLACEMENT_RANDOMNESS
+			var offset = Vector2(randf(), randf()) * PLACEMENT_RANDOMNESS
 			current_room.position = Vector2(j * X_DIST, i * -Y_DIST) + offset
 			current_room.row = i
 			current_room.column = j
@@ -152,7 +152,7 @@ func _setup_random_types():
 			if room.next_rooms.size() > 0:
 				room.type = Room.Type.TREASURE
 			
-	var campfire_floor := FLOORS - 2
+	var campfire_floor = FLOORS - 2
 	if FLOORS >= 7 and campfire_floor >= 0:
 		for room in map_data[campfire_floor]:
 			if room.next_rooms.size() > 0:

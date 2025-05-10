@@ -21,9 +21,8 @@ var camera_edge_y: float
 signal map_exited(room: Room)
 
 func _ready() -> void:
-	camera_edge_y = MapGenerator.Y_DIST * (MapGenerator.FLOORS - 1)
+	camera_edge_y =  Global.Y_DIST * (Global.FLOORS - 1)
 
-	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
 		camera_2d.position.y -= SCROLL_SPEED
@@ -43,10 +42,10 @@ func create_map() -> void:
 			if room.next_rooms.size() > 0:
 				_spawn_room(room)
 
-	var middle := floori(MapGenerator.MAP_WIDTH * 0.5)
-	_spawn_room(map_data[MapGenerator.FLOORS-1][middle])
+	var middle := floori(Global.MAP_WIDTH * 0.5)
+	_spawn_room(map_data[Global.FLOORS-1][middle])
 
-	var map_width_pixels := MapGenerator.X_DIST * (MapGenerator.MAP_WIDTH - 1)
+	var map_width_pixels =  Global.X_DIST * ( Global.MAP_WIDTH - 1)
 	visuals.position.x = (get_viewport_rect().size.x - map_width_pixels) / 2
 	visuals.position.y = get_viewport_rect().size.y / 5  # Cambia este valor para empezar más arriba	
 
