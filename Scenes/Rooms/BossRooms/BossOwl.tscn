@@ -177,7 +177,7 @@ transform = Transform3D(-1.21417e-07, -1.38885, 2.40557, 0, 2.40557, 1.38885, -2
 transform = Transform3D(-1.21417e-07, -1.38885, 2.40557, 0, 2.40557, 1.38885, -2.77771, 6.07087e-08, -1.05151e-07, -17.9741, 11.9188, -12.6253)
 
 [node name="EnemyTemplate" parent="." instance=ExtResource("11_gi0ac")]
-transform = Transform3D(8.47256e-08, -0.373026, 0.646099, 4.89163e-08, 0.646099, 0.373026, -0.746051, 0, 9.78327e-08, -9.14809, 5.28439, 0)
+transform = Transform3D(8.47256e-08, -0.373026, 0.646099, 4.89163e-08, 0.646099, 0.373026, -0.746051, 0, 9.78327e-08, -9.14809, 5.04809, -0.290128)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ap24m")
