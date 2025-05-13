@@ -9,6 +9,7 @@ const RED_CARD = preload("res://Sprites/Items/Redtemplate2.png")
 const GREEN_CARD = preload("res://Sprites/Items/GreenTemplate2.png")
 const BLUE_CARD = preload("res://Sprites/Items/Bluetemplate2.png")
 const COLORLESS = preload("res://Sprites/Items/ColorLessTemplate2.png")
+const TAROT = preload("res://Sprites/Items/Tarot.png")
 #COASA DEL SHADER DE LA CARTA
 
 
@@ -104,10 +105,14 @@ func setSorurceParam():
 			$CardColor.texture = GREEN_CARD
 		Item_source.color.COLORLESS:
 			$CardColor.texture = COLORLESS
+		Item_source.color.TAROT:
+			$CardColor.texture = TAROT
 
 
 	$CardColor/CardImage.texture = item_Src.image
 	$CardColor/Name.text = item_Src.name
+	if Item_source.color.TAROT:
+		$CardColor/Type.visible = false
 	$CardColor/Type.text = Item_source.Card_type.keys()[item_Src.card_type]
 	$CardColor/Habilitie.text = item_Src.habilitie1 + "\n" + item_Src.habilitie2 + "\n" + item_Src.habilitie3
 	$CardColor/Quote.text = item_Src.quote

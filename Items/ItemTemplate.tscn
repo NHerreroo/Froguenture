@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://mdmgk0ohj51v" path="res://Items/ItemTemplate.gd" id="1_8o6b7"]
 [ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="1_l4el7"]
 [ext_resource type="Texture2D" uid="uid://di74sbavsjdss" path="res://Sprites/Items/Arts/circuloconejosart.png" id="2_e7s6g"]
-[ext_resource type="Script" uid="uid://im4yqbb4cyok" path="res://Items/_ClassResource/Item_Res.gd" id="2_lhrgs"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="2_lhrgs"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_41vp5"]
-[ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_dyir8"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_hxb8l"]
 [ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="5_i62hw"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_hxb8l"]
 
@@ -83,7 +83,7 @@ offset_top = -31.0
 offset_right = 780.0
 offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("4_dyir8")
+texture = ExtResource("5_hxb8l")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
@@ -167,11 +167,11 @@ clip_text = true
 
 [node name="Damage" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 145.348
-offset_top = 938.851
-offset_right = 242.348
-offset_bottom = 1054.85
-theme_override_constants/outline_size = 22
+offset_left = 172.803
+offset_top = 954.9
+offset_right = 269.803
+offset_bottom = 1189.9
+theme_override_constants/outline_size = 47
 theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 85
 text = "5
@@ -180,11 +180,11 @@ autowrap_mode = 3
 
 [node name="Health" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 624.998
-offset_top = 938.851
-offset_right = 721.998
-offset_bottom = 1054.85
-theme_override_constants/outline_size = 22
+offset_left = 578.164
+offset_top = 959.714
+offset_right = 675.164
+offset_bottom = 1194.71
+theme_override_constants/outline_size = 47
 theme_override_fonts/font = ExtResource("8_hxb8l")
 theme_override_font_sizes/font_size = 85
 text = "5

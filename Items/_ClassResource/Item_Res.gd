@@ -15,10 +15,10 @@ class_name Item_source
 
 @export var quote : String #para poner lore de la carata
 
-enum color {WHITE, BLACK, GREEN, RED, BLUE, COLORLESS}
+enum color {WHITE, BLACK, GREEN, RED, BLUE, COLORLESS, TAROT}
 @export var color_card: color
 
-enum Card_type {CREATURE, ENCHANTMENT, INSTANT, MANA, ARTIFACT}
+enum Card_type {CREATURE, ENCHANTMENT, INSTANT, MANA, ARTIFACT, NONE}
 @export var card_type: Card_type
 
 @export var foil : bool
