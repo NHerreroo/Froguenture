@@ -1,21 +1,21 @@
 [gd_scene load_steps=13 format=3 uid="uid://dfqo8c4n5r7h"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_8o6b7"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="1_l4el7"]
+[ext_resource type="Script" uid="uid://mdmgk0ohj51v" path="res://Items/ItemTemplate.gd" id="1_8o6b7"]
+[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="1_l4el7"]
 [ext_resource type="Texture2D" uid="uid://di74sbavsjdss" path="res://Sprites/Items/Arts/circuloconejosart.png" id="2_e7s6g"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="2_lhrgs"]
+[ext_resource type="Script" uid="uid://im4yqbb4cyok" path="res://Items/_ClassResource/Item_Res.gd" id="2_lhrgs"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_41vp5"]
 [ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_dyir8"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="5_i62hw"]
+[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="5_i62hw"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_hxb8l"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
 script = ExtResource("2_lhrgs")
-name = "olaa"
-description = "Its a template"
+name = "Nacho"
+description = "David"
 image = ExtResource("2_e7s6g")
-habilitie1 = "+1/+1"
-habilitie2 = ""
+habilitie1 = "+1/+1000"
+habilitie2 = "pen epene"
 habilitie3 = ""
 damage = "1"
 health = "4"
