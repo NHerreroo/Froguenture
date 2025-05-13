@@ -301,4 +301,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01854, 0, -6.0709)
 [node name="Items" type="Node3D" parent="."]
 
 [node name="TutoNpc" parent="." instance=ExtResource("11_qyb3e")]
-transform = Transform3D(-2.22011e-08, 0, 0.507902, 0, 0.507902, 0, -0.507902, 0, -2.22011e-08, 0.217462, -0.0595741, -0.248051)
+transform = Transform3D(-2.22011e-08, 0, 0.507902, 0, 0.507902, 0, -0.507902, 0, -2.22011e-08, 0.217462, -0.0189155, -0.248051)

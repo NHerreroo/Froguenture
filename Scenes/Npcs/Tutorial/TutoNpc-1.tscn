@@ -1,32 +1,106 @@
-[gd_scene load_steps=4 format=3 uid="uid://uk0vr6wsyiad"]
+[gd_scene load_steps=12 format=3 uid="uid://uk0vr6wsyiad"]
 
 [ext_resource type="Script" uid="uid://crb0vmtgsyxbt" path="res://Scripts/Npc/Tutorial/tuto_npc_1.gd" id="1_onjwy"]
-[ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="2_b7o3r"]
+[ext_resource type="Texture2D" uid="uid://x36gf1qnpehl" path="res://Sprites/Npc/TurtleChaman/body.png" id="2_onjwy"]
+
+[sub_resource type="Gradient" id="Gradient_onjwy"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onjwy"]
+gradient = SubResource("Gradient_onjwy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.809091, 0.268182)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgpdo"]
+transparency = 1
+albedo_color = Color(0.625597, 0.625597, 0.625597, 1)
+albedo_texture = SubResource("GradientTexture2D_onjwy")
+
+[sub_resource type="Gradient" id="Gradient_b7o3r"]
+colors = PackedColorArray(0, 0, 0, 0.898039, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b7o3r"]
+gradient = SubResource("Gradient_b7o3r")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.863636, 0.145455)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ut5jh"]
-radius = 3.42822
+radius = 4.06982
+
+[sub_resource type="Animation" id="Animation_onjwy"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.706945, 0.706944, 0.706944), Vector3(0.706945, 0.751932, 0.706944)]
+}
+
+[sub_resource type="Animation" id="Animation_b7o3r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.706945, 0.706944, 0.706944)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgpdo"]
+_data = {
+&"RESET": SubResource("Animation_b7o3r"),
+&"idle": SubResource("Animation_onjwy")
+}
 
 [node name="TutoNpc" type="Node3D"]
 script = ExtResource("1_onjwy")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
-texture = ExtResource("2_b7o3r")
+transform = Transform3D(0.706945, 0, 0, 0, 0.612232, 0.353472, 0, -0.353472, 0.612232, 0, 0.572696, 0.734337)
+offset = Vector2(0, 315.35)
+alpha_cut = 1
+texture = ExtResource("2_onjwy")
 
-[node name="Area3D" type="Area3D" parent="Sprite3D"]
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(10.7995, 0, 0, 0, -2.2063e-06, 8.14676, 0, -7.22633, -2.80164e-06, 0, 0.0296257, 0.251292)
+material_override = SubResource("StandardMaterial3D_lgpdo")
+texture = SubResource("GradientTexture2D_b7o3r")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.706945, 0, 0, 0, 0.612232, 0.353472, 0, -0.353472, 0.612232, 0, 0.523702, -1.19209e-07)
 collision_layer = 2
 collision_mask = 3
 
-[node name="IteracArea" type="CollisionShape3D" parent="Sprite3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0.107062, -0.185437)
+[node name="IteracArea" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, -0.374809, 0.649187)
 shape = SubResource("CylinderShape3D_ut5jh")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(0.356063, 0, 0, 0, 0.30836, 0.178032, 0, -0.178032, 0.30836, -0.194679, 3.17853, -1.12613)
+transform = Transform3D(0.356063, 0, 0, 0, 0.30836, 0.178032, 0, -0.178032, 0.30836, -0.125091, 6.79363, -1.12613)
 billboard = 1
 outline_modulate = Color(1, 1, 1, 0)
 text = "[E]"
 font_size = 827
 
-[connection signal="body_entered" from="Sprite3D/Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Sprite3D/Area3D" to="." method="_on_area_3d_body_exited"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lgpdo")
+}
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

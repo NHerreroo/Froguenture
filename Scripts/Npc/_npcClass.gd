@@ -9,10 +9,6 @@ var dialogs = []
 
 var default_pos = Vector3(4.049, 2.59, -1.38)
 
-#func _ready() -> void:
-	#await get_tree().create_timer(1).timeout
-	#$Sprite3D/TextBoxSystem.start_dialog("res://Dialogs/Tutorial1.txt")
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		player_in_range = true

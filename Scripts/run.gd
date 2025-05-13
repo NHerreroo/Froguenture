@@ -9,7 +9,13 @@ const BATTLE_SCENE := preload("res://Scenes/Main.tscn")
 const CAMPFIRE_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
 const SHOP_SCENE := preload("res://Scenes/Rooms/Taverns/Tavern1.tscn")
 const TREASURE_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
-const BOSS_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
+var BOSS_SCENE := preload("res://Scenes/Rooms/TreasureRooms/TreasureRoom.tscn")
+
+var BOSSES = [
+	"res://Scenes/Rooms/BossRooms/BossOwl.tscn",
+	"res://Scenes/Rooms/BossRooms/slimeBoss.tscn"
+	]
+
 
 @onready var map: Map = $Map
 @onready var current_view: Node = $CurrentView
@@ -20,6 +26,11 @@ func _ready():
 	map.connect("map_exited", Callable(self, "_on_map_exited"))
 	Player.connect("do_transition", Callable(self, "do_transition"))
 
+	if Global.is_in_tutorial == true:
+		var tutorial_room := Room.new()
+		tutorial_room.type = Room.Type.MONSTER 
+		_on_map_exited(tutorial_room)
+		
 func _start_run():
 	map.generate_new_map()
 	map.unlock_floor(0)
@@ -52,6 +63,13 @@ func _show_map():
 	map.unlock_next_room()
 	
 func _on_map_exited(room:Room) -> void:
+	_choose_random_boss_room()	
+	if Global.is_in_tutorial == true:
+		match  room.type:
+				Room.Type.MONSTER:
+					Global.specialRooms = false
+					_change_view(BATTLE_SCENE)
+					
 	match  room.type:
 		Room.Type.MONSTER:
 			Global.specialRooms = false
@@ -66,6 +84,7 @@ func _on_map_exited(room:Room) -> void:
 			Global.specialRooms = true
 			_change_view(SHOP_SCENE)
 		Room.Type.BOSS:
+			
 			_change_view(BOSS_SCENE)
 
 
@@ -78,3 +97,11 @@ func do_transition():
 	var inst_transition = transition.instantiate()
 	add_child(inst_transition)
 	move_child(inst_transition, 0)
+
+func _choose_random_boss_room():
+	if Global.is_in_tutorial:
+		BOSS_SCENE = preload("res://Scenes/Rooms/BossRooms/slimeBoss.tscn")
+	else:
+		var index = randi_range(0, BOSSES.size() - 1)
+		var boss_path = BOSSES[index]
+		BOSS_SCENE = load(boss_path)

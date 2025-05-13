@@ -1,0 +1,140 @@
+[gd_scene load_steps=13 format=3 uid="uid://dx2jwoeisj3ke"]
+
+[ext_resource type="Script" uid="uid://b8lmj805y1255" path="res://Scripts/Enemies/slime_purple.gd" id="1_n3tws"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_b16rw"]
+[ext_resource type="Texture2D" uid="uid://c3wey4oer6b61" path="res://Sprites/Enemies/king slime/body.png" id="3_n3tws"]
+
+[sub_resource type="Resource" id="Resource_cunt7"]
+script = ExtResource("2_b16rw")
+health = 30.0
+attack = 0.0
+speed = 3.0
+accel = 10.0
+knockback_duration = 0.2
+knockback_timer = 0.0
+metadata/_custom_type_script = "uid://cal3n5r6347g2"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3tws"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("3_n3tws")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
+size = Vector3(1, 0.772949, 2.992)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+size = Vector3(8.87505, 3.1073, 2.86035)
+
+[sub_resource type="Animation" id="Animation_aupjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.533082, 0.533082, 0.533082)]
+}
+
+[sub_resource type="Animation" id="Animation_cunt7"]
+resource_name = "attack"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.500522, 0.623643, 0.490184)]
+}
+
+[sub_resource type="Animation" id="Animation_mr116"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.533082, 0.449251, 0.484542), Vector3(0.533082, 0.486648, 0.524394)]
+}
+
+[sub_resource type="Animation" id="Animation_xow73"]
+resource_name = "prepare"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.533082, 0.449251, 0.484542), Vector3(0.533082, 0.426328, 0.4838), Vector3(0.533082, 0.349481, 0.481185)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
+_data = {
+&"RESET": SubResource("Animation_aupjf"),
+&"attack": SubResource("Animation_cunt7"),
+&"idle": SubResource("Animation_mr116"),
+&"prepare": SubResource("Animation_xow73")
+}
+
+[node name="EnemyTemplate" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_n3tws")
+enemy_src = SubResource("Resource_cunt7")
+
+[node name="Body" type="Sprite3D" parent="."]
+transform = Transform3D(-1.25375e-08, -0.280262, 0.453464, -1.74166e-08, 0.453464, 0.280262, -0.533082, -8.22392e-09, -1.98215e-08, 0.23692, 1.62305, -0.144703)
+material_override = SubResource("StandardMaterial3D_n3tws")
+alpha_cut = 1
+texture = ExtResource("3_n3tws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, -0.170929)
+shape = SubResource("BoxShape3D_llsaf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+
+[node name="MeshInstance3D" type="Node3D" parent="."]
+transform = Transform3D(-1.20452e-08, -0.13778, 0.238643, 0, 0.238643, 0.13778, -0.275561, 6.02256e-09, -1.04314e-08, 0, 0.309002, 0)
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" groups=["enemy"]]
+transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.999939, -2.13381e-08, -3.92848e-09, 1.6798e-08, 0.880846, -0.508559, 1.40701e-08, 0.499995, 0.866019, 0.288611, 1.03579, 0.917102)
+shape = SubResource("BoxShape3D_6cego")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xu1it")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.364156, 0)
+omni_range = 3.89871
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
