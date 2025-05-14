@@ -10,7 +10,7 @@ var animation_player: AnimationPlayer
 var last_debilited_state: bool = false
 
 func _ready() -> void:
-	# Obtener referencias
+	Events.connect("endFlash", Callable(self, "endFlash"))
 	health_bar = $NinePatchRect
 	animation_player = $AnimationPlayer
 	
@@ -38,6 +38,11 @@ func _process(_delta: float) -> void:
 
 # Función para actualizar la barra de vida
 func update_health_bar() -> void:
+	if not is_instance_valid($EnemyTemplate2):
+		return
 	var current_health: float = $EnemyTemplate2.health
 	var health_ratio: float = current_health / max_health
 	health_bar.size.x = health_bar_max_width * health_ratio
+
+func endFlash():
+	$AnimationPlayer.play("end")

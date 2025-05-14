@@ -9,6 +9,8 @@ func _ready() -> void:
 	$Sprites.visible = false
 	
 func _process(delta: float) -> void:
+	if defeated:
+		Events.notify_endFlash()
 	enem_area_disabled()
 	canReciveDamage = false
 	

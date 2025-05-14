@@ -91,6 +91,7 @@ var eraseLife = false
 
 
 var debilited = false #boss
+var defeated = false
 
 #todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
 func _ready():

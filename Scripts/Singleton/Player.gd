@@ -6,7 +6,7 @@ var health : float = 3.5
 var health_container : int = 5
 var shield : float = 0.5
 
-var atack : float = 3.0
+var atack : float = 300.0
 var speed : float= 5.0
 var criticalDamage : float = 0.0
 var poisonDamage : float = 0.0
@@ -19,6 +19,7 @@ var is_dashing = false
 
 #noificador de vida actualizada (general)
 signal health_updated
+
 func notify_health_updated():
 	emit_signal("health_updated")
 

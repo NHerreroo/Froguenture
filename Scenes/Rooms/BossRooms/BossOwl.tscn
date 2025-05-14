@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://bdbqlw5ht28do"]
 
-[ext_resource type="Script" uid="uid://bemib0datiw4u" path="res://Scenes/Rooms/BossRooms/boss_owl.gd" id="1_j6fdc"]
+[ext_resource type="Script" uid="uid://bemib0datiw4u" path="res://Scripts/Enemies/boss_owl.gd" id="1_j6fdc"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_avatu"]
 [ext_resource type="Texture2D" uid="uid://cly80x8ld0587" path="res://Sprites/Night.png" id="3_e573l"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_4b4ya"]
@@ -43,22 +43,6 @@ size = Vector3(1, 4, 10)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j6fdc"]
 gradient = SubResource("Gradient_w1o5k")
 
-[sub_resource type="Animation" id="Animation_j6fdc"]
-resource_name = "flash"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.666667, 1.33333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_gi0ac"]
 length = 0.001
 tracks/0/type = "value"
@@ -88,6 +72,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j6fdc"]
+resource_name = "flash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.33333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gi0ac"]
