@@ -7,9 +7,6 @@ var heart = preload("res://Scenes/Dropps/Heart.tscn")
 
 var dust = preload("res://Scenes/Enemies/dust.tscn")
 
-
-var defeated = false
-
 var canReciveDamage = true
 
 @export var enemy_src : enemy_source
@@ -80,7 +77,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		health -= damage
 
 		if health <= 0:
-			defeated = true
 			Global.enemies_remaining -= 1
 			dropitemfunc()
 			spawn_dust()

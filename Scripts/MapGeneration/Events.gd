@@ -8,9 +8,4 @@ signal camera_low_shake
 signal camera_mid_shake
 signal camera_big_shake
 
-
-signal endFlash
-func notify_endFlash():
-	emit_signal("endFlash")
-
 signal room_exited

@@ -5,12 +5,11 @@ var sprite_delay_timer: float = 0.0
 var should_show_sprites: bool = false
 
 func _ready() -> void:
+	Global.enemies_remaining += 1
 	enem_area_disabled()
 	$Sprites.visible = false
 	
 func _process(delta: float) -> void:
-	if defeated:
-		Events.notify_endFlash()
 	enem_area_disabled()
 	canReciveDamage = false
 	
