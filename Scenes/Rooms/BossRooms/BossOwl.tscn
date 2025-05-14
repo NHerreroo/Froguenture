@@ -38,11 +38,11 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
 
-[sub_resource type="Gradient" id="Gradient_w1o5k"]
+[sub_resource type="Gradient" id="Gradient_j6fdc"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j6fdc"]
-gradient = SubResource("Gradient_w1o5k")
+gradient = SubResource("Gradient_j6fdc")
 
 [sub_resource type="Animation" id="Animation_gi0ac"]
 length = 0.001

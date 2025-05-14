@@ -1,7 +1,9 @@
 extends Enemy
 
-var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
 var currentState
+var sticky = preload("res://Scenes/Enemies/Misc/SticySlimeFloor.tscn")
+var time_since_last_spawn = 0.0
+var spawn_interval = 0.5  # Cada 0.5 segundos ahora
 
 func _ready() -> void:
 	Global.enemies_remaining += 1
@@ -14,8 +16,15 @@ func _ready() -> void:
 	enem_area_disabled()
 	$AnimationPlayer.play("idle")
 	selectState()
-	
+
+func _process(delta: float) -> void:
+	time_since_last_spawn += delta
+	if time_since_last_spawn >= spawn_interval:
+		time_since_last_spawn = 0.0
+		spawnStiky()
+
 func selectState():
+	speed = 3
 	currentState = get_random_state()
 	match currentState:
 		State.IDLE:
@@ -27,19 +36,23 @@ func selectState():
 
 func walkState():
 	$AnimationPlayer.play("idle")
+	print("walk")
 	var posx = randf_range(-3.0, 3.0)
-	var posz = randf_range(-7.0, 7.0)
+	var posz = randf_range(-6.0, 6.0)
 	nav.target_position = global_transform.origin + Vector3(posx, 0, posz)
-	
-	await nav.navigation_finished
+
+	var timer = get_tree().create_timer(4.0)
+	await get_tree().create_timer(4.0).timeout or nav.navigation_finished
 	selectState()
 
 func idleState():
 	$AnimationPlayer.play("idle")
+	print("idle")
 	await get_tree().create_timer(randf_range(0.5,1.5)).timeout
 	selectState()
 	
 func attackState():
+	print("attack")
 	velocity = Vector3.ZERO
 	$AnimationPlayer.play("prepare")
 	await get_tree().create_timer(1.5).timeout
@@ -48,10 +61,13 @@ func attackState():
 	$AnimationPlayer.play("attack")
 	enem_area_enabled()
 	nav.target_position = player.global_transform.origin
-	await nav.navigation_finished
-	speed = original_speed
+	var timer = get_tree().create_timer(4.0)
+	await get_tree().create_timer(4.0).timeout or nav.navigation_finished
+	speed = 3
 	enem_area_disabled()
 	selectState()
 
-func _physics_process(delta: float) -> void:
-	super._physics_process(delta)
+func spawnStiky():
+	var newStky = sticky.instantiate()
+	newStky.global_position = Vector3(global_position.x, 0, global_position.z)
+	get_parent().add_child(newStky)  # Aparece en el escenario, no como hijo
