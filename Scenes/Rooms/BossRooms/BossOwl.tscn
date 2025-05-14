@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdbqlw5ht28do"]
+[gd_scene load_steps=23 format=3 uid="uid://bdbqlw5ht28do"]
 
+[ext_resource type="Script" uid="uid://bemib0datiw4u" path="res://Scenes/Rooms/BossRooms/boss_owl.gd" id="1_j6fdc"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_avatu"]
 [ext_resource type="Texture2D" uid="uid://cly80x8ld0587" path="res://Sprites/Night.png" id="3_e573l"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_4b4ya"]
@@ -37,8 +38,68 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
 
+[sub_resource type="Gradient" id="Gradient_w1o5k"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j6fdc"]
+gradient = SubResource("Gradient_w1o5k")
+
+[sub_resource type="Animation" id="Animation_j6fdc"]
+resource_name = "flash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.33333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gi0ac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e573l"]
+resource_name = "end"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gi0ac"]
+_data = {
+&"RESET": SubResource("Animation_gi0ac"),
+&"end": SubResource("Animation_e573l"),
+&"flash": SubResource("Animation_j6fdc")
+}
+
 [node name="OwlBoss" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019695, 0)
+script = ExtResource("1_j6fdc")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kwvrb")
@@ -185,3 +246,32 @@ transform = Transform3D(5.60809e-08, -0.24691, 0.427661, 3.23783e-08, 0.427661, 
 stream = ExtResource("8_ap24m")
 volume_db = -42.162
 autoplay = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -404.0
+offset_top = 380.0
+offset_right = 405.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_j6fdc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gi0ac")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
