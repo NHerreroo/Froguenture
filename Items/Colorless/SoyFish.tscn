@@ -1,0 +1,200 @@
+[gd_scene load_steps=13 format=3 uid="uid://4aadb856xovx"]
+
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_pgr67"]
+[ext_resource type="Texture2D" uid="uid://du2uyharj7wid" path="res://Sprites/Items/Arts/soyfishART.png" id="2_es40b"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_wlpd5"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_0i0pt"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_qf8ag"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_7xxmg"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_2opgo"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_fgpai"]
+
+[sub_resource type="Resource" id="Resource_jivrs"]
+script = ExtResource("3_wlpd5")
+name = "Soy Fish"
+description = ""
+image = ExtResource("2_es40b")
+habilitie1 = "+1/+1000"
+habilitie2 = ""
+habilitie3 = ""
+damage = "1"
+health = "4"
+quote = "\"Item\""
+color_card = 5
+card_type = 3
+foil = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
+size = Vector2(456, 644)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
+resource_local_to_scene = true
+shader = ExtResource("6_7xxmg")
+shader_parameter/Line_Smoothness = 0.082
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.685
+shader_parameter/Position = 0.831
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 0.528
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
+resource_local_to_scene = true
+shader = ExtResource("7_2opgo")
+shader_parameter/influence = 0.7
+shader_parameter/offset = 210.0
+
+[node name="ItemTemplate" type="Button"]
+offset_left = 251.0
+offset_top = 131.0
+offset_right = 719.0
+offset_bottom = 800.0
+pivot_offset = Vector2(229.484, 322.68)
+focus_mode = 0
+flat = true
+script = ExtResource("1_pgr67")
+item_Src = SubResource("Resource_jivrs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(233, 321)
+shape = SubResource("RectangleShape2D_ojq6v")
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.376471)
+z_index = -1
+layout_mode = 0
+offset_left = 52.0
+offset_top = 49.0
+offset_right = 890.0
+offset_bottom = 1230.0
+scale = Vector2(0.541449, 0.628611)
+texture = ExtResource("4_0i0pt")
+
+[node name="CardColor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -31.0
+offset_right = 780.0
+offset_bottom = 1117.0
+scale = Vector2(0.619202, 0.623102)
+texture = ExtResource("5_qf8ag")
+
+[node name="CardImage" type="Sprite2D" parent="CardColor"]
+z_index = -1
+use_parent_material = true
+position = Vector2(415.05, 577.755)
+scale = Vector2(0.985301, 0.998555)
+texture = ExtResource("4_0i0pt")
+
+[node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
+material = SubResource("ShaderMaterial_kgfy7")
+offset_left = -321.259
+offset_top = -485.373
+offset_right = 328.741
+offset_bottom = 460.627
+scale = Vector2(0.974073, 0.965472)
+mouse_filter = 2
+
+[node name="Foil2" type="ColorRect" parent="CardColor/CardImage"]
+material = SubResource("ShaderMaterial_dv7ap")
+offset_left = -321.0
+offset_top = -485.0
+offset_right = 198.0
+offset_bottom = -154.0
+scale = Vector2(1.22039, 2.95277)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.243137)
+
+[node name="Name" type="Label" parent="CardColor"]
+layout_mode = 0
+offset_left = 151.808
+offset_top = 128.39
+offset_right = 728.808
+offset_bottom = 194.39
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_fgpai")
+theme_override_font_sizes/font_size = 39
+text = "Card Name"
+vertical_alignment = 1
+
+[node name="Type" type="Label" parent="CardColor"]
+layout_mode = 0
+offset_left = 117.894
+offset_top = 580.964
+offset_right = 694.894
+offset_bottom = 646.964
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_fgpai")
+theme_override_font_sizes/font_size = 39
+text = "Card Name"
+vertical_alignment = 1
+
+[node name="Habilitie" type="Label" parent="CardColor"]
+layout_mode = 0
+offset_left = 140.503
+offset_top = 670.837
+offset_right = 680.503
+offset_bottom = 900.837
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_fgpai")
+theme_override_font_sizes/font_size = 30
+text = "HABILITIE 1
+HABILITIE 2
+HABILITIE 3
+"
+autowrap_mode = 3
+
+[node name="Quote" type="Label" parent="CardColor"]
+layout_mode = 0
+offset_left = 198.643
+offset_top = 881.076
+offset_right = 595.643
+offset_bottom = 971.076
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_fgpai")
+theme_override_font_sizes/font_size = 25
+text = "\"Quote\"
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="Damage" type="Label" parent="CardColor"]
+layout_mode = 0
+offset_left = 172.803
+offset_top = 954.9
+offset_right = 269.803
+offset_bottom = 1189.9
+theme_override_constants/outline_size = 47
+theme_override_fonts/font = ExtResource("8_fgpai")
+theme_override_font_sizes/font_size = 85
+text = "5
+"
+autowrap_mode = 3
+
+[node name="Health" type="Label" parent="CardColor"]
+layout_mode = 0
+offset_left = 578.164
+offset_top = 959.714
+offset_right = 675.164
+offset_bottom = 1194.71
+theme_override_constants/outline_size = 47
+theme_override_fonts/font = ExtResource("8_fgpai")
+theme_override_font_sizes/font_size = 85
+text = "5
+"
+autowrap_mode = 3
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

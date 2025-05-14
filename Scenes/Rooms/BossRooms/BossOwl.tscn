@@ -1,6 +1,5 @@
 [gd_scene load_steps=16 format=3 uid="uid://bdbqlw5ht28do"]
 
-[ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_8ym6q"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_avatu"]
 [ext_resource type="Texture2D" uid="uid://cly80x8ld0587" path="res://Sprites/Night.png" id="3_e573l"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_4b4ya"]
@@ -8,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="6_xyslx"]
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="7_w1o5k"]
 [ext_resource type="AudioStream" uid="uid://f8kjgssg63d0" path="res://Sounds/Music/FinalBossProvisonal.mp3" id="8_ap24m"]
+[ext_resource type="PackedScene" uid="uid://b3tcm3nrvnxk3" path="res://Scenes/Enemies/Owl2.tscn" id="9_w1o5k"]
 [ext_resource type="PackedScene" uid="uid://dwl03mgcqw7n2" path="res://Scenes/Enemies/Owl.tscn" id="11_gi0ac"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -39,7 +39,6 @@ size = Vector3(1, 4, 10)
 
 [node name="OwlBoss" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019695, 0)
-script = ExtResource("1_8ym6q")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_kwvrb")
@@ -177,7 +176,10 @@ transform = Transform3D(-1.21417e-07, -1.38885, 2.40557, 0, 2.40557, 1.38885, -2
 transform = Transform3D(-1.21417e-07, -1.38885, 2.40557, 0, 2.40557, 1.38885, -2.77771, 6.07087e-08, -1.05151e-07, -17.9741, 11.9188, -12.6253)
 
 [node name="EnemyTemplate" parent="." instance=ExtResource("11_gi0ac")]
-transform = Transform3D(8.47256e-08, -0.373026, 0.646099, 4.89163e-08, 0.646099, 0.373026, -0.746051, 0, 9.78327e-08, -9.14809, 5.04809, -0.290128)
+transform = Transform3D(1.38361e-07, -0.441055, 0.763928, 5.78372e-08, 0.763928, 0.441055, -0.882109, -1.90919e-08, 1.48742e-07, -10.656, 2.79513, -0.290128)
+
+[node name="EnemyTemplate2" parent="." instance=ExtResource("9_w1o5k")]
+transform = Transform3D(5.60809e-08, -0.24691, 0.427661, 3.23783e-08, 0.427661, 0.24691, -0.49382, 0, 6.47566e-08, 0.147265, -4.77779, -1.67628)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ap24m")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwl03mgcqw7n2"]
+[gd_scene load_steps=13 format=3 uid="uid://dwl03mgcqw7n2"]
 
 [ext_resource type="Script" uid="uid://djbkfrymf33r" path="res://Scripts/Enemies/owl.gd" id="1_1etgl"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_1etgl"]
@@ -149,9 +149,75 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 3.34191, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ageh5"]
+resource_name = "debilited"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Wings1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.206734), Vector3(0, 0, -0.13453)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Wings3:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.214117), Vector3(0, 0, 0.136537)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Wings2:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.00174533), Vector3(0, 0, 0.239302)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Wings4:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0696735), Vector3(0, 0, -0.217032)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.06217, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xu1it"]
 _data = {
 &"RESET": SubResource("Animation_aupjf"),
+&"debilited": SubResource("Animation_ageh5"),
 &"idle": SubResource("Animation_mr116")
 }
 
@@ -174,7 +240,7 @@ transform = Transform3D(-1.20452e-08, -0.135026, 0.238643, 0, 0.233873, 0.13778,
 transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
-transform = Transform3D(0.999999, -2.13389e-08, -3.92733e-09, 1.67991e-08, 0.880849, -0.508562, 1.40709e-08, 0.499999, 0.866023, 0.0801088, 1.03579, 0.917103)
+transform = Transform3D(0.999972, -2.13389e-08, -3.92734e-09, 1.67979e-08, 0.880849, -0.508562, 1.40726e-08, 0.499999, 0.866023, 0.0801088, 1.03579, 0.917103)
 shape = SubResource("BoxShape3D_6cego")
 
 [node name="Sprites" type="Node3D" parent="."]

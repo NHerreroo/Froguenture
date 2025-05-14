@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3tcm3nrvnxk3"]
+
+[ext_resource type="Script" uid="uid://2x8aomd76pve" path="res://Scripts/Enemies/owl2.gd" id="1_njjek"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_ddq47"]
+[ext_resource type="Texture2D" uid="uid://d074y14t8n01o" path="res://Sprites/Enemies/Owl/dead_owl.png" id="3_gxloe"]
+
+[sub_resource type="Resource" id="Resource_gxloe"]
+script = ExtResource("2_ddq47")
+health = 1000.0
+attack = 0.0
+speed = 0.0
+accel = 0.0
+knockback_duration = 0.0
+knockback_timer = 0.0
+metadata/_custom_type_script = "uid://cal3n5r6347g2"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
+size = Vector3(14.338, 9.58167, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
+size = Vector3(3.50751, 30.9597, 43.6998)
+
+[node name="EnemyTemplate" type="CharacterBody3D"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 3.62043, 0)
+collision_layer = 4
+script = ExtResource("1_njjek")
+enemy_src = SubResource("Resource_gxloe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133728, 1.29039, -1.77636e-14)
+shape = SubResource("BoxShape3D_llsaf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MeshInstance3D" type="Node3D" parent="."]
+transform = Transform3D(-1.20452e-08, -0.135026, 0.238643, 0, 0.233873, 0.13778, -0.275561, 5.90218e-09, -1.04314e-08, 0, 0.300841, 0)
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" groups=["enemy"]]
+transform = Transform3D(1.23559, 0, 3.55271e-15, 8.88178e-15, 1.22375, -5.96046e-08, -7.10543e-15, -5.96046e-08, 1.23559, -1.73472e-17, -0.0122893, -0.0058223)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.999972, -2.13389e-08, -3.92734e-09, 1.67979e-08, 0.880849, -0.508562, 1.40726e-08, 0.499999, 0.866023, 0.0801087, 4.04523, 2.5479)
+shape = SubResource("BoxShape3D_6cego")
+
+[node name="Sprites" type="Node3D" parent="."]
+
+[node name="Body" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87096, 3.24131, 0.0805254)
+alpha_cut = 1
+texture = ExtResource("3_gxloe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

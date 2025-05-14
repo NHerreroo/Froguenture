@@ -89,6 +89,9 @@ var can_walk = true #cuando quiera que el personaje no camine se pone a false
 var CurrentPlayerPosition = Vector2()
 var eraseLife = false
 
+
+var debilited = false #boss
+
 #todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
 func _ready():
 	Input.connect("joy_connection_changed", Callable(self, "_on_joy_connection_changed"))

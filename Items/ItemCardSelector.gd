@@ -18,6 +18,7 @@ var card_instance1
 var card_instance2
 
 func _ready() -> void:
+	randomize()
 	Global.can_walk = false
 	set_background_opacity_in()
 	load_all_scene_paths()
@@ -39,7 +40,7 @@ func load_scene_paths(folder_path: String, ItemColorArray: Array) -> void:
 	ItemColorArray.append(dir.get_files())
 
 func get_random_color() -> Array:
-	var num = randi_range(0,5)
+	var num = randi_range(0,8)
 	match num:
 		0: return White_scene_paths
 		1: return Black_scene_paths
