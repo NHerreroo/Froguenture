@@ -405,4 +405,4 @@ transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189,
 transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 5.13176, 2.66546, 4.96278)
 
 [node name="EnemyTemplate" parent="." instance=ExtResource("10_ho6s0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0126, -0.0609159, 0.423357)
+transform = Transform3D(1.43, 0, 0, 0, 1.43, 0, 0, 0, 1.43, 0, -0.0399538, 0)

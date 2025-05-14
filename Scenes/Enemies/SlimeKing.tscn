@@ -1,23 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx2jwoeisj3ke"]
+[gd_scene load_steps=12 format=3 uid="uid://dx2jwoeisj3ke"]
 
-[ext_resource type="Script" uid="uid://b8lmj805y1255" path="res://Scripts/Enemies/slime_purple.gd" id="1_n3tws"]
-[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_b16rw"]
+[ext_resource type="Script" uid="uid://n423pw8l773p" path="res://Scripts/Enemies/slime_king.gd" id="1_up6tx"]
+[ext_resource type="Script" uid="uid://bhgt7us588ofj" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_b16rw"]
 [ext_resource type="Texture2D" uid="uid://c3wey4oer6b61" path="res://Sprites/Enemies/king slime/body.png" id="3_n3tws"]
 
-[sub_resource type="Resource" id="Resource_cunt7"]
+[sub_resource type="Resource" id="Resource_n3tws"]
 script = ExtResource("2_b16rw")
-health = 30.0
+health = 1000.0
 attack = 0.0
 speed = 3.0
 accel = 10.0
 knockback_duration = 0.2
 knockback_timer = 0.0
 metadata/_custom_type_script = "uid://cal3n5r6347g2"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3tws"]
-transparency = 1
-cull_mode = 2
-albedo_texture = ExtResource("3_n3tws")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_llsaf"]
 size = Vector3(1, 0.772949, 2.992)
@@ -98,13 +93,13 @@ _data = {
 }
 
 [node name="EnemyTemplate" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0399538, 0)
 collision_layer = 4
-script = ExtResource("1_n3tws")
-enemy_src = SubResource("Resource_cunt7")
+script = ExtResource("1_up6tx")
+enemy_src = SubResource("Resource_n3tws")
 
 [node name="Body" type="Sprite3D" parent="."]
-transform = Transform3D(-1.25375e-08, -0.280262, 0.453464, -1.74166e-08, 0.453464, 0.280262, -0.533082, -8.22392e-09, -1.98215e-08, 0.23692, 1.62305, -0.144703)
-material_override = SubResource("StandardMaterial3D_n3tws")
+transform = Transform3D(-1.25375e-08, -0.280262, 0.453464, -1.74166e-08, 0.453464, 0.280262, -0.533082, -8.22392e-09, -1.98215e-08, 0.23692, 1.33313, -0.144703)
 alpha_cut = 1
 texture = ExtResource("3_n3tws")
 
@@ -132,7 +127,7 @@ libraries = {
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.364156, 0)
-omni_range = 3.89871
+omni_range = 5.75469
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

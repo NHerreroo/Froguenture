@@ -4,6 +4,8 @@ var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
 var mark = preload("res://Scenes/Enemies/Mark.tscn")
 var slime = preload("res://Scenes/Enemies/Slime_Purple.tscn")
 
+var secondPhase = 1
+
 var attacksDone = 0
 var rotation_offset := 0.0
 var sprite_delay_timer := 0.0
@@ -11,6 +13,8 @@ var should_show_sprites := true
 var can_attack := true  # Control para el retraso en ataques
 
 func _process(delta: float) -> void:
+	if $"../EnemyTemplate2".health <= 500:
+		secondPhase = 2
 	# Manejo del retraso de sprites (0.7s)
 	sprite_delay_timer += delta
 	if sprite_delay_timer >= 1:
@@ -37,7 +41,7 @@ func start_attack_loop():
 					await slimeAttack()
 			
 			attacksDone += 1
-			if attacksDone == 1:
+			if attacksDone == 3:
 				Global.debilited = true
 				should_show_sprites = false  # Inicia el retraso para ocultar
 				attacksDone = 0
@@ -47,16 +51,16 @@ func start_attack_loop():
 			should_show_sprites = true  # Inicia el retraso para mostrar
 
 func shotsAttk():
-	for i in range(10):
+	for i in range(10 * secondPhase):
 		if can_attack:  # Verificar antes de cada disparo
 			shoot_in_multiple_directions()
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer((1 / secondPhase) + 0.2).timeout
 
 func markAttk():
-	for i in range(5):
+	for i in range(5 * secondPhase):
 		if can_attack:  # Verificar antes de cada marca
 			spawn_marks()
-			await get_tree().create_timer(3).timeout
+			await get_tree().create_timer((3 / secondPhase) + 0.3).timeout
 
 func slimeAttack():
 	for i in range(3):

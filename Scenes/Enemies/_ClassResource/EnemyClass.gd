@@ -75,6 +75,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		# Restar salud por el ataque
 		var damage = Player.atack
 		health -= damage
+		health = max(0, health) 
 
 		if health <= 0:
 			Global.enemies_remaining -= 1
