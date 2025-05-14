@@ -77,8 +77,8 @@ billboard = 1
 alpha_cut = 1
 texture = ExtResource("2_2dbbn")
 
-[node name="Item2" type="Sprite3D" parent="."]
-transform = Transform3D(0.457381, 1.06581e-14, -7.10543e-15, -4.44089e-15, 0.457381, -2.98023e-08, 7.10543e-15, 2.98023e-08, 0.457381, 0.106639, 1.84915, 0.0070448)
+[node name="Item2" type="Sprite3D" parent="Item"]
+transform = Transform3D(3.0511, 5.68434e-14, -4.9738e-14, -2.13163e-14, 3.0511, -3.57628e-07, 2.84217e-14, 3.57628e-07, 3.0511, 0.220114, -0.359375, -0.322088)
 modulate = Color(0.998428, 0.952779, 0.904486, 1)
 billboard = 1
 alpha_cut = 2

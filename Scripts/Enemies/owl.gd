@@ -105,5 +105,4 @@ func spawn_slime():
 			new_slime.global_transform.origin = candidate_position
 			get_tree().root.add_child(new_slime)
 			new_slime.spawn_dust()
-			Global.enemies_remaining -= 1
 			break

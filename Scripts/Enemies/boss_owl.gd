@@ -1,5 +1,7 @@
 extends Node3D
 
+var altarSeed = preload("res://Scenes/SeedAltar.tscn")
+
 # Variables para la vida del enemigo
 var max_health: float = 1000.0  # Vida máxima del enemigo
 var health_bar_max_width: float = 809.0  # Tamaño máximo de la barra en X
@@ -52,5 +54,12 @@ func update_health_bar() -> void:
 func play_end_flash() -> void:
 	if animation_player.has_animation("end"):
 		animation_player.play("end")
+		spawnSeed()
 		$NinePatchRect.visible = false
 		Global.enemies_remaining -=1
+
+
+func spawnSeed():
+	var newAltar = altarSeed.instantiate()
+	newAltar.position = Vector3(-2,0,0)
+	add_child(newAltar)

@@ -31,7 +31,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func buy_item():
 	if Input.is_action_just_pressed("Confirm") and purchased == false:
 		$Item.visible = false
-		$Item2.visible = false
+		$Item/Item2.visible = false
 		purchased = true
 		spawn_dust()
 		animate_nine_patch_rect(false)
