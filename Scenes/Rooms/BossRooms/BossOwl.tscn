@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdbqlw5ht28do"]
+[gd_scene load_steps=24 format=3 uid="uid://bdbqlw5ht28do"]
 
 [ext_resource type="Script" uid="uid://bemib0datiw4u" path="res://Scripts/Enemies/boss_owl.gd" id="1_j6fdc"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_avatu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="7_w1o5k"]
 [ext_resource type="AudioStream" uid="uid://f8kjgssg63d0" path="res://Sounds/Music/FinalBossProvisonal.mp3" id="8_ap24m"]
 [ext_resource type="PackedScene" uid="uid://b3tcm3nrvnxk3" path="res://Scenes/Enemies/Owl2.tscn" id="9_w1o5k"]
+[ext_resource type="PackedScene" uid="uid://bm7tf4nfpnpbg" path="res://Scenes/SeedAltar.tscn" id="11_e573l"]
 [ext_resource type="PackedScene" uid="uid://dwl03mgcqw7n2" path="res://Scenes/Enemies/Owl.tscn" id="11_gi0ac"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -39,6 +40,7 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 size = Vector3(1, 4, 10)
 
 [sub_resource type="Gradient" id="Gradient_w1o5k"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j6fdc"]
 gradient = SubResource("Gradient_w1o5k")
@@ -275,3 +277,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+
+[node name="TreasureAltar" parent="." instance=ExtResource("11_e573l")]
+transform = Transform3D(-4.37114e-08, -0.5, 0.866025, 0, 0.866025, 0.5, -1, 2.18557e-08, -3.78552e-08, -1.88972, -0.209703, 0.00118516)
