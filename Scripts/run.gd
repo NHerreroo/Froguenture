@@ -75,6 +75,7 @@ func _change_view(scene: PackedScene) -> Node:
 
 	return new_view
 
+  # Esperar un frame para asegurar la renderización
 func _show_map():
 	if current_view.get_child_count() > 0:
 		current_view.get_child(0).queue_free()

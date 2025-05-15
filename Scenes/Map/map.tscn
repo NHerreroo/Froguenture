@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://jxjokaih0hys" path="res://Scripts/MapGeneration/map_generator.gd" id="1_1ym53"]
 [ext_resource type="Script" uid="uid://bsxhkr0c4xdii" path="res://Scripts/MapGeneration/map.gd" id="1_345j5"]
 [ext_resource type="PackedScene" uid="uid://bv8dx1tpasadh" path="res://Scenes/Map/pointer.tscn" id="3_185ku"]
-[ext_resource type="Shader" uid="uid://ce4108au11ujg" path="res://Shaders/mapBackground.gdshader" id="4_1sbwm"]
+[ext_resource type="Shader" uid="uid://c4eeyuf78lgdq" path="res://Shaders/mapBackground.gdshader" id="4_1sbwm"]
 
 [sub_resource type="Gradient" id="Gradient_pvgv4"]
 offsets = PackedFloat32Array(0, 0.577922, 0.727273, 1)

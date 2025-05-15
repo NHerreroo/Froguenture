@@ -20,6 +20,7 @@ var is_dashing = false
 #noificador de vida actualizada (general)
 signal health_updated
 
+
 func notify_health_updated():
 	emit_signal("health_updated")
 

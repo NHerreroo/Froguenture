@@ -138,6 +138,7 @@ func remove_item_from_room(room_x: int, room_y: int, position: Vector3):
 
 
 func resetall():
+	can_walk = true
 	is_in_tutorial = false
 	dialog_ended = true
 	lvlCount = 0

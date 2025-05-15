@@ -5,6 +5,8 @@ extends Node3D
 var dust = preload("res://Scenes/Enemies/dust.tscn")
 var pack = preload("res://Items/ItemCardSelector.tscn")
 
+var stats = preload("res://Scenes/run_final_stats.tscn")
+
 var currentItem : String
 var playerInArea = false
 var disableShop = false
@@ -35,7 +37,7 @@ func buy_item():
 		purchased = true
 		spawn_dust()
 		animate_nine_patch_rect(false)
-		get_tree().change_scene_to_file("res://Scenes/run_final_stats.tscn")
+		spawnStats()
 			
 
 func animate_nine_patch_rect(show: bool) -> void:
@@ -64,3 +66,7 @@ func spawn_dust():
 	dust_inst.position = Vector3(self.position.x, 0 ,self.position.z)
 	get_tree().root.add_child(dust_inst)
 	
+
+func spawnStats():
+	var newStats = stats.instantiate()
+	add_child(newStats)

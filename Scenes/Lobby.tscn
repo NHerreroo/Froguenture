@@ -148,14 +148,6 @@ shape = SubResource("BoxShape3D_wjxqr")
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -3.56748, 0, -7.53312)
 
-[node name="RUN" type="Button" parent="."]
-offset_left = 564.0
-offset_top = 853.0
-offset_right = 747.0
-offset_bottom = 884.0
-scale = Vector2(4.63939, 3.62321)
-text = "NEW RUN"
-
 [node name="Fountain" parent="." instance=ExtResource("6_s3paf")]
 transform = Transform3D(-2.61393e-08, 0, 0.597998, 0, 0.597998, 0, -0.597998, 0, -2.61393e-08, 1.65204, -0.108567, -0.0346518)
 
@@ -379,5 +371,3 @@ transform = Transform3D(-6.02283e-08, -0.688932, 1.19326, 0, 1.19326, 0.688932, 
 
 [node name="Tree74" parent="Vegetation" instance=ExtResource("11_b6u2u")]
 transform = Transform3D(-6.02283e-08, -0.688932, 1.19326, 0, 1.19326, 0.688932, -1.37786, 3.01141e-08, -5.21593e-08, -3.52309, 4.4723, 29.1232)
-
-[connection signal="pressed" from="RUN" to="." method="_on_run_pressed"]

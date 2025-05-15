@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvvfna71hrjte"]
 
 [ext_resource type="Script" uid="uid://chnvslh1e8aqr" path="res://Scripts/pause_menu.gd" id="1_0wnvf"]
-[ext_resource type="Shader" uid="uid://bingy4yh4y8an" path="res://Shaders/pause_menu.gdshader" id="1_od1fx"]
-[ext_resource type="Shader" uid="uid://df4560bfikspk" path="res://Shaders/pause_menu_Wave.gdshader" id="3_xjagq"]
+[ext_resource type="Shader" uid="uid://o7fvdpw88bkm" path="res://Shaders/pause_menu.gdshader" id="1_od1fx"]
+[ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="3_xjagq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0gf7"]
 shader = ExtResource("1_od1fx")
-shader_parameter/lod = 1.975
+shader_parameter/lod = 5.0
 
 [sub_resource type="Gradient" id="Gradient_hdhvl"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0383972, 0.0383972, 0.0383972, 1)
@@ -42,6 +42,7 @@ grow_vertical = 2
 script = ExtResource("1_0wnvf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_as_relative = false
 material = SubResource("ShaderMaterial_i0gf7")
 layout_mode = 1
 anchors_preset = 15
@@ -51,7 +52,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-self_modulate = Color(0.72549, 0.0705882, 0.278431, 1)
 material = SubResource("ShaderMaterial_lay7g")
 layout_mode = 1
 anchors_preset = 8
