@@ -37,6 +37,7 @@ var last_pos: Vector2
 var velocity: Vector2
 
 var selected = false
+var animation_in_progress = false 
 
 @onready var card_texture: TextureRect = $CardColor
 @onready var shadow = $Shadow
@@ -44,8 +45,22 @@ var selected = false
 
 signal item_pressed
 
+
+#locura de sistema me cago en todo estoy volviendome loco
+func _ready():
+	self.scale = Vector2.ZERO
+	self.modulate.a = 1.0
+	
+	if shadow:
+		shadow.modulate.a = 0.5 
+		shadow.position = Vector2(5, 5)  
+	
+
+	await get_tree().create_timer(0.1).timeout
+	entryCard()
+
 func _process(delta: float) -> void:
-	if Global.card_selected == true and selected == false:
+	if Global.card_selected == true and selected == false and not animation_in_progress:
 		card_not_selected_animation()
 
 func _on_focus_entered() -> void:
@@ -55,39 +70,69 @@ func _on_focus_exited() -> void:
 	_on_mouse_exited()
 
 func _on_mouse_entered() -> void:
-	if Global.card_selected == false and selected == false:
+	
+	if Global.card_selected == false and selected == false and not animation_in_progress:
 		if tween_hover and tween_hover.is_running():
 			tween_hover.kill()
-		tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween_hover.tween_property(self, "scale", Vector2(1.25, 1.25), 0.5)
-
-func _on_mouse_exited() -> void:
-	if Global.card_selected == false and selected == false:
+		
+		tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).set_parallel(true)
+		tween_hover.tween_property(self, "scale", Vector2(1.15, 1.15), 0.25) 
+		tween_hover.tween_property(self, "rotation_degrees", 2.0, 0.25)
+		
 		if tween_rot and tween_rot.is_running():
 			tween_rot.kill()
-		tween_rot = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).set_parallel(true)
-		tween_rot.tween_property(card_texture.material, "shader_parameter/x_rot", -10.0, 0.5)
-		tween_rot.tween_property(card_texture.material, "shader_parameter/y_rot", -10.0, 0.5)
+		tween_rot = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE).set_parallel(true)
+		tween_rot.tween_property(card_texture.material, "shader_parameter/x_rot", 5.0, 0.25)
+		tween_rot.tween_property(card_texture.material, "shader_parameter/y_rot", 3.0, 0.25)
+		
+		if shadow:
+			var shadow_tween = create_tween()
+			shadow_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+			shadow_tween.tween_property(shadow, "position", Vector2(8, 8), 0.25)
+			shadow_tween.tween_property(shadow, "modulate:a", 0.6, 0.25)
+
+func _on_mouse_exited() -> void:
+	if Global.card_selected == false and selected == false and not animation_in_progress:
+		if tween_rot and tween_rot.is_running():
+			tween_rot.kill()
+		tween_rot = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE).set_parallel(true)
+		tween_rot.tween_property(card_texture.material, "shader_parameter/x_rot", 0.0, 0.3)
+		tween_rot.tween_property(card_texture.material, "shader_parameter/y_rot", 0.0, 0.3)
 
 		if tween_hover and tween_hover.is_running():
 			tween_hover.kill()
-		tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween_hover.tween_property(self, "scale", Vector2.ONE, 0.55)
+		
+
+		tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK).set_parallel(true)
+		tween_hover.tween_property(self, "scale", Vector2.ONE, 0.3)
+		tween_hover.tween_property(self, "rotation_degrees", 0.0, 0.3)
+		
+
+		if shadow:
+			var shadow_tween = create_tween()
+			shadow_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+			shadow_tween.tween_property(shadow, "position", Vector2(5, 5), 0.3)  
+			shadow_tween.tween_property(shadow, "modulate:a", 0.5, 0.3)  
 
 	
 func _on_pressed():
-	if Global.card_selected == false and selected == false:
+	
+	if Global.card_selected == false and selected == false and not animation_in_progress:
 		Global.can_walk = true
 		Global.card_selected = true
 		selected = true
-		animate_to_player()
-		emit_signal("item_pressed")  # Emitir la señal
-
-		await get_tree().create_timer(1).timeout
-
-		Global.card_selected = false  
+		animation_in_progress = true  
 		
+		disabled = true
+		
+		animate_to_player()
+		emit_signal("item_pressed") 
 
+		await get_tree().create_timer(0.5).timeout
+		
+		Global.card_selected = false
+		animation_in_progress = false
+		
 
 func setSorurceParam():
 	setFoil()
@@ -130,25 +175,86 @@ func setFoil():
 		
 
 func entryCard():
-	var tween = get_tree().create_tween()
-	tween.set_trans(Tween.TRANS_SINE)
-	tween.set_ease(Tween.EASE_IN_OUT)
+	animation_in_progress = true
 	
-	tween.tween_property(self, "modulate:a",0, 0)
-	tween.tween_property(self, "modulate:a",1, 2.5)
+	self.scale = Vector2.ZERO
+	self.rotation_degrees = -15.0
+
+	var entry_tween = create_tween()
+	entry_tween.set_trans(Tween.TRANS_BACK)
+	entry_tween.set_ease(Tween.EASE_OUT)
+	entry_tween.tween_property(self, "scale", Vector2(1.2, 1.2), 0.3)
 	
+	await entry_tween.finished
+	
+	var settle_tween = create_tween().set_parallel(true)
+	settle_tween.set_trans(Tween.TRANS_ELASTIC)
+	settle_tween.set_ease(Tween.EASE_OUT)
+	settle_tween.tween_property(self, "scale", Vector2.ONE, 0.4)
+	settle_tween.tween_property(self, "rotation_degrees", 0.0, 0.5)
+
+	if shadow:
+		var shadow_bounce_tween = create_tween()
+		shadow_bounce_tween.set_trans(Tween.TRANS_BOUNCE)
+		shadow_bounce_tween.set_ease(Tween.EASE_OUT)
+		shadow_bounce_tween.tween_property(shadow, "position:y", shadow.position.y + 5, 0.2)
+		shadow_bounce_tween.tween_property(shadow, "position:y", shadow.position.y, 0.3)
+		shadow_bounce_tween.tween_property(shadow, "modulate:a", 0.3, 0.2)
+		shadow_bounce_tween.tween_property(shadow, "modulate:a", 0.5, 0.3)
+	
+	await settle_tween.finished
+	animation_in_progress = false
 
 func animate_to_player():
-	# Crear el tween para mover y reducir la carta
-	var tween = get_tree().create_tween() 
-	tween.parallel().set_trans(Tween.TRANS_SINE)
-	tween.parallel().set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(self, "position", Vector2(750,150), 1)
-	tween.parallel().tween_property(self, "scale", Vector2(0, 0), 1) # Escala más pequeña para el efecto de acercamiento
-	#tween.parallel().tween_property(self, "modulate:a", 0, 1)
+	animation_in_progress = true 
+	
+	# Smooth selection animation
+	var tween = create_tween().set_parallel(true)
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(self, "position:y", position.y - 30, 0.2)
+	tween.tween_property(self, "rotation_degrees", 5, 0.2)
+	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.2)
+	
+	if shadow:
+		tween.tween_property(shadow, "position:y", shadow.position.y + 10, 0.2)
+		tween.tween_property(shadow, "modulate:a", 0.3, 0.2)
+	
+	tween.chain().tween_callback(func():
+		var move_tween = create_tween().set_parallel(true)
+		move_tween.set_trans(Tween.TRANS_QUINT)
+		move_tween.set_ease(Tween.EASE_IN)
+		move_tween.tween_property(self, "position", Vector2(750, 150), 0.4)
+		move_tween.tween_property(self, "scale", Vector2(0, 0), 0.4)
+		move_tween.tween_property(self, "rotation_degrees", 180, 0.4)
+		move_tween.tween_property(self, "modulate:a", 0, 0.3)
+		
+		if shadow:
+			move_tween.tween_property(shadow, "position", Vector2(755, 155), 0.4)
+			move_tween.tween_property(shadow, "modulate:a", 0, 0.3)
+	).set_delay(0.1)
 	
 func card_not_selected_animation():
-	var tween = get_tree().create_tween() 
-	tween.parallel().set_trans(Tween.TRANS_SINE)
-	tween.parallel().set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(self, "modulate:a", -10, 1)
+	animation_in_progress = true
+
+	disabled = true
+	
+	var tween = create_tween().set_parallel(true)
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_IN)
+	
+	var rotation_amount = 45 if randf() > 0.5 else -45
+	
+	tween.tween_property(self, "rotation_degrees", rotation_amount, 0.4)
+	tween.tween_property(self, "position:y", position.y + 100, 0.5)
+	tween.tween_property(self, "modulate:a", 0, 0.4)
+	tween.tween_property(self, "scale", Vector2(0.7, 0.7), 0.4)
+	
+	if shadow:
+		tween.tween_property(shadow, "rotation_degrees", rotation_amount, 0.4).set_delay(0.05)
+		tween.tween_property(shadow, "position:y", shadow.position.y + 110, 0.5).set_delay(0.05)
+		tween.tween_property(shadow, "modulate:a", 0, 0.4)
+	
+	await tween.finished
+	animation_in_progress = false  # Clear animation flag

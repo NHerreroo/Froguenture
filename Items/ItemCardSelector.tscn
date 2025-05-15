@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cok6bb14ac8qk"]
+[gd_scene load_steps=2 format=3 uid="uid://cok6bb14ac8qk"]
 
 [ext_resource type="Script" uid="uid://ecieqsj87et8" path="res://Items/ItemCardSelector.gd" id="1_hxjh1"]
-[ext_resource type="Shader" uid="uid://o7fvdpw88bkm" path="res://Shaders/pause_menu.gdshader" id="2_2iobf"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ci1pw"]
-shader = ExtResource("2_2iobf")
-shader_parameter/lod = 1.629
 
 [node name="ItemCardSelector" type="Control"]
 z_index = 115
@@ -22,17 +17,6 @@ grow_vertical = 2
 scale = Vector2(0.755164, 0.755164)
 mouse_filter = 2
 script = ExtResource("1_hxjh1")
-
-[node name="BlurShader" type="ColorRect" parent="."]
-z_index = -5
-material = SubResource("ShaderMaterial_ci1pw")
-layout_mode = 0
-offset_left = -440.0
-offset_top = -314.0
-offset_right = 2285.0
-offset_bottom = 1328.0
-scale = Vector2(1.14252, 1.14252)
-mouse_filter = 2
 
 [node name="BlackBg" type="ColorRect" parent="."]
 z_index = -3

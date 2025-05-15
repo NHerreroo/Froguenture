@@ -97,13 +97,11 @@ func set_background_opacity_in():
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property($BlackBg, "color:a", 0.85, 2)
+	tween.tween_property($BlackBg, "color:a", 0.85, 0.5)
 
 
 func set_background_opacity_out():
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property($BlackBg, "color:a", -10, 2)
-	tween.tween_property($BlurShader.material, "shader_parameter/lod", -30, 1)
-	
+	tween.tween_property($BlackBg, "color:a", -10, 1.5)
