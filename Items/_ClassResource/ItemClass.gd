@@ -125,6 +125,7 @@ func _on_pressed():
 		
 		disabled = true
 		
+		Player.CardsInDeck.append(self) #se mete en el deck del jogador caralho
 		animate_to_player()
 		emit_signal("item_pressed") 
 

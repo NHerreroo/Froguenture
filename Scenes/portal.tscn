@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csdd74mmcjpi7" path="res://Scripts/portal.gd" id="1_dashy"]
 [ext_resource type="Texture2D" uid="uid://btxna667ps6my" path="res://Sprites/portal.png" id="1_j20fm"]
-[ext_resource type="Shader" uid="uid://c4eeyuf78lgdq" path="res://Shaders/mapBackground.gdshader" id="1_oi2tk"]
+[ext_resource type="Shader" uid="uid://ce4108au11ujg" path="res://Shaders/mapBackground.gdshader" id="1_oi2tk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j20fm"]
 transparency = 2

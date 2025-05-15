@@ -21,8 +21,8 @@ var player
 @onready var knockback_duration = enemy_src.knockback_duration
 @onready var knockback_timer = enemy_src.knockback_timer
 
-@onready var health = enemy_src.health
-@onready var maxHealth = enemy_src.health
+@onready var health = enemy_src.health * (1.0 + Global.lvlCount * 0.1)
+@onready var maxHealth = health
 
 enum State {
 	IDLE,

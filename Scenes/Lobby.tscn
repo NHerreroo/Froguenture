@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbe51xhcqk0md"]
+[gd_scene load_steps=19 format=3 uid="uid://dbe51xhcqk0md"]
 
 [ext_resource type="Script" uid="uid://dtimbxowih3p" path="res://Scenes/Rooms/PreBuildedRooms/lobby.gd" id="1_xy1bw"]
 [ext_resource type="PackedScene" uid="uid://bbfvqryp6eyp5" path="res://Scenes/portal.tscn" id="2_s3paf"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="9_r753w"]
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="10_idhfa"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="11_b6u2u"]
+[ext_resource type="Texture2D" uid="uid://djdflvoyvi1bj" path="res://Sprites/parche.png" id="12_idhfa"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -149,13 +150,13 @@ shape = SubResource("BoxShape3D_wjxqr")
 transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -3.56748, 0, -7.53312)
 
 [node name="Fountain" parent="." instance=ExtResource("6_s3paf")]
-transform = Transform3D(-2.61393e-08, 0, 0.597998, 0, 0.597998, 0, -0.597998, 0, -2.61393e-08, 1.65204, -0.108567, -0.0346518)
+transform = Transform3D(-2.61393e-08, 0, 0.597998, 0, 0.597998, 0, -0.597998, 0, -2.61393e-08, 0.483895, -0.108567, -0.597779)
 
 [node name="Portal" parent="." instance=ExtResource("2_s3paf")]
 transform = Transform3D(-4.99519e-08, 0, 1, 0, 0.934846, 0, -1.14277, 0, -4.37114e-08, -9.0823, -0.277865, 0)
 
 [node name="Tablon" parent="." instance=ExtResource("8_gqa7q")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.11233, -0.281015, 8.23392)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.004, -0.281015, 7.83985)
 
 [node name="Vegetation" type="Node3D" parent="."]
 
@@ -371,3 +372,18 @@ transform = Transform3D(-6.02283e-08, -0.688932, 1.19326, 0, 1.19326, 0.688932, 
 
 [node name="Tree74" parent="Vegetation" instance=ExtResource("11_b6u2u")]
 transform = Transform3D(-6.02283e-08, -0.688932, 1.19326, 0, 1.19326, 0.688932, -1.37786, 3.01141e-08, -5.21593e-08, -3.52309, 4.4723, 29.1232)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.5219e-15, -1.31989, -5.76943e-08, -5.76943e-08, -5.76943e-08, 1.31989, -1.31989, 0, -5.76943e-08, 6.35731, -0.0825447, -0.541648)
+alpha_cut = 1
+texture = ExtResource("12_idhfa")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1.00468e-07, 1.14922, 3.49101e-08, -5.0234e-08, -5.0234e-08, 0.798649, 1.14922, -1.00468e-07, 3.49101e-08, -5.97786, -0.0825447, 8.04487)
+alpha_cut = 1
+texture = ExtResource("12_idhfa")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(-1.32394, -0.35475, -7.3378e-08, -5.99129e-08, -5.99129e-08, 1.37065, -0.35475, 1.32394, 4.23648e-08, -1.15545, -0.0825447, -4.43996)
+alpha_cut = 1
+texture = ExtResource("12_idhfa")

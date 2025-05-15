@@ -22,6 +22,7 @@ Global="*res://Scripts/Singleton/Global.gd"
 Events="*res://Scripts/MapGeneration/Events.gd"
 Player="*res://Scripts/Singleton/Player.gd"
 SpawnPoints="*res://Scripts/Singleton/SpawnPoints.gd"
+ApplyItems="*res://Scripts/Singleton/items.gd"
 
 [display]
 

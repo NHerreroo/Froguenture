@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bxfgqvwkokerq"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_c0cff"]
+[ext_resource type="Script" uid="uid://b22bhmyi114gl" path="res://Scripts/Items/mox_charm.gd" id="1_5hgme"]
 [ext_resource type="Texture2D" uid="uid://v3cui3w5aojd" path="res://Sprites/Items/Arts/moxCharmART.png" id="2_k17s4"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_q8mr2"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_qyjvh"]
@@ -9,20 +9,21 @@
 [ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_4d33j"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_e32yq"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
+[sub_resource type="Resource" id="Resource_c0cff"]
 script = ExtResource("3_q8mr2")
 name = "Mox Charm"
 description = ""
 image = ExtResource("2_k17s4")
-habilitie1 = "+1/+1000"
-habilitie2 = "pen epene"
-habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
+habilitie1 = "When Mox Charm is selected, attach it to the player."
+habilitie2 = "The Player Get +0.5 Critical Damage"
+habilitie3 = "The Player Get - 2 Health Containers"
+damage = "5"
+health = "2"
+quote = "\"With great power comes great responsibility\""
 color_card = 5
 card_type = 4
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
@@ -47,7 +48,7 @@ shader = ExtResource("7_4d33j")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
-[node name="ItemTemplate" type="Button"]
+[node name="MoxCharm" type="Button"]
 offset_left = 251.0
 offset_top = 131.0
 offset_right = 719.0
@@ -55,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_c0cff")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_5hgme")
+item_Src = SubResource("Resource_c0cff")
 
 [node name="Area2D" type="Area2D" parent="."]
 

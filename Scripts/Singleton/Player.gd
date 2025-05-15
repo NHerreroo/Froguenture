@@ -2,11 +2,14 @@ extends Node
 
 # STATS
 var money : int = 100
-var health : float = 3.5
-var health_container : int = 5
+var health : float = 3
+var health_container : int = 3
 var shield : float = 0.5
 
-var atack : float = 300.0
+var baseattack : float = 1.5
+var attackMultiplier : float = 1
+var atack : float = 1.5
+
 var speed : float= 5.0
 var criticalDamage : float = 0.0
 var poisonDamage : float = 0.0
@@ -17,6 +20,7 @@ var damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon eneter
 var invencibleTime = 1
 var is_dashing = false
 
+var CardsInDeck = []
 #noificador de vida actualizada (general)
 signal health_updated
 
@@ -32,6 +36,7 @@ func notifyTransition():
 
 var total
 func _process(delta: float) -> void:
+	atack = baseattack * attackMultiplier
 	
 	#limitar contenedores 
 	if health_container >= 12:

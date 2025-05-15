@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://bgwywe6bp124t"]
 
-[ext_resource type="Script" uid="uid://mdmgk0ohj51v" path="res://Items/ItemTemplate.gd" id="1_f3s2r"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_f3s2r"]
 [ext_resource type="Texture2D" uid="uid://ju70dnl2div0" path="res://Sprites/Items/Arts/bunnybunART.png" id="2_ld0ml"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_kxj0a"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_i7vml"]
 [ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_4ehfo"]
-[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="6_kumwb"]
-[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="7_62kqb"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_kumwb"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_62kqb"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_sxxf6"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
