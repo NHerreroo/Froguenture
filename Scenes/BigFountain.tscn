@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi5r63myj86ci"]
+
+[ext_resource type="Texture2D" uid="uid://bkhl4yhdt5388" path="res://Sprites/fountain2.png" id="1_aob5f"]
+[ext_resource type="Texture2D" uid="uid://dmml1p8fymu13" path="res://Sprites/icons/seed.png" id="2_kef31"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_fs1bj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j20fm"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_aob5f")
+distance_fade_mode = 3
+distance_fade_min_distance = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs1bj"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("2_kef31")
+billboard_mode = 1
+billboard_keep_scale = true
+distance_fade_mode = 2
+distance_fade_min_distance = 4.0
+
+[node name="Tablon" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.14532, 0, 0, 0, 0.991878, 0.572661, 0, -0.572661, 0.991878, 0.197504, 4.36881, -0.878823)
+material_override = SubResource("StandardMaterial3D_j20fm")
+alpha_cut = 1
+texture = ExtResource("1_aob5f")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.186861, 0, 0, 0, 0.186861, 0, 0, 0, 0.186861, -1.1656, 9.09183, -2.86609)
+material_override = SubResource("StandardMaterial3D_fs1bj")
+billboard = 1
+texture = ExtResource("2_kef31")
+
+[node name="Label3D" type="Label3D" parent="Sprite3D2"]
+transform = Transform3D(2.7942, 0, 0, 0, 2.7942, 0, 0, 0, 2.7942, 14.3581, 0, 0)
+visibility_range_begin = 5.0
+visibility_range_fade_mode = 2
+billboard = 1
+text = "234"
+font = ExtResource("3_fs1bj")
+font_size = 652
+outline_size = 127

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bubjvl0mjae2w"]
+[gd_scene load_steps=8 format=3 uid="uid://bubjvl0mjae2w"]
 
 [ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="1_0xebv"]
 [ext_resource type="Script" uid="uid://braob7v4qxk65" path="res://Scripts/run_final_stats.gd" id="1_lak2a"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="2_wf3d1"]
+[ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="3_hiwcj"]
 
 [sub_resource type="Gradient" id="Gradient_wf3d1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
@@ -55,6 +56,19 @@ offset_left = 414.0
 offset_top = 255.0
 offset_right = 1554.0
 offset_bottom = 837.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 311.0
+offset_right = 1494.0
+offset_bottom = 783.0
+texture = ExtResource("3_hiwcj")
+region_rect = Rect2(-1.26258, -1.93427, 258.303, 258.924)
+patch_margin_left = 128
+patch_margin_top = 132
+patch_margin_right = 127
+patch_margin_bottom = 135
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 0
