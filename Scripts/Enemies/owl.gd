@@ -13,9 +13,16 @@ var should_show_sprites := true
 var can_attack := true  # Control para el retraso en ataques
 
 func _process(delta: float) -> void:
-	if $"../EnemyTemplate2".health <= 500:
-		secondPhase = 2
-	# Manejo del retraso de sprites (0.7s)
+	if Global.enemies_remaining == 0:
+		queue_free()
+	
+	if has_node("../EnemyTemplate2"):
+		var enemy_health = $"../EnemyTemplate2".health
+		if enemy_health <= 500:
+			secondPhase = 2
+	else:
+		queue_free()
+		
 	sprite_delay_timer += delta
 	if sprite_delay_timer >= 1:
 		$Sprites.visible = should_show_sprites

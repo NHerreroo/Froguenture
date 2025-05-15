@@ -78,6 +78,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		health = max(0, health) 
 
 		if health <= 0:
+			Global.run_total_kills += 1
 			Global.enemies_remaining -= 1
 			dropitemfunc()
 			spawn_dust()

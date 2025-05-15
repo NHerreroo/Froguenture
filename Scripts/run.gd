@@ -20,6 +20,25 @@ var BOSSES = [
 @onready var map: Map = $Map
 @onready var current_view: Node = $CurrentView
 
+#cronometro run
+var run_time = 0.0
+var is_timer_running = false
+
+# Función para iniciar el cronómetro
+func start_timer():
+	run_time = 0.0
+	is_timer_running = true
+	print("Cronómetro iniciado")
+
+
+func _process(delta):
+	if Global.runEnded == true:
+		queue_free()
+	if is_timer_running:
+		run_time += delta
+		Global.run_time = run_time
+
+
 func _ready():
 	_start_run()
 	_setup_event_connections()
@@ -32,6 +51,7 @@ func _ready():
 		_on_map_exited(tutorial_room)
 		
 func _start_run():
+	start_timer()
 	map.generate_new_map()
 	map.unlock_floor(0)
 

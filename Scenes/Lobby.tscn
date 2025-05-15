@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://dbe51xhcqk0md"]
 
-[ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_vtsb4"]
-[ext_resource type="Texture2D" uid="uid://d3ui7or6snptl" path="res://Sprites/bigfloor.png" id="2_14d3k"]
-[ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_jni05"]
-[ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_5cu01"]
-[ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="6_ho71h"]
+[ext_resource type="Script" uid="uid://dtimbxowih3p" path="res://Scenes/Rooms/PreBuildedRooms/lobby.gd" id="1_xy1bw"]
+[ext_resource type="Texture2D" uid="uid://d3ui7or6snptl" path="res://Sprites/bigfloor.png" id="2_vmftg"]
+[ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="3_s3paf"]
+[ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="4_gqa7q"]
+[ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="5_yg8gm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -13,7 +13,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("2_14d3k")
+albedo_texture = ExtResource("2_vmftg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p6tl6"]
 
@@ -32,8 +32,8 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
 
-[node name="Room1" type="Node3D"]
-script = ExtResource("1_vtsb4")
+[node name="Lobby" type="Node3D"]
+script = ExtResource("1_xy1bw")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(2.66389, 0, 0, 0, 2.66389, 0, 0, 0, 2.66389, 0, 0, 0)
@@ -62,27 +62,27 @@ directional_shadow_split_1 = 0.276
 directional_shadow_max_distance = 784.3
 directional_shadow_pancake_size = 9.1
 
-[node name="AmbientFog" parent="WorldEnvironment" instance=ExtResource("4_jni05")]
+[node name="AmbientFog" parent="WorldEnvironment" instance=ExtResource("3_s3paf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.823468, 1.83862, 26.2169)
 size = Vector3(24.1013, 3.56738, 7.12475)
 
-[node name="AmbientFog3" parent="WorldEnvironment" instance=ExtResource("4_jni05")]
+[node name="AmbientFog3" parent="WorldEnvironment" instance=ExtResource("3_s3paf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237669, 1.83862, -28.0745)
 size = Vector3(25.2677, 3.56738, 10.6119)
 
-[node name="AmbientFog2" parent="WorldEnvironment" instance=ExtResource("4_jni05")]
+[node name="AmbientFog2" parent="WorldEnvironment" instance=ExtResource("3_s3paf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3238, 1.83862, -1.04504)
 size = Vector3(8.82825, 3.56738, 63.9902)
 
-[node name="AmbientFog4" parent="WorldEnvironment" instance=ExtResource("4_jni05")]
+[node name="AmbientFog4" parent="WorldEnvironment" instance=ExtResource("3_s3paf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0988, 1.64174, -0.588856)
 size = Vector3(8.23016, 3.56738, 58.9049)
 
-[node name="player" parent="." instance=ExtResource("5_5cu01")]
+[node name="player" parent="." instance=ExtResource("4_gqa7q")]
 process_priority = 75
 transform = Transform3D(-0.724015, 0, 123.828, 0, 123.83, 0, -123.828, 0, -0.724015, 2.638, 0.014, -0.205)
 
-[node name="Camera" parent="." instance=ExtResource("6_ho71h")]
+[node name="Camera" parent="." instance=ExtResource("5_yg8gm")]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 7, 8, 0)
 
 [node name="BoundsColliders" type="Node3D" parent="."]
@@ -141,3 +141,13 @@ shape = SubResource("BoxShape3D_wjxqr")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -3.56748, 0, -7.53312)
+
+[node name="RUN" type="Button" parent="."]
+offset_left = 561.0
+offset_top = 423.0
+offset_right = 744.0
+offset_bottom = 503.0
+scale = Vector2(4.63939, 3.62321)
+text = "NEW RUN"
+
+[connection signal="pressed" from="RUN" to="." method="_on_run_pressed"]

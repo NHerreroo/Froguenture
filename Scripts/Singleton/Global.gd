@@ -71,6 +71,9 @@ var shopItem2Purchased = false
 var treasureItem
 var treasureItemPurchased = false
 
+#RUN STATS
+var run_time = 0
+var run_total_kills = 0
 
 
 var map = [] #contiene el mapa generado para que al reinicial la escena no se pierda
@@ -89,6 +92,7 @@ var can_walk = true #cuando quiera que el personaje no camine se pone a false
 var CurrentPlayerPosition = Vector2()
 var eraseLife = false
 
+var runEnded = false
 
 var debilited = false #boss
 var defeated = false
@@ -146,7 +150,17 @@ func resetall():
 	botCollider = false
 	rightCollider = false
 	leftCollider = false
+	treasureItem = null
+	shopItem1 = null
+	shopItem2 = null
+	shopItem1Purchased = false
+	shopItem2Purchased = false
+	treasureItemPurchased = false
 	enemies_remaining = 0 
 	rooms_visited = []
 	Apersistent_items = []
 	map = [] 
+	run_total_kills = 0
+	debilited = false #boss
+	defeated = false
+	runEnded = false

@@ -35,6 +35,7 @@ func buy_item():
 		purchased = true
 		spawn_dust()
 		animate_nine_patch_rect(false)
+		get_tree().change_scene_to_file("res://Scenes/run_final_stats.tscn")
 			
 
 func animate_nine_patch_rect(show: bool) -> void:

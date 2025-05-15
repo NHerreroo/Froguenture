@@ -1,9 +1,6 @@
 extends Enemy
 
 var currentState
-var sticky = preload("res://Scenes/Enemies/Misc/SticySlimeFloor.tscn")
-var time_since_last_spawn = 0.0
-var spawn_interval = 0.5  # Cada 0.5 segundos ahora
 
 func _ready() -> void:
 	Global.enemies_remaining += 1
@@ -17,11 +14,6 @@ func _ready() -> void:
 	$AnimationPlayer.play("idle")
 	selectState()
 
-func _process(delta: float) -> void:
-	time_since_last_spawn += delta
-	if time_since_last_spawn >= spawn_interval:
-		time_since_last_spawn = 0.0
-		spawnStiky()
 
 func selectState():
 	speed = 3
@@ -66,8 +58,3 @@ func attackState():
 	speed = 3
 	enem_area_disabled()
 	selectState()
-
-func spawnStiky():
-	var newStky = sticky.instantiate()
-	newStky.global_position = Vector3(global_position.x, 0, global_position.z)
-	get_parent().add_child(newStky)  # Aparece en el escenario, no como hijo
