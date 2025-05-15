@@ -1,9 +1,8 @@
 extends Node
 
-
 # Salud
 func increase_health(amount: float) -> void:
-	Player.health = min(Player.health + amount, Player.health_container)
+	Player.health = min(Player.health + amount, Player.health)
 	Player.notify_health_updated()
 
 func decrease_health(amount: float) -> void:
@@ -11,15 +10,12 @@ func decrease_health(amount: float) -> void:
 	Player.notify_health_updated()
 
 func increase_Maxhealth(amount: float) -> void:
-	Player.health_container = min(Player.health_container + amount, Player.health_container)
+	Player.health_container += amount
 	Player.notify_health_updated()
 
 func decrease_Maxhealth(amount: float) -> void:
-	Player.health_container = max(0.0, Player.health_container - amount)
-	if Player.health > Player.health_container:
-		Player.health = Player.health_container
+	Player.health_container -= amount
 	Player.notify_health_updated()
-
 
 # Escudo
 func increase_shield(amount: float) -> void:
