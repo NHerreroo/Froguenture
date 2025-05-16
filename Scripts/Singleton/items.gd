@@ -109,7 +109,6 @@ func TheOneSword():
 
 var ancientSeed_Previous := 0
 var ancientSeed_Current := 0
-
 func AncientSeed():
 	ancientSeed_Current = Global.lvlCount
 	if ancientSeed_Current != ancientSeed_Previous:
@@ -126,6 +125,27 @@ func huntersMark():
 		increase_baseAtack(difference)
 		hunters_mark_active_bonus = current_bonus
 
+
+var soyfish_Previous := 0
+var soyfish_Current := 0
+func soyfish():
+	soyfish_Current = Player.money
+	if soyfish_Current < soyfish_Previous:
+		Player.baseattack += 0.2
+	soyfish_Previous = soyfish_Current
+	
+var is_sharkbite_active
+func sharkBite():
+	if Player.health <= Player.health_container / 2:
+		if not is_sharkbite_active:
+			increase_baseAtack(1)
+			is_sharkbite_active = true
+	else:
+		if is_sharkbite_active:
+			increase_baseAtack(-1)
+			is_sharkbite_active = false
+	
+	
 func _process(delta: float) -> void:
 	for func_name in pasiveItems:
 		if has_method(func_name):

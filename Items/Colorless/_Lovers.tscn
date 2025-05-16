@@ -1,28 +1,29 @@
 [gd_scene load_steps=13 format=3 uid="uid://cnkj1sl5r6313"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_cvpk6"]
+[ext_resource type="Script" uid="uid://dbg1dgqsapdpb" path="res://Scripts/Items/_lovers.gd" id="1_j6g1t"]
 [ext_resource type="Texture2D" uid="uid://b7epjtlx8wbgp" path="res://Sprites/Items/Arts/loversART.png" id="2_qdxgu"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_ara1u"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_cfvxa"]
 [ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_6yfsc"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_lrwe8"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_keuvm"]
+[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="6_lrwe8"]
+[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="7_keuvm"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_pwrpc"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
+[sub_resource type="Resource" id="Resource_cvpk6"]
 script = ExtResource("3_ara1u")
 name = "VI. The Lovers"
 description = ""
 image = ExtResource("2_qdxgu")
 habilitie1 = ""
 habilitie2 = ""
-habilitie3 = ""
+habilitie3 = "Player Get +2 Health"
 damage = "2"
 health = "2"
-quote = "\"Item\""
+quote = ""
 color_card = 6
-card_type = 0
+card_type = 5
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
@@ -55,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_cvpk6")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_j6g1t")
+item_Src = SubResource("Resource_cvpk6")
 
 [node name="Area2D" type="Area2D" parent="."]
 

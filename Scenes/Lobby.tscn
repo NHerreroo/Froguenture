@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="10_idhfa"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="11_b6u2u"]
 [ext_resource type="Texture2D" uid="uid://djdflvoyvi1bj" path="res://Sprites/parche.png" id="12_idhfa"]
-[ext_resource type="PackedScene" uid="uid://bkemgicd5kv13" path="res://Items/Red/Hunter'sMark.tscn" id="13_03jl0"]
+[ext_resource type="PackedScene" uid="uid://dgco8rqql4y3u" path="res://Items/Colorless/SharkBite.tscn" id="13_03jl0"]
 [ext_resource type="PackedScene" uid="uid://bmmexe242j8rs" path="res://Scenes/Enemies/Spikes.tscn" id="14_03jl0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -390,7 +390,7 @@ transform = Transform3D(-1.32394, -0.35475, -7.3378e-08, -5.99129e-08, -5.99129e
 alpha_cut = 1
 texture = ExtResource("12_idhfa")
 
-[node name="ItemTemplate2" parent="." instance=ExtResource("13_03jl0")]
+[node name="ItemTemplate" parent="Vegetation" instance=ExtResource("13_03jl0")]
 
 [node name="Spikes" parent="." instance=ExtResource("14_03jl0")]
 transform = Transform3D(-0.0165877, 0, 0.688566, 0, 0.688766, 0, -0.688566, 0, -0.0165877, 3.35321, -0.0523596, 3.69416)
