@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bx0bb7n0ssnar"]
+[gd_scene load_steps=19 format=3 uid="uid://bx0bb7n0ssnar"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_tkutc"]
+[ext_resource type="PackedScene" uid="uid://cg4t5ssfoesex" path="res://Items/Green/TheOneSword.tscn" id="2_edn04"]
 [ext_resource type="Texture2D" uid="uid://d2y55ouwxodk8" path="res://Sprites/Tavern/tambernFloor.png" id="2_oxyj7"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="3_pr1fq"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="4_p8ois"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4o1obfsscw3o" path="res://Sprites/Vegetation/Misc/fishhang.png" id="9_l07hs"]
 [ext_resource type="PackedScene" uid="uid://bxaaw4xxr28sn" path="res://Scenes/Npcs/cat_npc.tscn" id="10_80bcf"]
 [ext_resource type="Script" uid="uid://chl6uh8kjfjk6" path="res://Scripts/altar_spawner.gd" id="11_ggeyx"]
+[ext_resource type="PackedScene" uid="uid://bmmexe242j8rs" path="res://Scenes/Enemies/Spikes.tscn" id="13_3sy6y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -247,3 +249,8 @@ transform = Transform3D(-1.26895e-08, -0.167605, 0.290301, -7.32629e-09, 0.29030
 
 [node name="AltarSpawner" type="Node3D" parent="."]
 script = ExtResource("11_ggeyx")
+
+[node name="OneSword" parent="." instance=ExtResource("2_edn04")]
+
+[node name="Spikes" parent="." instance=ExtResource("13_3sy6y")]
+transform = Transform3D(-0.0165877, 0, 0.688566, 0, 0.688766, 0, -0.688566, 0, -0.0165877, 3.35321, -0.0523596, 3.69416)

@@ -141,7 +141,6 @@ func resetall():
 	can_walk = true
 	is_in_tutorial = false
 	dialog_ended = true
-	lvlCount = 0
 	playerMapPositionX = 25
 	playerMapPositionY = 25
 	isMapGenerated = false

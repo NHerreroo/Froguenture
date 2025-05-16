@@ -98,6 +98,7 @@ func _on_map_room_selected(room: Room) -> void:
 	last_room = room
 	floors_climbed += 1
 	Global.lvlCount += 1
+	print("ES EL PISO ; " + str(Global.lvlCount))
 	emit_signal("map_exited", room)  # Emitimos la señal para notificar a la escena principal
 
 

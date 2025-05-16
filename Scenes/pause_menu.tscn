@@ -52,7 +52,6 @@ script = ExtResource("1_bpi0q")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
-layout_mode = 0
 offset_right = 2736.0
 offset_bottom = 1063.0
 scale = Vector2(1.75578, 1.75578)

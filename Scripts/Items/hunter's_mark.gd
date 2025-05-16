@@ -7,7 +7,4 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	ApplyItems.increase_Maxhealth(3)
-	ApplyItems.increase_health(3)
-	ApplyItems.increase_damageToRecive(0.5)
-	Player.notify_health_updated()
+	ApplyItems.pasiveItems.append("huntersMark")

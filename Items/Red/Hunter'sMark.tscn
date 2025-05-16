@@ -1,33 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1if18ny8i5fw"]
+[gd_scene load_steps=13 format=3 uid="uid://bkemgicd5kv13"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_mmksy"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="2_wp087"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_g17po"]
-[ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="4_g1pph"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="5_o64xi"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="6_44v8q"]
+[ext_resource type="Script" uid="uid://bleabrhvy6re3" path="res://Scripts/Items/hunter's_mark.gd" id="1_ik8l8"]
+[ext_resource type="Texture2D" uid="uid://2xmga4cr3hus" path="res://Sprites/Items/Arts/SelloCazador.png" id="2_40ydo"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_3yuur"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_blc6p"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_vfv3b"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_10w60"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_5473b"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_88k74"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_g17po")
-name = "Cought on the wing"
-description = "Its a template"
-image = ExtResource("2_wp087")
-habilitie1 = "+1/+1"
+[sub_resource type="Resource" id="Resource_gt68j"]
+script = ExtResource("3_3yuur")
+name = "Hunter's Mark"
+description = ""
+image = ExtResource("2_40ydo")
+habilitie1 = "The Player Get +0.2 Base Power For Each Enemy Remaining In The Room"
 habilitie2 = ""
 habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
-color_card = 5
+damage = ""
+health = ""
+quote = "\"Smells Like Tree Sprits\""
+color_card = 3
 card_type = 0
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("5_o64xi")
+shader = ExtResource("6_10w60")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -41,19 +44,20 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("6_44v8q")
+shader = ExtResource("7_5473b")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
-[node name="On_The_Wing" type="Button"]
-offset_left = 245.0
-offset_top = 122.0
-offset_right = 713.0
-offset_bottom = 791.0
+[node name="ItemTemplate" type="Button"]
+offset_left = 251.0
+offset_top = 131.0
+offset_right = 719.0
+offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
+focus_mode = 0
 flat = true
-script = ExtResource("1_mmksy")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_ik8l8")
+item_Src = SubResource("Resource_gt68j")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -71,23 +75,23 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("2_wp087")
+texture = ExtResource("4_blc6p")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -5.0
-offset_top = 7.0
-offset_right = 803.0
-offset_bottom = 1155.0
+offset_left = -28.0
+offset_top = -31.0
+offset_right = 780.0
+offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("4_g1pph")
+texture = ExtResource("5_vfv3b")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("2_wp087")
+texture = ExtResource("4_blc6p")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
@@ -114,16 +118,20 @@ offset_left = 151.808
 offset_top = 128.39
 offset_right = 728.808
 offset_bottom = 194.39
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_88k74")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
 
 [node name="Type" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 113.049
+offset_left = 117.894
 offset_top = 580.964
-offset_right = 690.049
+offset_right = 694.894
 offset_bottom = 646.964
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_88k74")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -134,6 +142,8 @@ offset_left = 140.503
 offset_top = 670.837
 offset_right = 680.503
 offset_bottom = 900.837
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_88k74")
 theme_override_font_sizes/font_size = 30
 text = "HABILITIE 1
 HABILITIE 2
@@ -147,6 +157,8 @@ offset_left = 198.643
 offset_top = 881.076
 offset_right = 595.643
 offset_bottom = 971.076
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_88k74")
 theme_override_font_sizes/font_size = 25
 text = "\"Quote\"
 "
@@ -156,10 +168,12 @@ clip_text = true
 
 [node name="Damage" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 145.348
-offset_top = 938.851
-offset_right = 242.348
-offset_bottom = 1054.85
+offset_left = 172.803
+offset_top = 954.9
+offset_right = 269.803
+offset_bottom = 1189.9
+theme_override_constants/outline_size = 47
+theme_override_fonts/font = ExtResource("8_88k74")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
@@ -167,10 +181,12 @@ autowrap_mode = 3
 
 [node name="Health" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 624.998
-offset_top = 938.851
-offset_right = 721.998
-offset_bottom = 1054.85
+offset_left = 578.164
+offset_top = 959.714
+offset_right = 675.164
+offset_bottom = 1194.71
+theme_override_constants/outline_size = 47
+theme_override_fonts/font = ExtResource("8_88k74")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
