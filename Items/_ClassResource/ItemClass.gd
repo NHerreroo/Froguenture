@@ -46,6 +46,9 @@ var animation_in_progress = false
 signal item_pressed
 
 
+func _apply_passive():
+	pass
+
 #locura de sistema me cago en todo estoy volviendome loco
 func _ready():
 	self.scale = Vector2.ZERO

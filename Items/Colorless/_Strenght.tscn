@@ -1,28 +1,29 @@
 [gd_scene load_steps=13 format=3 uid="uid://be8urs0lovnuw"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_4hn57"]
+[ext_resource type="Script" uid="uid://ct0efda7v02n8" path="res://Scripts/Items/_strenght.gd" id="1_a1bmr"]
 [ext_resource type="Texture2D" uid="uid://csxb7x2dktfo4" path="res://Sprites/Items/Arts/strenghtART.png" id="2_4hn57"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_hlt2k"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_47byg"]
 [ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_bc1qg"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_pvlg4"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_gv3hp"]
+[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="6_pvlg4"]
+[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="7_gv3hp"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_3p677"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
+[sub_resource type="Resource" id="Resource_4hn57"]
 script = ExtResource("3_hlt2k")
-name = "VII. The Strength"
+name = "VIII. The Strength"
 description = ""
 image = ExtResource("2_4hn57")
 habilitie1 = ""
 habilitie2 = ""
-habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
-color_card = 6
-card_type = 0
+habilitie3 = "Player Get +0.15 Attack Multiplier"
+damage = "5"
+health = "2"
+quote = ""
+color_card = 5
+card_type = 5
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
@@ -55,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_4hn57")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_a1bmr")
+item_Src = SubResource("Resource_4hn57")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -146,6 +146,17 @@ func sharkBite():
 			is_sharkbite_active = false
 	
 	
+	
+var lamberg_Previous := 0
+var lamberg_Current := 0
+func lamberg():
+	lamberg_Current = Global.lvlCount
+	if lamberg_Current != lamberg_Previous:
+		Player.shield += 1.0
+		Player.notify_health_updated()
+		lamberg_Previous = lamberg_Current
+		
+	
 func _process(delta: float) -> void:
 	for func_name in pasiveItems:
 		if has_method(func_name):

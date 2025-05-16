@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://r4gsh8vcccy7"]
 
-[ext_resource type="Script" uid="uid://mdmgk0ohj51v" path="res://Items/ItemTemplate.gd" id="1_mukoy"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_mukoy"]
 [ext_resource type="Texture2D" uid="uid://lcyhwmb7js5y" path="res://Sprites/Items/Arts/deathART.png" id="2_mukoy"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_fpu67"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_7bk0h"]

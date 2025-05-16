@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dbe51xhcqk0md"]
+[gd_scene load_steps=20 format=3 uid="uid://dbe51xhcqk0md"]
 
 [ext_resource type="Script" uid="uid://dtimbxowih3p" path="res://Scenes/Rooms/PreBuildedRooms/lobby.gd" id="1_xy1bw"]
 [ext_resource type="PackedScene" uid="uid://bbfvqryp6eyp5" path="res://Scenes/portal.tscn" id="2_s3paf"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="10_idhfa"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="11_b6u2u"]
 [ext_resource type="Texture2D" uid="uid://djdflvoyvi1bj" path="res://Sprites/parche.png" id="12_idhfa"]
-[ext_resource type="PackedScene" uid="uid://dgco8rqql4y3u" path="res://Items/Colorless/SharkBite.tscn" id="13_03jl0"]
 [ext_resource type="PackedScene" uid="uid://bmmexe242j8rs" path="res://Scenes/Enemies/Spikes.tscn" id="14_03jl0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -389,8 +388,6 @@ texture = ExtResource("12_idhfa")
 transform = Transform3D(-1.32394, -0.35475, -7.3378e-08, -5.99129e-08, -5.99129e-08, 1.37065, -0.35475, 1.32394, 4.23648e-08, -1.15545, -0.0825447, -4.43996)
 alpha_cut = 1
 texture = ExtResource("12_idhfa")
-
-[node name="ItemTemplate" parent="Vegetation" instance=ExtResource("13_03jl0")]
 
 [node name="Spikes" parent="." instance=ExtResource("14_03jl0")]
 transform = Transform3D(-0.0165877, 0, 0.688566, 0, 0.688766, 0, -0.688566, 0, -0.0165877, 3.35321, -0.0523596, 3.69416)
