@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbe51xhcqk0md"]
+[gd_scene load_steps=20 format=3 uid="uid://dbe51xhcqk0md"]
 
 [ext_resource type="Script" uid="uid://dtimbxowih3p" path="res://Scenes/Rooms/PreBuildedRooms/lobby.gd" id="1_xy1bw"]
 [ext_resource type="PackedScene" uid="uid://bbfvqryp6eyp5" path="res://Scenes/portal.tscn" id="2_s3paf"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="10_idhfa"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="11_b6u2u"]
 [ext_resource type="Texture2D" uid="uid://djdflvoyvi1bj" path="res://Sprites/parche.png" id="12_idhfa"]
+[ext_resource type="PackedScene" uid="uid://clcibj2dskvnp" path="res://Items/Green/EnduringVitality.tscn" id="13_b6u2u"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -377,6 +378,8 @@ transform = Transform3D(-6.02283e-08, -0.688932, 1.19326, 0, 1.19326, 0.688932, 
 transform = Transform3D(2.5219e-15, -1.31989, -5.76943e-08, -5.76943e-08, -5.76943e-08, 1.31989, -1.31989, 0, -5.76943e-08, 6.35731, -0.0825447, -0.541648)
 alpha_cut = 1
 texture = ExtResource("12_idhfa")
+
+[node name="Enduring Vitality" parent="." instance=ExtResource("13_b6u2u")]
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(1.00468e-07, 1.14922, 3.49101e-08, -5.0234e-08, -5.0234e-08, 0.798649, 1.14922, -1.00468e-07, 3.49101e-08, -5.97786, -0.0825447, 8.04487)

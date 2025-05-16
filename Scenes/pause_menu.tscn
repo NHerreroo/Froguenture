@@ -39,6 +39,7 @@ shader_parameter/cols = SubResource("GradientTexture2D_na6jk")
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
+z_index = 2075
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

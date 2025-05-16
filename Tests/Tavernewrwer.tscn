@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bx0bb7n0ssnar"]
+[gd_scene load_steps=17 format=3 uid="uid://bx0bb7n0ssnar"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_tkutc"]
 [ext_resource type="Texture2D" uid="uid://d2y55ouwxodk8" path="res://Sprites/Tavern/tambernFloor.png" id="2_oxyj7"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://4o1obfsscw3o" path="res://Sprites/Vegetation/Misc/fishhang.png" id="9_l07hs"]
 [ext_resource type="PackedScene" uid="uid://bxaaw4xxr28sn" path="res://Scenes/Npcs/cat_npc.tscn" id="10_80bcf"]
 [ext_resource type="Script" uid="uid://chl6uh8kjfjk6" path="res://Scripts/altar_spawner.gd" id="11_ggeyx"]
-[ext_resource type="PackedScene" uid="uid://c84x3hdiqlmpj" path="res://Items/Colorless/TheChive.tscn" id="12_edn04"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lskdr"]
 diffuse_mode = 3
@@ -248,5 +247,3 @@ transform = Transform3D(-1.26895e-08, -0.167605, 0.290301, -7.32629e-09, 0.29030
 
 [node name="AltarSpawner" type="Node3D" parent="."]
 script = ExtResource("11_ggeyx")
-
-[node name="The Chive" parent="." instance=ExtResource("12_edn04")]

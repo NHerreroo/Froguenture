@@ -1,28 +1,29 @@
 [gd_scene load_steps=13 format=3 uid="uid://clcibj2dskvnp"]
 
-[ext_resource type="Script" uid="uid://mdmgk0ohj51v" path="res://Items/ItemTemplate.gd" id="1_xllmi"]
+[ext_resource type="Script" uid="uid://bwfxs5fiyivej" path="res://Scripts/Items/enduring_vitality.gd" id="1_f8nvg"]
 [ext_resource type="Texture2D" uid="uid://cygy6jamsas48" path="res://Sprites/Items/Arts/enduriing vitaliteART.png" id="2_i2xer"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_864eh"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_h1222"]
 [ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_g0olf"]
-[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="6_jy1x3"]
-[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="7_1dcvu"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_jy1x3"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_1dcvu"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_0xm3a"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
+[sub_resource type="Resource" id="Resource_xllmi"]
 script = ExtResource("3_864eh")
 name = "Enduring Vitality"
 description = ""
 image = ExtResource("2_i2xer")
-habilitie1 = "+1/+1000"
-habilitie2 = ""
+habilitie1 = "The Player Get +3 Health Container"
+habilitie2 = "Enemies do half a heart more damage"
 habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
+damage = "2"
+health = "3"
+quote = ""
 color_card = 2
 card_type = 1
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
@@ -47,7 +48,7 @@ shader = ExtResource("7_1dcvu")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
-[node name="ItemTemplate" type="Button"]
+[node name="Enduring Vitality" type="Button"]
 offset_left = 251.0
 offset_top = 131.0
 offset_right = 719.0
@@ -55,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_xllmi")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_f8nvg")
+item_Src = SubResource("Resource_xllmi")
 
 [node name="Area2D" type="Area2D" parent="."]
 

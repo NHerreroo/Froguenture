@@ -6,9 +6,9 @@ var health : float = 3
 var health_container : int = 3
 var shield : float = 0.5
 
-var baseattack : float = 1.5
+var baseattack : float = 2
 var attackMultiplier : float = 1
-var atack : float = 1.5
+var atack : float = 2
 
 var speed : float= 5.0
 var criticalDamage : float = 0.0

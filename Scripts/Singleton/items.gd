@@ -83,3 +83,10 @@ func decrease_dash_cooldown(amount: float) -> void:
 
 func increase_dash_cooldown(amount: float) -> void:
 	Player.dashCooldown += amount
+
+
+func decrease_damageToRecive(amount: float) -> void:
+	Player.damageToRecive -= Player.damageToRecive
+
+func increase_damageToRecive(amount: float) -> void:
+	Player.damageToRecive += Player.damageToRecive
