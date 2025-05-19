@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dx2jwoeisj3ke"]
 
-[ext_resource type="Script" uid="uid://n423pw8l773p" path="res://Scripts/Items/Enemies/slime_king.gd" id="1_up6tx"]
+[ext_resource type="Script" uid="uid://n423pw8l773p" path="res://Scripts/Enemies/slime_king.gd" id="1_up6tx"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_b16rw"]
 [ext_resource type="Texture2D" uid="uid://c3wey4oer6b61" path="res://Sprites/Enemies/king slime/body.png" id="3_n3tws"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dwl03mgcqw7n2"]
 
-[ext_resource type="Script" uid="uid://djbkfrymf33r" path="res://Scripts/Items/Enemies/owl.gd" id="1_1etgl"]
+[ext_resource type="Script" uid="uid://djbkfrymf33r" path="res://Scripts/Enemies/owl.gd" id="1_1etgl"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_1etgl"]
 [ext_resource type="Texture2D" uid="uid://dgop06fhp22s" path="res://Sprites/Enemies/Owl/body.png" id="3_ageh5"]
 [ext_resource type="Texture2D" uid="uid://dnfbgi2tbf5us" path="res://Sprites/Enemies/Owl/wing1.png" id="4_ardd2"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://ddmumrs6tfxbc"]
 
-[ext_resource type="Script" uid="uid://b8lmj805y1255" path="res://Scripts/Items/Enemies/slime_purple.gd" id="1_3b132"]
+[ext_resource type="Script" uid="uid://b8lmj805y1255" path="res://Scripts/Enemies/slime_purple.gd" id="1_3b132"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_xow73"]
 [ext_resource type="Texture2D" uid="uid://cwpaegifvkq3a" path="res://Sprites/Enemies/slime/body.png" id="3_xow73"]
 
