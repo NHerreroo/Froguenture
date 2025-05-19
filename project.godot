@@ -23,6 +23,7 @@ Events="*res://Scripts/MapGeneration/Events.gd"
 Player="*res://Scripts/Singleton/Player.gd"
 SpawnPoints="*res://Scripts/Singleton/SpawnPoints.gd"
 ApplyItems="*res://Scripts/Singleton/items.gd"
+SaveSystem="*res://Scripts/Singleton/save_system.gd"
 
 [display]
 
@@ -133,3 +134,10 @@ common/physics_ticks_per_second=120
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+
+[shader_globals]
+
+global_time={
+"type": "bool",
+"value": true
+}

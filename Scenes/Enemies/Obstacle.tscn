@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://pbkgy1k2ckyh"]
 
-[ext_resource type="Script" uid="uid://cc14pvcnbfny2" path="res://Scripts/Enemies/obstacle.gd" id="1_sbk0i"]
+[ext_resource type="Script" uid="uid://cc14pvcnbfny2" path="res://Scripts/Items/Enemies/obstacle.gd" id="1_sbk0i"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_cihyr"]
 [ext_resource type="Texture2D" uid="uid://d084sfcq4n8tw" path="res://Sprites/Vegetation/Rocks/stone2.png" id="3_n3vq3"]
 

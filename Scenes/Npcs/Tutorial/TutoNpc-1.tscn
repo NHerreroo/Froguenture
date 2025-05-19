@@ -29,6 +29,21 @@ fill_to = Vector2(0.863636, 0.145455)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ut5jh"]
 radius = 4.06982
 
+[sub_resource type="Animation" id="Animation_b7o3r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.706945, 0.706944, 0.706944)]
+}
+
 [sub_resource type="Animation" id="Animation_onjwy"]
 resource_name = "idle"
 length = 2.0
@@ -44,21 +59,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0.706945, 0.706944, 0.706944), Vector3(0.706945, 0.751932, 0.706944)]
-}
-
-[sub_resource type="Animation" id="Animation_b7o3r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.706945, 0.706944, 0.706944)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgpdo"]

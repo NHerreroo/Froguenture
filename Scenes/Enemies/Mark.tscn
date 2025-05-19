@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://vmcnobm8hu5n"]
 
 [ext_resource type="Texture2D" uid="uid://btqbb27jq7vvf" path="res://Sprites/mark.png" id="1_25088"]
-[ext_resource type="Script" uid="uid://tlx78dhduiuw" path="res://Scripts/Enemies/Mark.gd" id="2_kfm0w"]
+[ext_resource type="Script" uid="uid://tlx78dhduiuw" path="res://Scripts/Items/Enemies/Mark.gd" id="2_kfm0w"]
 
 [sub_resource type="Animation" id="Animation_b8spj"]
 resource_name = "Entery"

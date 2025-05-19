@@ -6,7 +6,7 @@ var health : float = 1
 var health_container : int = 3
 var shield : float = 0.5
 
-var baseattack : float = 2
+var baseattack : float = 3
 var attackMultiplier : float = 1
 var atack : float = 2
 
@@ -52,3 +52,24 @@ func _process(delta: float) -> void:
 		shield -= (total - 12) # Ajustar escudo si el total excede 12
 		
 	
+func setBaseStats():
+	money = 5
+	health = 3
+	health_container = 3
+	shield = 0
+
+	baseattack = 2
+	attackMultiplier = 1
+	atack = 2
+
+	speed = 5.0
+	criticalDamage = 0.0
+	poisonDamage = 0.0
+	atackSpeed = 0.2  #0.6
+	dashCooldown = 1.0
+
+	damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon enetero 0.5 medio
+	invencibleTime = 1
+	is_dashing = false
+
+	CardsInDeck = []

@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2a3hicwyrkvb"]
+
+[ext_resource type="Script" uid="uid://genh5s3fiwt6" path="res://Scripts/view_stats_modal.gd" id="1_a14mx"]
+[ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="2_elxbp"]
+[ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="3_egq2s"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="4_pm5dw"]
+
+[sub_resource type="Gradient" id="Gradient_wf3d1"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lak2a"]
+gradient = SubResource("Gradient_wf3d1")
+width = 589
+height = 589
+fill_from = Vector2(0, 0.420213)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hiwcj"]
+shader = ExtResource("2_elxbp")
+shader_parameter/alpha_tresh = 1.0
+shader_parameter/shrink = 0.885
+shader_parameter/offset_mul = 8.26
+shader_parameter/coff_angle = 0.0
+shader_parameter/coff_mul = 0.5
+shader_parameter/coff_std = 0.0
+shader_parameter/amp1 = 0.125
+shader_parameter/freq1 = 4.0
+shader_parameter/speed1 = 1.0
+shader_parameter/amp2 = 0.125
+shader_parameter/freq2 = 9.0
+shader_parameter/speed2 = 1.0
+shader_parameter/corner_radius = 0.5
+shader_parameter/cols = SubResource("GradientTexture2D_lak2a")
+
+[node name="RunFinalStats" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 119.0
+offset_top = 65.0
+offset_right = 119.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.88196, 0.88196)
+script = ExtResource("1_a14mx")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hiwcj")
+layout_mode = 0
+offset_left = 414.0
+offset_top = 25.0
+offset_right = 1554.0
+offset_bottom = 1009.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 84.0
+offset_right = 1494.0
+offset_bottom = 930.0
+texture = ExtResource("3_egq2s")
+region_rect = Rect2(-1.26258, -1.93427, 258.303, 258.924)
+patch_margin_left = 128
+patch_margin_top = 132
+patch_margin_right = 127
+patch_margin_bottom = 135
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 815.23
+offset_top = 157.604
+offset_right = 4707.23
+offset_bottom = 1025.6
+scale = Vector2(0.13011, 0.13011)
+theme_override_fonts/font = ExtResource("4_pm5dw")
+theme_override_font_sizes/font_size = 641
+text = "Your Stats"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 537.439
+offset_top = 291.396
+offset_right = 4429.44
+offset_bottom = 1159.4
+scale = Vector2(0.13011, 0.13011)
+theme_override_fonts/font = ExtResource("4_pm5dw")
+theme_override_font_sizes/font_size = 641
+text = "Total Time:"
+
+[node name="Kills" type="Label" parent="."]
+layout_mode = 0
+offset_left = 537.439
+offset_top = 411.583
+offset_right = 4429.44
+offset_bottom = 1279.58
+scale = Vector2(0.13011, 0.13011)
+theme_override_fonts/font = ExtResource("4_pm5dw")
+theme_override_font_sizes/font_size = 641
+text = "Total Kills:"
+
+[node name="Floors" type="Label" parent="."]
+layout_mode = 0
+offset_left = 541.975
+offset_top = 530.636
+offset_right = 4433.97
+offset_bottom = 1398.64
+scale = Vector2(0.13011, 0.13011)
+theme_override_fonts/font = ExtResource("4_pm5dw")
+theme_override_font_sizes/font_size = 641
+text = "Total Floors:"
+
+[node name="Runs" type="Label" parent="."]
+layout_mode = 0
+offset_left = 544.242
+offset_top = 655.359
+offset_right = 4436.24
+offset_bottom = 1523.36
+scale = Vector2(0.13011, 0.13011)
+theme_override_fonts/font = ExtResource("4_pm5dw")
+theme_override_font_sizes/font_size = 641
+text = "Total Runs:"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 842.442
+offset_top = 1023.86
+offset_right = 960.442
+offset_bottom = 1054.86
+scale = Vector2(2.20935, 2.28516)
+text = "Back"
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

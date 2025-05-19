@@ -5,6 +5,12 @@ func _ready() -> void:
 	$CanvasLayer/Time.text = "Time: " + format_time(Global.run_time)
 	$CanvasLayer/Kills.text = "Total Kills: " + str(Global.run_total_kills)
 
+	#Global.totalSeeds = 0
+	Global.totalTime += Global.run_time
+	Global.totalKills += Global.run_total_kills
+	Global.totalRuns +=  1
+	Global.totalFloors += Global.lvlCount
+
 # Función para convertir segundos a MM:SS
 func format_time(seconds: float) -> String:
 	var minutes = int(seconds) / 60

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://mdt1nafhyka3"]
 
-[ext_resource type="Script" uid="uid://brl6ix8nss08x" path="res://Scripts/Enemies/slime_boss.gd" id="1_nwo7s"]
+[ext_resource type="Script" uid="uid://brl6ix8nss08x" path="res://Scripts/Items/Enemies/slime_boss.gd" id="1_nwo7s"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_sxerv"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="4_0omll"]
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="5_5abj6"]

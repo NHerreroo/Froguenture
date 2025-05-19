@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bp8fxlhd5co3u"]
 
-[ext_resource type="Script" uid="uid://b551egaw5iolx" path="res://Scripts/Enemies/sticy_slime_floor.gd" id="1_ym217"]
+[ext_resource type="Script" uid="uid://b551egaw5iolx" path="res://Scripts/Items/Enemies/sticy_slime_floor.gd" id="1_ym217"]
 [ext_resource type="Texture2D" uid="uid://x26en5sppf8k" path="res://Sprites/Enemies/stiky.png" id="2_ym217"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_03kxj"]

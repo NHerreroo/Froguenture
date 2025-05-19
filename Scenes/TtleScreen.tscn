@@ -103,6 +103,7 @@ directional_shadow_pancake_size = 9.1
 
 [node name="AmbientFog" parent="WorldEnvironment2" instance=ExtResource("2_7csxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13517, 0.666284, 12.3753)
+visible = false
 size = Vector3(20.184, 3.56738, 7.23792)
 
 [node name="AmbientFog3" parent="WorldEnvironment2" instance=ExtResource("2_7csxt")]
@@ -506,6 +507,6 @@ scale = Vector2(0.652505, 0.652505)
 texture = ExtResource("12_u3pti")
 
 [connection signal="pressed" from="NewGame" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Continue" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]

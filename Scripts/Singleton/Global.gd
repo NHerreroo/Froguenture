@@ -25,7 +25,7 @@ var SHOP_ROOM_WEIGHT = 30
 var CAMPFIRE_ROOM_WEIGHT = 30
 
 #TUTORIAL VARS
-var is_in_tutorial = true
+var is_in_tutorial = false
 
 
 var dialog_ended := true
@@ -96,6 +96,13 @@ var runEnded = false
 
 var debilited = false #boss
 var defeated = false
+
+#VARIABLES PARA GUARDAS
+var totalSeeds = 0
+var totalTime = 0
+var totalKills = 0
+var totalRuns = 0
+var totalFloors = 0
 
 #todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
 func _ready():

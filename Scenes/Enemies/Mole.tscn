@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://b6mlvmq7gc7v5"]
 
-[ext_resource type="Script" uid="uid://2gp8a5gkgre5" path="res://Scripts/Enemies/mole.gd" id="1_80bv1"]
-[ext_resource type="Script" uid="uid://bhgt7us588ofj" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_uhdfd"]
+[ext_resource type="Script" uid="uid://2gp8a5gkgre5" path="res://Scripts/Items/Enemies/mole.gd" id="1_80bv1"]
+[ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_uhdfd"]
 [ext_resource type="Texture2D" uid="uid://ccasr37trecl2" path="res://Sprites/Enemies/mole/hat.png" id="3_80bv1"]
 [ext_resource type="Texture2D" uid="uid://wpltu1stj07m" path="res://Sprites/Enemies/mole/body.png" id="3_e51of"]
 [ext_resource type="Texture2D" uid="uid://bqtf1x650jh8f" path="res://Sprites/Enemies/mole/floor2.png" id="5_80bv1"]

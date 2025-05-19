@@ -108,49 +108,64 @@ func enem_area_disabled():
 
 
 const FLASH_SHADER : Shader = preload("res://Shaders/flash_sahder.gdshader")
+var _flash_timer: SceneTreeTimer = null
+var _affected_nodes: Array = []
+
 func flash_sprite3d() -> void:
-	var flash_shader = load("res://Shaders/flash_sahder.gdshader")
+	# Asegurarnos de que no haya un flash anterior en proceso
+	if _flash_timer != null and _flash_timer.time_left > 0:
+		_flash_timer.timeout.disconnect(_reset_materials)
+		_reset_materials()
 	
-	var affected_nodes = []
+	_affected_nodes.clear()
+	find_and_apply_flash(self, FLASH_SHADER, _affected_nodes)
 	
-	find_and_apply_flash(self, flash_shader, affected_nodes)
-	
-	await get_tree().create_timer(0.2).timeout
-	
-	for node_data in affected_nodes:
+	_flash_timer = get_tree().create_timer(0.2)
+	_flash_timer.timeout.connect(_reset_materials)
+
+func _reset_materials() -> void:
+	for node_data in _affected_nodes:
 		var node = node_data[0]
 		var original_material = node_data[1]
 		if is_instance_valid(node):
 			node.material_override = original_material
+	_affected_nodes.clear()
 
 func find_and_apply_flash(node: Node, shader: Shader, affected_nodes: Array) -> void:
+	if node == null:
+		return
+		
 	for child in node.get_children():
 		if child is Sprite3D or child is AnimatedSprite3D:
 			var original_material = child.material_override
 			var new_material = ShaderMaterial.new()
 			new_material.shader = shader
 			
+			var texture = null
+			
 			if child is Sprite3D and child.texture:
-				new_material.set_shader_parameter("albedo_texture", child.texture)
+				texture = child.texture
 			elif child is AnimatedSprite3D and child.sprite_frames:
 				var current_animation = child.animation
 				var current_frame = child.frame
-				var texture = child.sprite_frames.get_frame_texture(current_animation, current_frame)
-				if texture:
-					new_material.set_shader_parameter("albedo_texture", texture)
-				else:
-					continue
-			else:
-				continue
+				texture = child.sprite_frames.get_frame_texture(current_animation, current_frame)
+			
+			if texture:
+				new_material.set_shader_parameter("albedo_texture", texture)
+				new_material.set_shader_parameter("flash_color", Color(1,1,1,1))
+				new_material.set_shader_parameter("flash_value", 1.0)
+				new_material.set_shader_parameter("alpha_threshold", 0.5)
 				
-			new_material.set_shader_parameter("flash_color", Color(1,1,1,1))
-			new_material.set_shader_parameter("flash_value", 1.0)
-			
-			child.material_override = new_material
-			
-			affected_nodes.append([child, original_material])
+				child.material_override = new_material
+				affected_nodes.append([child, original_material])
 		
 		find_and_apply_flash(child, shader, affected_nodes)
+
+# Para cuando el nodo se elimina mientras un efecto flash está activo
+func _exit_tree() -> void:
+	if _flash_timer != null and _flash_timer.time_left > 0:
+		_flash_timer.timeout.disconnect(_reset_materials)
+	_reset_materials()
 
 
 var hit1 = preload("res://Sounds/SFX/PUNCH_DESIGNED_HEAVY_86.wav")
