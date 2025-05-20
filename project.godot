@@ -24,6 +24,7 @@ Player="*res://Scripts/Singleton/Player.gd"
 SpawnPoints="*res://Scripts/Singleton/SpawnPoints.gd"
 ApplyItems="*res://Scripts/Singleton/items.gd"
 SaveSystem="*res://Scripts/Singleton/save_system.gd"
+Config="*res://Scripts/Singleton/Config.gd"
 
 [display]
 

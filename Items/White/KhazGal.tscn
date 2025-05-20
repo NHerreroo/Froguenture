@@ -1,34 +1,36 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy0fd142pyiqt"]
+[gd_scene load_steps=13 format=3 uid="uid://cj06jdal41i66"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_q14el"]
-[ext_resource type="Texture2D" uid="uid://qriguq5m0vqx" path="res://Sprites/Items/Arts/Khaz'gal, Wrath of the SunArt.png" id="2_cntpk"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_w7m0t"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_5ro4o"]
-[ext_resource type="Texture2D" uid="uid://dhrfuv0euu3c6" path="res://Sprites/Items/TemplateFullart.png" id="5_bfarn"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_qv2tj"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_0t2xe"]
+[ext_resource type="Script" uid="uid://di7wbuhxing0w" path="res://Scripts/Items/khaz_gal.gd" id="1_vx7bt"]
+[ext_resource type="Texture2D" uid="uid://qriguq5m0vqx" path="res://Sprites/Items/Arts/Khaz'gal, Wrath of the SunArt.png" id="2_mws2b"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_oelth"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_pcrs8"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_81igr"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_c5028"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_ha51w"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_qqst3"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_w7m0t")
+[sub_resource type="Resource" id="Resource_wfh1v"]
+script = ExtResource("3_oelth")
 name = "Khaz'gal, Wrath Of The Sun"
-description = "Its a template"
-image = ExtResource("2_cntpk")
-habilitie1 = "Khaz'gal, Wrath Of The Sun, grants the warrior + 0.5 attack speed and critical hit speed X 3.5"
-habilitie2 = ""
+description = ""
+image = ExtResource("2_mws2b")
+habilitie1 = "Player Gets +1 Base Power"
+habilitie2 = "Player Now Have a Poison Dash"
 habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
-color_card = 5
+damage = "3"
+health = "3"
+quote = ""
+color_card = 0
 card_type = 0
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("6_qv2tj")
+shader = ExtResource("6_c5028")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -42,11 +44,11 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("7_0t2xe")
+shader = ExtResource("7_ha51w")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
-[node name="Khaz\'gal" type="Button"]
+[node name="ItemTemplate" type="Button"]
 offset_left = 251.0
 offset_top = 131.0
 offset_right = 719.0
@@ -54,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_q14el")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_vx7bt")
+item_Src = SubResource("Resource_wfh1v")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -73,7 +75,7 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("4_5ro4o")
+texture = ExtResource("4_pcrs8")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -82,14 +84,14 @@ offset_top = -31.0
 offset_right = 780.0
 offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_bfarn")
+texture = ExtResource("5_81igr")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("4_5ro4o")
+texture = ExtResource("4_pcrs8")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
@@ -116,16 +118,20 @@ offset_left = 151.808
 offset_top = 128.39
 offset_right = 728.808
 offset_bottom = 194.39
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_qqst3")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
 
 [node name="Type" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 113.049
+offset_left = 117.894
 offset_top = 580.964
-offset_right = 690.049
+offset_right = 694.894
 offset_bottom = 646.964
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_qqst3")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -136,6 +142,8 @@ offset_left = 140.503
 offset_top = 670.837
 offset_right = 680.503
 offset_bottom = 900.837
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_qqst3")
 theme_override_font_sizes/font_size = 30
 text = "HABILITIE 1
 HABILITIE 2
@@ -149,6 +157,8 @@ offset_left = 198.643
 offset_top = 881.076
 offset_right = 595.643
 offset_bottom = 971.076
+theme_override_constants/outline_size = 22
+theme_override_fonts/font = ExtResource("8_qqst3")
 theme_override_font_sizes/font_size = 25
 text = "\"Quote\"
 "
@@ -158,10 +168,12 @@ clip_text = true
 
 [node name="Damage" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 145.348
-offset_top = 938.851
-offset_right = 242.348
-offset_bottom = 1054.85
+offset_left = 172.803
+offset_top = 954.9
+offset_right = 269.803
+offset_bottom = 1189.9
+theme_override_constants/outline_size = 47
+theme_override_fonts/font = ExtResource("8_qqst3")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
@@ -169,10 +181,12 @@ autowrap_mode = 3
 
 [node name="Health" type="Label" parent="CardColor"]
 layout_mode = 0
-offset_left = 624.998
-offset_top = 938.851
-offset_right = 721.998
-offset_bottom = 1054.85
+offset_left = 578.164
+offset_top = 959.714
+offset_right = 675.164
+offset_bottom = 1194.71
+theme_override_constants/outline_size = 47
+theme_override_fonts/font = ExtResource("8_qqst3")
 theme_override_font_sizes/font_size = 85
 text = "5
 "

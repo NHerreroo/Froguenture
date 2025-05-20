@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var resumeButton = $ColorRect/Resume
 @onready var colorRect = $ColorRect
 
+var options = preload("res://Scenes/Options.tscn")
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	colorRect.position.x = -800
@@ -45,3 +47,11 @@ func _on_exit_pressed():
 
 func _process(delta):
 	testEsc()
+
+func spawnOptions():
+	var newOptionsMenu = options.instantiate()
+	add_child(newOptionsMenu)
+
+
+func _on_options_pressed() -> void:
+	spawnOptions()

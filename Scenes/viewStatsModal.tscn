@@ -8,7 +8,7 @@
 [sub_resource type="Gradient" id="Gradient_wf3d1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lak2a"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a14mx"]
 gradient = SubResource("Gradient_wf3d1")
 width = 589
 height = 589
@@ -29,7 +29,7 @@ shader_parameter/amp2 = 0.125
 shader_parameter/freq2 = 9.0
 shader_parameter/speed2 = 1.0
 shader_parameter/corner_radius = 0.5
-shader_parameter/cols = SubResource("GradientTexture2D_lak2a")
+shader_parameter/cols = SubResource("GradientTexture2D_a14mx")
 
 [node name="RunFinalStats" type="Control"]
 modulate = Color(1, 1, 1, 0)

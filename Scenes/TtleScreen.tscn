@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://66cbs0n1ub8"]
+[gd_scene load_steps=23 format=3 uid="uid://66cbs0n1ub8"]
 
 [ext_resource type="Script" uid="uid://duy7cforghd4i" path="res://Scripts/tile_screen.gd" id="1_nklds"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="2_7csxt"]
@@ -86,6 +86,43 @@ width = 1024
 height = 1024
 fill = 1
 fill_from = Vector2(0.509174, 0.495413)
+
+[sub_resource type="Animation" id="Animation_7csxt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nklds"]
+resource_name = "in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.46667, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4a0gr"]
+_data = {
+&"RESET": SubResource("Animation_7csxt"),
+&"in": SubResource("Animation_nklds")
+}
 
 [node name="TitleScreen" type="Node3D"]
 script = ExtResource("1_nklds")
@@ -455,7 +492,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_dh5jj")
 
-[node name="NewGame" type="Button" parent="."]
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NewGame" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 634.0
 offset_top = 560.0
 offset_right = 1345.0
@@ -467,7 +512,8 @@ text = "New Game
 "
 flat = true
 
-[node name="Continue" type="Button" parent="."]
+[node name="Continue" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 634.0
 offset_top = 675.0
 offset_right = 1345.0
@@ -479,7 +525,8 @@ text = "Continue
 "
 flat = true
 
-[node name="Options" type="Button" parent="."]
+[node name="Options" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 634.0
 offset_top = 781.0
 offset_right = 1345.0
@@ -490,7 +537,8 @@ theme_override_font_sizes/font_size = 56
 text = "Options"
 flat = true
 
-[node name="Exit" type="Button" parent="."]
+[node name="Exit" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 634.0
 offset_top = 889.0
 offset_right = 1345.0
@@ -501,12 +549,17 @@ theme_override_font_sizes/font_size = 56
 text = "Exit"
 flat = true
 
-[node name="Logo" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="Control"]
 position = Vector2(988, 347)
 scale = Vector2(0.652505, 0.652505)
 texture = ExtResource("12_u3pti")
 
-[connection signal="pressed" from="NewGame" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Options" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_button_pressed"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4a0gr")
+}
+
+[connection signal="pressed" from="Control/NewGame" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/Options" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_button_pressed"]

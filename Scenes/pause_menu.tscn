@@ -39,7 +39,7 @@ shader_parameter/cols = SubResource("GradientTexture2D_na6jk")
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-layer = 128
+layer = 98
 script = ExtResource("1_bpi0q")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -122,4 +122,5 @@ flat = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="ColorRect/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="ColorRect/Exit" to="." method="_on_exit_pressed"]

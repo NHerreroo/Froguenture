@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 var ghost = preload("res://Scenes/Ghost.tscn")
+var poison = preload("res://Scenes/DashPoison.tscn")
 
 var SPEED = Player.speed
 var direction
@@ -110,6 +111,8 @@ func perform_dash(delta, direction):
 		if ghost_spawn_timer >= GHOST_SPAWN_INTERVAL:
 			ghost_spawn_timer = 0
 			spawnGhost()
+			if Player.havePosionDash:
+				spawnPoison()
 		
 		dash_timer -= delta
 		if dash_timer <= 0:
@@ -122,6 +125,8 @@ func perform_dash(delta, direction):
 		dash_direction = direction if direction != Vector3.ZERO else last_direction
 		ghost_spawn_timer = 0
 		spawnGhost()
+		if Player.havePosionDash:
+			spawnPoison()
 
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
@@ -288,3 +293,9 @@ func spawnGhost():
 	newGhost.position = self.position
 	newGhost.rotation = self.rotation
 	get_parent().add_child(newGhost)
+
+
+func spawnPoison():
+	var newPoison = poison.instantiate()
+	newPoison.position = Vector3(self.position.x,0.7,self.position.z)
+	get_parent().add_child(newPoison)
