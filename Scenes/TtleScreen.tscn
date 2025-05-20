@@ -561,5 +561,5 @@ libraries = {
 
 [connection signal="pressed" from="Control/NewGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Control/Options" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_button_pressed"]

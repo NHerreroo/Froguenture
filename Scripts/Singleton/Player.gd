@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 		
 	
 func setBaseStats():
-	
+	ApplyItems.pasiveItems.clear()
 	money = 5
 	health = 3
 	health_container = 3

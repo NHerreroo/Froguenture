@@ -102,6 +102,8 @@ texture = SubResource("ViewportTexture_p7q1j")
 
 [node name="Speak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_632vg")
+bus = &"SFX"
 
 [node name="Accept" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_eqrqp")
+bus = &"SFX"

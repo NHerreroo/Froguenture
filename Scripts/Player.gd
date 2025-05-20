@@ -244,14 +244,15 @@ var canReciveDamage = true
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if Player.is_dashing:
 		return
-	if area.is_in_group("enemy"):
-		if canReciveDamage: 
-			canReciveDamage = false
-			if camera:
-				camera.frameFreeze(0.05, 1.0)
-				camera.low_shake_camera()
+	if area.is_in_group("enemy") and canReciveDamage:
+		canReciveDamage = false
 		take_damage(Player.damageToRecive)
-	
+		if camera:
+			camera.frameFreeze(0.05, 1.0)
+			camera.low_shake_camera()
+		await get_tree().create_timer(Player.invencibleTime).timeout
+		canReciveDamage = true
+
 
 func take_damage(amount: float) -> void:
 	$CanvasLayer/ColorRect/AnimationPlayer.play("new_animation")

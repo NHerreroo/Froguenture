@@ -1,0 +1,191 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6jpqwisolgoi"]
+
+[ext_resource type="Script" uid="uid://nn0nc46ph4o7" path="res://Scripts/options.gd" id="1_cbhj7"]
+[ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="1_hg628"]
+[ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="2_5hy3q"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_5hy3q"]
+
+[sub_resource type="Gradient" id="Gradient_cbhj7"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lak2a"]
+gradient = SubResource("Gradient_cbhj7")
+width = 589
+height = 589
+fill_from = Vector2(0, 0.420213)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4at1"]
+shader = ExtResource("1_hg628")
+shader_parameter/alpha_tresh = 1.0
+shader_parameter/shrink = 0.885
+shader_parameter/offset_mul = 8.26
+shader_parameter/coff_angle = 0.0
+shader_parameter/coff_mul = 0.5
+shader_parameter/coff_std = 0.0
+shader_parameter/amp1 = 0.125
+shader_parameter/freq1 = 4.0
+shader_parameter/speed1 = 1.0
+shader_parameter/amp2 = 0.125
+shader_parameter/freq2 = 9.0
+shader_parameter/speed2 = 1.0
+shader_parameter/corner_radius = 0.5
+shader_parameter/cols = SubResource("GradientTexture2D_lak2a")
+
+[node name="Options" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_cbhj7")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_q4at1")
+offset_left = -110.0
+offset_top = -86.0
+offset_right = 1634.0
+offset_bottom = 884.0
+scale = Vector2(1.26721, 1.37386)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 85.0
+offset_top = 52.0
+offset_right = 2632.0
+offset_bottom = 1346.0
+scale = Vector2(0.695443, 0.750303)
+texture = ExtResource("2_5hy3q")
+region_rect = Rect2(-1.26258, -1.93427, 258.303, 258.924)
+patch_margin_left = 128
+patch_margin_top = 132
+patch_margin_right = 127
+patch_margin_bottom = 135
+
+[node name="Title" type="Label" parent="."]
+offset_left = 834.0
+offset_top = 160.0
+offset_right = 3092.0
+offset_bottom = 1028.0
+scale = Vector2(0.13011, 0.13011)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "OPTIONS"
+
+[node name="VOLUMEN" type="Label" parent="."]
+offset_left = 279.0
+offset_top = 267.0
+offset_right = 2592.0
+offset_bottom = 1135.0
+scale = Vector2(0.0821623, 0.0821623)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "VOLUMEN"
+
+[node name="MASTER" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 366.0
+offset_right = 2602.0
+offset_bottom = 1234.0
+scale = Vector2(0.0555391, 0.0555391)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "MASTER:"
+
+[node name="HSlider_Master" type="HSlider" parent="."]
+offset_left = 289.0
+offset_top = 420.0
+offset_right = 605.0
+offset_bottom = 460.0
+max_value = 1.0
+step = 0.01
+
+[node name="Music" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 479.0
+offset_right = 2602.0
+offset_bottom = 1347.0
+scale = Vector2(0.0555391, 0.0555391)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "SFX:"
+
+[node name="HSlider_Music" type="HSlider" parent="."]
+offset_left = 289.0
+offset_top = 667.0
+offset_right = 605.0
+offset_bottom = 707.0
+max_value = 1.0
+step = 0.01
+
+[node name="SFX" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 613.0
+offset_right = 2602.0
+offset_bottom = 1481.0
+scale = Vector2(0.0555391, 0.0555391)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "MUSIC:"
+
+[node name="HSlider_SFX" type="HSlider" parent="."]
+offset_left = 289.0
+offset_top = 533.0
+offset_right = 605.0
+offset_bottom = 573.0
+max_value = 1.0
+step = 0.01
+
+[node name="Button" type="Button" parent="."]
+offset_left = 842.0
+offset_top = 805.0
+offset_right = 957.0
+offset_bottom = 848.0
+scale = Vector2(1.8895, 1.8895)
+text = "Back"
+
+[node name="Resolutio" type="Label" parent="."]
+offset_left = 1325.0
+offset_top = 284.0
+offset_right = 4438.0
+offset_bottom = 1152.0
+scale = Vector2(0.0555391, 0.0555391)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "RESOLUTION:"
+
+[node name="ResolutionOptios" type="OptionButton" parent="."]
+offset_left = 1323.0
+offset_top = 354.0
+offset_right = 1638.0
+offset_bottom = 393.0
+
+[node name="Vsync" type="Label" parent="."]
+offset_left = 1327.0
+offset_top = 423.0
+offset_right = 4440.0
+offset_bottom = 1291.0
+scale = Vector2(0.0555391, 0.0555391)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "V-SYNC:"
+
+[node name="CheckBoxVsync" type="CheckBox" parent="."]
+offset_left = 1524.0
+offset_top = 425.0
+offset_right = 1548.0
+offset_bottom = 449.0
+scale = Vector2(1.91625, 2.01942)
+
+[node name="Fullscreen" type="Label" parent="."]
+offset_left = 1332.0
+offset_top = 513.0
+offset_right = 4445.0
+offset_bottom = 1381.0
+scale = Vector2(0.0555391, 0.0555391)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 641
+text = "FULLSCREEN:"
+
+[node name="CheckBoxFullScreen" type="CheckBox" parent="."]
+offset_left = 1524.0
+offset_top = 516.0
+offset_right = 1548.0
+offset_bottom = 540.0
+scale = Vector2(1.91625, 2.01942)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -13,10 +13,15 @@ script = ExtResource("1_3w0nh")
 script = ExtResource("2_pbw6q")
 
 [node name="Normal" type="AudioStreamPlayer" parent="Music"]
+process_mode = 3
 stream = ExtResource("2_rgh2o")
+bus = &"Music"
 
 [node name="Fight" type="AudioStreamPlayer" parent="Music"]
+process_mode = 3
 stream = ExtResource("3_pbw6q")
 
 [node name="Shop" type="AudioStreamPlayer" parent="Music"]
+process_mode = 3
 stream = ExtResource("4_v1gob")
+bus = &"Music"

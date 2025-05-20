@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Uncommon Like"
+config/name="Froguenture"
 run/main_scene="res://Scenes/TtleScreen.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=120
@@ -30,7 +30,9 @@ Config="*res://Scripts/Singleton/Config.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 mouse_cursor/custom_image="uid://xe45ughshen"
+window/name="Uncommon Like"
 
 [dotnet]
 

@@ -244,9 +244,11 @@ transform = Transform3D(1.38361e-07, -0.441055, 0.763928, 5.78372e-08, 0.763928,
 transform = Transform3D(5.60809e-08, -0.24691, 0.427661, 3.23783e-08, 0.427661, 0.24691, -0.49382, 0, 6.47566e-08, 0.147265, -4.77779, -1.67628)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("8_ap24m")
 volume_db = -42.162
 autoplay = true
+bus = &"Music"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchors_preset = 8
