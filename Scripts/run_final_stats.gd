@@ -8,7 +8,7 @@ func _ready() -> void:
 	#Global.totalSeeds = 0
 	Global.totalTime += Global.run_time
 	Global.totalKills += Global.run_total_kills
-	Global.totalRuns +=  1
+	Global.totalSeeds +=  1
 	Global.totalFloors += Global.lvlCount
 
 # Función para convertir segundos a MM:SS
@@ -19,5 +19,4 @@ func format_time(seconds: float) -> String:
 
 
 func _on_button_pressed() -> void:
-	Global.runEnded = true
 	get_tree().change_scene_to_file("res://Scenes/Lobby.tscn")

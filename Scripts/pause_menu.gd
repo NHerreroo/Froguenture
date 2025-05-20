@@ -1,10 +1,12 @@
-extends Control
+extends CanvasLayer
 
 @onready var resumeButton = $ColorRect/Resume
+@onready var colorRect = $ColorRect
 
 func _ready():
-	position.x = -800
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	colorRect.position.x = -800
+	hide()
 	
 func pause():
 	Global.is_game_paused = true
@@ -14,14 +16,14 @@ func pause():
 	
 	var tween = create_tween()
 	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	tween.tween_property(self, "position:x", 0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(colorRect, "position:x", -200, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 func resume():
 	Global.card_focused = false
 	
 	var tween = create_tween()
 	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	tween.tween_property(self, "position:x", -800, 0.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(colorRect, "position:x", -800, 0.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(func(): 
 		Global.is_game_paused = false
 		get_tree().paused = false
@@ -41,5 +43,5 @@ func _on_resume_pressed():
 func _on_exit_pressed():
 	get_tree().quit()
 
-func _process(_delta):
+func _process(delta):
 	testEsc()

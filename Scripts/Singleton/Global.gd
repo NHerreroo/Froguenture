@@ -25,7 +25,7 @@ var SHOP_ROOM_WEIGHT = 30
 var CAMPFIRE_ROOM_WEIGHT = 30
 
 #TUTORIAL VARS
-var is_in_tutorial = false
+var is_in_tutorial = true
 
 
 var dialog_ended := true

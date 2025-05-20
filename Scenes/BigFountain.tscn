@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi5r63myj86ci"]
+[gd_scene load_steps=7 format=3 uid="uid://bi5r63myj86ci"]
 
+[ext_resource type="Script" uid="uid://dt3yym7odpkvd" path="res://Scripts/big_fountain.gd" id="1_2hetv"]
 [ext_resource type="Texture2D" uid="uid://bkhl4yhdt5388" path="res://Sprites/fountain2.png" id="1_aob5f"]
 [ext_resource type="Texture2D" uid="uid://dmml1p8fymu13" path="res://Sprites/icons/seed.png" id="2_kef31"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_fs1bj"]
@@ -27,6 +28,7 @@ distance_fade_mode = 2
 distance_fade_min_distance = 4.0
 
 [node name="Tablon" type="Node3D"]
+script = ExtResource("1_2hetv")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1.14532, 0, 0, 0, 0.991878, 0.572661, 0, -0.572661, 0.991878, 0.197504, 4.36881, -0.878823)

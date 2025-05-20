@@ -2,9 +2,9 @@ extends Node
 
 # STATS
 var money : int = 100
-var health : float = 1
+var health : float = 3
 var health_container : int = 3
-var shield : float = 0.5
+var shield : float = 0
 
 var baseattack : float = 3
 var attackMultiplier : float = 1
@@ -58,7 +58,7 @@ func setBaseStats():
 	health_container = 3
 	shield = 0
 
-	baseattack = 2
+	baseattack = 200
 	attackMultiplier = 1
 	atack = 2
 

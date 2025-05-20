@@ -2,8 +2,9 @@ extends Node3D
 
 
 func _ready() -> void:
-	Player.setBaseStats()
+	Global.runEnded = true
 	Engine.time_scale = 1
+	Player.setBaseStats()
 	
 func _on_run_pressed() -> void:
 	Global.resetall()

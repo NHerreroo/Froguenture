@@ -37,22 +37,13 @@ shader_parameter/speed2 = 1.46
 shader_parameter/corner_radius = 0.0
 shader_parameter/cols = SubResource("GradientTexture2D_na6jk")
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
-z_index = 2075
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -800.0
-offset_right = -800.0
-grow_horizontal = 2
-grow_vertical = 2
+layer = 128
 script = ExtResource("1_bpi0q")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
-layout_mode = 0
 offset_right = 2736.0
 offset_bottom = 1063.0
 scale = Vector2(1.75578, 1.75578)
@@ -60,7 +51,6 @@ texture = ExtResource("2_myy0f")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_vmyb1")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,7 +61,6 @@ grow_vertical = 2
 [node name="ColorRect" type="ColorRect" parent="."]
 process_mode = 3
 material = SubResource("ShaderMaterial_njtyf")
-layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = -217.0
@@ -129,6 +118,8 @@ theme_override_fonts/font = ExtResource("4_vmyb1")
 theme_override_font_sizes/font_size = 66
 text = "Exit"
 flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="ColorRect/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="ColorRect/Exit" to="." method="_on_exit_pressed"]

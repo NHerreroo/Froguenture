@@ -9,6 +9,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	Global.resetall()
 	Global.lvlCount = 0
+	Global.totalRuns += 1
 	get_tree().change_scene_to_file("res://Scenes/run.tscn")
 
 func _on_button_2_pressed() -> void:
