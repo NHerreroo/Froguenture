@@ -40,6 +40,7 @@ func _process(delta):
 
 
 func _ready():
+	$CanvasLayer/ColorRect2/AnimationPlayer.play("in")
 	_start_run()
 	_setup_event_connections()
 	map.connect("map_exited", Callable(self, "_on_map_exited"))

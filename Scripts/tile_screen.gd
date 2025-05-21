@@ -3,14 +3,19 @@ extends Node3D
 var options = preload("res://Scenes/Options.tscn")
 
 func _ready() -> void:
+	$ColorRect2/AnimationPlayer.play("in")
 	$AnimationPlayer2.play("in")
 	$AnimationPlayer.play("entry")
 
 
+
 func _on_button_pressed() -> void:
+	$ColorRect2/AnimationPlayer.play("out")
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://Scenes/run.tscn")
 
 func _on_continue_pressed() -> void:
+	await get_tree().create_timer(1).timeout
 	var scene_tree = get_tree()
 	if not scene_tree:
 		printerr("Error: El árbol de escenas no está disponible")
@@ -19,7 +24,9 @@ func _on_continue_pressed() -> void:
 	if not SaveSystem.load_game():
 		printerr("Error al cargar la partida")
 		return
-	
+		
+	$ColorRect2/AnimationPlayer.play("out")
+	await get_tree().create_timer(1).timeout
 	scene_tree.call_deferred("change_scene_to_file", "res://Scenes/Lobby.tscn")
 
 

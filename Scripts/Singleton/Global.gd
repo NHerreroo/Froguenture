@@ -104,15 +104,6 @@ var totalKills = 0
 var totalRuns = 0
 var totalFloors = 0
 
-#todo el rato me va a comprobar si estoy usando mando o teclado para cambiar la variable global
-func _ready():
-	Input.connect("joy_connection_changed", Callable(self, "_on_joy_connection_changed"))
-
-func _on_joy_connection_changed(device_id, connected):
-	if connected:
-		controller_active = true
-	else:
-		controller_active = false
 
 
 

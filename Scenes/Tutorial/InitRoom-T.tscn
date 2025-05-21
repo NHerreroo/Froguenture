@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ioe3od6lmghv"]
+[gd_scene load_steps=23 format=3 uid="uid://ioe3od6lmghv"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_785xy"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="2_785xy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ce4l8iuji132n" path="res://Sprites/Vegetation/Misc/Barrel.png" id="9_587xq"]
 [ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="10_uc74a"]
 [ext_resource type="Texture2D" uid="uid://dvho8bafp7ksy" path="res://Sprites/icons/wasd.png" id="10_wtyve"]
+[ext_resource type="Script" uid="uid://ch10cl0dyn58d" path="res://Scenes/Tutorial/transitionFirstRoom.gd" id="11_alge0"]
 
 [sub_resource type="Environment" id="Environment_5x67m"]
 background_mode = 1
@@ -40,6 +41,58 @@ size = Vector3(1, 4, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bstfs"]
 size = Vector3(2.1944, 1.47516, 0.771606)
+
+[sub_resource type="Animation" id="Animation_qfu61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4a0gr"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0j85a"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfu61"]
+_data = {
+&"RESET": SubResource("Animation_qfu61"),
+&"in": SubResource("Animation_4a0gr"),
+&"out": SubResource("Animation_0j85a")
+}
 
 [node name="InitialRoom" type="Node3D"]
 script = ExtResource("1_785xy")
@@ -294,3 +347,18 @@ texture = ExtResource("9_587xq")
 transform = Transform3D(0, -0.714304, -9.57956e-08, 0, 2.12879e-08, 0.714304, -0.714304, 0, 0, 0, -0.0303147, 0)
 alpha_cut = 1
 texture = ExtResource("10_wtyve")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("11_alge0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect2"]
+libraries = {
+&"": SubResource("AnimationLibrary_qfu61")
+}
