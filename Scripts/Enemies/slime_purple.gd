@@ -1,6 +1,13 @@
 extends Enemy
 
-var currentState
+var current_state = null
+var is_state_active = false
+
+
+const MAP_BOUNDS_MIN_X = -3.5
+const MAP_BOUNDS_MAX_X = -3.5
+const MAP_BOUNDS_MIN_Z = -6.5
+const MAP_BOUNDS_MAX_Z = 6.5
 
 func _ready() -> void:
 	Global.enemies_remaining += 1
@@ -12,49 +19,91 @@ func _ready() -> void:
 			canStart = true
 	enem_area_disabled()
 	$AnimationPlayer.play("idle")
-	selectState()
+	select_state()
 
-
-func selectState():
-	speed = 3
-	currentState = get_random_state()
-	match currentState:
+func select_state():
+	if is_state_active:
+		return
+	
+	is_state_active = true
+	current_state = get_random_state()
+	match current_state:
 		State.IDLE:
-			idleState()
+			idle_state()
 		State.WALK:
-			walkState()
+			walk_state()
 		State.ATTACK:
-			attackState()
+			attack_state()
 
-func walkState():
-	$AnimationPlayer.play("idle")
+func walk_state():
 	print("walk")
-	var posx = randf_range(-3.0, 3.0)
-	var posz = randf_range(-6.0, 6.0)
-	nav.target_position = global_transform.origin + Vector3(posx, 0, posz)
+	$AnimationPlayer.play("idle")
+
+	var target_pos = generate_valid_random_position()
+	nav.target_position = target_pos
 
 	var timer = get_tree().create_timer(4.0)
-	await get_tree().create_timer(4.0).timeout or nav.navigation_finished
-	selectState()
+	var navigation_completed = false
 
-func idleState():
-	$AnimationPlayer.play("idle")
-	print("idle")
-	await get_tree().create_timer(randf_range(0.5,1.5)).timeout
-	selectState()
+	while timer.time_left > 0 and not nav.is_navigation_finished():
+		await get_tree().create_timer(0.1).timeout 
 	
-func attackState():
+	navigation_completed = nav.is_navigation_finished()
+	is_state_active = false
+	
+	select_state()
+
+func generate_valid_random_position() -> Vector3:
+	var valid_position = false
+	var target_pos = Vector3.ZERO
+	var attempts = 0
+	const MAX_ATTEMPTS = 5
+	
+	while not valid_position and attempts < MAX_ATTEMPTS:
+		attempts += 1
+		var posx = randf_range(MAP_BOUNDS_MIN_X, MAP_BOUNDS_MAX_X)
+		var posz = randf_range(MAP_BOUNDS_MIN_Z, MAP_BOUNDS_MAX_Z)
+		target_pos = global_transform.origin + Vector3(posx, 0, posz)
+		
+		if (target_pos.x >= MAP_BOUNDS_MIN_X and target_pos.x <= MAP_BOUNDS_MAX_X and
+			target_pos.z >= MAP_BOUNDS_MIN_Z and target_pos.z <= MAP_BOUNDS_MAX_Z):
+			valid_position = true
+	
+	if not valid_position:
+		target_pos = global_transform.origin
+	
+	return target_pos
+
+func idle_state():
+	$AnimationPlayer.play("idle")
+	await get_tree().create_timer(randf_range(0.5, 1.5)).timeout
+	is_state_active = false
+	select_state()
+	
+func attack_state():
 	print("attack")
+	is_state_active = true
 	velocity = Vector3.ZERO
 	$AnimationPlayer.play("prepare")
 	await get_tree().create_timer(1.5).timeout
-	var original_speed = speed
-	speed *= 5
+
+	var target_pos = player.global_transform.origin
+
+	if not nav.is_target_reachable():
+		print("Jugador no alcanzable, cancelando ataque.")
+		is_state_active = false
+		select_state()
+		return
+
+	speed = 15
 	$AnimationPlayer.play("attack")
 	enem_area_enabled()
-	nav.target_position = player.global_transform.origin
-	var timer = get_tree().create_timer(4.0)
-	await get_tree().create_timer(4.0).timeout or nav.navigation_finished
+	nav.target_position = target_pos
+	
+	while not nav.is_navigation_finished():
+		await get_tree().create_timer(0.1).timeout 
+	
 	speed = 3
 	enem_area_disabled()
-	selectState()
+	is_state_active = false
+	select_state()

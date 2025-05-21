@@ -245,12 +245,14 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if Player.is_dashing:
 		return
 	if area.is_in_group("enemy") and canReciveDamage:
+		$Sprites/SHIELD.visible = true
 		canReciveDamage = false
 		take_damage(Player.damageToRecive)
 		if camera:
 			camera.frameFreeze(0.05, 1.0)
 			camera.low_shake_camera()
 		await get_tree().create_timer(Player.invencibleTime).timeout
+		$Sprites/SHIELD.visible = false
 		canReciveDamage = true
 
 

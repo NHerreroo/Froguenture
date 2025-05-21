@@ -103,21 +103,26 @@ func attack_state():
 	velocity = Vector3.ZERO
 	$AnimationPlayer.play("prepare")
 	await get_tree().create_timer(1.5).timeout
+
+	var target_pos = player.global_transform.origin
+
+	if not nav.is_target_reachable():
+		print("Jugador no alcanzable, cancelando ataque.")
+		is_state_active = false
+		select_state()
+		return
+
 	speed = 15
 	$AnimationPlayer.play("attack")
 	enem_area_enabled()
-	nav.target_position = player.global_transform.origin
+	nav.target_position = target_pos
 	
-	var timer = get_tree().create_timer(4.0)
-	var navigation_completed = false
-	
-	while timer.time_left > 0 and not nav.is_navigation_finished():
+	while not nav.is_navigation_finished():
 		await get_tree().create_timer(0.1).timeout 
 	
 	speed = 3
 	enem_area_disabled()
 	is_state_active = false
-
 	select_state()
 
 func spawnStiky():

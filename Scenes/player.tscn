@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=53 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" uid="uid://bn2g1yfcb815w" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://m8a8g8tfe32k" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bfb6c5xeiaudy" path="res://Sprites/Player/up/feet2.png" id="15_e80vs"]
 [ext_resource type="Texture2D" uid="uid://crj1lxb6ab0tn" path="res://Sprites/Player/Atack/Atack.png" id="18_856i7"]
 [ext_resource type="PackedScene" uid="uid://cbi5nch0is25o" path="res://Scenes/hud.tscn" id="18_gvt84"]
+[ext_resource type="Texture2D" uid="uid://4ru5sx85ggir" path="res://Sprites/Player/shield.png" id="19_l6n3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjemb"]
 
@@ -3653,6 +3654,12 @@ animation = &"none"
 transform = Transform3D(0.00610404, 0, 0, 0, 0.00610401, 0, 0, 0, 0.00610401, 0.00299157, 0.00728851, 0.00043174)
 light_energy = 0.0
 omni_range = 4.70335
+
+[node name="SHIELD" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.00186292, 0, 0, 0, 0.00186292, 3.49246e-10, 0, -3.49246e-10, 0.00186292, -0.000189424, 0.00298557, 0.00181171)
+visible = false
+alpha_cut = 2
+texture = ExtResource("19_l6n3p")
 
 [node name="Hud" parent="." instance=ExtResource("18_gvt84")]
 

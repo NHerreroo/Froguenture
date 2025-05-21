@@ -48,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.500522, 0.623643, 0.490184)]
+"values": [Vector3(0.540328, 0.641414, 0.599878)]
 }
 
 [sub_resource type="Animation" id="Animation_mr116"]
@@ -99,7 +99,8 @@ script = ExtResource("1_up6tx")
 enemy_src = SubResource("Resource_n3tws")
 
 [node name="Body" type="Sprite3D" parent="."]
-transform = Transform3D(-1.25375e-08, -0.280262, 0.453464, -1.74166e-08, 0.453464, 0.280262, -0.533082, -8.22392e-09, -1.98215e-08, 0.23692, 1.33313, -0.144703)
+transform = Transform3D(-1.25375e-08, -0.280262, 0.453464, -1.74166e-08, 0.453464, 0.280262, -0.533082, -8.22392e-09, -1.98215e-08, 0.43409, 0.414191, -0.144703)
+offset = Vector2(0, 263.2)
 alpha_cut = 1
 texture = ExtResource("3_n3tws")
 
