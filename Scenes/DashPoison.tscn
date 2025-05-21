@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://x26en5sppf8k" path="res://Sprites/Enemies/stiky.png" id="2_0j63d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdx2t"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-albedo_color = Color(0.399008, 0.231252, 0.660683, 1)
+transparency = 1
+albedo_color = Color(0.4, 0.231373, 0.658824, 1)
 albedo_texture = ExtResource("2_0j63d")
 albedo_texture_force_srgb = true
 albedo_texture_msdf = true
@@ -20,14 +18,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D2:modulate")
+tracks/0/path = NodePath("Sprite3D2:material_override:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(0.4, 0.231373, 0.658824, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ym217"]
@@ -35,14 +33,14 @@ resource_name = "fade"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D2:modulate")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Sprite3D2:material_override:albedo_color")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0.4, 0.231373, 0.658824, 1), Color(0.4, 0.231373, 0.658824, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ocyy"]

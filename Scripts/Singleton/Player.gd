@@ -19,7 +19,9 @@ var dashCooldown : float = 1.0
 var damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon enetero 0.5 medio
 var invencibleTime = 1
 var is_dashing = false
+
 var havePosionDash = false
+var haveCounterspell = false
 
 var CardsInDeck = []
 #noificador de vida actualizada (general)
@@ -60,7 +62,7 @@ func setBaseStats():
 	health_container = 3
 	shield = 0
 
-	baseattack = 200
+	baseattack = 2.5
 	attackMultiplier = 1
 	atack = 2
 
@@ -74,5 +76,6 @@ func setBaseStats():
 	invencibleTime = 1
 	is_dashing = false
 	havePosionDash = false
+	haveCounterspell = false
 
 	CardsInDeck = []

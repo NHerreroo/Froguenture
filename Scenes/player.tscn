@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=54 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" uid="uid://bn2g1yfcb815w" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://m8a8g8tfe32k" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -3530,6 +3530,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_l6n3p"]
+size = Vector3(0.493652, 1, 1.08997)
+
 [sub_resource type="BoxMesh" id="BoxMesh_w2qcx"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g6lhy"]
@@ -3662,6 +3665,17 @@ alpha_cut = 2
 texture = ExtResource("19_l6n3p")
 
 [node name="Hud" parent="." instance=ExtResource("18_gvt84")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+
+[node name="DashAttack" type="Area3D" parent="MeshInstance3D" groups=["attack"]]
+transform = Transform3D(0.0164474, 0, 0, 0, 0.00739013, 0, 0, 0, 0.008725, 0.00074687, 0, 0.00581511)
+
+[node name="Dashcollider" type="CollisionShape3D" parent="MeshInstance3D/DashAttack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0827637, 0.53813, -0.896635)
+shape = SubResource("BoxShape3D_l6n3p")
+disabled = true
 
 [node name="AtackMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0164474, 0, 0, 0, 0.00739013, 0, 0, 0, 0.008725, 0.00074687, 0, 0.00581511)

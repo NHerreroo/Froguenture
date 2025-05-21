@@ -117,9 +117,15 @@ func perform_dash(delta, direction):
 		dash_timer -= delta
 		if dash_timer <= 0:
 			Player.is_dashing = false
+			if Player.haveCounterspell:
+				$Sprites/SHIELD.visible = false
+				$MeshInstance3D/DashAttack/Dashcollider.disabled = true
 			velocity = Vector3.ZERO
 	elif dash_cooldown_timer <= 0 and Input.is_action_just_pressed("dash"):
 		Player.is_dashing = true
+		if Player.haveCounterspell:
+			$Sprites/SHIELD.visible = true
+			$MeshInstance3D/DashAttack/Dashcollider.disabled = false
 		dash_timer = DASH_DURATION
 		dash_cooldown_timer = DASH_COOLDOWN
 		dash_direction = direction if direction != Vector3.ZERO else last_direction
@@ -245,14 +251,12 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if Player.is_dashing:
 		return
 	if area.is_in_group("enemy") and canReciveDamage:
-		$Sprites/SHIELD.visible = true
 		canReciveDamage = false
 		take_damage(Player.damageToRecive)
 		if camera:
 			camera.frameFreeze(0.05, 1.0)
 			camera.low_shake_camera()
 		await get_tree().create_timer(Player.invencibleTime).timeout
-		$Sprites/SHIELD.visible = false
 		canReciveDamage = true
 
 

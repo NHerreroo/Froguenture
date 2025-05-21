@@ -2,8 +2,8 @@ extends Node3D
 
 
 func _ready() -> void:
-	await get_tree().create_timer(1).timeout
 	Player.setBaseStats()
+	Player.notify_health_updated()
 	
 func _process(delta: float) -> void:
 		Global.runEnded = true
