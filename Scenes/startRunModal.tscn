@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt7lksx27158a"]
+[gd_scene load_steps=18 format=3 uid="uid://bt7lksx27158a"]
 
 [ext_resource type="Script" uid="uid://7dtvi6jva0ab" path="res://Scripts/start_run_modal.gd" id="1_rxgiq"]
 [ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="2_sb5if"]
 [ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="3_n1ldt"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="4_cjmh5"]
+[ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="5_sb5if"]
 
 [sub_resource type="Gradient" id="Gradient_wf3d1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
@@ -31,8 +32,84 @@ shader_parameter/speed2 = 1.0
 shader_parameter/corner_radius = 0.5
 shader_parameter/cols = SubResource("GradientTexture2D_lak2a")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sb5if"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1ldt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cjmh5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7ylg"]
+
+[sub_resource type="Animation" id="Animation_qfu61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4a0gr"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0j85a"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vobo1"]
+resource_name = "transparent"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfu61"]
+_data = {
+&"RESET": SubResource("Animation_qfu61"),
+&"in": SubResource("Animation_4a0gr"),
+&"out": SubResource("Animation_0j85a"),
+&"transparent": SubResource("Animation_vobo1")
+}
+
 [node name="RunFinalStats" type="Control"]
-modulate = Color(1, 1, 1, 0.0117647)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,21 +157,53 @@ text = "Start a New Run?"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 675.0
-offset_top = 551.0
-offset_right = 793.0
-offset_bottom = 604.0
-scale = Vector2(2.20935, 2.28516)
-text = "yes"
+offset_left = 524.967
+offset_top = 556.715
+offset_right = 959.967
+offset_bottom = 688.715
+scale = Vector2(0.857993, 0.887433)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_cjmh5")
+theme_override_font_sizes/font_size = 91
+theme_override_styles/hover = ExtResource("5_sb5if")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sb5if")
+theme_override_styles/normal = SubResource("StyleBoxTexture_n1ldt")
+text = "Yes"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1053.0
-offset_top = 558.0
-offset_right = 1171.0
-offset_bottom = 611.0
-scale = Vector2(2.20935, 2.28516)
-text = "no"
+offset_left = 1052.0
+offset_top = 557.0
+offset_right = 1603.0
+offset_bottom = 723.0
+scale = Vector2(0.676908, 0.700135)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_cjmh5")
+theme_override_font_sizes/font_size = 116
+theme_override_styles/hover = ExtResource("5_sb5if")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cjmh5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_k7ylg")
+text = "No"
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -249.444
+offset_top = -162.139
+offset_right = -249.444
+offset_bottom = -162.139
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.39285, 1.36164)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect3"]
+libraries = {
+&"": SubResource("AnimationLibrary_qfu61")
+}
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

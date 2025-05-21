@@ -18,7 +18,7 @@ func format_time(seconds: float) -> String:
 	var secs = int(seconds) % 60
 	return "%02d:%02d:%02d" % [hours, minutes, secs]
 
-func _on_button_2_pressed() -> void:
+func _on_button_pressed() -> void:
 	if current_tween and current_tween.is_running():
 		current_tween.kill()
 

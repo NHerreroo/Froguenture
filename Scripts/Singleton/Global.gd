@@ -162,3 +162,37 @@ func resetall():
 	debilited = false #boss
 	defeated = false
 	runEnded = false
+
+
+
+func setMapDificulty():
+	if totalSeeds >= 5:
+		X_DIST = 100
+		Y_DIST = 100
+		PLACEMENT_RANDOMNESS = 5
+		FLOORS = 8
+		MAP_WIDTH = 5
+		PATHS = 3
+		MONSTERS_ROOM_WEIGHT = 30
+		SHOP_ROOM_WEIGHT = 30
+		CAMPFIRE_ROOM_WEIGHT = 30
+	if totalSeeds >= 10:
+		X_DIST = 100
+		Y_DIST = 100
+		PLACEMENT_RANDOMNESS = 5
+		FLOORS = 12
+		MAP_WIDTH = 7
+		PATHS = 4
+		MONSTERS_ROOM_WEIGHT = 30
+		SHOP_ROOM_WEIGHT = 30
+		CAMPFIRE_ROOM_WEIGHT = 30
+	if totalSeeds >= 15:
+		X_DIST = 100
+		Y_DIST = 100
+		PLACEMENT_RANDOMNESS = 7
+		FLOORS = 15
+		MAP_WIDTH = 6
+		PATHS = 4
+		MONSTERS_ROOM_WEIGHT = 30
+		SHOP_ROOM_WEIGHT = 30
+		CAMPFIRE_ROOM_WEIGHT = 30

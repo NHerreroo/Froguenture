@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct44yfkwsqpj3"]
+
+[ext_resource type="Texture2D" uid="uid://cs4m4msh6cdd7" path="res://Sprites/Vegetation/Trees/Tree1.png" id="1_qcbtv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn56t"]
+transparency = 2
+alpha_scissor_threshold = 0.871
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_qcbtv")
+distance_fade_mode = 2
+distance_fade_min_distance = 6.0
+
+[sub_resource type="Gradient" id="Gradient_qcbtv"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sahtn"]
+gradient = SubResource("Gradient_qcbtv")
+fill = 1
+fill_from = Vector2(0.525641, 0.465812)
+fill_to = Vector2(0.876068, 0.119658)
+
+[node name="Tree1" type="Node3D"]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 0.145888, 2.72415, -0.243326)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.08108, 5.32907e-15, -7.10543e-15, -5.32907e-15, 1.08108, -2.98023e-08, 7.10543e-15, 2.98023e-08, 1.08108, 0, 0.655218, 0.37829)
+material_override = SubResource("StandardMaterial3D_mn56t")
+texture = ExtResource("1_qcbtv")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(9.75546, 1.30463e-07, 2.25968e-07, -4.26425e-07, 2.98464, 5.16954, 2.84217e-13, -5.16954, 2.98464, -0.555964, -4.09994, 0.306874)
+texture = SubResource("GradientTexture2D_sahtn")

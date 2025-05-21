@@ -35,6 +35,7 @@ func set_room(new_data: Room) -> void:
 	sprite_2d.texture = ICONS[room.type][0]
 	sprite_2d.scale = ICONS[room.type][1]
 
+
 func show_selected():
 	pass
 
@@ -42,27 +43,12 @@ func on_map_room_selected() -> void:
 	selected.emit(room)
 
 func _on_button_pressed():
-	if not available or not $Button.pressed:
+	if not available or not $Visuals/Sprite2D/Button.pressed:
 		return
 
 	room.selected = true
 	animation_player.play("select")
 
-
-func _on_area_entered(area):
-	if area.is_in_group("pointer"):
-		pointer_over = true  # El puntero está sobre el botón
-		
-		# Si el jugador presiona X clicka en el boton
-		if Global.pointer_click:
-			_on_button_pressed()
-
-func _on_area_exited(area):
-	if area.is_in_group("pointer"):
-		pointer_over = false  # El puntero ha salido del botón
-
-
-# si el puntero está sobre el botón y se presiona el botón de aceptar llama a la func de click
-func _process(delta):
-	if pointer_over and Global.pointer_click:
-		_on_button_pressed()
+	
+func emitTransition():
+	Player.notifyTransition()

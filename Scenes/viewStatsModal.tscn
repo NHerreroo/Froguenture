@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2a3hicwyrkvb"]
+[gd_scene load_steps=11 format=3 uid="uid://c2a3hicwyrkvb"]
 
 [ext_resource type="Script" uid="uid://genh5s3fiwt6" path="res://Scripts/view_stats_modal.gd" id="1_a14mx"]
 [ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="2_elxbp"]
 [ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="3_egq2s"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="4_pm5dw"]
+[ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="5_elxbp"]
 
 [sub_resource type="Gradient" id="Gradient_wf3d1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
@@ -31,8 +32,11 @@ shader_parameter/speed2 = 1.0
 shader_parameter/corner_radius = 0.5
 shader_parameter/cols = SubResource("GradientTexture2D_a14mx")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_elxbp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pm5dw"]
+
 [node name="RunFinalStats" type="Control"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,13 +126,18 @@ theme_override_fonts/font = ExtResource("4_pm5dw")
 theme_override_font_sizes/font_size = 641
 text = "Total Runs:"
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 842.442
-offset_top = 1023.86
-offset_right = 960.442
-offset_bottom = 1054.86
-scale = Vector2(2.20935, 2.28516)
+[node name="Button" type="Button" parent="."]
+offset_left = 713.184
+offset_top = 805.025
+offset_right = 1526.18
+offset_bottom = 937.025
+scale = Vector2(0.669633, 0.69261)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_pm5dw")
+theme_override_font_sizes/font_size = 91
+theme_override_styles/hover = ExtResource("5_elxbp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_elxbp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pm5dw")
 text = "Back"
 
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dbe51xhcqk0md"]
+[gd_scene load_steps=28 format=3 uid="uid://dbe51xhcqk0md"]
 
 [ext_resource type="Script" uid="uid://dtimbxowih3p" path="res://Scenes/Rooms/PreBuildedRooms/lobby.gd" id="1_xy1bw"]
 [ext_resource type="PackedScene" uid="uid://bbfvqryp6eyp5" path="res://Scenes/portal.tscn" id="2_s3paf"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://yemt84rb13g0" path="res://Scenes/player.tscn" id="4_gqa7q"]
 [ext_resource type="PackedScene" uid="uid://h1p4uoq5vhsg" path="res://Scenes/camera.tscn" id="5_yg8gm"]
 [ext_resource type="PackedScene" uid="uid://bi5r63myj86ci" path="res://Scenes/BigFountain.tscn" id="6_s3paf"]
+[ext_resource type="Texture2D" uid="uid://b68qucod3avtm" path="res://Sprites/Vegetation/Misc/initalroomflor.png" id="7_03jl0"]
 [ext_resource type="PackedScene" uid="uid://qbg4e8iklwwq" path="res://Scenes/Tablon.tscn" id="8_gqa7q"]
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="9_r753w"]
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="10_idhfa"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="11_b6u2u"]
 [ext_resource type="Texture2D" uid="uid://djdflvoyvi1bj" path="res://Sprites/parche.png" id="12_idhfa"]
-[ext_resource type="PackedScene" uid="uid://bmmexe242j8rs" path="res://Scenes/Enemies/Spikes.tscn" id="14_03jl0"]
+[ext_resource type="PackedScene" uid="uid://ct44yfkwsqpj3" path="res://Scenes/Enviroment/tree1_NoShadow.tscn" id="14_03jl0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -39,6 +40,83 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wjxqr"]
 size = Vector3(1, 4, 10)
+
+[sub_resource type="Gradient" id="Gradient_qcbtv"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_03jl0"]
+gradient = SubResource("Gradient_qcbtv")
+fill = 1
+fill_from = Vector2(0.525641, 0.465812)
+fill_to = Vector2(0.876068, 0.119658)
+
+[sub_resource type="Animation" id="Animation_qfu61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4a0gr"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0j85a"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vobo1"]
+resource_name = "transparent"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfu61"]
+_data = {
+&"RESET": SubResource("Animation_qfu61"),
+&"in": SubResource("Animation_4a0gr"),
+&"out": SubResource("Animation_0j85a"),
+&"transparent": SubResource("Animation_vobo1")
+}
 
 [node name="Lobby" type="Node3D"]
 script = ExtResource("1_xy1bw")
@@ -151,10 +229,31 @@ shape = SubResource("BoxShape3D_wjxqr")
 transform = Transform3D(0.996596, 0, -0.0824429, 0, 1, 0, 0.0824429, 0, 0.996596, -3.56748, 0, -7.53312)
 
 [node name="Fountain" parent="." instance=ExtResource("6_s3paf")]
-transform = Transform3D(-2.61393e-08, 0, 0.597998, 0, 0.597998, 0, -0.597998, 0, -2.61393e-08, 0.483895, -0.108567, -0.597779)
+transform = Transform3D(-2.61393e-08, 0, 0.597998, 0, 0.597998, 0, -0.597998, 0, -2.61393e-08, 0.483895, -0.0481782, -0.24315)
+
+[node name="Sprite3D3" type="Sprite3D" parent="Fountain"]
+transform = Transform3D(1.73511, 7.5844e-08, 7.5844e-08, -7.5844e-08, -7.5844e-08, 1.73511, 7.5844e-08, -1.73511, -7.5844e-08, -5.96046e-08, -0.0474136, 1.25105)
+alpha_cut = 1
+texture = ExtResource("7_03jl0")
 
 [node name="Portal" parent="." instance=ExtResource("2_s3paf")]
 transform = Transform3D(-4.99519e-08, 0, 1, 0, 0.934846, 0, -1.14277, 0, -4.37114e-08, -9.0823, -0.277865, 0)
+
+[node name="Sprite3D4" type="Sprite3D" parent="Portal"]
+transform = Transform3D(12.9724, 1.40322e-07, 3.23762e-07, -7.39174e-07, 6.66618e-07, 5.682, 3.50001e-07, -5.20088, 9.07776e-07, 0.239571, 0.263069, 0.305819)
+texture = SubResource("GradientTexture2D_03jl0")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Portal"]
+transform = Transform3D(9.63808, 2.15446e-07, 2.1857e-07, -5.49183e-07, 1.02351e-06, 3.83588, 2.6004e-07, -7.98527, 6.12834e-07, 0.239571, 0.263069, 10.2199)
+texture = SubResource("GradientTexture2D_03jl0")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Portal"]
+transform = Transform3D(3.42426, 7.98646e-08, 2.30873e-07, -1.95116e-07, 3.79407e-07, 4.0518, 9.23881e-08, -2.96009, 6.47331e-07, -8.33027, 0.263069, 5.98157)
+texture = SubResource("GradientTexture2D_03jl0")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Portal"]
+transform = Transform3D(3.42426, 7.98646e-08, 2.30873e-07, -1.95116e-07, 3.79407e-07, 4.0518, 9.23881e-08, -2.96009, 6.47331e-07, -5.77546, 0.263069, 5.98157)
+texture = SubResource("GradientTexture2D_03jl0")
 
 [node name="Tablon" parent="." instance=ExtResource("8_gqa7q")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.004, -0.281015, 7.83985)
@@ -384,13 +483,49 @@ transform = Transform3D(1.00468e-07, 1.14922, 3.49101e-08, -5.0234e-08, -5.0234e
 alpha_cut = 1
 texture = ExtResource("12_idhfa")
 
+[node name="Tree54" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 5.55796, 2.54963, -9.91873)
+
+[node name="Tree71" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 4.73887, 2.54963, -16.8023)
+
+[node name="Tree73" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -5.94164, 2.54963, -18.8207)
+
+[node name="Tree75" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -11.1592, 2.54963, -9.10825)
+
+[node name="Tree76" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -7.66218, 2.54963, 4.61947)
+
+[node name="Tree77" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -7.66218, 2.54963, 10.4498)
+
+[node name="Tree78" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -11.555, 2.54963, 7.41365)
+
+[node name="Tree79" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -11.555, 2.54963, 19.4756)
+
+[node name="Tree80" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 1.31851, 2.54963, 7.16314)
+
+[node name="Tree81" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 7.37397, 2.54963, 18.4719)
+
+[node name="Tree82" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, 5.0386, 2.54963, 13.2101)
+
+[node name="Tree83" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -3.42061, 2.54963, 18.3465)
+
+[node name="Tree84" parent="Vegetation" instance=ExtResource("14_03jl0")]
+transform = Transform3D(-3.3412e-08, -0.382189, 0.661971, 0, 0.661971, 0.382189, -0.764378, 1.6706e-08, -2.89357e-08, -9.51985, 2.54963, -15.2349)
+
 [node name="Sprite3D3" type="Sprite3D" parent="Vegetation"]
 transform = Transform3D(-1.32394, -0.35475, -7.3378e-08, -5.99129e-08, -5.99129e-08, 1.37065, -0.35475, 1.32394, 4.23648e-08, -1.15545, -0.0825447, -4.43996)
 alpha_cut = 1
 texture = ExtResource("12_idhfa")
-
-[node name="Spikes" parent="." instance=ExtResource("14_03jl0")]
-transform = Transform3D(-0.0165877, 0, 0.688566, 0, 0.688766, 0, -0.688566, 0, -0.0165877, 3.35321, -0.0523596, 3.69416)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 83.0
@@ -398,5 +533,19 @@ offset_top = 942.0
 offset_right = 951.0
 offset_bottom = 1043.0
 text = "GuardarPartida"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect2"]
+libraries = {
+&"": SubResource("AnimationLibrary_qfu61")
+}
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

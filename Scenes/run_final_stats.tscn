@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bubjvl0mjae2w"]
+[gd_scene load_steps=19 format=3 uid="uid://bubjvl0mjae2w"]
 
 [ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="1_0xebv"]
 [ext_resource type="Script" uid="uid://braob7v4qxk65" path="res://Scripts/run_final_stats.gd" id="1_lak2a"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="2_wf3d1"]
 [ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="3_hiwcj"]
+[ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="5_y5xkw"]
 
 [sub_resource type="Gradient" id="Gradient_wf3d1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
@@ -31,7 +32,116 @@ shader_parameter/speed2 = 1.0
 shader_parameter/corner_radius = 0.5
 shader_parameter/cols = SubResource("GradientTexture2D_lak2a")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1xqu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_leu30"]
+
+[sub_resource type="Animation" id="Animation_qfu61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4a0gr"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0j85a"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vobo1"]
+resource_name = "transparent"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfu61"]
+_data = {
+&"RESET": SubResource("Animation_qfu61"),
+&"in": SubResource("Animation_4a0gr"),
+&"out": SubResource("Animation_0j85a"),
+&"transparent": SubResource("Animation_vobo1")
+}
+
+[sub_resource type="Animation" id="Animation_y5xkw"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d1xqu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_leu30"]
+_data = {
+&"RESET": SubResource("Animation_d1xqu"),
+&"in": SubResource("Animation_y5xkw")
+}
+
 [node name="RunFinalStats" type="Control"]
+modulate = Color(1, 1, 1, 0)
 z_index = 110
 layout_mode = 3
 anchors_preset = 15
@@ -43,18 +153,25 @@ script = ExtResource("1_lak2a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control"]
 material = SubResource("ShaderMaterial_hiwcj")
 offset_left = 414.0
-offset_top = 255.0
+offset_top = 172.0
 offset_right = 1554.0
 offset_bottom = 837.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
 offset_left = 473.0
-offset_top = 311.0
+offset_top = 222.0
 offset_right = 1494.0
-offset_bottom = 783.0
+offset_bottom = 789.0
 texture = ExtResource("3_hiwcj")
 region_rect = Rect2(-1.26258, -1.93427, 258.303, 258.924)
 patch_margin_left = 128
@@ -62,31 +179,57 @@ patch_margin_top = 132
 patch_margin_right = 127
 patch_margin_bottom = 135
 
-[node name="Time" type="Label" parent="CanvasLayer"]
+[node name="Time" type="Label" parent="CanvasLayer/Control"]
 offset_left = 585.0
-offset_top = 371.0
+offset_top = 298.0
 offset_right = 2015.0
-offset_bottom = 1239.0
+offset_bottom = 1166.0
 scale = Vector2(0.13011, 0.13011)
 theme_override_fonts/font = ExtResource("2_wf3d1")
 theme_override_font_sizes/font_size = 641
 text = "Time: "
 
-[node name="Kills" type="Label" parent="CanvasLayer"]
+[node name="Kills" type="Label" parent="CanvasLayer/Control"]
 offset_left = 582.0
-offset_top = 519.0
+offset_top = 446.0
 offset_right = 4048.0
-offset_bottom = 1387.0
+offset_bottom = 1314.0
 scale = Vector2(0.13011, 0.13011)
 theme_override_fonts/font = ExtResource("2_wf3d1")
 theme_override_font_sizes/font_size = 641
 text = "Enemies Killed:"
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 672.0
-offset_top = 882.0
-offset_right = 1210.0
-offset_bottom = 993.0
-text = "Continue"
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+offset_left = 675.0
+offset_top = 638.0
+offset_right = 1488.0
+offset_bottom = 770.0
+scale = Vector2(0.669633, 0.69261)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_wf3d1")
+theme_override_font_sizes/font_size = 91
+theme_override_styles/hover = ExtResource("5_y5xkw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d1xqu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_leu30")
+text = "Back"
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect3"]
+libraries = {
+&"": SubResource("AnimationLibrary_qfu61")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_leu30")
+}
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

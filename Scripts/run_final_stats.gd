@@ -1,9 +1,11 @@
 extends Control
 
 func _ready() -> void:
+	$AnimationPlayer.play("in")
+	$CanvasLayer/ColorRect3/AnimationPlayer.play("transparent")
 	# Mostrar el tiempo formateado
-	$CanvasLayer/Time.text = "Time: " + format_time(Global.run_time)
-	$CanvasLayer/Kills.text = "Total Kills: " + str(Global.run_total_kills)
+	$CanvasLayer/Control/Time.text = "Time: " + format_time(Global.run_time)
+	$CanvasLayer/Control/Kills.text = "Total Kills: " + str(Global.run_total_kills)
 
 	#Global.totalSeeds = 0
 	Global.totalTime += Global.run_time
@@ -19,4 +21,6 @@ func format_time(seconds: float) -> String:
 
 
 func _on_button_pressed() -> void:
+	$CanvasLayer/ColorRect3/AnimationPlayer.play("out")
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://Scenes/Lobby.tscn")

@@ -3,10 +3,13 @@ extends Control
 var current_tween: Tween
 
 func _ready() -> void:
+	$ColorRect3/AnimationPlayer.play("transparent")
 	current_tween = create_tween()
 	current_tween.tween_property(self, "modulate:a", 1.0, 1.0).from(modulate.a)
 
 func _on_button_pressed() -> void:
+	$ColorRect3/AnimationPlayer.play("out")
+	await get_tree().create_timer(1).timeout
 	Global.resetall()
 	Global.lvlCount = 0
 	Global.totalRuns += 1

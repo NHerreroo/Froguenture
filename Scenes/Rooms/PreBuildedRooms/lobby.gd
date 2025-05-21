@@ -2,6 +2,8 @@ extends Node3D
 
 
 func _ready() -> void:
+	Global.setMapDificulty()
+	$ColorRect2/AnimationPlayer.play("in")
 	Player.setBaseStats()
 	Player.notify_health_updated()
 	

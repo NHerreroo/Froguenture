@@ -62,7 +62,7 @@ func setBaseStats():
 	health_container = 3
 	shield = 0
 
-	baseattack = 2.5
+	baseattack = 3
 	attackMultiplier = 1
 	atack = 2
 
