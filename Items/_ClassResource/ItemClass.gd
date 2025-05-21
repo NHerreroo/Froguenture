@@ -170,7 +170,7 @@ func setSorurceParam():
 	$CardColor/Health.text = item_Src.health
 	
 func setFoil():
-	var chance = randi_range(0,6)
+	var chance = randi_range(0,10)
 	if chance <= 4:
 		$CardColor/CardImage/Foil2.visible = false
 		$CardColor/CardImage/Foil.visible = false

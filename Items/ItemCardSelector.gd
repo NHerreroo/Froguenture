@@ -71,7 +71,7 @@ func get_item_card(card_color: Array) -> String:
 func left_card_inst(card_path: String):
 	var card = load(card_path)
 	card_instance1 = card.instantiate()
-	card_instance1.position = Vector2(292, 184)
+	card_instance1.position = Vector2(120, 100)
 	add_child(card_instance1)
 
 	if card_instance1 is Button:
@@ -80,7 +80,7 @@ func left_card_inst(card_path: String):
 func right_card_inst(card_path: String):
 	var card = load(card_path)
 	card_instance2 = card.instantiate()
-	card_instance2.position = Vector2(1110, 191)
+	card_instance2.position = Vector2(1000, 100)
 	add_child(card_instance2)
 
 func grab_focus_after_pause():

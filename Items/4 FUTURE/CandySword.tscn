@@ -1,24 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://brkqgcsutrqpx"]
+[gd_scene load_steps=13 format=3 uid="uid://b1cxeufw3ow5r"]
 
-[ext_resource type="Script" uid="uid://mdmgk0ohj51v" path="res://Items/ItemTemplate.gd" id="1_ebi3r"]
-[ext_resource type="Texture2D" uid="uid://cdbafjprnc6nq" path="res://Sprites/Items/Arts/millenshieldART.png" id="2_42wuw"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_daxid"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_kf0jp"]
-[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_gu8e2"]
-[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="6_hr2sr"]
-[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="7_4js4n"]
-[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_me7nc"]
+[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_3nfnt"]
+[ext_resource type="Texture2D" uid="uid://lll8wx7vm0aw" path="res://Sprites/Items/Arts/canciswordART.png" id="2_6q24i"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_wam1w"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_4d61m"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_kurkj"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_7qwew"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_mevbu"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_p42j6"]
 
 [sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_daxid")
-name = "Millennial Shield"
+script = ExtResource("3_wam1w")
+name = "Lolli-Sword"
 description = ""
-image = ExtResource("2_42wuw")
+image = ExtResource("2_6q24i")
 habilitie1 = "+1/+1000"
 habilitie2 = ""
 habilitie3 = ""
 damage = "1"
-health = "8"
+health = "4"
 quote = "\"Item\""
 color_card = 5
 card_type = 4
@@ -29,7 +29,7 @@ size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("6_hr2sr")
+shader = ExtResource("6_7qwew")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -43,7 +43,7 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("7_4js4n")
+shader = ExtResource("7_mevbu")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
@@ -55,7 +55,7 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_ebi3r")
+script = ExtResource("1_3nfnt")
 item_Src = SubResource("Resource_jivrs")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -74,7 +74,7 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("4_kf0jp")
+texture = ExtResource("4_4d61m")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -83,14 +83,14 @@ offset_top = -31.0
 offset_right = 780.0
 offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_gu8e2")
+texture = ExtResource("5_kurkj")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("4_kf0jp")
+texture = ExtResource("4_4d61m")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
@@ -118,7 +118,7 @@ offset_top = 128.39
 offset_right = 728.808
 offset_bottom = 194.39
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_me7nc")
+theme_override_fonts/font = ExtResource("8_p42j6")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -130,7 +130,7 @@ offset_top = 580.964
 offset_right = 694.894
 offset_bottom = 646.964
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_me7nc")
+theme_override_fonts/font = ExtResource("8_p42j6")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -142,7 +142,7 @@ offset_top = 670.837
 offset_right = 680.503
 offset_bottom = 900.837
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_me7nc")
+theme_override_fonts/font = ExtResource("8_p42j6")
 theme_override_font_sizes/font_size = 30
 text = "HABILITIE 1
 HABILITIE 2
@@ -157,7 +157,7 @@ offset_top = 881.076
 offset_right = 595.643
 offset_bottom = 971.076
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_me7nc")
+theme_override_fonts/font = ExtResource("8_p42j6")
 theme_override_font_sizes/font_size = 25
 text = "\"Quote\"
 "
@@ -172,7 +172,7 @@ offset_top = 954.9
 offset_right = 269.803
 offset_bottom = 1189.9
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_me7nc")
+theme_override_fonts/font = ExtResource("8_p42j6")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
@@ -185,7 +185,7 @@ offset_top = 959.714
 offset_right = 675.164
 offset_bottom = 1194.71
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_me7nc")
+theme_override_fonts/font = ExtResource("8_p42j6")
 theme_override_font_sizes/font_size = 85
 text = "5
 "

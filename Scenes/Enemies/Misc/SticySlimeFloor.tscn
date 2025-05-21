@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://x26en5sppf8k" path="res://Sprites/Enemies/stiky.png" id="2_ym217"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_03kxj"]
-size = Vector3(4.41668, 7, 3.96653)
+size = Vector3(1.25118, 7, 1.28086)
 
 [sub_resource type="Animation" id="Animation_w5lho"]
 length = 0.001
@@ -56,7 +56,7 @@ texture = ExtResource("2_ym217")
 transform = Transform3D(0.612907, 0, 0, 0, 0.612907, 0, 0, 0, 0.612907, 0, 1.18778, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, -0.17427, -2.95233, -0.426881)
+transform = Transform3D(0.630018, 0, 0.776593, 0, 1.00001, 0, -0.776593, 0, 0.630018, -0.354856, -2.95233, 0.0766037)
 shape = SubResource("BoxShape3D_03kxj")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

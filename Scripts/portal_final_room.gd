@@ -20,6 +20,7 @@ func reset_globals_set_def_stats():
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-			reset_globals_set_def_stats()
 			Player.notifyTransition()
+			await get_tree().create_timer(0.5).timeout
+			reset_globals_set_def_stats()
 			Events.emit_signal("level_done")

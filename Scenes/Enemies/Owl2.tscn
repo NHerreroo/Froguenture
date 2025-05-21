@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_gxloe"]
 script = ExtResource("2_ddq47")
-health = 1000.0
+health = 100.0
 attack = 0.0
 speed = 0.0
 accel = 0.0
