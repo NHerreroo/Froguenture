@@ -73,7 +73,7 @@ func _on_focus_exited() -> void:
 	_on_mouse_exited()
 
 func _on_mouse_entered() -> void:
-	
+	Events.notifycardHover()
 	if Global.card_selected == false and selected == false and not animation_in_progress:
 		if tween_hover and tween_hover.is_running():
 			tween_hover.kill()
@@ -131,6 +131,7 @@ func _on_pressed():
 		Player.CardsInDeck.append(self) #se mete en el deck del jogador caralho
 		animate_to_player()
 		emit_signal("item_pressed") 
+		Events.notifycardSelect()
 
 		await get_tree().create_timer(0.5).timeout
 		

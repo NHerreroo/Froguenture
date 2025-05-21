@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c45f1hpox0y7x"]
+
+[ext_resource type="Texture2D" uid="uid://drorkql5pensd" path="res://Sprites/Hud/focus.png" id="1_s3kb1"]
+
+[resource]
+texture = ExtResource("1_s3kb1")

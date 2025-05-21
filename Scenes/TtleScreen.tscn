@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://66cbs0n1ub8"]
+[gd_scene load_steps=33 format=3 uid="uid://66cbs0n1ub8"]
 
 [ext_resource type="Script" uid="uid://duy7cforghd4i" path="res://Scripts/tile_screen.gd" id="1_nklds"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="2_7csxt"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="9_hxdt8"]
 [ext_resource type="Script" uid="uid://tivs3np7qswg" path="res://Scripts/cameraTitleScreen.gd" id="10_t22tq"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="11_yii4h"]
+[ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="12_7csxt"]
 [ext_resource type="Texture2D" uid="uid://drukflp2a8wdw" path="res://Sprites/text-1742574767511-_2_ (1).png" id="12_u3pti"]
 
 [sub_resource type="Environment" id="Environment_0y5ux"]
@@ -86,6 +87,24 @@ width = 1024
 height = 1024
 fill = 1
 fill_from = Vector2(0.509174, 0.495413)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vobo1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4a0gr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hk5lf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qfu61"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxifi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7csxt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxdt8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0j85a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfu61"]
 
 [sub_resource type="Animation" id="Animation_7csxt"]
 length = 0.001
@@ -508,9 +527,11 @@ offset_bottom = 645.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
+theme_override_styles/hover = ExtResource("12_7csxt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vobo1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4a0gr")
 text = "New Game
 "
-flat = true
 
 [node name="Continue" type="Button" parent="Control"]
 layout_mode = 0
@@ -521,9 +542,11 @@ offset_bottom = 760.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
+theme_override_styles/hover = ExtResource("12_7csxt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hk5lf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qfu61")
 text = "Continue
 "
-flat = true
 
 [node name="Options" type="Button" parent="Control"]
 layout_mode = 0
@@ -534,8 +557,10 @@ offset_bottom = 866.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
+theme_override_styles/hover = ExtResource("12_7csxt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bxifi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7csxt")
 text = "Options"
-flat = true
 
 [node name="Exit" type="Button" parent="Control"]
 layout_mode = 0
@@ -546,11 +571,18 @@ offset_bottom = 974.0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("11_yii4h")
 theme_override_font_sizes/font_size = 56
+theme_override_styles/hover = ExtResource("12_7csxt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hxdt8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0j85a")
 text = "Exit"
-flat = true
 
-[node name="Logo" type="Sprite2D" parent="Control"]
-position = Vector2(988, 347)
+[node name="Logo" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_qfu61")
+layout_mode = 0
+offset_left = 426.0
+offset_top = 164.0
+offset_right = 2123.0
+offset_bottom = 723.0
 scale = Vector2(0.652505, 0.652505)
 texture = ExtResource("12_u3pti")
 
@@ -562,4 +594,4 @@ libraries = {
 [connection signal="pressed" from="Control/NewGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Control/Exit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]

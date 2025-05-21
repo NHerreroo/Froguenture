@@ -30,3 +30,7 @@ func spawnOptions():
 
 func _on_options_pressed() -> void:
 	spawnOptions()
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

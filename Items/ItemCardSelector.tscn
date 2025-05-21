@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cok6bb14ac8qk"]
+[gd_scene load_steps=6 format=3 uid="uid://cok6bb14ac8qk"]
 
 [ext_resource type="Script" uid="uid://ecieqsj87et8" path="res://Items/ItemCardSelector.gd" id="1_hxjh1"]
+[ext_resource type="AudioStream" uid="uid://crgh1x5qbl5fg" path="res://Sounds/SFX/PACKOPENIN.wav" id="2_u2p63"]
+[ext_resource type="AudioStream" uid="uid://cjs6ya76bjho0" path="res://Sounds/Music/797929__ilariio__warm-ambient-atmosphere-for-videos.mp3" id="3_sgfp6"]
+[ext_resource type="AudioStream" uid="uid://u25kuhyqon25" path="res://Sounds/SFX/277033__headphaze__ui-completed-status-alert-notification-sfx001.wav" id="4_4p3w2"]
+[ext_resource type="AudioStream" uid="uid://dgkn2xtcp8rvr" path="res://Sounds/SFX/237422__plasterbrain__hover-1.ogg" id="5_yaqtp"]
 
 [node name="ItemCardSelector" type="Control"]
 z_index = 115
@@ -28,3 +32,23 @@ offset_bottom = 1324.0
 scale = Vector2(1.18887, 1.18887)
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u2p63")
+volume_db = 4.063
+bus = &"SFX"
+
+[node name="Musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sgfp6")
+volume_db = -2.437
+bus = &"Music"
+
+[node name="Selected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4p3w2")
+volume_db = -1.705
+bus = &"SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yaqtp")
+pitch_scale = 1.81
+bus = &"SFX"

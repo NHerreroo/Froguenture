@@ -18,6 +18,10 @@ var card_instance1
 var card_instance2
 
 func _ready() -> void:
+	Events.connect("cardSelect", Callable(self, "_cardSelect"))
+	Events.connect("cardHover", Callable(self, "_cardHover"))
+	$AudioStreamPlayer.play()
+	$Musica.play()
 	randomize()
 	Global.can_walk = false
 	set_background_opacity_in()
@@ -89,8 +93,10 @@ func _process(delta: float) -> void:
 	grab_focus_after_pause()
 	if Global.card_selected:
 		set_background_opacity_out()
+		fade_out_music()
 		await get_tree().create_timer(3).timeout
 		queue_free()
+
 
 
 func set_background_opacity_in():
@@ -105,3 +111,17 @@ func set_background_opacity_out():
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property($BlackBg, "color:a", -10, 1.5)
+	
+	
+func fade_out_music():
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($Musica, "volume_db", -80, 2.5) # Decrece el volumen en 2.5 segundos
+
+
+func _cardSelect():
+	$Selected.play()
+
+func _cardHover():
+	$Hover.play()
