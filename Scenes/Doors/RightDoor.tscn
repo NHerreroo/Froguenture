@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djgao4g566liv" path="res://Sprites/line.png" id="4_noiy1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5e2nr"]
-size = Vector3(2, 1.71336, 1.28438)
+size = Vector3(3.17078, 1.71336, 1.28438)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wuog"]
 transparency = 2
@@ -78,7 +78,7 @@ collision_mask = 2
 script = ExtResource("1_52ewd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.684317, -1.69559)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0702515, 0.684317, -1.69559)
 shape = SubResource("BoxShape3D_5e2nr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

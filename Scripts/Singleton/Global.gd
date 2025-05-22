@@ -26,6 +26,7 @@ var CAMPFIRE_ROOM_WEIGHT = 30
 
 #TUTORIAL VARS
 var is_in_tutorial = true
+var dialogsDonde = 0
 
 
 var dialog_ended := true

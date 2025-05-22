@@ -5,6 +5,9 @@ var currentState
 var follow = false
 
 func _ready() -> void:
+	var current_pos = [Global.playerMapPositionX, Global.playerMapPositionY]
+	if current_pos in Global.rooms_visited:
+		queue_free()
 	Global.enemies_remaining += 1
 	await get_tree().create_timer(1).timeout
 	follow = true

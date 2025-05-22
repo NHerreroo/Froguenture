@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6jpqwisolgoi"]
+[gd_scene load_steps=11 format=3 uid="uid://b6jpqwisolgoi"]
 
 [ext_resource type="Script" uid="uid://nn0nc46ph4o7" path="res://Scripts/options.gd" id="1_cbhj7"]
 [ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="1_hg628"]
 [ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="2_5hy3q"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="3_5hy3q"]
+[ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="5_q4at1"]
 
 [sub_resource type="Gradient" id="Gradient_cbhj7"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
@@ -30,6 +31,10 @@ shader_parameter/freq2 = 9.0
 shader_parameter/speed2 = 1.0
 shader_parameter/corner_radius = 0.5
 shader_parameter/cols = SubResource("GradientTexture2D_lak2a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6f4k2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdxpv"]
 
 [node name="Options" type="CanvasLayer"]
 layer = 128
@@ -131,11 +136,16 @@ max_value = 1.0
 step = 0.01
 
 [node name="Button" type="Button" parent="."]
-offset_left = 842.0
-offset_top = 805.0
-offset_right = 957.0
-offset_bottom = 848.0
-scale = Vector2(1.8895, 1.8895)
+offset_left = 737.0
+offset_top = 856.0
+offset_right = 1807.0
+offset_bottom = 1083.0
+scale = Vector2(0.434569, 0.434569)
+theme_override_fonts/font = ExtResource("3_5hy3q")
+theme_override_font_sizes/font_size = 161
+theme_override_styles/hover = ExtResource("5_q4at1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6f4k2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bdxpv")
 text = "Back"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

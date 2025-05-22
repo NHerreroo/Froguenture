@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dawngp5xmls0u"]
+[gd_scene load_steps=12 format=3 uid="uid://8m4c3t7wu74r"]
 
-[ext_resource type="Script" uid="uid://c1lcymxvor8y5" path="res://Scripts/Doors/LeftDoor.gd" id="1_lejbu"]
-[ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_i4niy"]
-[ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_hm378"]
-[ext_resource type="Texture2D" uid="uid://djgao4g566liv" path="res://Sprites/line.png" id="4_phbok"]
+[ext_resource type="Texture2D" uid="uid://b6x2usono0qy" path="res://Sprites/shadowDoor.png" id="2_s1wky"]
+[ext_resource type="Texture2D" uid="uid://ctr8wosanmc22" path="res://Sprites/Vegetation/Misc/trunk.png" id="3_lans7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5e2nr"]
-size = Vector3(2.66016, 1.71336, 1.28438)
+size = Vector3(2.66016, 1.71336, 2.17919)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1ivs"]
 transparency = 2
@@ -15,7 +13,7 @@ alpha_antialiasing_mode = 0
 diffuse_mode = 3
 specular_mode = 1
 disable_ambient_light = true
-albedo_texture = ExtResource("2_i4niy")
+albedo_texture = ExtResource("2_s1wky")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fmwf2"]
 
@@ -25,7 +23,7 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("3_hm378")
+albedo_texture = ExtResource("3_lans7")
 
 [sub_resource type="Animation" id="Animation_vkgc6"]
 resource_name = "BlockDoor"
@@ -75,14 +73,16 @@ material = SubResource("StandardMaterial3D_qcfhw")
 [node name="LeftDoor" type="Area3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0454791, 0)
 collision_mask = 2
-script = ExtResource("1_lejbu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1, 0.0476076, 0.684317, -1.57121)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1, 0.0476076, 0.684317, -1.12381)
 shape = SubResource("BoxShape3D_5e2nr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.32273e-07, 0, 5.3138, 0, 5.3138, 0, -5.3138, 0, -2.32273e-07, -0.379, 0.1, -3.697)
+visible = false
 sorting_offset = 8.0
 material_override = SubResource("StandardMaterial3D_v1ivs")
 mesh = SubResource("PlaneMesh_fmwf2")
@@ -95,34 +95,30 @@ transform = Transform3D(0.142703, 0.149782, -0.214054, -6.23774e-09, 0.299564, 0
 material_override = SubResource("StandardMaterial3D_c3mj5")
 billboard = 1
 alpha_cut = 1
-texture = ExtResource("3_hm378")
+texture = ExtResource("3_lans7")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Trunk"]
 transform = Transform3D(0.142703, 0.149782, -0.214054, -7.45058e-09, 0.299564, 0.142703, 0.247169, -0.0864765, 0.123584, 0.332437, 1.34121, -0.623713)
 material_override = SubResource("StandardMaterial3D_c3mj5")
 billboard = 1
 alpha_cut = 1
-texture = ExtResource("3_hm378")
+texture = ExtResource("3_lans7")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Trunk"]
 transform = Transform3D(0.142703, 0.149782, -0.214054, -6.23774e-09, 0.299564, 0.142703, 0.247169, -0.0864765, 0.123584, 1.50464, 1.34121, -0.623713)
 material_override = SubResource("StandardMaterial3D_c3mj5")
 billboard = 1
 alpha_cut = 1
-texture = ExtResource("3_hm378")
+texture = ExtResource("3_lans7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qsaxw")
 }
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(-5.47845e-08, -0.838856, -3.66675e-08, 2.73922e-08, -3.66676e-08, 0.838856, -0.626661, 7.33351e-08, 3.66676e-08, 2.24214e-07, -0.0487855, 5.12941)
-alpha_cut = 1
-texture = ExtResource("4_phbok")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.77744, 0, 0, 0, 2.3115, 0, 0, 0, 3.15077, 2.48416e-08, -1.09406, -1.81359)
+visible = false
 mesh = SubResource("BoxMesh_phbok")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

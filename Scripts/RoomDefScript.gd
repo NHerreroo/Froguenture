@@ -24,9 +24,6 @@ func _ready() -> void:
 
 	var items = Global.get_items_in_room(x, y)
 
-	print("Instanciando ítems de sala: %s,%s" % [x, y])
-	print("Ítems:", items)
-
 	for item in items:
 		if not item.has("type") or not item.has("position"):
 			continue

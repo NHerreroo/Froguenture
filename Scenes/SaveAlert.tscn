@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1w577bwyngxn"]
+
+[ext_resource type="Texture2D" uid="uid://003ktxyoqhfo" path="res://Sprites/icons/save.png" id="1_51j0t"]
+[ext_resource type="Script" uid="uid://c4iii82w4np8o" path="res://Scripts/save_alert.gd" id="1_yhuqt"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="2_2rjjd"]
+
+[sub_resource type="Animation" id="Animation_2rjjd"]
+resource_name = "entry"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.23333, 3.56667, 4.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"changeToTitle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yhuqt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbjc1"]
+_data = {
+&"RESET": SubResource("Animation_yhuqt"),
+&"entry": SubResource("Animation_2rjjd")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yhuqt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1877.0
+offset_bottom = 1045.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(956, 519)
+scale = Vector2(0.319704, 0.319704)
+texture = ExtResource("1_51j0t")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+offset_left = 694.0
+offset_top = 133.0
+offset_right = 1870.0
+offset_bottom = 562.0
+scale = Vector2(0.469739, 0.469739)
+theme_override_fonts/font = ExtResource("2_2rjjd")
+theme_override_font_sizes/font_size = 316
+text = "ATENTION"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+offset_left = 85.0
+offset_top = 698.0
+offset_right = 9086.0
+offset_bottom = 4596.0
+scale = Vector2(0.195624, 0.195624)
+theme_override_fonts/font = ExtResource("2_2rjjd")
+theme_override_font_sizes/font_size = 316
+text = "This game uses autosave.
+When you see this icon, please do not close the game."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xbjc1")
+}

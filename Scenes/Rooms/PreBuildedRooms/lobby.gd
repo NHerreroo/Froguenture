@@ -4,6 +4,7 @@ extends Node3D
 
 func _ready() -> void:
 	Global.persistent_items.clear()
+	
 	$AudioStreamPlayer.volume_db = -70
 	$AudioStreamPlayer2.volume_db = -70
 	$AudioStreamPlayer.play()

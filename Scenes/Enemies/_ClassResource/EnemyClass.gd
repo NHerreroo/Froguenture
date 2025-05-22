@@ -24,6 +24,8 @@ var player
 @onready var health = enemy_src.health * (1.0 + Global.lvlCount * 0.1)
 @onready var maxHealth = health
 
+var defeated = false
+
 enum State {
 	IDLE,
 	WALK,
@@ -81,6 +83,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		health = max(0, health) 
 
 		if health <= 0:
+			defeated = true
 			Global.run_total_kills += 1
 			Global.enemies_remaining -= 1
 			dropitemfunc()
