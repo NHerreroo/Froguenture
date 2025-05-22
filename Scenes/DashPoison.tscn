@@ -1,14 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dghcgo3b24tlv"]
+[gd_scene load_steps=7 format=3 uid="uid://dghcgo3b24tlv"]
 
 [ext_resource type="Script" uid="uid://b551egaw5iolx" path="res://Scripts/Enemies/sticy_slime_floor.gd" id="1_hpubl"]
 [ext_resource type="Texture2D" uid="uid://x26en5sppf8k" path="res://Sprites/Enemies/stiky.png" id="2_0j63d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdx2t"]
-transparency = 1
-albedo_color = Color(0.4, 0.231373, 0.658824, 1)
-albedo_texture = ExtResource("2_0j63d")
-albedo_texture_force_srgb = true
-albedo_texture_msdf = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_03kxj"]
 size = Vector3(4.41668, 7, 3.96653)
@@ -18,14 +11,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D2:material_override:albedo_color")
+tracks/0/path = NodePath("Sprite3D2:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.4, 0.231373, 0.658824, 1)]
+"values": [Color(0, 0.887521, 0.297497, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ym217"]
@@ -33,14 +26,14 @@ resource_name = "fade"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D2:material_override:albedo_color")
+tracks/0/path = NodePath("Sprite3D2:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.4, 0.231373, 0.658824, 1), Color(0.4, 0.231373, 0.658824, 0)]
+"values": [Color(0, 0.887521, 0.297497, 1), Color(0, 0.886275, 0.298039, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ocyy"]
@@ -56,8 +49,11 @@ script = ExtResource("1_hpubl")
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(0.384099, 0, 0, 0, -1.67895e-08, 0.384099, 0, -0.384099, -1.67895e-08, 0, -0.702659, 0)
 sorting_offset = 6.095
-material_override = SubResource("StandardMaterial3D_sdx2t")
+modulate = Color(0, 0.887521, 0.297497, 1)
 alpha_cut = 2
+alpha_scissor_threshold = 0.552
+alpha_hash_scale = 1.15
+alpha_antialiasing_edge = 0.05
 texture = ExtResource("2_0j63d")
 
 [node name="Area3D" type="Area3D" parent="." groups=["attack"]]

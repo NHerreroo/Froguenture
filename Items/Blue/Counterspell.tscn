@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drfli6y6i2wnx"]
+[gd_scene load_steps=13 format=3 uid="uid://b754gek3xmtjk"]
 
 [ext_resource type="Script" uid="uid://dv6oxttkqaprd" path="res://Scripts/Items/counterspell.gd" id="1_nnbor"]
 [ext_resource type="Texture2D" uid="uid://bbtrtaoekthsy" path="res://Sprites/Items/Arts/counterspellART.png" id="2_k6khy"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://yemt84rb13g0"]
+[gd_scene load_steps=57 format=3 uid="uid://yemt84rb13g0"]
 
 [ext_resource type="Script" uid="uid://bn2g1yfcb815w" path="res://Scripts/Player.gd" id="1_pjjon"]
 [ext_resource type="PackedScene" uid="uid://m8a8g8tfe32k" path="res://Scenes/pause_menu.tscn" id="2_sdemu"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://crj1lxb6ab0tn" path="res://Sprites/Player/Atack/Atack.png" id="18_856i7"]
 [ext_resource type="PackedScene" uid="uid://cbi5nch0is25o" path="res://Scenes/hud.tscn" id="18_gvt84"]
 [ext_resource type="Texture2D" uid="uid://4ru5sx85ggir" path="res://Sprites/Player/shield.png" id="19_l6n3p"]
+[ext_resource type="AudioStream" uid="uid://hbmksnmaf23v" path="res://Sounds/SFX/408141__jofae__cinematic-low-pitch-impact.mp3" id="21_olqyp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mjemb"]
 
@@ -33,6 +34,17 @@ width = 1024
 height = 1024
 fill = 1
 fill_from = Vector2(0.509174, 0.495413)
+
+[sub_resource type="Gradient" id="Gradient_olqyp"]
+offsets = PackedFloat32Array(0.441176, 0.882353)
+colors = PackedColorArray(0.384647, 5.83585e-07, 1.68458e-07, 0, 0.796078, 0, 0, 0.286275)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wpjfl"]
+gradient = SubResource("Gradient_olqyp")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.482906)
 
 [sub_resource type="Animation" id="Animation_2ijsl"]
 length = 0.001
@@ -3604,6 +3616,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_fs7ks")
 
+[node name="Control" type="Control" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/Control"]
+offset_right = 1923.0
+offset_bottom = 1070.0
+texture = SubResource("GradientTexture2D_wpjfl")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
 libraries = {
 &"": SubResource("AnimationLibrary_2ijsl")
@@ -3665,6 +3690,7 @@ alpha_cut = 2
 texture = ExtResource("19_l6n3p")
 
 [node name="Hud" parent="." instance=ExtResource("18_gvt84")]
+scale = Vector2(1, 0.998581)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -3712,6 +3738,12 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_olqyp")
+volume_db = 1.53
+pitch_scale = 0.91
 bus = &"SFX"
 
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_area_3d_area_entered"]

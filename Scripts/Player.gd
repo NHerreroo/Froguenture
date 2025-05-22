@@ -41,6 +41,11 @@ var currentAtackAnimation = "Atack1_right"
 @onready var atackMesh = $AtackMesh
 @onready var attackCollider = $AtackMesh/Area3D/AttackCollider
 
+var original_pitch := 1.0
+var master_bus_index := AudioServer.get_bus_index("Master")
+var pitch_effect := AudioServer.get_bus_effect(master_bus_index, 0) as AudioEffectPitchShift
+
+
 var hud = null
 
 func _ready():
@@ -269,15 +274,15 @@ func take_damage(amount: float) -> void:
 			Player.shield = 0
 	else:
 		Player.health -= amount
-
 	if Player.health < 0:
 		Player.health = 0
-	
 	if hud:
 		hud.update_hearts()
-	
+	apply_pitch_damage_effect()
+	$AudioStreamPlayer2.play()
 	await get_tree().create_timer(Player.invencibleTime).timeout
 	canReciveDamage = true
+
 
 func heal(amount: float) -> void:
 	Player.health += amount
@@ -306,3 +311,15 @@ func spawnPoison():
 	var newPoison = poison.instantiate()
 	newPoison.position = Vector3(self.position.x,0.7,self.position.z)
 	get_parent().add_child(newPoison)
+
+
+
+func apply_pitch_damage_effect():
+	var master_index := AudioServer.get_bus_index("Master")
+	var pitch_effect := AudioServer.get_bus_effect(master_index, 0) as AudioEffectPitchShift
+
+	if pitch_effect:
+		pitch_effect.pitch_scale = 0.7 
+		var tween := create_tween()
+		tween.tween_property(pitch_effect, "pitch_scale", 1.0, 1.5)\
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
