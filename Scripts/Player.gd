@@ -4,6 +4,8 @@ var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 var ghost = preload("res://Scenes/Ghost.tscn")
 var poison = preload("res://Scenes/DashPoison.tscn")
 
+var is_dead = false
+
 var SPEED = Player.speed
 var direction
 
@@ -72,8 +74,8 @@ func setPlayerPosition(position: int):
 		4: self.position = Vector3(2.638, 0.014, -0.207)
 
 func _physics_process(delta):
-	if !Global.can_walk:
-		$Sprites/AnimationPlayer.play("idle")
+	if is_dead:
+		return
 
 	var input_dir = Input.get_vector("Keyboard_A", "Keyboard_D", "Keyboard_W", "Keyboard_S")
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -106,7 +108,7 @@ func _physics_process(delta):
 
 		attack()
 		move_and_slide()
-
+	
 func perform_dash(delta, direction):
 	if Player.is_dashing:
 		velocity.x = lerp(velocity.x, dash_direction.x * DASH_SPEED, DASH_LERP_AMOUNT)
@@ -266,6 +268,9 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 
 func take_damage(amount: float) -> void:
+	if is_dead:
+		return
+
 	$CanvasLayer/ColorRect/AnimationPlayer.play("new_animation")
 	if Player.shield > 0:
 		Player.shield -= amount
@@ -274,14 +279,21 @@ func take_damage(amount: float) -> void:
 			Player.shield = 0
 	else:
 		Player.health -= amount
+
 	if Player.health < 0:
 		Player.health = 0
+
 	if hud:
 		hud.update_hearts()
 	apply_pitch_damage_effect()
 	$AudioStreamPlayer2.play()
-	await get_tree().create_timer(Player.invencibleTime).timeout
-	canReciveDamage = true
+
+	if Player.health <= 0:
+		die()
+	else:
+		await get_tree().create_timer(Player.invencibleTime).timeout
+		canReciveDamage = true
+
 
 
 func heal(amount: float) -> void:
@@ -312,7 +324,12 @@ func spawnPoison():
 	newPoison.position = Vector3(self.position.x,0.7,self.position.z)
 	get_parent().add_child(newPoison)
 
-
+func die():
+	is_dead = true
+	Global.can_walk = false  # Esto evitará que el jugador se mueva
+	Player.is_dashing = false
+	$Sprites/AnimationPlayer.play("dead")
+	velocity = Vector3.ZERO
 
 func apply_pitch_damage_effect():
 	var master_index := AudioServer.get_bus_index("Master")
