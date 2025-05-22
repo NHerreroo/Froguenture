@@ -27,6 +27,8 @@ func _ready() -> void:
 	_fade_in_music()
 
 func _process(delta: float) -> void:
+	if Global.runEnded == true:
+		camera_2d.enabled = false
 	if camera_2d.enabled == false:
 		$AudioStreamPlayer.volume_db = -80
 		

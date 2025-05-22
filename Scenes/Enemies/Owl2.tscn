@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3tcm3nrvnxk3"]
+[gd_scene load_steps=9 format=3 uid="uid://b3tcm3nrvnxk3"]
 
 [ext_resource type="Script" uid="uid://2x8aomd76pve" path="res://Scripts/Enemies/owl2.gd" id="1_njjek"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_ddq47"]
@@ -19,6 +19,11 @@ size = Vector3(14.338, 9.58167, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
 size = Vector3(3.50751, 30.9597, 43.6998)
+
+[sub_resource type="Gradient" id="Gradient_n3tws"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gxloe"]
+gradient = SubResource("Gradient_n3tws")
 
 [node name="EnemyTemplate" type="CharacterBody3D"]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 3.62043, 0)
@@ -50,6 +55,13 @@ alpha_cut = 1
 texture = ExtResource("3_gxloe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 490.0
+offset_top = 939.0
+offset_right = 1490.0
+offset_bottom = 987.0
+texture = SubResource("GradientTexture2D_gxloe")
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx2jwoeisj3ke"]
+[gd_scene load_steps=14 format=3 uid="uid://dx2jwoeisj3ke"]
 
 [ext_resource type="Script" uid="uid://n423pw8l773p" path="res://Scripts/Enemies/slime_king.gd" id="1_up6tx"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_b16rw"]
@@ -92,6 +92,11 @@ _data = {
 &"prepare": SubResource("Animation_xow73")
 }
 
+[sub_resource type="Gradient" id="Gradient_n3tws"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b16rw"]
+gradient = SubResource("Gradient_n3tws")
+
 [node name="EnemyTemplate" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0399538, 0)
 collision_layer = 4
@@ -131,6 +136,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.364156, 0)
 omni_range = 5.75469
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 490.0
+offset_top = 939.0
+offset_right = 1490.0
+offset_bottom = 987.0
+texture = SubResource("GradientTexture2D_b16rw")
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

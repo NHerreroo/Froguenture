@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	
 	if has_node("../EnemyTemplate2"):
 		var enemy_health = $"../EnemyTemplate2".health
-		if enemy_health <= 500:
+		if enemy_health <= $"../EnemyTemplate2".TOTALHEALTH / 2:
 			secondPhase = 2
 	else:
 		queue_free()

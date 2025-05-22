@@ -6,7 +6,7 @@ var health : float = 3
 var health_container : int = 3
 var shield : float = 0
 
-var baseattack : float = 300
+var baseattack : float = 10
 var attackMultiplier : float = 1
 var atack : float = 2
 

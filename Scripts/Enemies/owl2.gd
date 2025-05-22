@@ -4,12 +4,17 @@ var debilited_time: float = 0.0
 var sprite_delay_timer: float = 0.0
 var should_show_sprites: bool = false
 
+const ANCHO_TOTAL_HEALTH = 1000.0
+var TOTALHEALTH
+
 func _ready() -> void:
+	TOTALHEALTH = health
 	Global.enemies_remaining += 1
 	enem_area_disabled()
 	$Sprites.visible = false
 	
 func _process(delta: float) -> void:
+	updateHealtBar()
 	enem_area_disabled()
 	canReciveDamage = false
 	
@@ -30,3 +35,7 @@ func _process(delta: float) -> void:
 			sprite_delay_timer = 0.0
 	else:
 		sprite_delay_timer = 0.0
+		
+func updateHealtBar():
+	var ancho = ANCHO_TOTAL_HEALTH * (health / TOTALHEALTH)
+	$NinePatchRect.size.x = ancho

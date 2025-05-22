@@ -10,10 +10,6 @@ var health_bar: NinePatchRect
 
 func _ready() -> void:
 	Global.defeated = false
-	# Obtener referencias
-	health_bar = $NinePatchRect
-	health_bar.size.x = health_bar_max_width  # Establecer tamaño inicial
-	update_health_bar()
 
 func _process(_delta: float) -> void:
 	if Global.enemies_remaining == 0:
@@ -21,21 +17,8 @@ func _process(_delta: float) -> void:
 		$AudioStreamPlayer.stop()
 		Global.defeated = true
 		$AnimationPlayer.play("end")
-		$NinePatchRect.visible = false
 		spawnSeed()
 		Global.enemies_remaining = 1
-		
-	update_health_bar()  # Actualizar la barra en cada frame
-	
-# Función para actualizar la barra de vida
-func update_health_bar() -> void:
-	# Verificamos si el nodo existe antes de continuar
-	if not is_instance_valid($EnemyTemplate):
-		return
-	
-	var current_health: float = $EnemyTemplate.health
-	var health_ratio: float = current_health / max_health
-	health_bar.size.x = health_bar_max_width * health_ratio
 
 
 func spawnSeed():

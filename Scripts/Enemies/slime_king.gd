@@ -11,7 +11,11 @@ const MAP_BOUNDS_MAX_X = -3.5
 const MAP_BOUNDS_MIN_Z = -6.5
 const MAP_BOUNDS_MAX_Z = 6.5
 
+const ANCHO_TOTAL_HEALTH = 1000.0
+var TOTALHEALTH
+
 func _ready() -> void:
+	TOTALHEALTH = health
 	Global.enemies_remaining += 1
 	await get_tree().create_timer(1).timeout
 	var canStart = false
@@ -23,6 +27,9 @@ func _ready() -> void:
 	$AnimationPlayer.play("idle")
 	start_infinite_spawn()  # Iniciar el spawn infinito
 	select_state()
+	
+func _process(delta: float) -> void:
+	updateHealtBar()
 
 func start_infinite_spawn():
 	spawn_active = true
@@ -129,3 +136,7 @@ func spawnStiky():
 	var newStky = sticky.instantiate()
 	newStky.position = Vector3(self.position.x, 0.9, self.position.z)
 	get_parent().add_child(newStky) 
+	
+func updateHealtBar():
+	var ancho = ANCHO_TOTAL_HEALTH * (health / TOTALHEALTH)
+	$NinePatchRect.size.x = ancho
