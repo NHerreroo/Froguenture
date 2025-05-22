@@ -3,18 +3,25 @@ extends Node3D
 var options = preload("res://Scenes/Options.tscn")
 
 func _ready() -> void:
+	$AudioStreamPlayer.play()
 	$ColorRect2/AnimationPlayer.play("in")
 	$AnimationPlayer2.play("in")
 	$AnimationPlayer.play("entry")
 
 
-
+func musicFade():
+	while $AudioStreamPlayer.volume_db > -50:
+		$AudioStreamPlayer.volume_db -= 1
+		await get_tree().create_timer(0.01).timeout
+		
 func _on_button_pressed() -> void:
+	musicFade()
 	$ColorRect2/AnimationPlayer.play("out")
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://Scenes/run.tscn")
 
 func _on_continue_pressed() -> void:
+	musicFade()
 	await get_tree().create_timer(1).timeout
 	var scene_tree = get_tree()
 	if not scene_tree:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://66cbs0n1ub8"]
+[gd_scene load_steps=39 format=3 uid="uid://66cbs0n1ub8"]
 
 [ext_resource type="Script" uid="uid://duy7cforghd4i" path="res://Scripts/tile_screen.gd" id="1_nklds"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="2_7csxt"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="11_yii4h"]
 [ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="12_7csxt"]
 [ext_resource type="Texture2D" uid="uid://drukflp2a8wdw" path="res://Sprites/text-1742574767511-_2_ (1).png" id="12_u3pti"]
+[ext_resource type="AudioStream" uid="uid://6i1lldnkiu3k" path="res://Sounds/Music/TtileScreen.wav" id="14_4a0gr"]
 
 [sub_resource type="Environment" id="Environment_0y5ux"]
 background_mode = 1
@@ -672,6 +673,10 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_qfu61")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4a0gr")
+bus = &"Music"
 
 [connection signal="pressed" from="Control/NewGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
