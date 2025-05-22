@@ -4,6 +4,7 @@ var pauseMenu = preload("res://Scenes/pause_menu.tscn")
 var ghost = preload("res://Scenes/Ghost.tscn")
 var poison = preload("res://Scenes/DashPoison.tscn")
 
+var ambulance = preload("res://Scenes/ambulance.tscn")
 var is_dead = false
 
 var SPEED = Player.speed
@@ -325,6 +326,7 @@ func spawnPoison():
 	get_parent().add_child(newPoison)
 
 func die():
+	spawnAmbulance()
 	is_dead = true
 	Global.can_walk = false  # Esto evitará que el jugador se mueva
 	Player.is_dashing = false
@@ -340,3 +342,11 @@ func apply_pitch_damage_effect():
 		var tween := create_tween()
 		tween.tween_property(pitch_effect, "pitch_scale", 1.0, 1.5)\
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+
+func spawnAmbulance():
+	var newAmbulance = ambulance.instantiate()
+	newAmbulance.position = self.global_position + Vector3(0.5, 0.5, -17)
+	get_parent().add_child(newAmbulance)
+	await get_tree().create_timer(3.3).timeout
+	self.visible = false
