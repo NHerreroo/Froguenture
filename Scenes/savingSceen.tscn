@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://yrdhglgph7v2"]
+
+[ext_resource type="Script" uid="uid://314lv76kg6yc" path="res://Scripts/saving_sceen.gd" id="1_7k7s4"]
+[ext_resource type="Texture2D" uid="uid://003ktxyoqhfo" path="res://Sprites/icons/save.png" id="1_8n766"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7k7s4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1811, 976)
+scale = Vector2(0.143313, 0.143313)
+texture = ExtResource("1_8n766")

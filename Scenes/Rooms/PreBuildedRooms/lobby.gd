@@ -17,8 +17,6 @@ func _process(delta: float) -> void:
 		Global.runEnded = true
 		Engine.time_scale = 1
 	
-func _on_button_pressed() -> void:
-		SaveSystem.save_game()
 
 
 func _fade_in_music():

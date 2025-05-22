@@ -5,6 +5,8 @@ var ghost = preload("res://Scenes/Ghost.tscn")
 var poison = preload("res://Scenes/DashPoison.tscn")
 
 var ambulance = preload("res://Scenes/ambulance.tscn")
+var deadscrean = preload("res://Scenes/gameOverScreen.tscn")
+
 var is_dead = false
 
 var SPEED = Player.speed
@@ -328,6 +330,7 @@ func spawnPoison():
 func die():
 	spawnAmbulance()
 	is_dead = true
+	Player.is_dead = true
 	Global.can_walk = false  # Esto evitará que el jugador se mueva
 	Player.is_dashing = false
 	$Sprites/AnimationPlayer.play("dead")
@@ -348,5 +351,12 @@ func spawnAmbulance():
 	var newAmbulance = ambulance.instantiate()
 	newAmbulance.position = self.global_position + Vector3(0.5, 0.5, -17)
 	get_parent().add_child(newAmbulance)
-	await get_tree().create_timer(3.3).timeout
+	await get_tree().create_timer(2.3).timeout
+	spawnGameOverScreen()
+	await get_tree().create_timer(1).timeout
 	self.visible = false
+
+
+func spawnGameOverScreen():
+	var newGameOverScreen = deadscrean.instantiate()
+	get_parent().add_child(newGameOverScreen)

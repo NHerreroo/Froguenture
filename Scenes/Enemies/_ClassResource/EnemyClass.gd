@@ -32,6 +32,9 @@ enum State {
 	
 	
 func _physics_process(delta: float) -> void:
+	if Player.is_dead:
+		spawn_dust()
+		queue_free()
 	if Global.dialog_ended == false:
 		return
 	var player_pos_array = [Global.playerMapPositionX, Global.playerMapPositionY]

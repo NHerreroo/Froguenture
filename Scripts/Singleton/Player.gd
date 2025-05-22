@@ -23,6 +23,8 @@ var is_dashing = false
 var havePosionDash = false
 var haveCounterspell = false
 
+var is_dead = false
+
 var CardsInDeck = []
 #noificador de vida actualizada (general)
 signal health_updated
@@ -77,5 +79,6 @@ func setBaseStats():
 	is_dashing = false
 	havePosionDash = false
 	haveCounterspell = false
-
+	
+	is_dead = false
 	CardsInDeck = []

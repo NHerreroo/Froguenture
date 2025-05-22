@@ -530,13 +530,6 @@ transform = Transform3D(-1.32394, -0.35475, -7.3378e-08, -5.99129e-08, -5.99129e
 alpha_cut = 1
 texture = ExtResource("12_idhfa")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 83.0
-offset_top = 942.0
-offset_right = 951.0
-offset_bottom = 1043.0
-text = "GuardarPartida"
-
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -560,5 +553,3 @@ stream = ExtResource("16_uhbti")
 
 [node name="Spikes" parent="." instance=ExtResource("17_kr8xt")]
 transform = Transform3D(-3.01069e-08, 0, 0.688766, 0, 0.688766, 0, -0.688766, 0, -3.01069e-08, 5.62905, -0.14591, 5.07999)
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

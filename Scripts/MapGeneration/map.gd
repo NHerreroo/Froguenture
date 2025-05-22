@@ -112,10 +112,17 @@ func _on_map_room_selected(room: Room) -> void:
 func _fade_in_music():
 	while music.volume_db < 0:
 		music.volume_db += 5
-		await get_tree().create_timer(0.01).timeout
+		if get_tree():
+			await get_tree().create_timer(0.01).timeout
+		else:
+			return
 
 func _fade_out_music():
 	while music.volume_db > -40:
 		music.volume_db -= 5
-		await get_tree().create_timer(0.01).timeout
+		if get_tree():
+			await get_tree().create_timer(0.01).timeout
+		else:
+			return
+
 	
