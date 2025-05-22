@@ -233,10 +233,14 @@ func attack():
 			attackCollider.disabled = true
 
 func perform_attack():
+	var final_damage = Player.atack
+	
 	if attack_count < 2:
 		attack_count += 1
 	else:
 		attack_count = 0
+		final_damage *= Player.criticalDamage
+
 	rotate_atack_mesh()
 	if Global.controller_active:
 		mini_dash_direction = direction if direction != Vector3.ZERO else last_direction
@@ -247,6 +251,8 @@ func perform_attack():
 
 	is_mini_dashing = true
 	mini_dash_timer = MINI_DASH_DURATION
+
+
 
 func perform_mini_dash(delta):
 	velocity.x = lerp(velocity.x, mini_dash_direction.x * MINI_DASH_SPEED, LERP_AMOUNT)
