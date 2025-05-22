@@ -1,6 +1,7 @@
 extends Node
 
 const SAVE_PATH = "user://savegame.dat"
+const CONFIG_PATH = "user://config.dat"
 
 func save_game():
 	var save_data = {
@@ -53,5 +54,53 @@ func delete_save():
 	if FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(SAVE_PATH)
 		print("Partida eliminada")
+		return true
+	return false
+	
+	
+	
+#sistema de guardado para la configuracion esto se guarda solo y se carga al incio del juego
+func save_config():
+	var config_data = {
+		"master": Config.master,
+		"music": Config.music,
+		"sfx": Config.sfx
+	}
+
+	var path = ProjectSettings.globalize_path(CONFIG_PATH)
+	print("Guardando configuración en:", path)
+
+	var file = FileAccess.open(CONFIG_PATH, FileAccess.WRITE)
+	if file:
+		file.store_var(config_data)
+		file.close()
+		print("Configuración guardada correctamente")
+	else:
+		print("Error al guardar configuración:", FileAccess.get_open_error())
+
+func load_config():
+	if not FileAccess.file_exists(CONFIG_PATH):
+		print("No hay configuración guardada")
+		return false
+
+	var file = FileAccess.open(CONFIG_PATH, FileAccess.READ)
+	if file:
+		var config_data = file.get_var()
+		file.close()
+
+		Config.master = config_data.get("master", 0.1)
+		Config.music = config_data.get("music", 0.1)
+		Config.sfx = config_data.get("sfx", 0.1)
+
+		print("Configuración cargada correctamente")
+		return true
+	else:
+		print("Error al cargar configuración:", FileAccess.get_open_error())
+		return false
+
+func delete_config():
+	if FileAccess.file_exists(CONFIG_PATH):
+		DirAccess.remove_absolute(CONFIG_PATH)
+		print("Configuración eliminada")
 		return true
 	return false

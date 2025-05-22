@@ -8,6 +8,7 @@ func _ready() -> void:
 	current_tween.tween_property(self, "modulate:a", 1.0, 1.0).from(modulate.a)
 
 func _on_button_pressed() -> void:
+	$AudioStreamPlayer.play()
 	$ColorRect3/AnimationPlayer.play("out")
 	await get_tree().create_timer(1).timeout
 	Global.resetall()

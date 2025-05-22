@@ -15,6 +15,8 @@ func _ready() -> void:
 
 
 func _on_body_entered(body):
+	if Player.health_container >= 12 or Player.health_container + Player.shield >= 12:
+		return
 	if body.is_in_group("player"):
 		Global.remove_item_from_room(
 			Global.playerMapPositionX,

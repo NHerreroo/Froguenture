@@ -2,7 +2,7 @@ extends Node
 
 # Velocidad del fade (db por segundo)
 const FADE_SPEED: float = 38.0
-const MAXVOL = -35
+const MAXVOL = -5
 
 var target_song: AudioStreamPlayer = null
 var current_song: AudioStreamPlayer = null

@@ -85,7 +85,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			queue_free()
 
 func dropitemfunc():
-	var items = [coin, shield, heart]
+	var items = [coin, coin, coin, shield, heart]
 	var random_index = randi() % items.size()
 	var selected_item = items[random_index]
 	var item = selected_item.instantiate()
@@ -175,5 +175,5 @@ var hit3 = preload("res://Sounds/SFX/PUNCH_SQUELCH_HEAVY_01.wav")
 func hitSound():
 	var sounds = [hit1, hit2, hit3]
 	$AudioStreamPlayer.stream = sounds[randi() % sounds.size()]
-	$AudioStreamPlayer.volume_db = -40  # Baja el volumen a -10 dB (ajusta este valor)
+	$AudioStreamPlayer.volume_db = -10
 	$AudioStreamPlayer.play()

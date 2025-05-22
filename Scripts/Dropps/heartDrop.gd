@@ -15,6 +15,8 @@ func _ready() -> void:
 
 
 func _on_body_entered(body):
+	if Player.health >= Player.health_container:
+		return
 	if body.is_in_group("player"):
 		Global.remove_item_from_room(
 			Global.playerMapPositionX,
@@ -38,4 +40,4 @@ func _process(delta):
 		queue_free()
 
 func is_inside_current_room(x, y):
-	return true  # Placeholder
+	return true 

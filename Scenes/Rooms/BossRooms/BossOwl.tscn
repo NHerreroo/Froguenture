@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdbqlw5ht28do"]
+[gd_scene load_steps=24 format=3 uid="uid://bdbqlw5ht28do"]
 
 [ext_resource type="Script" uid="uid://bemib0datiw4u" path="res://Scripts/Enemies/boss_owl.gd" id="1_j6fdc"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_avatu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="7_w1o5k"]
 [ext_resource type="AudioStream" uid="uid://f8kjgssg63d0" path="res://Sounds/Music/FinalBossProvisonal.mp3" id="8_ap24m"]
 [ext_resource type="PackedScene" uid="uid://b3tcm3nrvnxk3" path="res://Scenes/Enemies/Owl2.tscn" id="9_w1o5k"]
+[ext_resource type="AudioStream" uid="uid://ps5vrptrt30w" path="res://Sounds/SFX/InverRiser.wav" id="11_e573l"]
 [ext_resource type="PackedScene" uid="uid://dwl03mgcqw7n2" path="res://Scenes/Enemies/Owl.tscn" id="11_gi0ac"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
@@ -269,6 +270,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_gi0ac")
 }
 
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_e573l")
+volume_db = -8.125
+pitch_scale = 1.22
+bus = &"SFX"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -278,3 +285,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true

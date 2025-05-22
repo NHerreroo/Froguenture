@@ -2,7 +2,14 @@ extends Node3D
 
 var options = preload("res://Scenes/Options.tscn")
 
-func _ready() -> void:
+func _ready():
+	if not SaveSystem.load_config():  
+		print("No Exsiste la config")
+		SaveSystem.save_config()
+	else:
+		print("cargando la configuracion")
+	
+	_apply_audio_settings()
 	$AudioStreamPlayer.play()
 	$ColorRect2/AnimationPlayer.play("in")
 	$AnimationPlayer2.play("in")
@@ -48,3 +55,13 @@ func _on_options_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+	
+	
+func _apply_audio_settings():
+	_set_bus_volume("Master", Config.master)
+	_set_bus_volume("Music", Config.music)
+	_set_bus_volume("SFX", Config.sfx)
+
+func _set_bus_volume(bus_name: String, value: float) -> void:
+	var db = linear_to_db(value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus_name), db)

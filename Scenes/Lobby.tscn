@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dbe51xhcqk0md"]
+[gd_scene load_steps=30 format=3 uid="uid://dbe51xhcqk0md"]
 
 [ext_resource type="Script" uid="uid://dtimbxowih3p" path="res://Scenes/Rooms/PreBuildedRooms/lobby.gd" id="1_xy1bw"]
 [ext_resource type="PackedScene" uid="uid://bbfvqryp6eyp5" path="res://Scenes/portal.tscn" id="2_s3paf"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="11_b6u2u"]
 [ext_resource type="Texture2D" uid="uid://djdflvoyvi1bj" path="res://Sprites/parche.png" id="12_idhfa"]
 [ext_resource type="PackedScene" uid="uid://ct44yfkwsqpj3" path="res://Scenes/Enviroment/tree1_NoShadow.tscn" id="14_03jl0"]
+[ext_resource type="AudioStream" uid="uid://dc703oxtbox08" path="res://Sounds/SFX/345851__hargissssound__spring-birds-raw-new-jersey.wav" id="15_uhbti"]
+[ext_resource type="AudioStream" uid="uid://bqpv0sfcvbvyd" path="res://Sounds/Music/Normal.mp3" id="16_uhbti"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -547,5 +549,12 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_qfu61")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_uhbti")
+volume_db = -11.375
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_uhbti")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

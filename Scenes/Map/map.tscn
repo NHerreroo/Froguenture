@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dre10dkwxryfy"]
+[gd_scene load_steps=8 format=3 uid="uid://dre10dkwxryfy"]
 
 [ext_resource type="Script" uid="uid://jxjokaih0hys" path="res://Scripts/MapGeneration/map_generator.gd" id="1_1ym53"]
 [ext_resource type="Script" uid="uid://bsxhkr0c4xdii" path="res://Scripts/MapGeneration/map.gd" id="1_345j5"]
-[ext_resource type="Shader" uid="uid://c4eeyuf78lgdq" path="res://Shaders/mapBackground.gdshader" id="4_1sbwm"]
+[ext_resource type="Shader" uid="uid://ce4108au11ujg" path="res://Shaders/mapBackground.gdshader" id="4_1sbwm"]
+[ext_resource type="AudioStream" uid="uid://cn1nqhtlgd4rm" path="res://Sounds/Music/332323__foolboymedia__floating-in-the-midnight-breeze.wav" id="4_pvgv4"]
 
 [sub_resource type="Gradient" id="Gradient_pvgv4"]
 offsets = PackedFloat32Array(0, 0.577922, 0.727273, 1)
@@ -70,3 +71,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pvgv4")
+volume_db = 3.25
+pitch_scale = 1.16
+bus = &"Music"

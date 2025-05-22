@@ -46,6 +46,7 @@ func _on_button_pressed():
 	if not available or not $Visuals/Sprite2D/Button.pressed:
 		return
 
+	$AudioStreamPlayer.play()
 	room.selected = true
 	animation_player.play("select")
 

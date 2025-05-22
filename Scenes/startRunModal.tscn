@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt7lksx27158a"]
+[gd_scene load_steps=19 format=3 uid="uid://bt7lksx27158a"]
 
 [ext_resource type="Script" uid="uid://7dtvi6jva0ab" path="res://Scripts/start_run_modal.gd" id="1_rxgiq"]
 [ext_resource type="Shader" uid="uid://nirgfxc3pkqp" path="res://Shaders/pause_menu_Wave.gdshader" id="2_sb5if"]
 [ext_resource type="Texture2D" uid="uid://mjgwbp4g72r6" path="res://Sprites/Hud/textbox2.png" id="3_n1ldt"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="4_cjmh5"]
 [ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="5_sb5if"]
+[ext_resource type="AudioStream" uid="uid://d1ahg7xv1d660" path="res://Sounds/SFX/33637__herbertboland__cinematicboomnorm.wav" id="6_n1ldt"]
 
 [sub_resource type="Gradient" id="Gradient_wf3d1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0846899, 0.0846899, 0.0846899, 1)
@@ -204,6 +205,10 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_qfu61")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_n1ldt")
+pitch_scale = 2.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

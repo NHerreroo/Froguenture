@@ -90,7 +90,6 @@ func attack_state():
 	var target_pos = player.global_transform.origin
 
 	if not nav.is_target_reachable():
-		print("Jugador no alcanzable, cancelando ataque.")
 		is_state_active = false
 		select_state()
 		return

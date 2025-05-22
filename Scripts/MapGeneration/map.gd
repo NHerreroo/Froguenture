@@ -11,7 +11,7 @@ const  MAP_LINE = preload("res://Scenes/Map/map_line.tscn")
 @onready var rooms: Node2D = %Rooms
 @onready var visuals: Node2D = $Visuals
 @onready var camera_2d: Camera2D = $Camera2D
-
+@onready var music: AudioStreamPlayer = $AudioStreamPlayer
 
 var map_data: Array[Array]
 var floors_climbed: int
@@ -21,8 +21,15 @@ var camera_edge_y: float
 signal map_exited(room: Room)
 
 func _ready() -> void:
-	camera_edge_y =  Global.Y_DIST * (Global.FLOORS - 1)
+	camera_edge_y = Global.Y_DIST * (Global.FLOORS - 1)
+	music.volume_db = -40
+	music.play()
+	_fade_in_music()
 
+func _process(delta: float) -> void:
+	if camera_2d.enabled == false:
+		$AudioStreamPlayer.volume_db = -80
+		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("scroll_up"):
 		camera_2d.position.y -= SCROLL_SPEED
@@ -45,9 +52,9 @@ func create_map() -> void:
 	var middle := floori(Global.MAP_WIDTH * 0.5)
 	_spawn_room(map_data[Global.FLOORS-1][middle])
 
-	var map_width_pixels =  Global.X_DIST * ( Global.MAP_WIDTH - 1)
+	var map_width_pixels = Global.X_DIST * (Global.MAP_WIDTH - 1)
 	visuals.position.x = (get_viewport_rect().size.x - map_width_pixels) / 2
-	visuals.position.y = get_viewport_rect().size.y / 5  # Cambia este valor para empezar más arriba	
+	visuals.position.y = get_viewport_rect().size.y / 5
 
 func unlock_floor(which_floor: int = floors_climbed) -> void:
 	for map_room in rooms.get_children():
@@ -60,12 +67,13 @@ func unlock_next_room() -> void:
 			map_room.available = true
 
 func show_map() -> void:
+	_fade_out_music()
 	self.show()
 	$MapBackground.show()
 	camera_2d.enabled = true
 
-
 func hide_map() -> void:
+	_fade_in_music()
 	self.hide()
 	$MapBackground.hide()
 	camera_2d.enabled = false
@@ -93,10 +101,21 @@ func _connect_lines(room: Room) -> void:
 func _on_map_room_selected(room: Room) -> void:
 	for map_room in rooms.get_children():
 		if map_room.room.row == room.row:
-			map_room.available = false  # Bloquea las habitaciones del mismo piso
+			map_room.available = false
 
 	last_room = room
 	floors_climbed += 1
 	Global.lvlCount += 1
-	print("ES EL PISO ; " + str(Global.lvlCount))
-	emit_signal("map_exited", room)  # Emitimos la señal para notificar a la escena principal
+	await _fade_out_music()
+	emit_signal("map_exited", room)
+
+func _fade_in_music():
+	while music.volume_db < 0:
+		music.volume_db += 5
+		await get_tree().create_timer(0.01).timeout
+
+func _fade_out_music():
+	while music.volume_db > -40:
+		music.volume_db -= 5
+		await get_tree().create_timer(0.01).timeout
+	

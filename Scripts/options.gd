@@ -37,4 +37,5 @@ func _on_sfx_slider_changed(value: float) -> void:
 	_set_bus_volume("SFX", value)
 
 func _on_button_pressed() -> void:
+	SaveSystem.save_config()
 	queue_free()

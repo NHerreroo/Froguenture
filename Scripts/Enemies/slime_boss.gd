@@ -9,6 +9,7 @@ var health_bar: NinePatchRect
 
 
 func _ready() -> void:
+	Global.defeated = false
 	# Obtener referencias
 	health_bar = $NinePatchRect
 	health_bar.size.x = health_bar_max_width  # Establecer tamaño inicial
@@ -16,6 +17,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Global.enemies_remaining == 0:
+		$AudioStreamPlayer2.play()
+		$AudioStreamPlayer.stop()
+		Global.defeated = true
+		$AnimationPlayer.play("end")
 		$NinePatchRect.visible = false
 		spawnSeed()
 		Global.enemies_remaining = 1

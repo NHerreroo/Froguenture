@@ -55,6 +55,8 @@ func update_health_bar() -> void:
 func play_end_flash() -> void:
 	if animation_player.has_animation("end"):
 		animation_player.play("end")
+		$AudioStreamPlayer2.play()
+		$AudioStreamPlayer.stop()
 		spawnSeed()
 		$NinePatchRect.visible = false
 		Global.enemies_remaining -=1

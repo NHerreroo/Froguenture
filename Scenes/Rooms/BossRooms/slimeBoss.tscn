@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://mdt1nafhyka3"]
+[gd_scene load_steps=25 format=3 uid="uid://mdt1nafhyka3"]
 
 [ext_resource type="Script" uid="uid://brl6ix8nss08x" path="res://Scripts/Enemies/slime_boss.gd" id="1_nwo7s"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_sxerv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="10_vj54l"]
 [ext_resource type="PackedScene" uid="uid://bnt6qt7180qq0" path="res://Scenes/Enviroment/tree_1.tscn" id="11_c6sdp"]
 [ext_resource type="AudioStream" uid="uid://f8kjgssg63d0" path="res://Sounds/Music/FinalBossProvisonal.mp3" id="11_oynt7"]
+[ext_resource type="AudioStream" uid="uid://ps5vrptrt30w" path="res://Sounds/SFX/InverRiser.wav" id="12_oynt7"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -41,6 +42,60 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pksfg"]
 gradient = SubResource("Gradient_w1o5k")
+
+[sub_resource type="Animation" id="Animation_gi0ac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e573l"]
+resource_name = "end"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j6fdc"]
+resource_name = "flash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.33333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gi0ac"]
+_data = {
+&"RESET": SubResource("Animation_gi0ac"),
+&"end": SubResource("Animation_e573l"),
+&"flash": SubResource("Animation_j6fdc")
+}
 
 [node name="SlimeBoss" type="Node3D"]
 script = ExtResource("1_nwo7s")
@@ -434,3 +489,25 @@ offset_bottom = 425.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_pksfg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gi0ac")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_oynt7")
+volume_db = -8.125
+pitch_scale = 1.22
+bus = &"SFX"

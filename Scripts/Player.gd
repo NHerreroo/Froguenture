@@ -292,7 +292,7 @@ var hit2 = preload("res://Sounds/SFX/WHSH_Whoosh_HoveAud_SwordCombat_26.wav")
 
 func hitSound():
 	$AudioStreamPlayer.stream = hit2 if attack_count >= 2 else hit1
-	$AudioStreamPlayer.volume_db = -30  
+	$AudioStreamPlayer.volume_db = -5 
 	$AudioStreamPlayer.play()
 
 func spawnGhost():

@@ -1,7 +1,13 @@
 extends Node3D
 
+@onready var music: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
+	$AudioStreamPlayer.volume_db = -70
+	$AudioStreamPlayer2.volume_db = -70
+	$AudioStreamPlayer.play()
+	$AudioStreamPlayer2.play()
+	_fade_in_music()
 	Global.setMapDificulty()
 	$ColorRect2/AnimationPlayer.play("in")
 	Player.setBaseStats()
@@ -13,3 +19,16 @@ func _process(delta: float) -> void:
 	
 func _on_button_pressed() -> void:
 		SaveSystem.save_game()
+
+
+func _fade_in_music():
+	while music.volume_db < -20:
+		music.volume_db += 3
+		$AudioStreamPlayer2.volume_db += 3
+		await get_tree().create_timer(0.01).timeout
+
+func _fade_out_music():
+	while music.volume_db > -40:
+		music.volume_db -= 3
+		$AudioStreamPlayer2.volume_db -= 3
+		await get_tree().create_timer(0.01).timeout
