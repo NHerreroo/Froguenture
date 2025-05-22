@@ -1,6 +1,7 @@
 extends Enemy
 
 var bullet = preload("res://Scenes/Enemies/Misc/EnemyBullet.tscn")
+var use_diagonal = false  # Alternador de disparo
 
 func _ready() -> void:
 	enem_area_disabled()
@@ -20,10 +21,8 @@ func logic():
 
 func entry():
 	$MeshInstance3D/Area3D/CollisionShape3D.disabled = true
-	
 	$AnimationPlayer.play("entry")
-	
-	# Buscar una posición válida usando NavigationAgent
+
 	var valid_position_found = false
 	var attempts = 0
 	var max_attempts = 30
@@ -57,21 +56,36 @@ func attack():
 	$MeshInstance3D/Area3D/CollisionShape3D.disabled = false
 	$AnimationPlayer.play("idle")
 	await get_tree().create_timer(2).timeout
-	shoot_in_four_directions()
+	
+	shoot_bullets()
+	
+	use_diagonal = !use_diagonal
 
 func exit():
 	$MeshInstance3D/Area3D/CollisionShape3D.disabled = true
 	$AnimationPlayer.play("exit")
 	await $AnimationPlayer.animation_finished
 
-func shoot_in_four_directions():
-	var directions = [
-		Vector3(0, 0, -1),  # Adelante
-		Vector3(0, 0, 1),   # Atrás 
-		Vector3(-1, 0, 0),  # Izquierda 
-		Vector3(1, 0, 0)    # Derecha 
-	]
-	
+func shoot_bullets():
+	var directions = []
+
+	if use_diagonal:
+		# Forma X 
+		directions = [
+			Vector3(1, 0, 1).normalized(),
+			Vector3(1, 0, -1).normalized(),
+			Vector3(-1, 0, 1).normalized(),  
+			Vector3(-1, 0, -1).normalized() 
+		]
+	else:
+		# Forma +
+		directions = [
+			Vector3(0, 0, -1),
+			Vector3(0, 0, 1),
+			Vector3(-1, 0, 0),
+			Vector3(1, 0, 0)
+		]
+
 	for direction in directions:
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.global_transform.origin = global_position
