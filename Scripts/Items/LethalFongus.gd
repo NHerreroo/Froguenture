@@ -7,5 +7,5 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	ApplyItems.increase_critical(0.5)
-	ApplyItems.increase_baseAtack(0.5)
+	ApplyItems.increase_baseAtack(1.0)
+	Player.havePosionDash = true

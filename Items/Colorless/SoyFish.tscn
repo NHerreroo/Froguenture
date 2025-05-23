@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_wlpd5"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_0i0pt"]
 [ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_qf8ag"]
-[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="6_7xxmg"]
-[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="7_2opgo"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_7xxmg"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_2opgo"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_fgpai"]
 
 [sub_resource type="Resource" id="Resource_pgr67"]
@@ -14,12 +14,12 @@ script = ExtResource("3_wlpd5")
 name = "Soy Fish"
 description = ""
 image = ExtResource("2_es40b")
-habilitie1 = "Player Get +0.2 Base Power When An Item Is Purchased"
+habilitie1 = "Player Gets +0.2 Base Power When An Item Is Purchased"
 habilitie2 = ""
 habilitie3 = ""
 damage = "4"
 health = "4"
-quote = "\"KikoMa Best Seller\""
+quote = "\"KikoMan Best Seller\""
 color_card = 5
 card_type = 3
 foil = false

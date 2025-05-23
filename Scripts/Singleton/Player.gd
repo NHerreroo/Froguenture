@@ -1,8 +1,8 @@
 extends Node
 
 # STATS
-var money : int = 100
-var health : float = 3
+var money : int = 2.5
+var health : float = 15
 var health_container : int = 3
 var shield : float = 0
 
@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 	
 func setBaseStats():
 	ApplyItems.pasiveItems.clear()
-	money = 5
+	money = 15
 	health = 3
 	health_container = 3
 	shield = 0
@@ -71,8 +71,8 @@ func setBaseStats():
 	speed = 5.0
 	criticalDamage = 0.0
 	poisonDamage = 0.0
-	atackSpeed = 0.2  #0.6
-	dashCooldown = 1.0
+	atackSpeed = 0.2 #0.6
+	dashCooldown = 2
 
 	damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon enetero 0.5 medio
 	invencibleTime = 1

@@ -11,7 +11,7 @@ const MAP_BOUNDS_MAX_X = -3.5
 const MAP_BOUNDS_MIN_Z = -6.5
 const MAP_BOUNDS_MAX_Z = 6.5
 
-const ANCHO_TOTAL_HEALTH = 1000.0
+const ANCHO_TOTAL_HEALTH = 2900.0
 var TOTALHEALTH
 
 func _ready() -> void:

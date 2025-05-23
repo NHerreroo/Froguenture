@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://66cbs0n1ub8"]
+[gd_scene load_steps=42 format=3 uid="uid://66cbs0n1ub8"]
 
 [ext_resource type="Script" uid="uid://duy7cforghd4i" path="res://Scripts/tile_screen.gd" id="1_nklds"]
 [ext_resource type="PackedScene" uid="uid://b406fxf5y3j0l" path="res://Scenes/Enviroment/ambient_fog.tscn" id="2_7csxt"]
@@ -14,6 +14,9 @@
 [ext_resource type="StyleBox" uid="uid://c45f1hpox0y7x" path="res://Shaders/Styles/TtleScreen.tres" id="12_7csxt"]
 [ext_resource type="Texture2D" uid="uid://drukflp2a8wdw" path="res://Sprites/text-1742574767511-_2_ (1).png" id="12_u3pti"]
 [ext_resource type="AudioStream" uid="uid://6i1lldnkiu3k" path="res://Sounds/Music/TtileScreen.wav" id="14_4a0gr"]
+[ext_resource type="Texture2D" uid="uid://6x17dhw32rm3" path="res://Sprites/icons/itchio.svg" id="14_vobo1"]
+[ext_resource type="Texture2D" uid="uid://dk6hbfk0trqu6" path="res://Sprites/icons/icons8-insta.svg" id="15_hk5lf"]
+[ext_resource type="Texture2D" uid="uid://chtmwjc4n8nux" path="res://Sprites/icons/icons8-x.svg" id="16_bxifi"]
 
 [sub_resource type="Environment" id="Environment_0y5ux"]
 background_mode = 1
@@ -655,6 +658,41 @@ offset_bottom = 723.0
 scale = Vector2(0.652505, 0.652505)
 texture = ExtResource("12_u3pti")
 
+[node name="Itchi" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1537.0
+offset_top = 944.0
+offset_right = 2655.0
+offset_bottom = 2062.0
+scale = Vector2(0.0617516, 0.0651962)
+texture_normal = ExtResource("14_vobo1")
+
+[node name="insta" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1655.0
+offset_top = 944.0
+offset_right = 3067.0
+offset_bottom = 2356.0
+scale = Vector2(0.0515507, 0.0544263)
+texture_normal = ExtResource("15_hk5lf")
+
+[node name="x" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1774.0
+offset_top = 951.0
+offset_right = 3275.0
+offset_bottom = 2452.0
+scale = Vector2(0.0444468, 0.0469262)
+texture_normal = ExtResource("16_bxifi")
+
+[node name="Icons8-insta" type="Sprite2D" parent="Control"]
+position = Vector2(-1303, 1758)
+texture = ExtResource("15_hk5lf")
+
+[node name="Icons8-x" type="Sprite2D" parent="Control"]
+position = Vector2(-2573, 1718)
+texture = ExtResource("16_bxifi")
+
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_4a0gr")
@@ -676,9 +714,13 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_4a0gr")
+volume_db = -5.433
 bus = &"Music"
 
 [connection signal="pressed" from="Control/NewGame" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/Itchi" to="." method="_on_itchi_pressed"]
+[connection signal="pressed" from="Control/insta" to="." method="_on_insta_pressed"]
+[connection signal="pressed" from="Control/x" to="." method="_on_x_pressed"]

@@ -48,7 +48,7 @@ func start_attack_loop():
 					await slimeAttack()
 			
 			attacksDone += 1
-			if attacksDone == 1:
+			if attacksDone == 3:
 				Global.debilited = true
 				should_show_sprites = false  # Inicia el retraso para ocultar
 				attacksDone = 0
@@ -64,7 +64,7 @@ func shotsAttk():
 			await get_tree().create_timer((1 / secondPhase) + 0.2).timeout
 
 func markAttk():
-	for i in range(5 * secondPhase):
+	for i in range(3 * secondPhase):
 		if can_attack:  # Verificar antes de cada marca
 			spawn_marks()
 			await get_tree().create_timer((3 / secondPhase) + 0.3).timeout

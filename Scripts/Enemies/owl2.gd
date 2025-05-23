@@ -4,7 +4,7 @@ var debilited_time: float = 0.0
 var sprite_delay_timer: float = 0.0
 var should_show_sprites: bool = false
 
-const ANCHO_TOTAL_HEALTH = 1000.0
+const ANCHO_TOTAL_HEALTH = 2900.0
 var TOTALHEALTH
 
 func _ready() -> void:

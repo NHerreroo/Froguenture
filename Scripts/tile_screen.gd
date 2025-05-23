@@ -65,3 +65,16 @@ func _apply_audio_settings():
 func _set_bus_volume(bus_name: String, value: float) -> void:
 	var db = linear_to_db(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus_name), db)
+
+
+func _on_itchi_pressed() -> void:
+	OS.shell_open("https://nacho-herrero.itch.io")
+
+
+func _on_insta_pressed() -> void:
+	OS.shell_open("https://www.instagram.com/___nachetee12/")
+
+
+
+func _on_x_pressed() -> void:
+	OS.shell_open("https://x.com/_nachetee")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cj06jdal41i66"]
 
-[ext_resource type="Script" uid="uid://di7wbuhxing0w" path="res://Scripts/Items/khaz_gal.gd" id="1_vx7bt"]
+[ext_resource type="Script" uid="uid://b7xb6bsibjbp2" path="res://Scripts/Items/khaz_gal.gd" id="1_vx7bt"]
 [ext_resource type="Texture2D" uid="uid://qriguq5m0vqx" path="res://Sprites/Items/Arts/Khaz'gal, Wrath of the SunArt.png" id="2_mws2b"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_oelth"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_pcrs8"]
@@ -9,16 +9,16 @@
 [ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_ha51w"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_qqst3"]
 
-[sub_resource type="Resource" id="Resource_wfh1v"]
+[sub_resource type="Resource" id="Resource_si03x"]
 script = ExtResource("3_oelth")
-name = "Khaz'gal, Wrath Of The Sun"
+name = "Khaz'Gal, Wrath Of The Sun"
 description = ""
 image = ExtResource("2_mws2b")
-habilitie1 = "Player Gets +1 Base Power"
-habilitie2 = "Player Now Have a Poison Dash"
-habilitie3 = ""
-damage = "3"
-health = "3"
+habilitie1 = "Player Gets +2 Base Power"
+habilitie2 = "Player Gets -0.3 Attack Speed"
+habilitie3 = "Player Gets +0.5 Speed"
+damage = "4"
+health = "4"
 quote = ""
 color_card = 0
 card_type = 0
@@ -57,7 +57,7 @@ pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
 script = ExtResource("1_vx7bt")
-item_Src = SubResource("Resource_wfh1v")
+item_Src = SubResource("Resource_si03x")
 
 [node name="Area2D" type="Area2D" parent="."]
 

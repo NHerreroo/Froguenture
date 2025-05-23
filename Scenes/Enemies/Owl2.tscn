@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://2x8aomd76pve" path="res://Scripts/Enemies/owl2.gd" id="1_njjek"]
 [ext_resource type="Script" uid="uid://cal3n5r6347g2" path="res://Scenes/Enemies/_ClassResource/EnemySource.gd" id="2_ddq47"]
 [ext_resource type="Texture2D" uid="uid://d074y14t8n01o" path="res://Sprites/Enemies/Owl/dead_owl.png" id="3_gxloe"]
+[ext_resource type="Texture2D" uid="uid://bo7j6a3xc5b34" path="res://Sprites/Hud/bar.png" id="4_7h0xv"]
+[ext_resource type="Texture2D" uid="uid://da6kce00msorm" path="res://Sprites/Hud/bar2.png" id="5_ddq47"]
 
 [sub_resource type="Resource" id="Resource_gxloe"]
 script = ExtResource("2_ddq47")
@@ -19,11 +21,6 @@ size = Vector3(14.338, 9.58167, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6cego"]
 size = Vector3(3.50751, 30.9597, 43.6998)
-
-[sub_resource type="Gradient" id="Gradient_n3tws"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gxloe"]
-gradient = SubResource("Gradient_n3tws")
 
 [node name="EnemyTemplate" type="CharacterBody3D"]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 3.62043, 0)
@@ -56,12 +53,31 @@ texture = ExtResource("3_gxloe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+offset_left = 489.0
+offset_top = 920.0
+offset_right = 3607.0
+offset_bottom = 1181.0
+scale = Vector2(0.328116, 0.328116)
+texture = ExtResource("4_7h0xv")
+region_rect = Rect2(0, 0, 256, 256)
+patch_margin_left = 73
+patch_margin_top = 66
+patch_margin_right = 69
+patch_margin_bottom = 67
+
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = 490.0
-offset_top = 939.0
-offset_right = 1490.0
-offset_bottom = 987.0
-texture = SubResource("GradientTexture2D_gxloe")
+offset_left = 507.0
+offset_top = 937.0
+offset_right = 3407.0
+offset_bottom = 1086.0
+scale = Vector2(0.340167, 0.340167)
+texture = ExtResource("5_ddq47")
+region_rect = Rect2(61.0565, 59.1281, 133.529, 138.07)
+patch_margin_left = 11
+patch_margin_top = 29
+patch_margin_right = 9
+patch_margin_bottom = 120
 
 [connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]

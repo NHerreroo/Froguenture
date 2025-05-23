@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckgdrbpg81eaq"]
+[gd_scene load_steps=20 format=3 uid="uid://ckgdrbpg81eaq"]
 
 [ext_resource type="Script" uid="uid://rah8rykulcks" path="res://Scripts/RoomDefScript.gd" id="1_u8j0y"]
 [ext_resource type="Texture2D" uid="uid://f8sjn4yqti7n" path="res://Sprites/floor2.png" id="3_6sprg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://uk0vr6wsyiad" path="res://Scenes/Npcs/Tutorial/TutoNpc-1.tscn" id="12_baynt"]
 [ext_resource type="PackedScene" uid="uid://4l1qwltkf5sg" path="res://Scenes/Enviroment/tree_2.tscn" id="12_d8mdf"]
 [ext_resource type="PackedScene" uid="uid://cq0fvfbtrq8bm" path="res://Scenes/Enviroment/tree_3.tscn" id="13_l7y2u"]
+[ext_resource type="Texture2D" uid="uid://cxjf3ndydg6hj" path="res://Sprites/icons/confirm.png" id="13_u8j0y"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_kwvrb"]
 vertices = PackedVector3Array(-86.3501, 2.21549, -90.974, -86.3501, 2.21549, 91.026, 86.3999, 2.21549, 91.026, 86.3999, 2.21549, -90.974, -4.35007, 0.215489, -8.22404, -4.35007, 0.215489, 8.27596, 4.39993, 0.215489, 8.27596, 4.39993, 0.215489, -8.22404)
@@ -357,3 +358,8 @@ transform = Transform3D(-9.6568e-08, -1.10461, 1.91324, 0, 1.91324, 1.10461, -2.
 
 [node name="TutoNpc" parent="." instance=ExtResource("12_baynt")]
 transform = Transform3D(-2.79686e-08, 0, 0.639848, 0, 0.639848, 0, -0.639848, 0, -2.79686e-08, -1.45081, -0.0248099, 1.17168)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0, -0.714304, -9.57956e-08, 0, 2.12879e-08, 0.714304, -0.714304, 0, 0, 0.774976, -0.0303147, 1.31877)
+alpha_cut = 1
+texture = ExtResource("13_u8j0y")
