@@ -23,4 +23,5 @@ func format_time(seconds: float) -> String:
 func _on_button_pressed() -> void:
 	$CanvasLayer/ColorRect3/AnimationPlayer.play("out")
 	await get_tree().create_timer(1).timeout
+	
 	get_tree().change_scene_to_file("res://Scenes/savingSceen.tscn")

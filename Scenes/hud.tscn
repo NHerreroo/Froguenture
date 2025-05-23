@@ -97,7 +97,6 @@ offset_right = 25.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="HudLabels"]
-visible = false
 layout_mode = 0
 offset_left = 792.0
 offset_top = 730.0

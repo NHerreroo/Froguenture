@@ -9,5 +9,6 @@ func _ready() -> void:
 	await SaveSystem.save_game()
 	
 	await get_tree().create_timer(1).timeout
+	Global.runEnded = true
 	get_tree().change_scene_to_file("res://Scenes/Lobby.tscn")
 	

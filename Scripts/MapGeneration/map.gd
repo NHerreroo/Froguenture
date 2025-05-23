@@ -29,6 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Global.runEnded == true:
 		camera_2d.enabled = false
+		queue_free()
 	if camera_2d.enabled == false:
 		$AudioStreamPlayer.volume_db = -80
 		

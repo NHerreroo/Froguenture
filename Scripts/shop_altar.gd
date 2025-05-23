@@ -6,12 +6,12 @@ var dust = preload("res://Scenes/Enemies/dust.tscn")
 var pack = preload("res://Items/ItemCardSelector.tscn")
 
 var items = {
-	"PACK": {"price": 15, "icon": preload("res://Sprites/icons/PACK.png"), "probability": 100},
-	"COLLECTOR": {"price": 20, "icon": preload("res://Sprites/icons/BOOSTER.png"), "probability": 115},
+	"PACK": {"price": 10, "icon": preload("res://Sprites/icons/PACK.png"), "probability": 15},
+	"COLLECTOR": {"price": 15, "icon": preload("res://Sprites/icons/BOOSTER.png"), "probability": 10},
 	"HEART": {"price": 5, "icon": preload("res://Sprites/icons/heart.png"), "probability": 30},
 	"SHIELD": {"price": 5, "icon": preload("res://Sprites/icons/shield.png"), "probability": 25},
 	"SPEED": {"price": 10, "icon": preload("res://Sprites/icons/speed.png"), "probability": 15},
-	"ATTACK": {"price": 10, "icon": preload("res://Sprites/icons/Atack2.png"), "probability": 10},
+	"ATTACK": {"price": 10, "icon": preload("res://Sprites/icons/Atack2.png"), "probability": 15},
 	"ATTACKSPEED": {"price": 10, "icon": preload("res://Sprites/icons/speedatack.png"), "probability": 5},
 	"CRITICALDMG": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 5},
 	"CRITICALCHANCE": {"price": 10, "icon": preload("res://Sprites/icons/Atack.png"), "probability": 2}
@@ -30,7 +30,7 @@ var item_effects = {
 	"ATTACK": func(): Player.atack += 0.3,
 	"ATTACKSPEED": func(): Player.atackSpeed += 0.1,
 	"CRITICALDMG": func(): Player.criticalDamage += 0.3,
-	"CRITICALCHANCE": func(): print("chance comprado")
+	"CRITICALCHANCE": func(): Player.atack += 0.3
 }
 
 
