@@ -16,6 +16,7 @@ func _ready() -> void:
 	Player.notify_health_updated()
 	
 func _process(delta: float) -> void:
+		$Camera.current = true
 		Global.runEnded = true
 		Engine.time_scale = 1
 	
