@@ -1,6 +1,7 @@
 extends Node3D
 
 var altarSeed = preload("res://Scenes/SeedAltar.tscn")
+var ended = false
 
 
 # Variables para la vida del enemigo
@@ -18,7 +19,7 @@ func _ready() -> void:
 	last_debilited_state = Global.debilited
 	
 func _process(_delta: float) -> void:
-	if Global.enemies_remaining == 0:
+	if Global.enemies_remaining <= 0:
 		play_end_flash()
 		
 	
@@ -33,12 +34,14 @@ func _process(_delta: float) -> void:
 		last_debilited_state = Global.debilited
 
 func play_end_flash() -> void:
-	if animation_player.has_animation("end"):
-		animation_player.play("end")
-		$AudioStreamPlayer2.play()
-		$AudioStreamPlayer.stop()
-		spawnSeed()
-		Global.enemies_remaining -=1
+	if ended == false:
+		if animation_player.has_animation("end"):
+			animation_player.play("end")
+			$AudioStreamPlayer2.play()
+			$AudioStreamPlayer.stop()
+			spawnSeed()
+			Global.enemies_remaining -=1
+			ended = true
 
 func spawnSeed():
 	var newAltar = altarSeed.instantiate()

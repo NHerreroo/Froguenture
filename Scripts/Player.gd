@@ -91,26 +91,35 @@ func _physics_process(delta):
 	if is_mini_dashing:
 		perform_mini_dash(delta)
 	else:
-		if not Player.is_dashing:
+		if not Player.is_dashing and Global.can_walk:  # Solo aplicar movimiento si can_walk es true
 			velocity.x = lerp(velocity.x, direction.x * SPEED, LERP_AMOUNT)
 			velocity.z = lerp(velocity.z, direction.z * SPEED, LERP_AMOUNT)
 
-	if Global.can_walk:
-		if Input.is_action_pressed("Keyboard_D"):
-			play_animation("walk_right")
-		elif Input.is_action_pressed("Keyboard_A"):
-			play_animation("walk_left")
-		elif Input.is_action_pressed("Keyboard_W"):
-			play_animation("up")
-		elif Input.is_action_pressed("Keyboard_S"):
-			play_animation("down")
+	# Manejo de animaciones
+	if not is_dead:
+		if Global.can_walk:
+			if Input.is_action_pressed("Keyboard_D"):
+				play_animation("walk_right")
+			elif Input.is_action_pressed("Keyboard_A"):
+				play_animation("walk_left")
+			elif Input.is_action_pressed("Keyboard_W"):
+				play_animation("up")
+			elif Input.is_action_pressed("Keyboard_S"):
+				play_animation("down")
+			else:
+				play_animation("idle")
 		else:
-			play_animation("idle")
+			# Solo reproducir idle si no está en otra animación importante
+			if current_animation != currentAtackAnimation:
+				play_animation("idle")
 		
 		Global.CurrentPlayerPosition = Vector2(self.position.x, self.position.y)
 
 		attack()
-		move_and_slide()
+		
+		# Solo mover si can_walk es true o si está haciendo dash/mini-dash
+		if Global.can_walk or Player.is_dashing or is_mini_dashing:
+			move_and_slide()
 	
 func perform_dash(delta, direction):
 	if Player.is_dashing:
@@ -131,7 +140,7 @@ func perform_dash(delta, direction):
 				$Sprites/SHIELD.visible = false
 				$MeshInstance3D/DashAttack/Dashcollider.disabled = true
 			velocity = Vector3.ZERO
-	elif dash_cooldown_timer <= 0 and Input.is_action_just_pressed("dash"):
+	elif dash_cooldown_timer <= 0 and Input.is_action_just_pressed("dash") and Global.can_walk:  # Solo dash si can_walk es true
 		Player.is_dashing = true
 		if Player.haveCounterspell:
 			$Sprites/SHIELD.visible = true
@@ -205,7 +214,7 @@ func rotate_atack_mesh():
 		atackMesh.look_at(self.global_position, Vector3.UP)
 
 func attack():
-	if Input.is_action_just_pressed("atack") and can_atack:
+	if Input.is_action_just_pressed("atack") and can_atack and Global.can_walk:  # Solo atacar si can_walk es true
 		hitSound()
 		attackCollider.disabled = false
 		update_attack_animation()
@@ -252,8 +261,6 @@ func perform_attack():
 	is_mini_dashing = true
 	mini_dash_timer = MINI_DASH_DURATION
 
-
-
 func perform_mini_dash(delta):
 	velocity.x = lerp(velocity.x, mini_dash_direction.x * MINI_DASH_SPEED, LERP_AMOUNT)
 	velocity.z = lerp(velocity.z, mini_dash_direction.z * MINI_DASH_SPEED, LERP_AMOUNT)	
@@ -274,7 +281,6 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 			camera.low_shake_camera()
 		await get_tree().create_timer(Player.invencibleTime).timeout
 		canReciveDamage = true
-
 
 func take_damage(amount: float) -> void:
 	if is_dead:
@@ -303,8 +309,6 @@ func take_damage(amount: float) -> void:
 		await get_tree().create_timer(Player.invencibleTime).timeout
 		canReciveDamage = true
 
-
-
 func heal(amount: float) -> void:
 	Player.health += amount
 	if Player.health > Player.health_container:
@@ -327,7 +331,6 @@ func spawnGhost():
 	newGhost.rotation = self.rotation
 	get_parent().add_child(newGhost)
 
-
 func spawnPoison():
 	var newPoison = poison.instantiate()
 	newPoison.position = Vector3(self.position.x,0.7,self.position.z)
@@ -337,10 +340,11 @@ func die():
 	spawnAmbulance()
 	is_dead = true
 	Player.is_dead = true
-	Global.can_walk = false  # Esto evitará que el jugador se mueva
+	Global.can_walk = false
 	Player.is_dashing = false
 	$Sprites/AnimationPlayer.play("dead")
 	velocity = Vector3.ZERO
+	move_and_slide()  # Aplicar el estado de no movimiento
 
 func apply_pitch_damage_effect():
 	var master_index := AudioServer.get_bus_index("Master")
@@ -352,7 +356,6 @@ func apply_pitch_damage_effect():
 		tween.tween_property(pitch_effect, "pitch_scale", 1.0, 1.5)\
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
-
 func spawnAmbulance():
 	var newAmbulance = ambulance.instantiate()
 	newAmbulance.position = self.global_position + Vector3(0.5, 0.5, -17)
@@ -361,7 +364,6 @@ func spawnAmbulance():
 	spawnGameOverScreen()
 	await get_tree().create_timer(1).timeout
 	self.visible = false
-
 
 func spawnGameOverScreen():
 	var newGameOverScreen = deadscrean.instantiate()

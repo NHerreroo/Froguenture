@@ -11,6 +11,7 @@ var topDoorSpecialRoom = preload("res://Scenes/Doors/TopDoorSpecialRoom.tscn")
 var bottomDoorSpecialRoom = preload("res://Scenes/Doors/BottomDoorSpecialRoom.tscn")
 
 var region
+var current_pos 
 
 var isSpecialDoorInstanciates = false
 
@@ -47,6 +48,10 @@ func _ready() -> void:
 
 
 func _process(delta):
+	current_pos = [Global.playerMapPositionX, Global.playerMapPositionY]
+	if current_pos in Global.rooms_visited:
+		Global.enemies_remaining = 0
+		
 	if Global.specialRooms == true:
 		Global.leftCollider = true
 		Global.rightCollider = true
