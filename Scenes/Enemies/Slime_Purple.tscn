@@ -107,6 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
 shape = SubResource("BoxShape3D_llsaf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_postprocessing = 1
 simplify_path = true
 avoidance_enabled = true
 use_3d_avoidance = true

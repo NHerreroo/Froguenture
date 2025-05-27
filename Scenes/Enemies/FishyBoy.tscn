@@ -141,7 +141,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63139, 0)
 shape = SubResource("BoxShape3D_llsaf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 5.68
+path_postprocessing = 1
+simplify_path = true
+simplify_epsilon = 0.469
 avoidance_enabled = true
+height = 4.91
+radius = 4.41
+use_3d_avoidance = true
 
 [node name="Sprites" type="Node3D" parent="."]
 transform = Transform3D(0.275561, 0, 1.42109e-14, -1.06581e-14, 0.275561, -7.45058e-09, 3.55271e-15, 7.45058e-09, 0.275561, -2.66454e-15, 0.279919, -1.4612e-15)
