@@ -25,6 +25,7 @@ func _ready():
 	followPlayer = true
 
 func _process(delta):
+	self.current = true
 	if Global.eraseLevel == true:
 		self.queue_free()
 
