@@ -48,7 +48,7 @@ func start_attack_loop():
 					await slimeAttack()
 			
 			attacksDone += 1
-			if attacksDone == 3:
+			if attacksDone == 1:
 				Global.debilited = true
 				should_show_sprites = false  # Inicia el retraso para ocultar
 				attacksDone = 0
