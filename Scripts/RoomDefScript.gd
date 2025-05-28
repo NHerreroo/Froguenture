@@ -48,10 +48,6 @@ func _ready() -> void:
 
 
 func _process(delta):
-	current_pos = [Global.playerMapPositionX, Global.playerMapPositionY]
-	if current_pos in Global.rooms_visited:
-		Global.enemies_remaining = 0
-		
 	if Global.specialRooms == true:
 		Global.leftCollider = true
 		Global.rightCollider = true
@@ -59,6 +55,11 @@ func _process(delta):
 			instanciateDoorsSpecialRoom()
 			isSpecialDoorInstanciates = true
 			setCollisions()
+			
+	current_pos = [Global.playerMapPositionX, Global.playerMapPositionY]
+	if current_pos in Global.rooms_visited:
+		setCollisions()
+		return
 
 	if Global.enemies_remaining == 0:
 		setCollisions()
