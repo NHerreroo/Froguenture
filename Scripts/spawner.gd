@@ -5,7 +5,13 @@ var rock = preload("res://Scenes/Enemies/RockBoy.tscn")
 var mole = preload("res://Scenes/Enemies/Mole.tscn")
 var fishy = preload("res://Scenes/Enemies/FishyBoy.tscn")
 
+var current_pos
 func _ready() -> void:
+	current_pos = [Global.playerMapPositionX, Global.playerMapPositionY]
+	if current_pos in Global.rooms_visited:
+		Global.enemies_remaining = 0
+		queue_free()
+
 	var habitacion_id = str(Global.map[Global.playerMapPositionX][Global.playerMapPositionY])
 		
 	if SpawnPoints.spawn_points.has(habitacion_id):
