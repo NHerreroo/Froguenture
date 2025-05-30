@@ -466,7 +466,6 @@ transform = Transform3D(1.43, 0, 0, 0, 1.43, 0, 0, 0, 1.43, 0, -0.0399538, 0)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("11_oynt7")
-volume_db = -42.162
 autoplay = true
 bus = &"Music"
 

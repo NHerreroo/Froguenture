@@ -241,7 +241,6 @@ transform = Transform3D(5.60809e-08, -0.24691, 0.427661, 3.23783e-08, 0.427661, 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("8_ap24m")
-volume_db = -42.162
 autoplay = true
 bus = &"Music"
 
@@ -252,7 +251,6 @@ libraries = {
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_e573l")
-volume_db = -8.125
 pitch_scale = 1.22
 bus = &"SFX"
 

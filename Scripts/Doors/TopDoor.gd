@@ -18,7 +18,7 @@ func _process(delta):
 		
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		
+		Global.enemies_remaining = 0
 		 #Mete en el array de salas vistas la habitacion en la que acabas de estar
 		if current_pos not in Global.rooms_visited:
 			Global.rooms_visited.append(current_pos)

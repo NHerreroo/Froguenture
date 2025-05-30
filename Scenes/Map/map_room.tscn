@@ -118,7 +118,6 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3cjej")
 pitch_scale = 2.02
-stream_paused = true
 bus = &"SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

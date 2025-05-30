@@ -1,19 +1,19 @@
 extends Node
 
 # STATS
-var money : int = 2000
+var money : int = 10
 var health : float = 15
 var health_container : int = 3
 var shield : float = 0
 
-var baseattack : float = 30
+var baseattack : float = 3
 var attackMultiplier : float = 1
 var atack : float = 2
 
 var speed : float= 5.0
 var criticalDamage : float = 0.0
 var poisonDamage : float = 0.0
-var atackSpeed : float = 0.2  #0.6
+var atackSpeed : float = 0.3  #0.6
 var dashCooldown : float = 1.0
 
 var damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon enetero 0.5 medio
@@ -43,6 +43,9 @@ var total
 func _process(delta: float) -> void:
 	atack = baseattack * attackMultiplier
 	
+	if atackSpeed <= 0:
+		atackSpeed = 0
+			
 	#limitar contenedores 
 	if health_container >= 12:
 		health_container = 12
@@ -71,7 +74,7 @@ func setBaseStats():
 	speed = 5.0
 	criticalDamage = 0.0
 	poisonDamage = 0.0
-	atackSpeed = 0.2 #0.6
+	atackSpeed = 0.3#0.6
 	dashCooldown = 2
 
 	damageToRecive = 0.5 #el daño que te hacen los enemigos 1 es corazon enetero 0.5 medio
