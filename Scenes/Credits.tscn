@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgf1xmo143g2c"]
+
+[ext_resource type="Texture2D" uid="uid://drukflp2a8wdw" path="res://Sprites/text-1742574767511-_2_ (1).png" id="1_7xmno"]
+[ext_resource type="Script" uid="uid://u1ecqurc6tgy" path="res://Scripts/credits.gd" id="1_uy3b0"]
+[ext_resource type="Texture2D" uid="uid://cf01afcq25hq3" path="res://Sprites/icons/ICON.png" id="2_uy3b0"]
+[ext_resource type="Texture2D" uid="uid://bc6emp2pb1tlc" path="res://Sprites/logo.png" id="3_iynit"]
+
+[sub_resource type="Animation" id="Animation_f64u0"]
+resource_name = "credits"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.0333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(303, 1373), Vector2(303, -2505)]
+}
+
+[sub_resource type="Animation" id="Animation_lpub1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(35, 1617)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_640q4"]
+_data = {
+&"RESET": SubResource("Animation_lpub1"),
+&"credits": SubResource("Animation_f64u0")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_uy3b0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1923.0
+offset_bottom = 1077.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 303.0
+offset_top = -2505.0
+offset_right = 343.0
+offset_bottom = -2465.0
+scale = Vector2(0.698383, 0.698383)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(980, -88)
+scale = Vector2(0.735039, 0.735039)
+texture = ExtResource("1_7xmno")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+position = Vector2(981, 996)
+texture = ExtResource("2_uy3b0")
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+offset_left = 553.0
+offset_top = 409.0
+offset_right = 1117.0
+offset_bottom = 522.0
+scale = Vector2(1.56173, 1.56173)
+
+[node name="Logo" type="Sprite2D" parent="Control/ColorRect2"]
+position = Vector2(277, 58)
+texture = ExtResource("3_iynit")
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 60.0
+offset_top = 237.0
+offset_right = 2865.0
+offset_bottom = 5202.0
+scale = Vector2(0.642301, 0.642301)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 76
+text = "A final year project developed for Institut Puig Castellar.
+
+
+
+
+
+
+Entirely created and directed by Nacho Herrero Espelt.
+
+
+
+
+
+
+The following audio files were used under the respective Freesound licenses:
+
+Matio888. (2025, April 10). Freesound.
+https://freesound.org/people/Ilariio/sounds/797929/
+
+HerbertBoland. (2007, April 12). Freesound.
+https://freesound.org/people/HerbertBoland/sounds/33637/
+
+FoolBoyMedia. (2016, January 3). Freesound.
+https://freesound.org/people/FoolBoyMedia/sounds/332323/
+
+
+
+Special Thanks to Our Testers:
+Emma Moritz
+Aiden Saludes
+Alex Martín
+Davide Carrión
+Eloy de la Cruz
+Safulin
+Carlos García
+Victor Carceler
+Fernando Porrino
+David Tomás
+Yago Morales
+Luis Elía Talón
+
+…and everyone else who contributed to this project <3
+
+Made with love for all of you.
+
+Thank you for playing ^^"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_640q4")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(958, 542)

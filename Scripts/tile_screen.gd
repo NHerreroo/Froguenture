@@ -78,3 +78,7 @@ func _on_insta_pressed() -> void:
 
 func _on_x_pressed() -> void:
 	OS.shell_open("https://x.com/_nachetee")
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Credits.tscn")

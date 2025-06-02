@@ -605,6 +605,21 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_4a0gr")
 text = "New Game
 "
 
+[node name="Credits" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 926.0
+offset_right = 438.0
+offset_bottom = 1011.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("11_yii4h")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/hover = ExtResource("12_7csxt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vobo1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4a0gr")
+text = "Credits
+"
+
 [node name="Continue" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 634.0
@@ -718,6 +733,7 @@ volume_db = -5.433
 bus = &"Music"
 
 [connection signal="pressed" from="Control/NewGame" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Control/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]
