@@ -95,19 +95,19 @@ texture = ExtResource("4_i7vml")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
-offset_left = -321.259
-offset_top = -485.373
-offset_right = 328.741
-offset_bottom = 460.627
+offset_left = -321.0
+offset_top = -493.0
+offset_right = 329.0
+offset_bottom = 461.0
 scale = Vector2(0.974073, 0.965472)
 mouse_filter = 2
 
 [node name="Foil2" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_dv7ap")
 offset_left = -321.0
-offset_top = -485.0
+offset_top = -495.0
 offset_right = 198.0
-offset_bottom = -154.0
+offset_bottom = -161.0
 scale = Vector2(1.22039, 2.95277)
 mouse_filter = 2
 color = Color(0, 0, 0, 0.243137)

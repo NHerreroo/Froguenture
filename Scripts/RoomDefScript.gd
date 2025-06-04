@@ -60,8 +60,7 @@ func _process(delta):
 	if current_pos in Global.rooms_visited:
 		setCollisions()
 		return
-
-	if Global.enemies_remaining == 0:
+	if Global.enemies_remaining <= 0:
 		setCollisions()
 	else:
 		activateAllCollisions()
