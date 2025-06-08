@@ -91,6 +91,21 @@ func decrease_damageToRecive(amount: float) -> void:
 func increase_damageToRecive(amount: float) -> void:
 	Player.damageToRecive += Player.damageToRecive
 	
+func apply_random_stat():
+	var stats = [
+		{"name": "vida", "func": increase_health, "value": 1.0},
+		{"name": "vida max", "func": increase_Maxhealth, "value": 1.0},
+		{"name": "base atack", "func": increase_baseAtack, "value": 1.0},
+		{"name": "atack multy", "func": increase_attack_multiplier, "value": 0.2},
+		{"name": "speed", "func": increase_speed, "value": 0.3},
+		{"name": "atack speed", "func": decrease_attack_speed, "value": 0.1},
+		{"name": "dash coldown", "func": decrease_dash_cooldown, "value": 0.2},
+	]
+
+	var chosen = stats[randi() % stats.size()]
+	chosen["func"].call(chosen["value"])
+	print("Mejora aplicada: %s %+0.2f" % [chosen["name"], chosen["value"]])
+
 
 #ITEMS PASIVOS 
 var pasiveItems : Array = []
@@ -125,6 +140,17 @@ func huntersMark():
 		increase_baseAtack(difference)
 		hunters_mark_active_bonus = current_bonus
 
+
+var emperor_active_bonus := 0
+func theEmperor():
+	var current_bonus = Player.money
+	if current_bonus != emperor_active_bonus:
+		var difference = current_bonus - emperor_active_bonus
+		increase_baseAtack(difference * 0.02)
+		emperor_active_bonus = current_bonus
+
+		
+		
 
 var soyfish_Previous := 0
 var soyfish_Current := 0

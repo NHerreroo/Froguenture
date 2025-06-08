@@ -22,6 +22,7 @@ var is_dashing = false
 
 var havePosionDash = false
 var haveCounterspell = false
+var haveBounty = false
 
 var is_dead = false
 
@@ -73,7 +74,7 @@ func setBaseStats():
 
 	speed = 5.0
 	criticalDamage = 0.0
-	poisonDamage = 0.0
+	poisonDamage = 0
 	atackSpeed = 0.3#0.6
 	dashCooldown = 2
 
@@ -82,6 +83,7 @@ func setBaseStats():
 	is_dashing = false
 	havePosionDash = false
 	haveCounterspell = false
+	haveBounty = false
 	
 	is_dead = false
 	CardsInDeck = []

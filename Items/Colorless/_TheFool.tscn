@@ -1,27 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnkj1sl5r6313"]
+[gd_scene load_steps=13 format=3 uid="uid://3f8nkc0aw2so"]
 
-[ext_resource type="Script" uid="uid://dbg1dgqsapdpb" path="res://Scripts/Items/_lovers.gd" id="1_j6g1t"]
-[ext_resource type="Texture2D" uid="uid://b7epjtlx8wbgp" path="res://Sprites/Items/Arts/loversART.png" id="2_qdxgu"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_ara1u"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_cfvxa"]
-[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_6yfsc"]
-[ext_resource type="Shader" uid="uid://bxj7ba70dd2e6" path="res://Shaders/FoilShader.gdshader" id="6_lrwe8"]
-[ext_resource type="Shader" uid="uid://cj5u6bx87wa3o" path="res://Shaders/Foil2.gdshader" id="7_keuvm"]
-[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_pwrpc"]
+[ext_resource type="Script" uid="uid://b5kbe5vooa230" path="res://Scripts/Items/_the_fool.gd" id="1_oe80j"]
+[ext_resource type="Texture2D" uid="uid://byhy6mv1vorqc" path="res://Sprites/Items/Arts/foolART.png" id="2_a6t5g"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_nm7a4"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_pucs2"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_k7l3i"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_rjadr"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_wibta"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_aho5d"]
 
-[sub_resource type="Resource" id="Resource_cvpk6"]
-script = ExtResource("3_ara1u")
-name = "VI. The Lovers"
+[sub_resource type="Resource" id="Resource_jlmio"]
+script = ExtResource("3_nm7a4")
+name = "0. The Fool"
 description = ""
-image = ExtResource("2_qdxgu")
-habilitie1 = ""
+image = ExtResource("2_a6t5g")
+habilitie1 = "Player Gets A Random Stat"
 habilitie2 = ""
-habilitie3 = "Player Get +2 Health"
-damage = "2"
-health = "2"
+habilitie3 = ""
+damage = "1"
+health = "1"
 quote = ""
 color_card = 6
-card_type = 5
+card_type = 0
 foil = false
 metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
@@ -30,7 +30,7 @@ size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("6_lrwe8")
+shader = ExtResource("6_rjadr")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -44,7 +44,7 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("7_keuvm")
+shader = ExtResource("7_wibta")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
@@ -56,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_j6g1t")
-item_Src = SubResource("Resource_cvpk6")
+script = ExtResource("1_oe80j")
+item_Src = SubResource("Resource_jlmio")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -75,7 +75,7 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("4_cfvxa")
+texture = ExtResource("4_pucs2")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -84,14 +84,14 @@ offset_top = -31.0
 offset_right = 780.0
 offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_6yfsc")
+texture = ExtResource("5_k7l3i")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("4_cfvxa")
+texture = ExtResource("4_pucs2")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
@@ -119,7 +119,7 @@ offset_top = 128.39
 offset_right = 728.808
 offset_bottom = 194.39
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_pwrpc")
+theme_override_fonts/font = ExtResource("8_aho5d")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -131,7 +131,7 @@ offset_top = 580.964
 offset_right = 694.894
 offset_bottom = 646.964
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_pwrpc")
+theme_override_fonts/font = ExtResource("8_aho5d")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -143,7 +143,7 @@ offset_top = 670.837
 offset_right = 680.503
 offset_bottom = 900.837
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_pwrpc")
+theme_override_fonts/font = ExtResource("8_aho5d")
 theme_override_font_sizes/font_size = 30
 text = "HABILITIE 1
 HABILITIE 2
@@ -158,7 +158,7 @@ offset_top = 881.076
 offset_right = 595.643
 offset_bottom = 971.076
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_pwrpc")
+theme_override_fonts/font = ExtResource("8_aho5d")
 theme_override_font_sizes/font_size = 25
 text = "\"Quote\"
 "
@@ -173,7 +173,7 @@ offset_top = 954.9
 offset_right = 269.803
 offset_bottom = 1189.9
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_pwrpc")
+theme_override_fonts/font = ExtResource("8_aho5d")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
@@ -186,7 +186,7 @@ offset_top = 959.714
 offset_right = 675.164
 offset_bottom = 1194.71
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_pwrpc")
+theme_override_fonts/font = ExtResource("8_aho5d")
 theme_override_font_sizes/font_size = 85
 text = "5
 "

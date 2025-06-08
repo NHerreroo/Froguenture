@@ -7,4 +7,7 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	ApplyItems.increase_baseAtack(Player.money / 10)
+	var num = randi_range(1,3)
+	for nums in num:
+		ApplyItems.apply_random_stat()
+	

@@ -7,4 +7,7 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	ApplyItems.increase_baseAtack(Player.money / 10)
+	ApplyItems.increase_Maxhealth(2)
+	ApplyItems.increase_health(2)
+	ApplyItems.increase_poison(0.2)
+	Player.notify_health_updated()

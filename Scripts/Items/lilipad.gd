@@ -7,4 +7,5 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	ApplyItems.increase_baseAtack(Player.money / 10)
+	ApplyItems.increase_speed(0.5)
+	ApplyItems.decrease_dash_cooldown(0.2)

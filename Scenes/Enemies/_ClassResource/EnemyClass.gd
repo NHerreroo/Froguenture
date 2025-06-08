@@ -26,18 +26,25 @@ var player
 
 var defeated = false
 
+# --- Poison effect variables ---
+const POISON_DURATION := 2.0
+const POISON_TICKS := 3
+var poison_tick_timer := 0.0
+var poison_tick_interval := POISON_DURATION / POISON_TICKS
+var poison_ticks_left := 0
+var poison_active := false
+
 enum State {
 	IDLE,
 	WALK,
 	ATTACK
-	}
-	
-	
+}
+
 func _physics_process(delta: float) -> void:
 	if Player.is_dead:
 		spawn_dust()
 		queue_free()
-	if Global.dialog_ended == false:
+	if not Global.dialog_ended:
 		return
 	var player_pos_array = [Global.playerMapPositionX, Global.playerMapPositionY]
 	if player_pos_array in Global.rooms_visited:
@@ -63,6 +70,26 @@ func _physics_process(delta: float) -> void:
 	current_position.y = 0
 	global_transform.origin = current_position
 
+	# Daño por veneno
+	if poison_active:
+		poison_tick_timer -= delta
+		if poison_tick_timer <= 0.0 and poison_ticks_left > 0:
+			health -= Player.poisonDamage
+			health = max(0, health)
+			poison_ticks_left -= 1
+			flash_sprite3d_poison()
+			poison_tick_timer = poison_tick_interval
+
+			if health <= 0 and not defeated:
+				defeated = true
+				Global.run_total_kills += 1
+				Global.enemies_remaining -= 1
+				dropitemfunc()
+				spawn_dust()
+				queue_free()
+
+		if poison_ticks_left <= 0:
+			poison_active = false
 
 func get_random_state() -> State:
 	var states = [State.IDLE, State.WALK, State.ATTACK]
@@ -77,12 +104,17 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		flash_sprite3d()
 		hitSound()
 
-		# Restar salud por el ataque
 		var damage = Player.atack
 		health -= damage
 		health = max(0, health) 
 
-		if health <= 0:
+		# Activar veneno si corresponde
+		if Player.poisonDamage > 0:
+			poison_active = true
+			poison_ticks_left = POISON_TICKS
+			poison_tick_timer = 0.0  # para aplicar inmediatamente en el siguiente _physics_process()
+
+		if health <= 0 and not defeated:
 			defeated = true
 			Global.run_total_kills += 1
 			Global.enemies_remaining -= 1
@@ -100,7 +132,7 @@ func dropitemfunc():
 	var parent_node = get_parent()
 	if parent_node:
 		parent_node.add_child(item)
-		
+
 func spawn_dust():
 	var dust_inst = dust.instantiate()
 	dust_inst.position = Vector3(self.position.x, 0 ,self.position.z)
@@ -118,13 +150,18 @@ var _flash_timer: SceneTreeTimer = null
 var _affected_nodes: Array = []
 
 func flash_sprite3d() -> void:
-	# Asegurarnos de que no haya un flash anterior en proceso
+	_flash_generic(Color(1, 1, 1, 1)) # Blanco
+
+func flash_sprite3d_poison() -> void:
+	_flash_generic(Color(1, 0, 1, 1)) # Lila
+
+func _flash_generic(flash_color: Color) -> void:
 	if _flash_timer != null and _flash_timer.time_left > 0:
 		_flash_timer.timeout.disconnect(_reset_materials)
 		_reset_materials()
 	
 	_affected_nodes.clear()
-	find_and_apply_flash(self, FLASH_SHADER, _affected_nodes)
+	find_and_apply_flash(self, FLASH_SHADER, _affected_nodes, flash_color)
 	
 	_flash_timer = get_tree().create_timer(0.2)
 	_flash_timer.timeout.connect(_reset_materials)
@@ -137,7 +174,7 @@ func _reset_materials() -> void:
 			node.material_override = original_material
 	_affected_nodes.clear()
 
-func find_and_apply_flash(node: Node, shader: Shader, affected_nodes: Array) -> void:
+func find_and_apply_flash(node: Node, shader: Shader, affected_nodes: Array, flash_color: Color) -> void:
 	if node == null:
 		return
 		
@@ -158,21 +195,19 @@ func find_and_apply_flash(node: Node, shader: Shader, affected_nodes: Array) -> 
 			
 			if texture:
 				new_material.set_shader_parameter("albedo_texture", texture)
-				new_material.set_shader_parameter("flash_color", Color(1,1,1,1))
+				new_material.set_shader_parameter("flash_color", flash_color)
 				new_material.set_shader_parameter("flash_value", 1.0)
 				new_material.set_shader_parameter("alpha_threshold", 0.5)
 				
 				child.material_override = new_material
 				affected_nodes.append([child, original_material])
 		
-		find_and_apply_flash(child, shader, affected_nodes)
+		find_and_apply_flash(child, shader, affected_nodes, flash_color)
 
-# Para cuando el nodo se elimina mientras un efecto flash está activo
 func _exit_tree() -> void:
 	if _flash_timer != null and _flash_timer.time_left > 0:
 		_flash_timer.timeout.disconnect(_reset_materials)
 	_reset_materials()
-
 
 var hit1 = preload("res://Sounds/SFX/PUNCH_DESIGNED_HEAVY_86.wav")
 var hit2 = preload("res://Sounds/SFX/PUNCH_PERCUSSIVE_HEAVY_09.wav")  

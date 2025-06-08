@@ -21,7 +21,10 @@ func _on_body_entered(body):
 			Global.playerMapPositionY,
 			position
 		)
-		Player.money += 1
+		if Player.haveBounty == true:
+			Player.money += 3
+		else:
+			Player.money += 1
 		queue_free()
 
 func _on_room_exited():
