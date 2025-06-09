@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://svqwp77kyohc"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_x6fes"]
+[ext_resource type="Script" uid="uid://cnq4mho4koojl" path="res://Scripts/Items/_stars.gd" id="1_x6fes"]
 [ext_resource type="Texture2D" uid="uid://cjafqbrsy6km3" path="res://Sprites/Items/Arts/starART.png" id="2_dsf7o"]
 [ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_omux2"]
 [ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_5y7d5"]
@@ -9,20 +9,21 @@
 [ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_egehc"]
 [ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_x72ik"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
+[sub_resource type="Resource" id="Resource_fwyar"]
 script = ExtResource("3_omux2")
-name = "XVII. The Star"
+name = "XVII. The Stars"
 description = ""
 image = ExtResource("2_dsf7o")
-habilitie1 = ""
-habilitie2 = ""
+habilitie1 = "The Player Gets +1 Health Container"
+habilitie2 = "The Player Gets +1 Shield"
 habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
-color_card = 6
+damage = "0"
+health = "2"
+quote = ""
+color_card = 5
 card_type = 0
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
@@ -56,7 +57,7 @@ pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
 script = ExtResource("1_x6fes")
-item_Src = SubResource("Resource_jivrs")
+item_Src = SubResource("Resource_fwyar")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -7,6 +7,7 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	ApplyItems.increase_baseAtack(2.0)
-	ApplyItems.decrease_attack_speed(0.1)
-	ApplyItems.increase_speed(0.5)
+	ApplyItems.decrease_baseAtack(0.5)
+	ApplyItems.apply_random_stat()
+	ApplyItems.apply_random_stat()
+	ApplyItems.apply_random_stat()

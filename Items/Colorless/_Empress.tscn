@@ -1,35 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlplnanl77xcd"]
+[gd_scene load_steps=13 format=3 uid="uid://jogx5h0a4v1a"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_wpg20"]
-[ext_resource type="Texture2D" uid="uid://dx4rjrj8xw0hx" path="res://Sprites/Items/Arts/judgementART.png" id="2_buyi1"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_rm6vb"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_hdg5u"]
-[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_835cx"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_jfxgo"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_ac68w"]
-[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_0v7ip"]
+[ext_resource type="Script" uid="uid://b4ls0njf12j2" path="res://Scripts/Items/_empress.gd" id="1_irocy"]
+[ext_resource type="Texture2D" uid="uid://d1v1t4ii2m8ak" path="res://Sprites/Items/Arts/themempres.png" id="2_4tagq"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_40six"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_hi7qo"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_r85hr"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_jou74"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_37wgo"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_jxq7c"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_rm6vb")
-name = "XX. The Judgement"
+[sub_resource type="Resource" id="Resource_5camk"]
+script = ExtResource("3_40six")
+name = "III. The Empress"
 description = ""
-image = ExtResource("2_buyi1")
-habilitie1 = ""
+image = ExtResource("2_4tagq")
+habilitie1 = "The Player Gets +0.5 Critical Damage"
 habilitie2 = ""
 habilitie3 = ""
-damage = "1"
-health = "4"
-quote = "\"Item\""
+damage = "5"
+health = "1"
+quote = ""
 color_card = 6
 card_type = 0
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("6_jfxgo")
+shader = ExtResource("6_jou74")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -43,7 +44,7 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("7_ac68w")
+shader = ExtResource("7_37wgo")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
@@ -55,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_wpg20")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_irocy")
+item_Src = SubResource("Resource_5camk")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -74,7 +75,7 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("4_hdg5u")
+texture = ExtResource("4_hi7qo")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -83,14 +84,14 @@ offset_top = -31.0
 offset_right = 780.0
 offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_835cx")
+texture = ExtResource("5_r85hr")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("4_hdg5u")
+texture = ExtResource("4_hi7qo")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
@@ -118,7 +119,7 @@ offset_top = 128.39
 offset_right = 728.808
 offset_bottom = 194.39
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_0v7ip")
+theme_override_fonts/font = ExtResource("8_jxq7c")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -130,7 +131,7 @@ offset_top = 580.964
 offset_right = 694.894
 offset_bottom = 646.964
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_0v7ip")
+theme_override_fonts/font = ExtResource("8_jxq7c")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -142,7 +143,7 @@ offset_top = 670.837
 offset_right = 680.503
 offset_bottom = 900.837
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_0v7ip")
+theme_override_fonts/font = ExtResource("8_jxq7c")
 theme_override_font_sizes/font_size = 30
 text = "HABILITIE 1
 HABILITIE 2
@@ -157,7 +158,7 @@ offset_top = 881.076
 offset_right = 595.643
 offset_bottom = 971.076
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_0v7ip")
+theme_override_fonts/font = ExtResource("8_jxq7c")
 theme_override_font_sizes/font_size = 25
 text = "\"Quote\"
 "
@@ -172,7 +173,7 @@ offset_top = 954.9
 offset_right = 269.803
 offset_bottom = 1189.9
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_0v7ip")
+theme_override_fonts/font = ExtResource("8_jxq7c")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
@@ -185,7 +186,7 @@ offset_top = 959.714
 offset_right = 675.164
 offset_bottom = 1194.71
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_0v7ip")
+theme_override_fonts/font = ExtResource("8_jxq7c")
 theme_override_font_sizes/font_size = 85
 text = "5
 "

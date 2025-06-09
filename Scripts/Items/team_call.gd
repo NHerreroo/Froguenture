@@ -7,6 +7,9 @@ func _ready():
 	connect("item_pressed", Callable(self, "_on_item_pressed"))
 
 func _on_item_pressed():
-	ApplyItems.increase_baseAtack(2.0)
-	ApplyItems.decrease_attack_speed(0.1)
-	ApplyItems.increase_speed(0.5)
+	for card in Player.CardsInDeck:
+		var ran = randi_range(1,2)
+		if ran == 1:
+			ApplyItems.increase_baseAtack(0.3)
+		else:
+			ApplyItems.decrease_attack_speed(0.1)

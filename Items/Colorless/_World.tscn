@@ -1,35 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://brkqgcsutrqpx"]
+[gd_scene load_steps=13 format=3 uid="uid://dvbbi7bjlxbtm"]
 
-[ext_resource type="Script" uid="uid://cti5y6k0yi8dr" path="res://Items/ItemTemplate.gd" id="1_2f66k"]
-[ext_resource type="Texture2D" uid="uid://cdbafjprnc6nq" path="res://Sprites/Items/Arts/millenshieldART.png" id="2_e5e2t"]
-[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_0fp2t"]
-[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_f8kwb"]
-[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_fou2h"]
-[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_86bp6"]
-[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_bspcn"]
-[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_v74ia"]
+[ext_resource type="Script" uid="uid://buvtf638dpc8u" path="res://Scripts/Items/_world.gd" id="1_8wo7r"]
+[ext_resource type="Texture2D" uid="uid://buoknudqu8fke" path="res://Sprites/Items/Arts/worldART.png" id="2_5dke5"]
+[ext_resource type="Script" uid="uid://b0qdohhp23vkd" path="res://Items/_ClassResource/Item_Res.gd" id="3_qg2lu"]
+[ext_resource type="Texture2D" uid="uid://bmy6qgfby53en" path="res://Sprites/Items/Arts/prototipe_fullart.png" id="4_ikb1p"]
+[ext_resource type="Texture2D" uid="uid://cqmhg6qpydiax" path="res://Sprites/Items/ColorLessTemplate2.png" id="5_8qflj"]
+[ext_resource type="Shader" uid="uid://4yavkcut4miu" path="res://Shaders/FoilShader.gdshader" id="6_op8ny"]
+[ext_resource type="Shader" uid="uid://dat3kf7afowq4" path="res://Shaders/Foil2.gdshader" id="7_8un2s"]
+[ext_resource type="FontFile" uid="uid://bldhyetb14u8w" path="res://Fonts/Patrick_Hand/PatrickHand-Regular.ttf" id="8_oe06d"]
 
-[sub_resource type="Resource" id="Resource_jivrs"]
-script = ExtResource("3_0fp2t")
-name = "Millennial Shield"
+[sub_resource type="Resource" id="Resource_1uxpm"]
+script = ExtResource("3_qg2lu")
+name = "XXI. The World"
 description = ""
-image = ExtResource("2_e5e2t")
-habilitie1 = "+1/+1000"
-habilitie2 = ""
+image = ExtResource("2_5dke5")
+habilitie1 = "The Player +0.75 Power Multiplier"
+habilitie2 = "The Player Gets -1 Base Power"
 habilitie3 = ""
 damage = "1"
-health = "8"
-quote = "\"Item\""
-color_card = 5
-card_type = 4
+health = "1"
+quote = ""
+color_card = 6
+card_type = 0
 foil = false
+metadata/_custom_type_script = "uid://b0qdohhp23vkd"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojq6v"]
 size = Vector2(456, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgfy7"]
 resource_local_to_scene = true
-shader = ExtResource("6_86bp6")
+shader = ExtResource("6_op8ny")
 shader_parameter/Line_Smoothness = 0.082
 shader_parameter/Line_Width = 0.09
 shader_parameter/Brightness = 3.0
@@ -43,7 +44,7 @@ shader_parameter/Alpha = 0.528
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7ap"]
 resource_local_to_scene = true
-shader = ExtResource("7_bspcn")
+shader = ExtResource("7_8un2s")
 shader_parameter/influence = 0.7
 shader_parameter/offset = 210.0
 
@@ -55,8 +56,8 @@ offset_bottom = 800.0
 pivot_offset = Vector2(229.484, 322.68)
 focus_mode = 0
 flat = true
-script = ExtResource("1_2f66k")
-item_Src = SubResource("Resource_jivrs")
+script = ExtResource("1_8wo7r")
+item_Src = SubResource("Resource_1uxpm")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -74,7 +75,7 @@ offset_top = 49.0
 offset_right = 890.0
 offset_bottom = 1230.0
 scale = Vector2(0.541449, 0.628611)
-texture = ExtResource("4_f8kwb")
+texture = ExtResource("4_ikb1p")
 
 [node name="CardColor" type="TextureRect" parent="."]
 layout_mode = 0
@@ -83,14 +84,14 @@ offset_top = -31.0
 offset_right = 780.0
 offset_bottom = 1117.0
 scale = Vector2(0.619202, 0.623102)
-texture = ExtResource("5_fou2h")
+texture = ExtResource("5_8qflj")
 
 [node name="CardImage" type="Sprite2D" parent="CardColor"]
 z_index = -1
 use_parent_material = true
 position = Vector2(415.05, 577.755)
 scale = Vector2(0.985301, 0.998555)
-texture = ExtResource("4_f8kwb")
+texture = ExtResource("4_ikb1p")
 
 [node name="Foil" type="ColorRect" parent="CardColor/CardImage"]
 material = SubResource("ShaderMaterial_kgfy7")
@@ -118,7 +119,7 @@ offset_top = 128.39
 offset_right = 728.808
 offset_bottom = 194.39
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_v74ia")
+theme_override_fonts/font = ExtResource("8_oe06d")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -130,7 +131,7 @@ offset_top = 580.964
 offset_right = 694.894
 offset_bottom = 646.964
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_v74ia")
+theme_override_fonts/font = ExtResource("8_oe06d")
 theme_override_font_sizes/font_size = 39
 text = "Card Name"
 vertical_alignment = 1
@@ -142,7 +143,7 @@ offset_top = 670.837
 offset_right = 680.503
 offset_bottom = 900.837
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_v74ia")
+theme_override_fonts/font = ExtResource("8_oe06d")
 theme_override_font_sizes/font_size = 30
 text = "HABILITIE 1
 HABILITIE 2
@@ -157,7 +158,7 @@ offset_top = 881.076
 offset_right = 595.643
 offset_bottom = 971.076
 theme_override_constants/outline_size = 22
-theme_override_fonts/font = ExtResource("8_v74ia")
+theme_override_fonts/font = ExtResource("8_oe06d")
 theme_override_font_sizes/font_size = 25
 text = "\"Quote\"
 "
@@ -172,7 +173,7 @@ offset_top = 954.9
 offset_right = 269.803
 offset_bottom = 1189.9
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_v74ia")
+theme_override_fonts/font = ExtResource("8_oe06d")
 theme_override_font_sizes/font_size = 85
 text = "5
 "
@@ -185,7 +186,7 @@ offset_top = 959.714
 offset_right = 675.164
 offset_bottom = 1194.71
 theme_override_constants/outline_size = 47
-theme_override_fonts/font = ExtResource("8_v74ia")
+theme_override_fonts/font = ExtResource("8_oe06d")
 theme_override_font_sizes/font_size = 85
 text = "5
 "

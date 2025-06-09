@@ -104,7 +104,8 @@ func apply_random_stat():
 
 	var chosen = stats[randi() % stats.size()]
 	chosen["func"].call(chosen["value"])
-	print("Mejora aplicada: %s %+0.2f" % [chosen["name"], chosen["value"]])
+	Player.notify_health_updated()
+	
 
 
 #ITEMS PASIVOS 
